@@ -360,7 +360,7 @@ Metodologia e cenários: [`../anexos/benchmark.md`](../anexos/benchmark.md).
 
 ---
 
-## 13. Custos
+## 13. Custos --- Não valido Revisar
 
 Valores em BRL, cenário de referência (12 M page views/mês, 80 propriedades), horizonte de 5 anos. Modelagem completa e premissas em [`../comparativos/custo.md`](../comparativos/custo.md).
 
