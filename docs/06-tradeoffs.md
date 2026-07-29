@@ -176,15 +176,20 @@ Cada plataforma é analisada nas 10 dimensões solicitadas:
 
 ### 3.3 Custos ocultos
 
-| Custo oculto | Estimativa | Observação |
-|-------------|-----------|------------|
-| **Tuning de arquivamento** | 40–80 h iniciais + 8 h/mês | Torna-se crítico acima de ~30 sites |
-| **Plugins premium** | ~R$ 12 k/ano | Necessários para funil e heatmap; frequentemente omitidos em comparativos |
-| **Infraestrutura para pico** | +30 % sobre o dimensionamento médio | Fila com Redis reduz, mas não elimina |
-| **Atualizações de versão maior** | 16–24 h por upgrade | Requer janela, teste e validação de plugins |
-| **Capacitação da equipe** | 80–120 h iniciais | Configuração analítica, não infraestrutura |
-| **Réplica de leitura para BI** | ~R$ 2 k/mês | Necessária para não competir com o tracking |
-| **Monitoramento e observabilidade** | 40 h de implantação | Métricas de fila, arquivamento, latência |
+Em regime de custo marginal SETDIG (fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](03-criterios-de-avaliacao.md#c03--tco-peso-15) — P1/P2/R4), várias rubricas classicamente contabilizadas como "custo oculto" **são absorvidas** pelo contrato de gerenciamento de infraestrutura já em vigor. A tabela abaixo distingue as rubricas realmente incrementais das absorvidas.
+
+| Custo oculto | Estimativa | Situação em regime marginal SETDIG |
+|-------------|-----------|-----------------------------------|
+| **Tuning de arquivamento** | 40–80 h iniciais + 8 h/mês | 🔴 **Incremental** — específico do Matomo, não absorvível |
+| **Plugins premium** | ~R$ 18 k/ano por instância | 🔴 **Incremental** — necessários para funil e heatmap |
+| **Atualizações de versão maior** | 16–24 h por upgrade | 🔴 **Incremental** — específico do produto |
+| **Capacitação da equipe** | 80–120 h iniciais | 🔴 **Incremental** — configuração analítica |
+| **Infraestrutura para pico** | +30 % sobre o dimensionamento médio | 🟡 **Parcialmente absorvido** — DBaaS existente já tem *headroom*; fila Redis mitiga |
+| **Réplica de leitura para BI** | ~R$ 2 k/mês em greenfield | 🟢 **Absorvido** — DBaaS gerenciado do Estado já provisiona réplicas; custo marginal ≈ 0 |
+| **Monitoramento e observabilidade** | 40 h de implantação em greenfield | 🟢 **Absorvido** — Prometheus/Grafana/Loki do parque SETDIG cobrem; incremento é apenas configurar dashboards específicos (~8 h) |
+| **Backup e patching de SO** | Contínuo | 🟢 **Absorvido** — contrato de kernel do parque STI |
+
+Total dos custos ocultos incrementais em 5 anos (regime marginal): **~R$ 130 k** — já contabilizado nas rubricas "Equipe marginal" e "Riscos" do TCO consolidado em [`../plataformas/matomo.md §12`](../plataformas/matomo.md#12-custos).
 
 ### 3.4 Riscos
 
@@ -730,9 +735,20 @@ flowchart TB
         B1["Relacional<br/>Matomo · OWA"] --- B2["Flexível<br/>Umami"] --- B3["Colunar<br/>Plausible · PostHog<br/>Piwik PRO"]
     end
 
-    style S1 fill:#d4edda
-    style R2 fill:#d4edda
-    style B1 fill:#fff3cd
+    %% TP-01
+    style S1 fill:#14532D,stroke:#22C55E,stroke-width:2px,color:#FFFFFF
+    style S2 fill:#1E3A8A,stroke:#60A5FA,stroke-width:2px,color:#FFFFFF
+    style S3 fill:#7C2D12,stroke:#FB923C,stroke-width:2px,color:#FFFFFF
+
+    %% TP-02
+    style R1 fill:#713F12,stroke:#FACC15,stroke-width:2px,color:#FFFFFF
+    style R2 fill:#14532D,stroke:#22C55E,stroke-width:2px,color:#FFFFFF
+    style R3 fill:#7F1D1D,stroke:#EF4444,stroke-width:2px,color:#FFFFFF
+
+    %% TP-06
+    style B1 fill:#14532D,stroke:#22C55E,stroke-width:2px,color:#FFFFFF
+    style B2 fill:#1E3A8A,stroke:#60A5FA,stroke-width:2px,color:#FFFFFF
+    style B3 fill:#7C2D12,stroke:#FB923C,stroke-width:2px,color:#FFFFFF
 ```
 
 > **✅ Bloco de Decisão — Conclusão da análise de trade-offs**

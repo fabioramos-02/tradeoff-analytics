@@ -572,22 +572,23 @@ SQL SELECT data, portal, pageviews, visitantes FROM vw_bi_umami_diario;
 
 ## 12. Custos
 
-| Componente | 5 anos |
-|-----------|-------:|
-| Licenciamento | R$ 0 |
-| Infraestrutura (2 componentes) | R$ 120.000 |
-| Implantação | R$ 30.000 |
-| Equipe / operação (0,1 FTE) | R$ 100.000 |
-| Atualizações | R$ 30.000 |
-| Manutenção | R$ 20.000 |
-| Custo estimado de saída | R$ 20.000 |
-| **TCO 5 anos** | **≈ R$ 320.000** |
-| **Nota C03 (TCO)** | **5/5** |
+Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 anos, **regime de custo marginal SETDIG** (fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15) e [`../comparativos/custo.md §1.4`](../comparativos/custo.md#14-regime-de-custo--marginal-para-o-estado)).
+
+### 12.1 TCO consolidado — coluna dupla
+
+| Rubrica | Custo marginal SETDIG (5 anos) | Custo pleno de referência (greenfield, 5 anos) |
+|---------|-------------------------------:|----------------------------------------------:|
+| **Licenciamento** | R$ 0 | R$ 0 |
+| **Infra marginal** — 1 pod + PostgreSQL compartilhado | R$ 15.000 | R$ 120.000 |
+| **Equipe marginal** — ~0,03 FTE incremental | R$ 45.000 | R$ 100.000 |
+| **Implantação (snippet ~200 portais)** | R$ 10.000 | R$ 30.000 |
+| **Adequação LGPD** — baixa (cookieless) | R$ 15.000 | R$ 15.000 |
+| **Riscos operacionais** | R$ 15.000 | R$ 20.000 |
+| **TCO 5 anos** | **≈ R$ 100.000** | **≈ R$ 285.000** |
+| **Faixa de nota C03** | ≤ 250k = **5** | 250k–600k = 4 |
 
 > **📌 Observação**
-> **O Umami tem o menor TCO entre todas as opções soberanas do estudo** — R$ 320 k contra R$ 450 k (Plausible) e R$ 759 k (Matomo On-Premise). Essa vantagem econômica é real e substancial.
->
-> Ela não é suficiente porque a plataforma falha em requisito obrigatório. Economicidade não compensa não atendimento de requisito *Must have* — é exatamente por isso que a triagem eliminatória precede a matriz.
+> **O Umami tem o menor TCO entre todas as opções soberanas do estudo** em ambos os regimes (marginal e pleno). Vantagem econômica real e substancial — mas insuficiente por si só, porque a plataforma falha em requisito *Must have* (RF-27 funil de conversão). Economicidade não compensa não atendimento de requisito obrigatório — é exatamente por isso que a triagem eliminatória precede a matriz.
 
 ---
 

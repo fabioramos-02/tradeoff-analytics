@@ -1,6 +1,6 @@
 # PostHog
 
-> **Ficha técnica de plataforma** · Pontuação na matriz: **440/600 (73,3 %)** — 6º lugar (Auto-hospedado OSS) · **425/600 (70,8 %)** — 7º lugar (Cloud EU) · 🟡 Viável
+> **Ficha técnica de plataforma** · Pontuação na matriz: **455/600 (75,8 %)** — 5º/6º lugar (Auto-hospedado OSS) · **425/600 (70,8 %)** — 7º lugar (Cloud EU) · 🟡 Viável
 > **Situação:** ❌ **Não selecionada** — sobreposição funcional com Matomo, licenciamento MIT + EE proprietária introduz risco de lock-in em recursos avançados
 > [← Voltar ao índice](../README.md) · [Matriz de decisão](../docs/07-matriz-decisao.md)
 
@@ -384,20 +384,25 @@ ClickHouse é o padrão do mercado para analytics de alta escala. Instalações 
 | Data warehouse | 1 M linhas/mês | US$ 0,000015/linha |
 | LLM observability | 5 k eventos/mês | US$ 0,00005/evento |
 
-### 12.2 TCO em 5 anos (auto-hospedado OSS + EE mínima)
+### 12.2 TCO em 5 anos — auto-hospedado OSS + EE mínima
 
-| Rubrica | Ano 1 | Ano 2 | Ano 3 | Ano 4 | Ano 5 | Total |
-|---------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Licenciamento EE (SSO + RBAC) | R$ 60.000 | R$ 60.000 | R$ 60.000 | R$ 60.000 | R$ 60.000 | **R$ 300.000** |
-| Infraestrutura (K8s + ClickHouse + Kafka) | R$ 90.000 | R$ 90.000 | R$ 95.000 | R$ 100.000 | R$ 105.000 | **R$ 480.000** |
-| Equipe (implantação + operação) | R$ 180.000 | R$ 120.000 | R$ 120.000 | R$ 120.000 | R$ 120.000 | **R$ 660.000** |
-| Adequação LGPD | R$ 20.000 | R$ 5.000 | R$ 5.000 | R$ 5.000 | R$ 5.000 | **R$ 40.000** |
-| **Total** | **R$ 350.000** | **R$ 275.000** | **R$ 280.000** | **R$ 285.000** | **R$ 290.000** | **R$ 1.480.000** |
+Regime de custo marginal SETDIG. Detalhamento em [`../comparativos/custo.md §1.4`](../comparativos/custo.md#14-regime-de-custo--marginal-para-o-estado).
 
-Comparação completa: [`comparativos/custo.md`](../comparativos/custo.md).
+| Rubrica | Custo marginal SETDIG (5 anos) | Custo pleno de referência (greenfield, 5 anos) |
+|---------|-------------------------------:|----------------------------------------------:|
+| **Licenciamento EE** — SSO SAML + RBAC granular | R$ 300.000 | R$ 300.000 |
+| **Infra marginal** — Kafka + ClickHouse dedicado + MinIO fora do padrão SETDIG | R$ 300.000 | R$ 480.000 |
+| **Equipe marginal** — ~0,4 FTE incremental (curva ClickHouse/Kafka alta) | R$ 240.000 | R$ 660.000 |
+| **Implantação (snippet ~200 portais)** | R$ 15.000 | R$ 60.000 |
+| **Adequação LGPD** | R$ 40.000 | R$ 40.000 |
+| **Riscos operacionais** — session replay storage, upgrades | R$ 60.000 | R$ 60.000 |
+| **TCO 5 anos** | **≈ R$ 955.000** | **≈ R$ 1.600.000** |
+| **Faixa de nota C03** | 600k–1,2M = **3** | 1,2M–3M = 2 |
 
-> **📌 Observação**
-> Valor comparável ao TCO enterprise do Matomo, mas com **cobertura funcional que excede** as necessidades governamentais. O ganho marginal (feature flags, experimentation, LLM obs) não se converte em valor operacional para portais públicos.
+> **📌 Observação — abatimento parcial, não total**
+> Diferentemente do Matomo/Plausible/Umami, o PostHog **exige stack fora do padrão SETDIG** (Kafka + ClickHouse dedicado + MinIO). O parque atual não cobre esses componentes de forma compartilhada. Consequência: o abatimento em regime marginal é **parcial** — a infra ainda tem custo significativo mesmo assumindo o baseline SETDIG. Isso posiciona o PostHog na **faixa C03 = 3**, não 5 como Matomo/Plausible/Umami.
+>
+> Valor comparável ao TCO do Matomo com plugins, mas com **cobertura funcional que excede** as necessidades governamentais. O ganho marginal (feature flags, experimentation, LLM obs) não se converte em valor operacional para portais públicos.
 
 ---
 

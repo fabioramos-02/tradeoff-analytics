@@ -26,7 +26,7 @@
 >
 > **Manter o Matomo, na modalidade On-Premise, como plataforma padrão de Web Analytics do Governo do Estado de Mato Grosso do Sul**, condicionado à execução integral do plano de adequação arquitetural definido em [`10-roadmap.md`](10-roadmap.md).
 >
-> **Fundamento quantitativo:** 505 de 600 pontos (84,2 %) na matriz de decisão ponderada — único resultado na faixa "Recomendada", com vantagem de 35 pontos sobre o segundo colocado.
+> **Fundamento quantitativo:** 520 de 600 pontos (86,7 %) na matriz de decisão ponderada — resultado na faixa "Recomendada", com vantagem de 35 pontos sobre o segundo colocado (Plausible CE, também na faixa "Recomendada" com 485/600).
 >
 > **Fundamento qualitativo:** é a única plataforma avaliada que combina soberania verificável sobre os dados, cobertura funcional suficiente para os requisitos obrigatórios, independência tecnológica assegurada por licença copyleft e TCO na menor faixa entre as opções de cobertura funcional equivalente — **sem apresentar deficiência crítica não mitigável por arquitetura**.
 

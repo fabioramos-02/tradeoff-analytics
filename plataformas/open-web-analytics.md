@@ -1,6 +1,6 @@
 # Open Web Analytics (OWA)
 
-> **Ficha técnica de plataforma** · Pontuação na matriz: **300/600 (50,0 %)** — 13º lugar · 🔴 Não recomendada
+> **Ficha técnica de plataforma** · Pontuação na matriz: **330/600 (55,0 %)** — 13º lugar · 🔴 Não recomendada
 > **Situação:** ⛔ **ELIMINADA na triagem** — critério **E6** (gestão de vulnerabilidades) · Vedada integralmente pelo ADR-001
 > [← Voltar ao índice](../README.md) · [Critérios de eliminação](../docs/03-criterios-de-avaliacao.md#23-justificativa-das-eliminações)
 
@@ -423,26 +423,23 @@ Sem conector. Exigiria expor o MySQL à internet — inaceitável.
 
 ## 13. Custos
 
-| Componente | 5 anos |
-|-----------|-------:|
-| Licenciamento | R$ 0 |
-| Infraestrutura | R$ 180.000 |
-| Implantação | R$ 50.000 |
-| Equipe / operação | R$ 400.000 |
-| Atualizações e correções | R$ 0 (não há) |
-| **Vigilância de segurança adicional** | Incluída na operação |
-| Custo estimado de saída | R$ 20.000 |
-| **TCO 5 anos** | **≈ R$ 650.000** |
-| **Nota C03 (TCO)** | **3/5** |
+Regime de custo marginal SETDIG. Detalhamento em [`../comparativos/custo.md §1.4`](../comparativos/custo.md#14-regime-de-custo--marginal-para-o-estado).
 
-> **📌 Observação — TCO alto apesar de licença zero**
-> O custo de operação estimado (R$ 400 k em 5 anos, contra R$ 300 k do Matomo) reflete:
-> - Vigilância de segurança contínua sobre aplicação sem mantenedor ativo;
-> - Necessidade de correções próprias;
-> - Ausência de documentação, elevando o tempo de qualquer intervenção;
-> - Compensação por infraestrutura das lacunas de MFA e auditoria.
+| Rubrica | Custo marginal SETDIG (5 anos) | Custo pleno de referência (greenfield, 5 anos) |
+|---------|-------------------------------:|----------------------------------------------:|
+| **Licenciamento** | R$ 0 | R$ 0 |
+| **Infra marginal** — 1 VM PHP + MySQL compartilhado | R$ 20.000 | R$ 180.000 |
+| **Equipe marginal** — ~0,15 FTE incremental por vigilância de segurança contínua | R$ 90.000 | R$ 400.000 |
+| **Implantação (snippet ~200 portais)** | R$ 10.000 | R$ 50.000 |
+| **Adequação LGPD** | R$ 15.000 | R$ 15.000 |
+| **Riscos operacionais** — CVEs, correções próprias, ausência de mantenedor | R$ 30.000 | R$ 30.000 |
+| **TCO 5 anos** | **≈ R$ 165.000** | **≈ R$ 675.000** |
+| **Faixa de nota C03** | ≤ 250k = **5** | 600k–1,2M = 3 |
+
+> **🚨 Alerta — TCO baixo não redime a plataforma**
+> Mesmo em regime marginal, o OWA continua **reprovado** pela triagem eliminatória (falha em C09 Segurança — nota 1) e por Escalabilidade (C08 = 1). O TCO baixo é irrelevante quando a plataforma não atende requisitos *Must have*.
 >
-> **Resultado:** o OWA custa mais que o Matomo e entrega menos. Isso é a definição de dominância estrita.
+> Adotar o OWA transformaria o Estado em **mantenedor de segurança** de aplicação PHP sem projeto ativo. Isso inverteria o cálculo: a "economia" viraria custo de desenvolvimento permanente. A nota C03 sobe pelo regime marginal, mas a decisão final permanece: **não recomendada**.
 
 ---
 
@@ -513,7 +510,7 @@ Sem conector. Exigiria expor o MySQL à internet — inaceitável.
 |----------|-----:|:----:|-------:|
 | C01 — LGPD | 15 | 4 | 60 |
 | C02 — Controle dos dados | 15 | **5** | 75 |
-| C03 — TCO | 15 | 3 | 45 |
+| C03 — TCO | 15 | **5** | 75 |
 | C04 — Independência tecnológica | 10 | 3 | 30 |
 | C05 — Recursos analíticos | 10 | **2** | 20 |
 | C06 — APIs | 10 | **2** | 20 |
@@ -523,7 +520,7 @@ Sem conector. Exigiria expor o MySQL à internet — inaceitável.
 | C10 — Operação | 5 | **2** | 10 |
 | C11 — Comunidade | 5 | **1** | 5 |
 | C12 — Documentação | 5 | **1** | 5 |
-| **Total** | **120** | | **300 / 600 (50,0 %)** |
+| **Total** | **120** | | **330 / 600 (55,0 %)** |
 
 ### 18.2 Dominância estrita
 
@@ -535,7 +532,7 @@ Sem conector. Exigiria expor o MySQL à internet — inaceitável.
 > |----------|:---------:|:---:|-----------|
 > | C01 — LGPD | 5 | 4 | Matomo superior |
 > | C02 — Controle | 5 | 5 | Empate |
-> | C03 — TCO | 4 | 3 | Matomo superior |
+> | C03 — TCO | 5 | 5 | Empate (regime marginal) |
 > | C04 — Independência | 5 | 3 | Matomo superior |
 > | C05 — Recursos | 4 | 2 | Matomo superior |
 > | C06 — APIs | 4 | 2 | Matomo superior |

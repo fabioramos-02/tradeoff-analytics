@@ -1,6 +1,6 @@
 # Plausible Analytics
 
-> **Ficha técnica de plataforma** · Pontuação na matriz: **470/600 (78,3 %)** — 🥈 2º lugar · 🟡 Viável
+> **Ficha técnica de plataforma** · Pontuação na matriz: **485/600 (80,8 %)** — 🥈 2º lugar · 🟢 Viável
 > **Situação:** ✅ **Aprovado como camada complementar** (recomendação RC-1 do ADR-001)
 > [← Voltar ao índice](../README.md) · [Matriz de decisão](../docs/07-matriz-decisao.md)
 
@@ -763,19 +763,28 @@ echo "Backup concluído: ${DATA}"
 
 ## 12. Custos
 
-| Componente | 5 anos |
-|-----------|-------:|
-| Licenciamento (Community Edition) | R$ 0 |
-| Infraestrutura (3 componentes) | R$ 180.000 |
-| Implantação | R$ 50.000 |
-| Equipe / operação (0,15 FTE) | R$ 150.000 |
-| Atualizações | R$ 30.000 |
-| Manutenção | R$ 20.000 |
-| Custo estimado de saída | R$ 20.000 |
-| **TCO 5 anos** | **≈ R$ 450.000** |
-| **Nota C03 (TCO)** | **4/5** |
+Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 anos, **regime de custo marginal SETDIG** (fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15) e [`../comparativos/custo.md §1.4`](../comparativos/custo.md#14-regime-de-custo--marginal-para-o-estado)).
 
-**Plausible Cloud (referência):** assinatura escalonada por page views mensais; preço público em `https://plausible.io/#pricing`. Para 12 M page views/mês, situa-se em faixa de plano elevada.
+### 12.1 TCO consolidado — coluna dupla
+
+| Rubrica | Custo marginal SETDIG (5 anos) | Custo pleno de referência (greenfield, 5 anos) |
+|---------|-------------------------------:|----------------------------------------------:|
+| **Licenciamento (Community Edition)** | R$ 0 | R$ 0 |
+| **Infra marginal** — 1 VM + ClickHouse compartilhado no parque | R$ 20.000 | R$ 180.000 |
+| **Equipe marginal** — ~0,05 FTE incremental | R$ 60.000 | R$ 150.000 |
+| **Implantação (snippet ~200 portais)** — ~0,5 h/portal | R$ 10.000 | R$ 50.000 |
+| **Adequação LGPD** — baixa, cookieless por design | R$ 15.000 | R$ 15.000 |
+| **Riscos operacionais** — upgrades, tuning ClickHouse | R$ 15.000 | R$ 20.000 |
+| **TCO 5 anos** | **≈ R$ 120.000** | **≈ R$ 415.000** |
+| **Faixa de nota C03** | ≤ 250k = **5** | 250k–600k = 4 |
+
+### 12.2 Racional das rubricas absorvidas
+
+- **Infra marginal** — ClickHouse já pode ser compartilhado no parque de dados do Estado (existe em outros projetos SETDIG); PostgreSQL de metadados é módulo trivial no DBaaS existente. Marginal ≈ R$ 4k/ano.
+- **Equipe marginal** — dos 0,15 FTE nominais (regra C10), parcela incremental é ~0,05 FTE. Operação de banco é absorvida pelo contrato; incremento cobre monitoração da aplicação Elixir e upgrades.
+- **Implantação por portal** — mesmo padrão do Matomo: uma tag `<script defer data-domain="…" src="…/js/script.js">` em cada portal WordPress.
+
+**Plausible Cloud (referência SaaS, não absorvível):** assinatura escalonada por page views mensais em `https://plausible.io/#pricing`. Para 12 M page views/mês em regime marginal, situa-se em faixa de plano elevada (~R$ 345k em 5 anos — ver [`../comparativos/custo.md §3.1`](../comparativos/custo.md#31-tco-consolidado--5-anos-portal-médio-regime-marginal)).
 
 ---
 
@@ -856,7 +865,7 @@ echo "Backup concluído: ${DATA}"
 |----------|-----:|:----:|-------:|
 | C01 — LGPD | 15 | **5** | 75 |
 | C02 — Controle dos dados | 15 | **5** | 75 |
-| C03 — TCO | 15 | 4 | 60 |
+| C03 — TCO | 15 | **5** | 75 |
 | C04 — Independência tecnológica | 10 | 4 | 40 |
 | C05 — Recursos analíticos | 10 | 3 | 30 |
 | C06 — APIs | 10 | 3 | 30 |
@@ -866,7 +875,7 @@ echo "Backup concluído: ${DATA}"
 | C10 — Operação | 5 | 3 | 15 |
 | C11 — Comunidade | 5 | 3 | 15 |
 | C12 — Documentação | 5 | 4 | 20 |
-| **Total** | **120** | | **470 / 600 (78,3 %)** |
+| **Total** | **120** | | **485 / 600 (80,8 %)** |
 
 ### 17.2 Observação final
 

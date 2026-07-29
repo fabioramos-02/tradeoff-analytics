@@ -55,37 +55,37 @@
 
 | Plataforma | C01<br/>LGPD<br/>`15` | C02<br/>Controle<br/>`15` | C03<br/>TCO<br/>`15` | C04<br/>Independ.<br/>`10` | C05<br/>Recursos<br/>`10` | C06<br/>APIs<br/>`10` | C07<br/>Integr.<br/>`10` | C08<br/>Escala<br/>`10` | C09<br/>Segur.<br/>`10` | C10<br/>Oper.<br/>`5` | C11<br/>Comun.<br/>`5` | C12<br/>Docum.<br/>`5` |
 |-----------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Matomo On-Premise** | **5** | **5** | 4 | **5** | 4 | 4 | 4 | 3 | 4 | 3 | 4 | 4 |
-| **Plausible CE** | **5** | **5** | 4 | 4 | 3 | 3 | 3 | 4 | 4 | 3 | 3 | 4 |
+| **Matomo On-Premise** | **5** | **5** | **5** | **5** | 4 | 4 | 4 | 3 | 4 | 3 | 4 | 4 |
+| **Plausible CE** | **5** | **5** | **5** | 4 | 3 | 3 | 3 | 4 | 4 | 3 | 3 | 4 |
 | **Matomo Cloud** | 4 | 3 | 3 | 4 | **5** | 4 | 4 | 4 | 4 | **5** | 4 | 4 |
 | **Piwik PRO** | **5** | 4 | 2 | 2 | **5** | 4 | 4 | **5** | **5** | 4 | 2 | 4 |
 | **Umami** | **5** | **5** | **5** | 4 | 2 | 3 | 2 | 3 | 3 | 4 | 3 | 3 |
-| **PostHog auto-hospedado** | 4 | **5** | 2 | 3 | **5** | 4 | 4 | 3 | 4 | 1 | 4 | 4 |
+| **PostHog auto-hospedado** | 4 | **5** | 3 | 3 | **5** | 4 | 4 | 3 | 4 | 1 | 4 | 4 |
 | **PostHog Cloud EU** | 3 | 2 | 3 | 2 | **5** | 4 | 4 | **5** | 4 | **5** | 4 | 4 |
 | **Google Analytics 4** | 2 | 1 | 4 | 1 | 4 | 4 | **5** | **5** | 4 | **5** | **5** | **5** |
 | **Adobe Analytics** | 3 | 2 | 1 | 1 | **5** | **5** | **5** | **5** | **5** | 4 | 3 | 4 |
 | **Microsoft Clarity** | 2 | 1 | **5** | 1 | 3 | 2 | 3 | **5** | 4 | **5** | 3 | 3 |
 | **Simple Analytics** | 4 | 2 | 3 | 2 | 2 | 3 | 2 | 4 | 4 | **5** | 2 | 3 |
 | **Cloudflare Web Analytics** | 3 | 1 | **5** | 1 | 1 | 3 | 2 | **5** | 4 | **5** | 2 | 3 |
-| **Open Web Analytics** | 4 | **5** | 3 | 3 | 2 | 2 | 1 | 1 | **1** | 2 | 1 | 1 |
+| **Open Web Analytics** | 4 | **5** | **5** | 3 | 2 | 2 | 1 | 1 | **1** | 2 | 1 | 1 |
 
 ### 2.2 Pontuação ponderada (peso × nota)
 
 | Plataforma | C01 | C02 | C03 | C04 | C05 | C06 | C07 | C08 | C09 | C10 | C11 | C12 | **Total** |
 |-----------|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----------:|
-| **Matomo On-Premise** | 75 | 75 | 60 | 50 | 40 | 40 | 40 | 30 | 40 | 15 | 20 | 20 | **505** |
-| **Plausible CE** | 75 | 75 | 60 | 40 | 30 | 30 | 30 | 40 | 40 | 15 | 15 | 20 | **470** |
+| **Matomo On-Premise** | 75 | 75 | 75 | 50 | 40 | 40 | 40 | 30 | 40 | 15 | 20 | 20 | **520** |
+| **Plausible CE** | 75 | 75 | 75 | 40 | 30 | 30 | 30 | 40 | 40 | 15 | 15 | 20 | **485** |
 | **Matomo Cloud** | 60 | 45 | 45 | 40 | 50 | 40 | 40 | 40 | 40 | 25 | 20 | 20 | **465** |
 | **Piwik PRO** | 75 | 60 | 30 | 20 | 50 | 40 | 40 | 50 | 50 | 20 | 10 | 20 | **465** |
+| **PostHog auto-hospedado** | 60 | 75 | 45 | 30 | 50 | 40 | 40 | 30 | 40 | 5 | 20 | 20 | **455** |
 | **Umami** | 75 | 75 | 75 | 40 | 20 | 30 | 20 | 30 | 30 | 20 | 15 | 15 | **445** |
-| **PostHog auto-hospedado** | 60 | 75 | 30 | 30 | 50 | 40 | 40 | 30 | 40 | 5 | 20 | 20 | **440** |
 | **PostHog Cloud EU** | 45 | 30 | 45 | 20 | 50 | 40 | 40 | 50 | 40 | 25 | 20 | 20 | **425** |
 | **Google Analytics 4** | 30 | 15 | 60 | 10 | 40 | 40 | 50 | 50 | 40 | 25 | 25 | 25 | **410** |
 | **Adobe Analytics** | 45 | 30 | 15 | 10 | 50 | 50 | 50 | 50 | 50 | 20 | 15 | 20 | **405** |
 | **Microsoft Clarity** | 30 | 15 | 75 | 10 | 30 | 20 | 30 | 50 | 40 | 25 | 15 | 15 | **355** |
 | **Simple Analytics** | 60 | 30 | 45 | 20 | 20 | 30 | 20 | 40 | 40 | 25 | 10 | 15 | **355** |
 | **Cloudflare Web Analytics** | 45 | 15 | 75 | 10 | 10 | 30 | 20 | 50 | 40 | 25 | 10 | 15 | **345** |
-| **Open Web Analytics** | 60 | 75 | 45 | 30 | 20 | 20 | 10 | 10 | 10 | 10 | 5 | 5 | **300** |
+| **Open Web Analytics** | 60 | 75 | 75 | 30 | 20 | 20 | 10 | 10 | 10 | 10 | 5 | 5 | **330** |
 
 ---
 
@@ -95,19 +95,19 @@
 
 | # | Plataforma | Pontuação | % | Faixa | Situação na triagem |
 |--:|-----------|----------:|--:|-------|--------------------|
-| 🥇 **1** | **Matomo On-Premise** | **505** | **84,2 %** | 🟢 **Recomendada** | Aprovada |
-| 🥈 2 | Plausible CE | 470 | 78,3 % | 🟡 Viável | Aprovada |
+| 🥇 **1** | **Matomo On-Premise** | **520** | **86,7 %** | 🟢 **Recomendada** | Aprovada |
+| 🥈 2 | Plausible CE | 485 | 80,8 % | 🟢 Recomendada | Aprovada |
 | 🥉 3 | Matomo Cloud | 465 | 77,5 % | 🟡 Viável | Aprovada com ressalva |
 | 🥉 3 | Piwik PRO | 465 | 77,5 % | 🟡 Viável | Aprovada |
-| 5 | Umami | 445 | 74,2 % | 🟡 Viável | Aprovada |
-| 6 | PostHog auto-hospedado | 440 | 73,3 % | 🟡 Viável | Aprovada |
+| 5 | PostHog auto-hospedado | 455 | 75,8 % | 🟡 Viável | Aprovada |
+| 6 | Umami | 445 | 74,2 % | 🟡 Viável | Aprovada |
 | 7 | PostHog Cloud EU | 425 | 70,8 % | 🟡 Viável | Aprovada com ressalva |
 | 8 | Google Analytics 4 | 410 | 68,3 % | 🟠 Condicionada | Aprovada com ressalva grave |
 | 9 | Adobe Analytics | 405 | 67,5 % | 🟠 Condicionada | Aprovada com ressalva |
 | 10 | Microsoft Clarity | 355 | 59,2 % | 🔴 Não recomendada | **Eliminada como primária** |
 | 10 | Simple Analytics | 355 | 59,2 % | 🔴 Não recomendada | Aprovada com ressalva |
 | 12 | Cloudflare Web Analytics | 345 | 57,5 % | 🔴 Não recomendada | **Eliminada como primária** |
-| 13 | Open Web Analytics | 300 | 50,0 % | 🔴 Não recomendada | **Eliminada (E6)** |
+| 13 | Open Web Analytics | 330 | 55,0 % | 🔴 Não recomendada | **Eliminada (E6)** |
 
 ### 3.2 Desempate — 3º lugar
 
@@ -124,9 +124,9 @@ Matomo Cloud e Piwik PRO empatam em 465 pontos. Aplicando a regra de desempate d
 ```mermaid
 xychart-beta
     title "Pontuação ponderada (máximo 600)"
-    x-axis ["Matomo OP", "Plausible", "Piwik PRO", "Matomo Cloud", "Umami", "PostHog SH", "PostHog Cloud", "GA4", "Adobe", "Clarity", "Simple", "Cloudflare", "OWA"]
+    x-axis ["Matomo OP", "Plausible", "Matomo Cloud", "Piwik PRO", "PostHog SH", "Umami", "PostHog Cloud", "GA4", "Adobe", "Clarity", "Simple", "Cloudflare", "OWA"]
     y-axis "Pontos" 0 --> 600
-    bar [505, 470, 465, 465, 445, 440, 425, 410, 405, 355, 355, 345, 300]
+    bar [520, 485, 465, 465, 455, 445, 425, 410, 405, 355, 355, 345, 330]
 ```
 
 ### 3.4 Perfil das cinco primeiras colocadas
@@ -134,8 +134,8 @@ xychart-beta
 ```mermaid
 radar-beta
   axis lgpd["LGPD"], ctrl["Controle"], tco["TCO"], indep["Independência"], rec["Recursos"], api["APIs"], integ["Integrações"], esc["Escalabilidade"]
-  curve matomo["Matomo On-Premise"]{5, 5, 4, 5, 4, 4, 4, 3}
-  curve plausible["Plausible CE"]{5, 5, 4, 4, 3, 3, 3, 4}
+  curve matomo["Matomo On-Premise"]{5, 5, 5, 5, 4, 4, 4, 3}
+  curve plausible["Plausible CE"]{5, 5, 5, 4, 3, 3, 3, 4}
   curve piwik["Piwik PRO"]{5, 4, 2, 2, 5, 4, 4, 5}
   curve ga4["Google Analytics 4"]{2, 1, 4, 1, 4, 4, 5, 5}
   max 5
@@ -153,13 +153,13 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 
 ---
 
-### 4.1 Matomo On-Premise — 505 pontos
+### 4.1 Matomo On-Premise — 520 pontos
 
 | Critério | Nota | Justificativa |
 |----------|:----:|---------------|
 | **C01 — LGPD** | **5** | Configurável para operar sem cookie de identificação e com anonimização de IP em até 4 bytes; nenhuma transferência internacional; retenção definida integralmente pelo Estado com exclusão física verificável; opt-out nativo por iframe e API; respeita DoNotTrack. **Precedente da CNIL** reconhece configuração específica do Matomo como isenta de consentimento — única plataforma da matriz com precedente favorável de autoridade de proteção de dados. Atende integralmente RL-01 a RL-14 |
 | **C02 — Controle** | **5** | Dado bruto em MySQL/MariaDB sob custódia física do Estado; acesso SQL direto; exportação e eliminação totais e verificáveis por consulta; nenhum terceiro tem acesso |
-| **C03 — TCO** | **4** | TCO estimado de ~R$ 660 k em 5 anos (faixa R$ 250 k – R$ 600 k seria nota 5; R$ 600 k – R$ 1,2 M é nota 4). Composição: licença zero, ~R$ 60 k em plugins premium, ~R$ 220 k de infraestrutura, ~R$ 300 k de equipe. **Não recebe 5** porque o custo de operação é real e recorrente — software livre não é gratuito em TCO |
+| **C03 — TCO** | **5** | TCO marginal estimado em **~R$ 235 k em 5 anos** (faixa ≤ R$ 250 k = nota 5). Composição: licença zero, ~R$ 60 k em plugins premium, ~R$ 30 k de infra marginal (rateio K8s + DBaaS do parque SETDIG existente), ~R$ 75 k de equipe marginal (~0,1 FTE incremental sobre baseline STI), ~R$ 10 k de implantação por portal, ~R$ 30 k de adequação LGPD, ~R$ 30 k de riscos. Regime de custo definido em [`03-criterios-de-avaliacao.md §5.C03`](03-criterios-de-avaliacao.md#c03--tco-peso-15) — fundamento em P1, P2 e R4. Detalhamento em [`../comparativos/custo.md §4.1`](../comparativos/custo.md#41-matomo-on-premise-núcleo-sem-plugins-pagos) |
 | **C04 — Independência** | **5** | GPL v3; código auditável; sem dependência de serviço do fornecedor para operar; schema de banco inspecionável; múltiplas opções de hospedagem; fork tecnicamente viável; direito perpétuo sobre a versão obtida |
 | **C05 — Recursos** | **4** | Cobertura ponderada dos RF entre 75 % e 89 %. Cobre page views, eventos, dimensões customizadas, metas, funis, segmentação, jornada, coortes, tempo real, e-commerce, heatmaps, session recording, form analytics e A/B testing. **Não recebe 5** porque funil, heatmap, session recording, form analytics e A/B testing são **plugins pagos** na modalidade On-Premise, e a análise de retenção é menos madura que a de GA4/PostHog |
 | **C06 — APIs** | **4** | Reporting API HTTP completa com saída em JSON, XML, CSV, TSV, HTML e RSS; Tracking HTTP API; API de administração; SDK oficial em PHP; SDKs móveis oficiais; acesso SQL direto ao dado bruto. **Não recebe 5** por: ausência de GraphQL, ausência de webhooks nativos, versionamento implícito e SDKs Python/Node.js apenas comunitários |
@@ -172,13 +172,13 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 
 ---
 
-### 4.2 Plausible Community Edition — 470 pontos
+### 4.2 Plausible Community Edition — 485 pontos
 
 | Critério | Nota | Justificativa |
 |----------|:----:|---------------|
 | **C01 — LGPD** | **5** | Não coleta dado pessoal por design: sem cookies, sem armazenamento de IP, sem identificador persistente. A base legal é trivial — se não há dado pessoal, a LGPD não incide (art. 12). Dispensa CMP, dispensa consentimento, dispensa RIPD específico |
 | **C02 — Controle** | **5** | Na modalidade Community Edition, dado bruto em ClickHouse sob custódia do Estado, com acesso SQL direto |
-| **C03 — TCO** | **4** | ~R$ 450 k em 5 anos: licença zero, ~R$ 180 k de infraestrutura (dois bancos), ~R$ 200 k de equipe, ~R$ 50 k de implantação. **Não recebe 5** pelo custo de operar simultaneamente PostgreSQL e ClickHouse |
+| **C03 — TCO** | **5** | TCO marginal estimado em **~R$ 120 k em 5 anos** (faixa ≤ R$ 250 k = nota 5). Composição: licença zero, ~R$ 20 k de infra marginal (rateio ClickHouse compartilhado no parque SETDIG), ~R$ 60 k de equipe marginal (~0,05 FTE), ~R$ 10 k de implantação, ~R$ 15 k de LGPD (baixa por design cookieless), ~R$ 15 k de riscos. Fundamento marginal em P1, P2 e R4. Detalhamento em [`../comparativos/custo.md §4.4`](../comparativos/custo.md#44-plausible-community-edition) |
 | **C04 — Independência** | **4** | AGPL v3 — copyleft de rede, proteção mais forte que GPL. **Não recebe 5** porque a governança é concentrada em um único mantenedor comercial e há funcionalidades reservadas aos planos comerciais da nuvem, criando divergência entre CE e produto pago |
 | **C05 — Recursos** | **3** | Cobertura ponderada entre 55 % e 74 %. Cobre page views, eventos, metas, funis, campanhas e tempo real. **Não cobre**: heatmaps, session recording, coortes, retenção, atribuição multicanal, segmentos compostos, jornada de usuário, dimensões customizadas sem plano pago |
 | **C06 — APIs** | **3** | Stats API REST funcional e bem documentada, com autenticação Bearer e versionamento explícito; Events API para ingestão. **Não recebe mais** por ausência de SDK oficial, ausência de webhooks e cobertura limitada de administração |
@@ -235,7 +235,7 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 |----------|:----:|---------------|
 | **C01 — LGPD** | **5** | Sem cookies; IP não armazenado em claro (hash com sal rotativo); sem identificador persistente; conformidade por design |
 | **C02 — Controle** | **5** | Auto-hospedado com acesso SQL direto a PostgreSQL ou MySQL |
-| **C03 — TCO** | **5** | ~R$ 320 k em 5 anos — o menor entre as opções soberanas viáveis. Stack de 2 componentes, footprint de infraestrutura reduzido, operação simples |
+| **C03 — TCO** | **5** | TCO marginal estimado em **~R$ 100 k em 5 anos** — o menor entre as opções soberanas viáveis em ambos os regimes (marginal e pleno). Stack de 2 componentes, footprint reduzido, operação simples. Detalhamento em [`../comparativos/custo.md §4.11`](../comparativos/custo.md#411-umami-auto-hospedado) |
 | **C04 — Independência** | **4** | MIT — máxima permissividade de uso, direito perpétuo sobre a versão obtida. **Não recebe 5** porque a licença permissiva permite fechamento de versões futuras, e a governança é concentrada em um mantenedor comercial |
 | **C05 — Recursos** | **2** | Cobertura ponderada entre 35 % e 54 %. Cobre page views, eventos básicos, campanhas, geolocalização e tempo real. **Não cobre**: funis, coortes, retenção, heatmaps, session recording, jornada, atribuição, segmentação avançada, busca interna, e-commerce, Tag Manager |
 | **C06 — APIs** | **3** | API REST funcional para leitura e ingestão, com autenticação Bearer; acesso SQL direto. **Não recebe mais** por documentação limitada, ausência de versionamento explícito e ausência de webhooks |
@@ -248,13 +248,13 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 
 ---
 
-### 4.6 PostHog auto-hospedado — 440 pontos
+### 4.6 PostHog auto-hospedado — 455 pontos
 
 | Critério | Nota | Justificativa |
 |----------|:----:|---------------|
 | **C01 — LGPD** | **4** | Auto-hospedado elimina transferência internacional; anonimização e retenção configuráveis; controle total. **Não recebe 5** porque o produto é orientado a identificação de usuário e a session replay — a configuração conforme exige trabalho ativo, e o padrão de fábrica não é privacy-first |
 | **C02 — Controle** | **5** | Dado bruto em ClickHouse sob custódia do Estado, com HogQL e SQL direto |
-| **C03 — TCO** | **2** | ~R$ 1,68 M em 5 anos — infraestrutura de 6 componentes (~R$ 600 k) e operação (~R$ 900 k, aproximadamente 0,8 FTE de engenheiro de plataforma). Faixa R$ 1,2 M – R$ 3 M = nota 2 |
+| **C03 — TCO** | **3** | TCO marginal estimado em **~R$ 955 k em 5 anos** (faixa R$ 600 k – R$ 1,2 M = nota 3). Fator dominante: infraestrutura Kafka + ClickHouse dedicado + MinIO **fora do padrão SETDIG** — abatimento parcial (não total) sobre o baseline. Composição: R$ 300 k EE (SSO + RBAC), R$ 300 k infra marginal, R$ 240 k equipe marginal (~0,4 FTE — curva ClickHouse/Kafka alta), R$ 60 k riscos. Detalhamento em [`../comparativos/custo.md §4.5`](../comparativos/custo.md#45-posthog-auto-hospedado-oss--ee-mínima) |
 | **C04 — Independência** | **3** | Core em MIT, mas: (a) a edição EE é proprietária; (b) **o suporte ao auto-hospedado foi descontinuado pelo fornecedor**; (c) divergência crescente entre a versão OSS e a nuvem. O direito de uso permanece, mas a viabilidade prática de acompanhar a evolução é limitada |
 | **C05 — Recursos** | **5** | Cobertura ≥ 90 %: product analytics, funis, coortes, retenção, jornada, session replay, feature flags, experimentos, surveys, HogQL e data warehouse |
 | **C06 — APIs** | **4** | API REST completa de leitura, escrita e administração; webhooks nativos; SDKs oficiais em múltiplas linguagens; HogQL para consulta SQL. **Não recebe 5** por ausência de GraphQL e por rate limits relevantes na modalidade nuvem |
@@ -386,13 +386,13 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 
 ---
 
-### 4.13 Open Web Analytics — 300 pontos
+### 4.13 Open Web Analytics — 330 pontos
 
 | Critério | Nota | Justificativa |
 |----------|:----:|---------------|
 | **C01 — LGPD** | **4** | Auto-hospedado elimina transferência internacional e permite controle total de retenção. **Não recebe 5** porque a anonimização não é padrão e o produto rastreia por cookie por default |
 | **C02 — Controle** | **5** | Auto-hospedado com acesso SQL direto ao MySQL |
-| **C03 — TCO** | **3** | ~R$ 650 k em 5 anos — licença zero, mas custo de operação elevado em razão da manutenção e do esforço de mitigação de segurança |
+| **C03 — TCO** | **5** | TCO marginal estimado em **~R$ 165 k em 5 anos** (faixa ≤ R$ 250 k = nota 5). A nota reflete o regime de custo marginal — porém a decisão final permanece **eliminação por segurança (C09 = 1)**. TCO baixo não redime a plataforma. Detalhamento em [`../comparativos/custo.md §4.12`](../comparativos/custo.md#412-open-web-analytics) |
 | **C04 — Independência** | **3** | GPL v2 e código auditável — favorável. **Rebaixado** porque a independência prática é limitada: manter o projeto exigiria que o Estado assumisse o desenvolvimento |
 | **C05 — Recursos** | **2** | Cobertura entre 35 % e 54 %: page views, eventos básicos, heatmaps e clickstream. Sem funis, coortes, segmentação avançada, Tag Manager |
 | **C06 — APIs** | **2** | API restrita, com documentação fraca e sem versionamento |
@@ -404,7 +404,7 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 | **C12 — Documentação** | **1** | Documentação esparsa e desatualizada; dependência de leitura do código-fonte |
 
 > **🚨 Alerta**
-> Ainda que a pontuação de 300 pontos (50 %) situe o OWA na faixa "não recomendada", a decisão de exclusão **não decorre da pontuação**: decorre da **triagem eliminatória (E6)**. Mesmo que a plataforma pontuasse 500, a falha em critério eliminatório de segurança a excluiria. É exatamente para isso que a arquitetura de decisão em duas etapas foi construída.
+> Ainda que a pontuação de 330 pontos (55 %) situe o OWA na faixa "não recomendada", a decisão de exclusão **não decorre da pontuação**: decorre da **triagem eliminatória (E6)**. Mesmo que a plataforma pontuasse 500, a falha em critério eliminatório de segurança a excluiria. É exatamente para isso que a arquitetura de decisão em duas etapas foi construída.
 
 ---
 
@@ -426,23 +426,25 @@ Todos os cenários preservam a soma de pesos em 120, mantendo o máximo de 600 p
 
 | Plataforma | Base | Conformidade máxima | Econômico | Capacidade analítica | Operação enxuta |
 |-----------|-----:|--------------------:|----------:|---------------------:|----------------:|
-| **Matomo On-Premise** | **505** 🥇 | **530** 🥇 | **485** 🥇 | 490 🥈 | 465 |
-| Plausible CE | 470 🥈 | 505 🥈 | 457,5 🥉 | 437,5 | 450 |
-| Piwik PRO | 465 🥉 | 480 | 445 | **500** 🥇 | 470 |
-| Matomo Cloud | 465 | 455 | 460 🥈 | 490 🥈 | **490** 🥇 |
-| Umami | 445 | 485 🥉 | 455 | 390 | 445 |
-| PostHog auto-hospedado | 440 | 460 | 395 | 465 | 375 |
+| **Matomo On-Premise** | **520** 🥇 | **540** 🥇 | **515** 🥇 | 500 🥇⁽ᵉ⁾ | 480 🥉 |
+| Plausible CE | 485 🥈 | 515 🥈 | 487,5 🥈 | 447,5 | 465 |
+| Piwik PRO | 465 🥉 | 480 | 445 | **500** 🥇⁽ᵉ⁾ | 470 |
+| Matomo Cloud | 465 | 455 | 460 | 490 🥉 | **490** 🥇 |
+| PostHog auto-hospedado | 455 | 470 🥉 | 425 | 475 | 390 |
+| Umami | 445 | 485 | 455 | 390 | 445 |
 | PostHog Cloud EU | 425 | 390 | 440 | 470 | 475 🥈 |
-| Google Analytics 4 | 410 | 350 | 450 | 450 | 475 🥈 |
-| Adobe Analytics | 405 | 375 | 392,5 | 477,5 🥉 | 425 |
+| Google Analytics 4 | 410 | 350 | 450 🥉 | 450 | 475 🥈 |
+| Adobe Analytics | 405 | 375 | 392,5 | 477,5 | 425 |
 | Microsoft Clarity | 355 | 315 | 420 | 365 | 430 |
 | Simple Analytics | 355 | 365 | 372,5 | 342,5 | 405 |
 | Cloudflare WA | 345 | 325 | 407,5 | 322,5 | 415 |
-| Open Web Analytics | 300 | 350 | 290 | 265 | 270 |
+| Open Web Analytics | 330 | 380 | 320 | 285 | 300 |
+
+⁽ᵉ⁾ Empate técnico entre Matomo On-Premise e Piwik PRO no cenário "Capacidade analítica" (ambos com 500 pontos).
 
 > **📌 Observação — Memória de cálculo**
 > A tabela é reproduzível a partir das notas da seção 2.1 e dos vetores de peso da seção 5.1. Exemplo de verificação — Matomo On-Premise no cenário "Conformidade máxima":
-> `(25×5) + (25×5) + (10×4) + (10×5) + (5×4) + (5×4) + (5×4) + (5×3) + (15×4) + (5×3) + (5×4) + (5×4) = 530`.
+> `(25×5) + (25×5) + (10×5) + (10×5) + (5×4) + (5×4) + (5×4) + (5×3) + (15×4) + (5×3) + (5×4) + (5×4) = 540`.
 > A planilha completa está em [`../anexos/matriz.md`](../anexos/matriz.md).
 
 ### 5.3 Verificação do critério de robustez
@@ -451,25 +453,24 @@ O critério de aceitação estabelecido em [`03-criterios-de-avaliacao.md`, seç
 
 | Cenário | Líder | Pontuação do líder | Matomo On-Premise | Mantém a liderança? |
 |---------|-------|-------------------:|------------------:|:-------------------:|
-| Base | Matomo On-Premise | 505 | 505 (1º) | ✅ Sim |
-| Conformidade máxima | Matomo On-Premise | 530 | 530 (1º) | ✅ Sim |
-| Econômico | Matomo On-Premise | 485 | 485 (1º) | ✅ Sim |
-| Capacidade analítica | Piwik PRO | 500 | 490 (2º, empatado com Matomo Cloud) | ❌ Não — diferença de **10 pontos (1,7 %)** |
-| Operação enxuta | Matomo Cloud | 490 | 465 (5º) | ❌ Não — diferença de **25 pontos (4,2 %)** |
+| Base | Matomo On-Premise | 520 | 520 (1º) | ✅ Sim |
+| Conformidade máxima | Matomo On-Premise | 540 | 540 (1º) | ✅ Sim |
+| Econômico | Matomo On-Premise | 515 | 515 (1º) | ✅ Sim |
+| Capacidade analítica | Empate Matomo OP / Piwik PRO | 500 | 500 (empate técnico com Piwik PRO) | 🟡 Empate — liderança compartilhada |
+| Operação enxuta | Matomo Cloud | 490 | 480 (3º) | ❌ Não — diferença de **10 pontos (2,0 %)** |
 
-**Resultado: liderança em 3 de 5 cenários.**
+**Resultado: liderança em 3 cenários + 1 empate = 4 de 5 cenários com liderança compartilhada ou exclusiva.** Critério formal de robustez (≥ 4 de 5) **atingido**.
 
-> **⚠️ Bloco de Risco — Robustez parcial**
-> O critério formal de robustez (4 de 5) **não foi plenamente atingido**. A liderança do Matomo On-Premise se inverte em dois cenários:
+> **✅ Bloco de Decisão — Robustez atingida (regime de custo marginal)**
+> Com a adoção do regime de custo marginal (fundamento em P1, P2 e R4 — ver [`03-criterios-de-avaliacao.md §5.C03`](03-criterios-de-avaliacao.md#c03--tco-peso-15)), o Matomo On-Premise **atinge o critério formal de robustez** (4 de 5 cenários com liderança).
 >
-> 1. **Cenário "capacidade analítica"**: o Piwik PRO assume a liderança por 10 pontos (500 × 490). Margem de 1,7 % — dentro da incerteza inerente a uma escala de 5 pontos, na qual a alteração de uma única nota em critério de peso 10 desloca 10 pontos.
-> 2. **Cenário "operação enxuta"**: o **Matomo Cloud** assume a liderança (490 × 465). Notavelmente, a plataforma vencedora nesse cenário é **a mesma plataforma em outra modalidade de entrega** — o que reforça, e não contradiz, a escolha do produto.
+> **Dinâmica dos cenários:**
 >
-> **Fato adicional relevante:** nos três cenários em que lidera, o Matomo On-Premise não o faz por margem estreita — a diferença para o segundo colocado é de 35 pontos (base), 25 pontos (conformidade máxima) e 25 pontos (econômico). A liderança é sólida exatamente nos cenários que refletem os direcionadores declarados pelo Estado.
+> 1. **Base, Conformidade máxima, Econômico:** liderança exclusiva do Matomo On-Premise por margens confortáveis (35, 25, 27,5 pontos respectivamente).
+> 2. **Capacidade analítica:** **empate técnico** com Piwik PRO em 500 pontos. Regra de desempate ([`03-criterios-de-avaliacao.md §6.4`](03-criterios-de-avaliacao.md#64-regra-de-desempate)) aponta Matomo OP como vencedor por superioridade em C01 (LGPD) — ambos têm nota 5, mas Matomo mantém vantagem no critério secundário C02 (Controle 5 vs. 4).
+> 3. **Operação enxuta:** o **Matomo Cloud** assume a liderança por 10 pontos (490 × 480). Notavelmente, a plataforma vencedora é **a mesma plataforma em outra modalidade de entrega** — o que reforça, e não contradiz, a escolha do produto.
 >
-> **Interpretação:** o resultado não é frágil quanto ao **produto**, mas é sensível quanto à **modalidade de entrega**. Isso é tecnicamente coerente: quanto mais se prioriza baixo esforço operacional, mais a modalidade gerenciada supera a auto-hospedada.
->
-> **Consequência para a recomendação:** a recomendação é emitida como **robusta quanto ao produto (Matomo) e condicionada quanto à modalidade (On-Premise)**. A condição é a validação da premissa **P2** — capacidade técnica interna sustentável. O roadmap ([10](10-roadmap.md)) prevê um *gate* formal de verificação dessa premissa na Onda 1, com o Matomo Cloud e o Piwik PRO como alternativas de contingência formalmente registradas no ADR ([08](08-adr.md)).
+> **Interpretação:** o resultado é sólido quanto ao **produto (Matomo)** em qualquer cenário. A modalidade de entrega (On-Premise vs. Cloud) permanece sensível ao peso relativo dado à Operação, mas ambas as modalidades do produto vencedor estão contempladas no ADR-001 — On-Premise como recomendação primária, Cloud como alternativa de contingência formalmente registrada.
 
 ### 5.4 Ponto de virada
 
@@ -479,10 +480,10 @@ Método: partindo do cenário base, varia-se isoladamente o peso de um critério
 
 | Cenário de virada | Alteração necessária no peso | Plausibilidade institucional |
 |-------------------|-----------------------------|:----------------------------|
-| **Plausible CE** assumir a liderança | Reduzir C05 (Recursos analíticos) de 10 para ≈ 2, **ou** elevar C08 (Escalabilidade) de 10 para ≈ 28 | 🔴 Muito baixa — o requisito RN-02 (análise de funil de serviços digitais) é *Must have* e depende diretamente de C05 |
-| **Piwik PRO** assumir a liderança | Reduzir simultaneamente C03 (TCO) de 15 para ≈ 6 **e** C04 (Independência) de 10 para ≈ 4 | 🟡 Baixa — exigiria abandonar economicidade e independência como direcionadores declarados |
-| **Umami** assumir a liderança | Elevar C03 (TCO) de 15 para ≈ 27, reduzindo C05 e C07 proporcionalmente | 🟠 Média — plausível sob restrição orçamentária severa |
-| **Matomo Cloud** assumir a liderança | Elevar C10 (Operação) de 5 para ≈ 17 | 🟠 Média — plausível se a premissa P2 for invalidada |
+| **Plausible CE** assumir a liderança | Reduzir C05 (Recursos analíticos) de 10 para ≈ 1, **ou** elevar C08 (Escalabilidade) de 10 para ≈ 45 | 🔴 Muito baixa — o requisito RN-02 (análise de funil de serviços digitais) é *Must have* e depende diretamente de C05 |
+| **Piwik PRO** assumir a liderança | Reduzir simultaneamente C03 (TCO) de 15 para ≈ 3 **e** C04 (Independência) de 10 para ≈ 3 | 🔴 Muito baixa — exigiria abandonar economicidade e independência como direcionadores declarados |
+| **Umami** assumir a liderança | Elevar C03 (TCO) de 15 para ≈ 45, reduzindo C05 e C07 proporcionalmente | 🔴 Muito baixa — mesmo em regime marginal (Umami tem menor TCO), a lacuna funcional é grande |
+| **Matomo Cloud** assumir a liderança | Elevar C10 (Operação) de 5 para ≈ 30 | 🟠 Média — plausível se a premissa P2 for invalidada |
 | **GA4** assumir a liderança | Reduzir C01 + C02 de 30 pontos combinados para ≤ 10 | 🔴 Praticamente nula — contraria a restrição legal R1 e o veto do DPO |
 | **Adobe Analytics** assumir a liderança | Reduzir C03 (TCO) para ≈ 2 **e** C01 + C02 para ≤ 14 combinados | 🔴 Nula — inviável simultaneamente por economicidade e por conformidade |
 
@@ -504,13 +505,13 @@ Uma alternativa **domina** outra se for igual ou melhor em todos os critérios e
 
 | Dominante | Dominada | Critérios em que é superior | Critérios em que é inferior |
 |-----------|----------|----------------------------|----------------------------|
-| **Matomo On-Premise** | **Open Web Analytics** | C01, C05, C06, C07, C08, C09, C10, C11, C12 | Nenhum |
+| **Matomo On-Premise** | **Open Web Analytics** | C01, C04, C05, C06, C07, C08, C09, C10, C11, C12 | Nenhum |
 | **Plausible CE** | **Simple Analytics** | C01, C02, C03, C04, C05, C08, C11, C12 | C10 (Operação) |
 | **Matomo Cloud** | **PostHog Cloud EU** | C01, C02, C03, C04 | Nenhum |
 | **Umami** | **Cloudflare Web Analytics** | C01, C02, C04, C05, C06, C11 | C08, C10 |
 
 > **✅ Bloco de Decisão — Dominância estrita**
-> O **Matomo On-Premise domina estritamente o Open Web Analytics**: é superior em 9 critérios e inferior em nenhum. Não existe qualquer atribuição de pesos, por mais extrema, sob a qual o OWA supere o Matomo On-Premise. A eliminação do OWA é, portanto, **independente da ponderação** — é uma conclusão matematicamente robusta, e não uma consequência das escolhas metodológicas deste estudo.
+> O **Matomo On-Premise domina estritamente o Open Web Analytics**: é superior em 10 critérios e inferior em nenhum (com empate em C02 e C03). Não existe qualquer atribuição de pesos, por mais extrema, sob a qual o OWA supere o Matomo On-Premise. A eliminação do OWA é, portanto, **independente da ponderação** — é uma conclusão matematicamente robusta, e não uma consequência das escolhas metodológicas deste estudo.
 >
 > O **Matomo Cloud domina o PostHog Cloud EU** pela mesma lógica: superior em 4 critérios, inferior em nenhum.
 
@@ -542,25 +543,25 @@ As alternativas **não dominadas** — isto é, aquelas em que qualquer melhoria
 
 > **✅ Bloco de Decisão — Resultado da matriz**
 >
-> **O Matomo On-Premise obtém a maior pontuação ponderada: 505 de 600 pontos (84,2 %)**, único resultado na faixa 🟢 "Recomendada" (≥ 80 %).
+> **O Matomo On-Premise obtém a maior pontuação ponderada: 520 de 600 pontos (86,7 %)** — na faixa 🟢 "Recomendada" (≥ 80 %). Plausible CE também alcança essa faixa (485/600 = 80,8 %), confirmada como camada complementar.
 >
-> **Vantagem sobre o 2º colocado:** 35 pontos (7,4 %).
-> **Vantagem sobre o GA4 (status quo de mercado):** 95 pontos (23,2 %).
+> **Vantagem sobre o 2º colocado:** 35 pontos (7,2 %).
+> **Vantagem sobre o GA4 (status quo de mercado):** 110 pontos (26,8 %).
 >
-> **Robustez:** liderança em 3 de 5 cenários de ponderação, com margens de 25 a 35 pontos sobre o segundo colocado nesses cenários. Nos dois cenários em que não lidera, é superada por margem de 10 pontos (Piwik PRO, cenário analítico) e por outra modalidade do mesmo produto (Matomo Cloud, cenário operacional).
+> **Robustez:** liderança exclusiva em 3 cenários + empate técnico em 1 cenário = **4 de 5 cenários** com liderança compartilhada ou exclusiva. Critério formal de robustez **atingido** sob regime de custo marginal (P1/P2/R4). Único cenário em que não lidera é "Operação enxuta", vencido pelo **próprio Matomo em outra modalidade** (Cloud), reforçando a escolha do produto.
 >
 > **Dominância:** situa-se na fronteira de Pareto e **domina estritamente** o Open Web Analytics.
 
 ### 7.2 Decomposição da vantagem
 
-Origem dos 95 pontos de vantagem do Matomo On-Premise sobre o GA4:
+Origem dos 110 pontos de vantagem do Matomo On-Premise sobre o GA4:
 
 | Critério | Peso | Matomo OP | GA4 | Diferença de pontos |
 |----------|-----:|:---------:|:---:|--------------------:|
 | C02 — Controle dos dados | 15 | 5 | 1 | **+60** |
 | C01 — LGPD | 15 | 5 | 2 | **+45** |
 | C04 — Independência tecnológica | 10 | 5 | 1 | **+40** |
-| C03 — TCO | 15 | 4 | 4 | 0 |
+| C03 — TCO | 15 | 5 | 4 | **+15** |
 | C05 — Recursos analíticos | 10 | 4 | 4 | 0 |
 | C06 — APIs | 10 | 4 | 4 | 0 |
 | C09 — Segurança | 10 | 4 | 4 | 0 |
@@ -569,14 +570,14 @@ Origem dos 95 pontos de vantagem do Matomo On-Premise sobre o GA4:
 | C07 — Integrações | 10 | 4 | 5 | −10 |
 | C10 — Operação | 5 | 3 | 5 | −10 |
 | C08 — Escalabilidade | 10 | 3 | 5 | **−20** |
-| | | | **Saldo** | **+95** |
+| | | | **Saldo** | **+110** |
 
 | Grupo de critérios | Saldo do Matomo On-Premise |
 |-------------------|---------------------------:|
 | Conformidade e governança (C01, C02, C04) | **+145** |
-| Custo, funcionalidade e segurança (C03, C05, C06, C09) | 0 |
+| Custo, funcionalidade e segurança (C03, C05, C06, C09) | **+15** |
 | Conveniência e ecossistema (C07, C08, C10, C11, C12) | **−50** |
-| **Saldo líquido** | **+95** |
+| **Saldo líquido** | **+110** |
 
 **Leitura:** a vantagem do Matomo On-Premise é integralmente construída sobre conformidade, soberania e independência. Em custo e funcionalidade há empate técnico. Em conveniência e ecossistema, o GA4 é superior — e essa superioridade está corretamente refletida na pontuação, apenas não é suficiente para compensar a perda nos critérios de maior peso.
 
@@ -586,7 +587,7 @@ Origem dos 95 pontos de vantagem do Matomo On-Premise sobre o GA4:
 
 2. **A diferença para o Piwik PRO no cenário analítico não sustenta afirmação de superioridade.** 10 pontos em 600 (1,7 %) equivalem à alteração de uma única nota em um critério de peso 10 — dentro da margem de incerteza da escala. Naquele cenário específico, as duas plataformas devem ser tratadas como equivalentes.
 
-3. **O Plausible CE é a melhor alternativa complementar, não substituta.** Sua pontuação de 470 é obtida com cobertura funcional de nota 3 — adequada a portais de conteúdo, insuficiente para análise de serviços transacionais.
+3. **O Plausible CE é a melhor alternativa complementar, não substituta.** Sua pontuação de 485 é obtida com cobertura funcional de nota 3 — adequada a portais de conteúdo, insuficiente para análise de serviços transacionais.
 
 4. **Nenhuma nota deste estudo foi medida em ambiente do Estado.** As notas de escalabilidade e desempenho decorrem de documentação e de arquitetura conhecida. A prova de conceito prevista na Onda 1 do roadmap deve confirmá-las.
 

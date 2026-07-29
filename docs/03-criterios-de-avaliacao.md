@@ -319,6 +319,21 @@ Cada critério define **exatamente** o que caracteriza cada nota. Isso torna a a
 > **📌 Observação**
 > O TCO considera o **custo de equipe** mesmo em soluções gratuitas. Software livre não é gratuito em TCO — desloca o custo de licença para custo de operação. Ignorar isso é o erro mais comum em comparativos de analytics.
 
+> **📌 Observação — custo marginal vs. custo pleno de mercado**
+> O TCO neste estudo é modelado em regime de **custo marginal para o Estado**, e não em custo pleno de mercado. A base normativa é tríplice:
+>
+> - **Premissa P1** ([`01-contexto.md §7`](01-contexto.md#7-premissas)): o Estado dispõe de infraestrutura própria (datacenter ou nuvem contratada) capaz de hospedar aplicação web + banco relacional com HA.
+> - **Premissa P2** ([`01-contexto.md §7`](01-contexto.md#7-premissas)): a equipe da STI possui ou pode desenvolver competência em Linux, PHP/containers, MySQL e observabilidade.
+> - **Restrição R4** ([`01-contexto.md §8`](01-contexto.md#8-restrições)): a solução deve operar sobre a infraestrutura ou contratos de nuvem já disponíveis ao Estado.
+>
+> Consequência: rubricas de **infraestrutura compartilhada** (nós Kubernetes, DBaaS, storage) e de **operação de kernel** (backup, patching de SO, monitoração, upgrades de K8s) já são **absorvidas** pelo contrato de gerenciamento em vigor. O TCO reportado inclui apenas o **incremento efetivo** sobre esse baseline: licença de plugins, tuning específico do produto, adequação LGPD, capacitação e o esforço marginal (~0,1 FTE de esforço técnico intrínseco não absorvido pelo contrato).
+>
+> Para transparência, cada ficha de plataforma auto-hospedada apresenta **duas colunas** — "Custo marginal SETDIG" (base da nota C03) e "Custo pleno de referência" (o que a mesma plataforma custaria em regime greenfield sem contrato pré-existente). Modelagem completa em [`../comparativos/custo.md`](../comparativos/custo.md).
+>
+> **Assimetria intencional:** SaaS estrangeiras (GA4, Adobe, Clarity, Simple Analytics, Cloudflare, Umami Cloud, PostHog Cloud) **não têm rubrica absorvível** — o custo delas é integralmente incremental. Isso não é viés contra SaaS; é reflexo fiel da realidade contratual do Estado.
+>
+> **O que o custo marginal NÃO faz:** não altera a nota **C10 (Operação)**, que mede esforço técnico intrínseco da plataforma (nº de componentes, cron, tuning), independentemente de quem paga a operação.
+
 ### C04 — Independência tecnológica (peso 10)
 
 **O que mede:** capacidade do Estado de continuar operando e de trocar de solução sem penalidade proibitiva.

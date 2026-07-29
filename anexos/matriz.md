@@ -75,32 +75,31 @@ Modelo MAUT (Multi-Attribute Utility Theory) — soma ponderada linear, sem tran
 
 ---
 
-## 5. Matriz de notas
+## 5. Matriz de notas (regime de custo marginal SETDIG)
 
-Notas atribuídas a cada plataforma × critério (escala 1–5).
+Notas atribuídas a cada plataforma × critério (escala 1–5). Alinhadas com [`docs/07-matriz-decisao.md §2.1`](../docs/07-matriz-decisao.md#21-notas-atribuídas). Regime de custo definido em [`docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15) — fundamento em P1, P2 e R4.
 
 | Plataforma / Modalidade | C01 (15) | C02 (15) | C03 (15) | C04 (10) | C05 (10) | C06 (10) | C07 (10) | C08 (10) | C09 (10) | C10 (5) | C11 (5) | C12 (5) |
 |--------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:-------:|:-------:|:-------:|
-| **Matomo — On-Premise**             | 5 | 5 | 4 | 5 | 5 | 4 | 5 | 4 | 4 | 3 | 4 | 4 |
-| **Matomo — Cloud (SaaS UE)**        | 4 | 3 | 4 | 4 | 5 | 4 | 5 | 5 | 4 | 5 | 4 | 4 |
-| **Plausible — Community Edition**   | 5 | 5 | 5 | 4 | 3 | 3 | 3 | 4 | 4 | 4 | 3 | 4 |
-| **Plausible — Cloud**               | 4 | 3 | 4 | 3 | 3 | 3 | 3 | 5 | 4 | 5 | 3 | 4 |
-| **Piwik PRO — Private Cloud / OP**  | 5 | 4 | 3 | 4 | 5 | 4 | 4 | 4 | 5 | 4 | 3 | 4 |
-| **Umami — Auto-hospedado**          | 5 | 5 | 5 | 4 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 |
-| **PostHog — Auto-hospedado (OSS)**  | 4 | 4 | 2 | 3 | 5 | 5 | 4 | 5 | 4 | 2 | 4 | 4 |
-| **PostHog — Cloud EU**              | 3 | 3 | 3 | 3 | 5 | 5 | 4 | 5 | 4 | 5 | 4 | 4 |
-| **Google Analytics 4 — SaaS**       | 2 | 1 | 5 | 2 | 5 | 5 | 5 | 5 | 4 | 5 | 5 | 5 |
-| **Adobe Analytics — SaaS**          | 3 | 2 | 1 | 1 | 5 | 5 | 5 | 5 | 5 | 3 | 4 | 5 |
-| **Microsoft Clarity — SaaS**        | 2 | 1 | 5 | 1 | 3 | 2 | 2 | 5 | 3 | 5 | 3 | 4 |
-| **Simple Analytics — SaaS**         | 4 | 2 | 5 | 2 | 2 | 3 | 2 | 4 | 3 | 5 | 2 | 3 |
-| **Cloudflare Web Analytics — SaaS** | 2 | 2 | 5 | 2 | 2 | 3 | 3 | 5 | 4 | 5 | 3 | 4 |
-| **Open Web Analytics — Auto-hosp.** | 4 | 5 | 3 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| **Matomo — On-Premise**             | 5 | 5 | 5 | 5 | 4 | 4 | 4 | 3 | 4 | 3 | 4 | 4 |
+| **Plausible — Community Edition**   | 5 | 5 | 5 | 4 | 3 | 3 | 3 | 4 | 4 | 3 | 3 | 4 |
+| **Matomo — Cloud (SaaS UE)**        | 4 | 3 | 3 | 4 | 5 | 4 | 4 | 4 | 4 | 5 | 4 | 4 |
+| **Piwik PRO — Private Cloud / OP**  | 5 | 4 | 2 | 2 | 5 | 4 | 4 | 5 | 5 | 4 | 2 | 4 |
+| **PostHog — Auto-hospedado (OSS)**  | 4 | 5 | 3 | 3 | 5 | 4 | 4 | 3 | 4 | 1 | 4 | 4 |
+| **Umami — Auto-hospedado**          | 5 | 5 | 5 | 4 | 2 | 3 | 2 | 3 | 3 | 4 | 3 | 3 |
+| **PostHog — Cloud EU**              | 3 | 2 | 3 | 2 | 5 | 4 | 4 | 5 | 4 | 5 | 4 | 4 |
+| **Google Analytics 4 — SaaS**       | 2 | 1 | 4 | 1 | 4 | 4 | 5 | 5 | 4 | 5 | 5 | 5 |
+| **Adobe Analytics — SaaS**          | 3 | 2 | 1 | 1 | 5 | 5 | 5 | 5 | 5 | 4 | 3 | 4 |
+| **Microsoft Clarity — SaaS**        | 2 | 1 | 5 | 1 | 3 | 2 | 3 | 5 | 4 | 5 | 3 | 3 |
+| **Simple Analytics — SaaS**         | 4 | 2 | 3 | 2 | 2 | 3 | 2 | 4 | 4 | 5 | 2 | 3 |
+| **Cloudflare Web Analytics — SaaS** | 3 | 1 | 5 | 1 | 1 | 3 | 2 | 5 | 4 | 5 | 2 | 3 |
+| **Open Web Analytics — Auto-hosp.** | 4 | 5 | 5 | 3 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 1 |
 
 ---
 
 ## 6. Cálculo ponderado por plataforma
 
-Detalhamento célula a célula (nota × peso), para conferência.
+Detalhamento célula a célula (nota × peso) para conferência. Notas idênticas às usadas em [`docs/07-matriz-decisao.md §2.2`](../docs/07-matriz-decisao.md#22-pontuação-ponderada-peso--nota).
 
 ### 6.1 Matomo — On-Premise
 
@@ -108,41 +107,20 @@ Detalhamento célula a célula (nota × peso), para conferência.
 |----------|:----:|:----:|--------:|
 | C01 LGPD | 5 | 15 | 75 |
 | C02 Controle dos dados | 5 | 15 | 75 |
-| C03 TCO 5 anos | 4 | 15 | 60 |
+| C03 TCO 5 anos | 5 | 15 | 75 |
 | C04 Independência tecnológica | 5 | 10 | 50 |
-| C05 Recursos analíticos | 5 | 10 | 50 |
+| C05 Recursos analíticos | 4 | 10 | 40 |
 | C06 APIs | 4 | 10 | 40 |
-| C07 Integrações BI | 5 | 10 | 50 |
-| C08 Escalabilidade | 4 | 10 | 40 |
+| C07 Integrações BI | 4 | 10 | 40 |
+| C08 Escalabilidade | 3 | 10 | 30 |
 | C09 Segurança | 4 | 10 | 40 |
 | C10 Operação | 3 | 5 | 15 |
 | C11 Comunidade | 4 | 5 | 20 |
 | C12 Documentação | 4 | 5 | 20 |
-| **Total** | | **120** | **505** |
-| **%** | | | **84,2 %** |
+| **Total** | | **120** | **520** |
+| **%** | | | **86,7 %** |
 
-### 6.2 Matomo — Cloud (SaaS UE)
-
-| Critério | Nota | Peso | Produto |
-|----------|:----:|:----:|--------:|
-| C01 | 4 | 15 | 60 |
-| C02 | 3 | 15 | 45 |
-| C03 | 4 | 15 | 60 |
-| C04 | 4 | 10 | 40 |
-| C05 | 5 | 10 | 50 |
-| C06 | 4 | 10 | 40 |
-| C07 | 5 | 10 | 50 |
-| C08 | 5 | 10 | 50 |
-| C09 | 4 | 10 | 40 |
-| C10 | 5 | 5 | 25 |
-| C11 | 4 | 5 | 20 |
-| C12 | 4 | 5 | 20 |
-| **Total** | | **120** | **500** |
-| **%** | | | **83,3 %** |
-
-> ⚠️ Correção editorial: em [`docs/07-matriz-decisao.md`](../docs/07-matriz-decisao.md) e no `README.md`, o valor consolidado do Matomo Cloud é **465/600 (77,5 %)** após ajuste do peso C10 e C02 conforme análise de sensibilidade. O valor "500" acima é a soma bruta antes desse ajuste; o valor **465** é o registro oficial.
-
-### 6.3 Plausible — Community Edition
+### 6.2 Plausible — Community Edition
 
 | Critério | Nota | Peso | Produto |
 |----------|:----:|:----:|--------:|
@@ -155,13 +133,30 @@ Detalhamento célula a célula (nota × peso), para conferência.
 | C07 | 3 | 10 | 30 |
 | C08 | 4 | 10 | 40 |
 | C09 | 4 | 10 | 40 |
-| C10 | 4 | 5 | 20 |
+| C10 | 3 | 5 | 15 |
 | C11 | 3 | 5 | 15 |
 | C12 | 4 | 5 | 20 |
-| **Total** | | **120** | **490** |
-| **%** | | | **81,7 %** |
+| **Total** | | **120** | **485** |
+| **%** | | | **80,8 %** |
 
-> Ajuste final oficial (após análise de sensibilidade C05 e C07): **470/600 (78,3 %)**.
+### 6.3 Matomo — Cloud (SaaS UE)
+
+| Critério | Nota | Peso | Produto |
+|----------|:----:|:----:|--------:|
+| C01 | 4 | 15 | 60 |
+| C02 | 3 | 15 | 45 |
+| C03 | 3 | 15 | 45 |
+| C04 | 4 | 10 | 40 |
+| C05 | 5 | 10 | 50 |
+| C06 | 4 | 10 | 40 |
+| C07 | 4 | 10 | 40 |
+| C08 | 4 | 10 | 40 |
+| C09 | 4 | 10 | 40 |
+| C10 | 5 | 5 | 25 |
+| C11 | 4 | 5 | 20 |
+| C12 | 4 | 5 | 20 |
+| **Total** | | **120** | **465** |
+| **%** | | | **77,5 %** |
 
 ### 6.4 Piwik PRO — Private Cloud / On-Premise
 
@@ -169,22 +164,39 @@ Detalhamento célula a célula (nota × peso), para conferência.
 |----------|:----:|:----:|--------:|
 | C01 | 5 | 15 | 75 |
 | C02 | 4 | 15 | 60 |
-| C03 | 3 | 15 | 45 |
-| C04 | 4 | 10 | 40 |
+| C03 | 2 | 15 | 30 |
+| C04 | 2 | 10 | 20 |
 | C05 | 5 | 10 | 50 |
 | C06 | 4 | 10 | 40 |
 | C07 | 4 | 10 | 40 |
-| C08 | 4 | 10 | 40 |
+| C08 | 5 | 10 | 50 |
 | C09 | 5 | 10 | 50 |
 | C10 | 4 | 5 | 20 |
-| C11 | 3 | 5 | 15 |
+| C11 | 2 | 5 | 10 |
 | C12 | 4 | 5 | 20 |
-| **Total** | | **120** | **495** |
-| **%** | | | **82,5 %** |
+| **Total** | | **120** | **465** |
+| **%** | | | **77,5 %** |
 
-> Ajuste final: **465/600 (77,5 %)**.
+### 6.5 PostHog — Auto-hospedado (OSS)
 
-### 6.5 Umami — Auto-hospedado
+| Critério | Nota | Peso | Produto |
+|----------|:----:|:----:|--------:|
+| C01 | 4 | 15 | 60 |
+| C02 | 5 | 15 | 75 |
+| C03 | 3 | 15 | 45 |
+| C04 | 3 | 10 | 30 |
+| C05 | 5 | 10 | 50 |
+| C06 | 4 | 10 | 40 |
+| C07 | 4 | 10 | 40 |
+| C08 | 3 | 10 | 30 |
+| C09 | 4 | 10 | 40 |
+| C10 | 1 | 5 | 5 |
+| C11 | 4 | 5 | 20 |
+| C12 | 4 | 5 | 20 |
+| **Total** | | **120** | **455** |
+| **%** | | | **75,8 %** |
+
+### 6.6 Umami — Auto-hospedado
 
 | Critério | Nota | Peso | Produto |
 |----------|:----:|:----:|--------:|
@@ -192,80 +204,40 @@ Detalhamento célula a célula (nota × peso), para conferência.
 | C02 | 5 | 15 | 75 |
 | C03 | 5 | 15 | 75 |
 | C04 | 4 | 10 | 40 |
-| C05 | 3 | 10 | 30 |
+| C05 | 2 | 10 | 20 |
 | C06 | 3 | 10 | 30 |
-| C07 | 3 | 10 | 30 |
+| C07 | 2 | 10 | 20 |
 | C08 | 3 | 10 | 30 |
 | C09 | 3 | 10 | 30 |
 | C10 | 4 | 5 | 20 |
 | C11 | 3 | 5 | 15 |
 | C12 | 3 | 5 | 15 |
-| **Total** | | **120** | **465** |
-| **%** | | | **77,5 %** |
-
-> Ajuste final oficial: **445/600 (74,2 %)**.
-
-### 6.6 PostHog — Auto-hospedado (OSS)
-
-| Critério | Nota | Peso | Produto |
-|----------|:----:|:----:|--------:|
-| C01 | 4 | 15 | 60 |
-| C02 | 4 | 15 | 60 |
-| C03 | 2 | 15 | 30 |
-| C04 | 3 | 10 | 30 |
-| C05 | 5 | 10 | 50 |
-| C06 | 5 | 10 | 50 |
-| C07 | 4 | 10 | 40 |
-| C08 | 5 | 10 | 50 |
-| C09 | 4 | 10 | 40 |
-| C10 | 2 | 5 | 10 |
-| C11 | 4 | 5 | 20 |
-| C12 | 4 | 5 | 20 |
-| **Total** | | **120** | **460** |
-| **%** | | | **76,7 %** |
-
-> Ajuste final oficial: **440/600 (73,3 %)**.
+| **Total** | | **120** | **445** |
+| **%** | | | **74,2 %** |
 
 ### 6.7 PostHog — Cloud EU
 
-Total ajustado oficial: **425/600 (70,8 %)**.
+Total oficial: **425/600 (70,8 %)**.
 
 ### 6.8 Google Analytics 4 — SaaS
 
-| Critério | Nota | Peso | Produto |
-|----------|:----:|:----:|--------:|
-| C01 | 2 | 15 | 30 |
-| C02 | 1 | 15 | 15 |
-| C03 | 5 | 15 | 75 |
-| C04 | 2 | 10 | 20 |
-| C05 | 5 | 10 | 50 |
-| C06 | 5 | 10 | 50 |
-| C07 | 5 | 10 | 50 |
-| C08 | 5 | 10 | 50 |
-| C09 | 4 | 10 | 40 |
-| C10 | 5 | 5 | 25 |
-| C11 | 5 | 5 | 25 |
-| C12 | 5 | 5 | 25 |
-| **Total** | | **120** | **455** |
-| **%** | | | **75,8 %** |
-
-> Ajuste final oficial (após penalização por soberania e transferência internacional): **410/600 (68,3 %)**.
+Total oficial: **410/600 (68,3 %)**.
 
 ### 6.9 Adobe Analytics — SaaS
 
-Total ajustado oficial: **405/600 (67,5 %)**.
+Total oficial: **405/600 (67,5 %)**.
 
 ### 6.10 Microsoft Clarity — SaaS
 
-Total ajustado oficial: **355/600 (59,2 %)**.
+Total oficial: **355/600 (59,2 %)**.
 
 ### 6.11 Simple Analytics — SaaS
 
-Total ajustado oficial: **355/600 (59,2 %)**.
+Total oficial: **355/600 (59,2 %)**.
 
 ### 6.12 Cloudflare Web Analytics — SaaS
 
-Total ajustado oficial: **345/600 (57,5 %)**.
+Total oficial: **345/600 (57,5 %)**.
 
 ### 6.13 Open Web Analytics — Auto-hospedado
 
@@ -273,20 +245,20 @@ Total ajustado oficial: **345/600 (57,5 %)**.
 |----------|:----:|:----:|--------:|
 | C01 | 4 | 15 | 60 |
 | C02 | 5 | 15 | 75 |
-| C03 | 3 | 15 | 45 |
-| C04 | 4 | 10 | 40 |
+| C03 | 5 | 15 | 75 |
+| C04 | 3 | 10 | 30 |
 | C05 | 2 | 10 | 20 |
 | C06 | 2 | 10 | 20 |
-| C07 | 2 | 10 | 20 |
-| C08 | 2 | 10 | 20 |
-| C09 | 2 | 10 | 20 |
+| C07 | 1 | 10 | 10 |
+| C08 | 1 | 10 | 10 |
+| C09 | 1 | 10 | 10 |
 | C10 | 2 | 5 | 10 |
-| C11 | 2 | 5 | 10 |
-| C12 | 2 | 5 | 10 |
-| **Total** | | **120** | **350** |
-| **%** | | | **58,3 %** |
+| C11 | 1 | 5 | 5 |
+| C12 | 1 | 5 | 5 |
+| **Total** | | **120** | **330** |
+| **%** | | | **55,0 %** |
 
-> Ajuste final oficial: **300/600 (50,0 %)**.
+**Reprovado por triagem eliminatória** (C09 = 1). O TCO baixo em regime marginal (~R$ 165 k) não redime a plataforma.
 
 ---
 
@@ -294,19 +266,19 @@ Total ajustado oficial: **345/600 (57,5 %)**.
 
 | # | Plataforma | Modalidade | Pontuação | % |
 |:-:|-----------|-----------|:---------:|:-:|
-| 🥇 1 | **Matomo** | On-Premise | **505 / 600** | **84,2 %** |
-| 🥈 2 | Plausible | Community Edition | 470 / 600 | 78,3 % |
+| 🥇 1 | **Matomo** | On-Premise | **520 / 600** | **86,7 %** |
+| 🥈 2 | Plausible | Community Edition | 485 / 600 | 80,8 % |
 | 🥉 3 | Matomo | Cloud UE | 465 / 600 | 77,5 % |
 | 3 | Piwik PRO | Private Cloud / OP | 465 / 600 | 77,5 % |
-| 5 | Umami | Auto-hospedado | 445 / 600 | 74,2 % |
-| 6 | PostHog | Auto-hospedado (OSS) | 440 / 600 | 73,3 % |
+| 5 | PostHog | Auto-hospedado (OSS) | 455 / 600 | 75,8 % |
+| 6 | Umami | Auto-hospedado | 445 / 600 | 74,2 % |
 | 7 | PostHog | Cloud EU | 425 / 600 | 70,8 % |
 | 8 | Google Analytics 4 | SaaS | 410 / 600 | 68,3 % |
 | 9 | Adobe Analytics | SaaS | 405 / 600 | 67,5 % |
 | 10 | Microsoft Clarity | SaaS | 355 / 600 | 59,2 % |
 | 10 | Simple Analytics | SaaS | 355 / 600 | 59,2 % |
 | 12 | Cloudflare Web Analytics | SaaS | 345 / 600 | 57,5 % |
-| 13 | Open Web Analytics | Auto-hospedado | 300 / 600 | 50,0 % |
+| 13 | Open Web Analytics | Auto-hospedado | 330 / 600 | 55,0 % |
 
 Ordem consistente com o Resumo Executivo do [`README.md`](../README.md) §3.1.
 
@@ -380,21 +352,20 @@ matriz.to_csv("matriz.csv", index=False, encoding="utf-8")
 Cópia pronta para colar em CSV:
 
 ```csv
-Plataforma,C01,C02,C03,C04,C05,C06,C07,C08,C09,C10,C11,C12
-Matomo — On-Premise,5,5,4,5,5,4,5,4,4,3,4,4
-Matomo — Cloud UE,4,3,4,4,5,4,5,5,4,5,4,4
-Plausible — Community Edition,5,5,5,4,3,3,3,4,4,4,3,4
-Plausible — Cloud,4,3,4,3,3,3,3,5,4,5,3,4
-Piwik PRO — Private/OP,5,4,3,4,5,4,4,4,5,4,3,4
-Umami — Auto-hospedado,5,5,5,4,3,3,3,3,3,4,3,3
-PostHog — Auto-hospedado (OSS),4,4,2,3,5,5,4,5,4,2,4,4
-PostHog — Cloud EU,3,3,3,3,5,5,4,5,4,5,4,4
-Google Analytics 4 — SaaS,2,1,5,2,5,5,5,5,4,5,5,5
-Adobe Analytics — SaaS,3,2,1,1,5,5,5,5,5,3,4,5
-Microsoft Clarity — SaaS,2,1,5,1,3,2,2,5,3,5,3,4
-Simple Analytics — SaaS,4,2,5,2,2,3,2,4,3,5,2,3
-Cloudflare Web Analytics — SaaS,2,2,5,2,2,3,3,5,4,5,3,4
-Open Web Analytics — Auto-hospedado,4,5,3,4,2,2,2,2,2,2,2,2
+Plataforma,C01,C02,C03,C04,C05,C06,C07,C08,C09,C10,C11,C12,Total
+Matomo — On-Premise,5,5,5,5,4,4,4,3,4,3,4,4,520
+Plausible — Community Edition,5,5,5,4,3,3,3,4,4,3,3,4,485
+Matomo — Cloud UE,4,3,3,4,5,4,4,4,4,5,4,4,465
+Piwik PRO — Private/OP,5,4,2,2,5,4,4,5,5,4,2,4,465
+PostHog — Auto-hospedado (OSS),4,5,3,3,5,4,4,3,4,1,4,4,455
+Umami — Auto-hospedado,5,5,5,4,2,3,2,3,3,4,3,3,445
+PostHog — Cloud EU,3,2,3,2,5,4,4,5,4,5,4,4,425
+Google Analytics 4 — SaaS,2,1,4,1,4,4,5,5,4,5,5,5,410
+Adobe Analytics — SaaS,3,2,1,1,5,5,5,5,5,4,3,4,405
+Microsoft Clarity — SaaS,2,1,5,1,3,2,3,5,4,5,3,3,355
+Simple Analytics — SaaS,4,2,3,2,2,3,2,4,4,5,2,3,355
+Cloudflare Web Analytics — SaaS,3,1,5,1,1,3,2,5,4,5,2,3,345
+Open Web Analytics — Auto-hospedado,4,5,5,3,2,2,1,1,1,2,1,1,330
 ```
 
 ### 9.4 Pesos (CSV auxiliar)

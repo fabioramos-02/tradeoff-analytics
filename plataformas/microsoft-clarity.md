@@ -346,6 +346,9 @@ Sem limite declarado de tráfego. Microsoft assume a escala. Ausência de SLA to
 > **📌 Observação — o custo real do "gratuito"**
 > O TCO acima **desconta o custo aparente** e mostra o real: mesmo sem licenciamento, o cumprimento LGPD (DPIA, gestão de consentimento, revisão jurídica) transforma o "gratuito" em algo que **não é zero**. Comparação completa em [`comparativos/custo.md`](../comparativos/custo.md).
 
+> **📌 Observação metodológica — sem rubrica absorvível**
+> O Clarity é SaaS puro. Diferentemente das plataformas auto-hospedadas (Matomo/Plausible/Umami), **não há infraestrutura estatal a rateiar** — o custo é integralmente incremental. O TCO reportado já é o marginal para o Estado. Fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15).
+
 ---
 
 ## 13. Pontos fortes

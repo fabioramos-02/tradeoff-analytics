@@ -324,6 +324,9 @@ Sem limite técnico declarado além do plano contratado. Plano Business cobre at
 > **⚠️ Bloco de Risco — cobrança em dólar por cartão internacional**
 > Para o Estado, contratar SaaS estrangeiro em dólar via cartão corporativo é operacionalmente complexo (impostos IOF, câmbio, prestação de contas). Não há representante fiscal brasileiro do Simple Analytics.
 
+> **📌 Observação metodológica — sem rubrica absorvível**
+> Simple Analytics é SaaS puro. Não há infraestrutura ou operação estatal a rateiar — o custo é integralmente incremental. O TCO reportado já é o marginal para o Estado. Fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15).
+
 Comparação completa: [`comparativos/custo.md`](../comparativos/custo.md).
 
 ---

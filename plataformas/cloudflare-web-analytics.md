@@ -344,6 +344,9 @@ Sem limite declarado. Escala Cloudflare comporta qualquer volume de portal gover
 > **📌 Observação — custo aparente vs. custo real**
 > O TCO mais baixo do estudo. Mas é preciso comparar com o **valor entregue**: métrica de audiência agregada e Core Web Vitals. Para requisitos governamentais, esse valor é insuficiente, o que empurra o Cloudflare para o papel de *complemento* — nunca de plataforma primária.
 
+> **📌 Observação metodológica — sem rubrica absorvível**
+> Cloudflare Web Analytics é SaaS puro. Não há infraestrutura estatal a rateiar — o custo é integralmente incremental. O TCO reportado já é o marginal para o Estado. Fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15).
+
 ---
 
 ## 13. Pontos fortes

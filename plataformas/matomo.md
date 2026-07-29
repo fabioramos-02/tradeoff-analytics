@@ -1,6 +1,6 @@
 # Matomo
 
-> **Ficha técnica de plataforma** · Pontuação na matriz: **505/600 (84,2 %)** — 🥇 1º lugar
+> **Ficha técnica de plataforma** · Pontuação na matriz: **520/600 (86,7 %)** — 🥇 1º lugar
 > [← Voltar ao índice](../README.md) · [Comparativo detalhado](../docs/05-comparativo-detalhado.md) · [Matriz de decisão](../docs/07-matriz-decisao.md)
 
 ---
@@ -1213,25 +1213,36 @@ flowchart LR
 
 ## 12. Custos
 
-Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 anos.
+Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 anos, **regime de custo marginal SETDIG** (fundamento em [`../docs/03-criterios-de-avaliacao.md §5.C03`](../docs/03-criterios-de-avaliacao.md#c03--tco-peso-15) e [`../comparativos/custo.md §1.4`](../comparativos/custo.md#14-regime-de-custo--marginal-para-o-estado)).
 
-| Componente | Ano 1 | Anos 2–5 (total) | 5 anos |
-|-----------|------:|-----------------:|-------:|
-| **Licenciamento (núcleo)** | R$ 0 | R$ 0 | **R$ 0** |
-| **Plugins premium** | R$ 25.000 | R$ 48.000 | **R$ 73.000** |
-| **Infraestrutura** | R$ 60.000 | R$ 176.000 | **R$ 236.000** |
-| **Implantação (único)** | R$ 60.000 | — | **R$ 60.000** |
-| **Equipe / operação (0,3 FTE)** | R$ 60.000 | R$ 240.000 | **R$ 300.000** |
-| **Atualizações** | R$ 8.000 | R$ 32.000 | **R$ 40.000** |
-| **Manutenção corretiva** | R$ 6.000 | R$ 24.000 | **R$ 30.000** |
-| **Custo estimado de saída** | — | — | **R$ 20.000** |
-| **TCO 5 anos** | | | **≈ R$ 759.000** |
-| **Nota C03 (TCO)** | | | **4/5** |
+### 12.1 TCO consolidado — coluna dupla
 
-### 12.1 Detalhamento da infraestrutura
+Configuração avaliada: **Matomo On-Premise + plugins essenciais** (Heatmaps & Session Recording, Funnels, Form Analytics).
 
-| Recurso | Quantidade | Custo mensal estimado |
-|---------|:----------:|---------------------:|
+| Rubrica | Custo marginal SETDIG (5 anos) | Custo pleno de referência (greenfield, 5 anos) |
+|---------|-------------------------------:|----------------------------------------------:|
+| **Licenciamento (núcleo)** | R$ 0 | R$ 0 |
+| **Plugins premium** | R$ 60.000 | R$ 60.000 |
+| **Infra marginal** — rateio K8s + DBaaS + storage do parque | R$ 30.000 | R$ 220.000 |
+| **Equipe marginal** — ~0,1 FTE incremental sobre baseline STI | R$ 75.000 | R$ 300.000 |
+| **Implantação (snippet ~200 portais)** — ~0,5 h/portal | R$ 10.000 | R$ 60.000 |
+| **Adequação LGPD** — DPIA + banner + revisão jurídica | R$ 30.000 | R$ 30.000 |
+| **Riscos operacionais** — tuning archive + upgrades majors | R$ 30.000 | R$ 30.000 |
+| **TCO 5 anos** | **≈ R$ 235.000** | **≈ R$ 700.000** |
+| **Faixa de nota C03** | ≤ 250k = **5** | 600k–1,2M = 3 |
+
+### 12.2 Racional das rubricas absorvidas pelo contrato SETDIG
+
+- **Infra marginal** — Premissa P1 e Restrição R4 do [`../docs/01-contexto.md §7–§8`](../docs/01-contexto.md#7-premissas). Parque Kubernetes + DBaaS + storage já provisionado. Custo marginal é apenas expansão de quota (~R$ 6k/ano) para acomodar o serviço.
+- **Equipe marginal** — Premissa P2 e Restrição R5. Baseline STI já cobre backup, patching de SO, monitoração de nós, upgrades de K8s. O incremento (~0,1 FTE) cobre apenas atividades específicas do Matomo: tuning de `archive.php`, monitoração da fila QueuedTracking, upgrades majors da aplicação.
+- **Implantação por portal** — ~0,5 h por portal WordPress (uma tag no `header.php` ou via plugin oficial `matomo-plugin-wp` do WordPress). Para o parque de ~200 portais, isso é ~100 h × R$ 120/h ≈ R$ 12k, arredondado R$ 10k considerando reuso de configuração.
+
+### 12.3 Referência de infraestrutura em regime pleno (greenfield)
+
+Publicada como referência, **não integra a nota C03** desta plataforma:
+
+| Recurso | Quantidade | Custo mensal referência |
+|---------|:----------:|------------------------:|
 | Nó de coleta (4 vCPU, 8 GB) | 2 | R$ 800 |
 | Interface de relatórios (4 vCPU, 16 GB) | 1 | R$ 600 |
 | Host de arquivamento (8 vCPU, 16 GB) | 1 | R$ 800 |
@@ -1239,10 +1250,10 @@ Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 a
 | MySQL primário (8 vCPU, 32 GB, 1 TB NVMe) | 1 | R$ 1.100 |
 | MySQL réplica (8 vCPU, 32 GB, 1 TB NVMe) | 1 | R$ 1.100 |
 | Armazenamento de backup (3 TB) | 1 | R$ 250 |
-| **Total mensal** | | **~R$ 4.950** |
+| **Total mensal referência** | | **~R$ 4.950** |
 
 > **📌 Observação**
-> Valores estimados sobre infraestrutura própria do Estado ou nuvem contratada, em bandas de referência de mercado. Detalhamento e premissas em [`../comparativos/custo.md`](../comparativos/custo.md).
+> A coluna "pleno de referência" existe para transparência auditável. Ela mostra o que a mesma configuração custaria se o Estado partisse do zero, sem parque de infraestrutura contratada. O TCO usado na matriz de decisão é o marginal, alinhado às premissas P1/P2 e à restrição R4 do estudo.
 
 ---
 
@@ -1323,7 +1334,7 @@ Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 a
 |----------|-----:|:----:|-------:|
 | C01 — LGPD | 15 | **5** | 75 |
 | C02 — Controle dos dados | 15 | **5** | 75 |
-| C03 — TCO | 15 | 4 | 60 |
+| C03 — TCO | 15 | **5** | 75 |
 | C04 — Independência tecnológica | 10 | **5** | 50 |
 | C05 — Recursos analíticos | 10 | 4 | 40 |
 | C06 — APIs | 10 | 4 | 40 |
@@ -1333,7 +1344,7 @@ Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 a
 | C10 — Operação | 5 | 3 | 15 |
 | C11 — Comunidade | 5 | 4 | 20 |
 | C12 — Documentação | 5 | 4 | 20 |
-| **Total** | **120** | | **505 / 600 (84,2 %)** |
+| **Total** | **120** | | **520 / 600 (86,7 %)** |
 
 Justificativa detalhada de cada nota: [`../docs/07-matriz-decisao.md`, seção 4.1](../docs/07-matriz-decisao.md#41-matomo-on-premise--505-pontos).
 

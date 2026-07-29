@@ -72,19 +72,19 @@ Este repositório supre essa lacuna. Ele produz o **artefato arquitetural formal
 
 | # | Plataforma | Modalidade | Pontuação ponderada | % do máximo |
 |---|-----------|-----------|--------------------:|------------:|
-| 🥇 1 | **Matomo** | On-Premise (auto-hospedado) | **505 / 600** | **84,2%** |
-| 🥈 2 | Plausible | Community Edition (auto-hospedado) | 470 / 600 | 78,3% |
+| 🥇 1 | **Matomo** | On-Premise (auto-hospedado) | **520 / 600** | **86,7%** |
+| 🥈 2 | Plausible | Community Edition (auto-hospedado) | 485 / 600 | 80,8% |
 | 🥉 3 | Matomo | Cloud (SaaS, hospedagem UE) | 465 / 600 | 77,5% |
 | 3 | Piwik PRO | Private Cloud / On-Premise | 465 / 600 | 77,5% |
-| 5 | Umami | Auto-hospedado | 445 / 600 | 74,2% |
-| 6 | PostHog | Auto-hospedado (Open Source Edition) | 440 / 600 | 73,3% |
+| 5 | PostHog | Auto-hospedado (Open Source Edition) | 455 / 600 | 75,8% |
+| 6 | Umami | Auto-hospedado | 445 / 600 | 74,2% |
 | 7 | PostHog | Cloud EU | 425 / 600 | 70,8% |
 | 8 | Google Analytics 4 | SaaS (tier gratuito) | 410 / 600 | 68,3% |
 | 9 | Adobe Analytics | SaaS enterprise | 405 / 600 | 67,5% |
 | 10 | Microsoft Clarity | SaaS gratuito | 355 / 600 | 59,2% |
 | 10 | Simple Analytics | SaaS (hospedagem UE) | 355 / 600 | 59,2% |
 | 12 | Cloudflare Web Analytics | SaaS gratuito | 345 / 600 | 57,5% |
-| 13 | Open Web Analytics | Auto-hospedado | 300 / 600 | 50,0% |
+| 13 | Open Web Analytics | Auto-hospedado | 330 / 600 | 55,0% |
 
 Memória de cálculo completa e justificativa nota a nota: [`docs/07-matriz-decisao.md`](docs/07-matriz-decisao.md).
 
@@ -119,7 +119,7 @@ Nenhuma decisão arquitetural é isenta de custo. As fragilidades assumidas est�
 1. **Arquivamento (`archiving`) é o gargalo estrutural** do Matomo em alto volume — exige tuning de cron, segmentação e, acima de determinado patamar, infraestrutura dedicada.
 2. **MySQL/MariaDB não é um banco colunar** — a plataforma perde para arquiteturas baseadas em ClickHouse (Plausible, PostHog, Umami Cloud) em consultas analíticas ad-hoc sobre grandes volumes.
 3. **Funcionalidades avançadas são plugins pagos** mesmo na versão On-Premise (Heatmaps, Funnels, A/B Testing, Form Analytics, Media Analytics, Custom Reports).
-4. **Custo de operação recai integralmente sobre o Estado** — não há suporte incluído na versão On-Premise gratuita.
+4. **Sem suporte contratual incluído** na versão On-Premise gratuita — a operação recai sobre a STI da SETDIG, absorvida pelo contrato de gerenciamento de infraestrutura em vigor (P1/P2/R4). O custo marginal é modesto (~R$ 75 k em 5 anos, ~0,1 FTE incremental), mas o **conhecimento** operacional passa a ser ativo do Estado.
 
 ---
 
