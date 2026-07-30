@@ -216,6 +216,7 @@ flowchart TB
 | [Infraestrutura](comparativos/infraestrutura.md) | Stack, banco, containers, Kubernetes, HA, DR |
 | [Escalabilidade](comparativos/escalabilidade.md) | Limites conhecidos, estratégias de escala, benchmarks |
 | [Governança](comparativos/governanca.md) | Lock-in, portabilidade, transparência, auditoria, soberania |
+| [Matomo × PostHog (bilateral)](comparativos/matomo-vs-posthog.md) | Duelo direto entre os dois candidatos auto-hospedados de maior pontuação |
 
 ### 📁 `anexos/`
 
