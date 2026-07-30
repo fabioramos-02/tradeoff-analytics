@@ -127,19 +127,19 @@ Foram avaliadas **13 alternativas** (10 plataformas obrigatórias + 3 modalidade
 
 | # | Alternativa | Pontuação | Situação |
 |---|------------|----------:|----------|
-| **A1** | **Matomo On-Premise** | **505/600 (84,2 %)** | ✅ **Selecionada** |
-| **A2** | Plausible Community Edition | 470/600 (78,3 %) | 🟡 Selecionada como complemento |
+| **A1** | **Matomo On-Premise** | **520/600 (86,7 %)** | ✅ **Selecionada** |
+| **A2** | Plausible Community Edition | 485/600 (80,8 %) | 🟡 Selecionada como complemento |
 | **A3** | Piwik PRO (Private Cloud / On-Premises) | 465/600 (77,5 %) | 🟡 Contingência formal |
 | **A4** | Matomo Cloud | 465/600 (77,5 %) | 🟡 Contingência formal |
-| **A5** | Umami | 445/600 (74,2 %) | ❌ Não selecionada |
-| **A6** | PostHog auto-hospedado | 440/600 (73,3 %) | ❌ Não selecionada |
+| **A5** | PostHog auto-hospedado | 455/600 (75,8 %) | ❌ Não selecionada |
+| **A6** | Umami | 445/600 (74,2 %) | ❌ Não selecionada |
 | **A7** | PostHog Cloud EU | 425/600 (70,8 %) | ❌ Não selecionada |
 | **A8** | Google Analytics 4 | 410/600 (68,3 %) | ❌ Não selecionada |
 | **A9** | Adobe Analytics | 405/600 (67,5 %) | ❌ Não selecionada |
 | **A10** | Microsoft Clarity | 355/600 (59,2 %) | ⚠️ Complemento condicionado |
 | **A11** | Simple Analytics | 355/600 (59,2 %) | ❌ Não selecionada |
 | **A12** | Cloudflare Web Analytics | 345/600 (57,5 %) | ⚠️ Complemento opcional |
-| **A13** | Open Web Analytics | 300/600 (50,0 %) | ❌ **Eliminada por segurança** |
+| **A13** | Open Web Analytics | 330/600 (55,0 %) | ❌ **Eliminada por segurança** |
 
 ### 4.2 Motivo de descarte de cada alternativa não selecionada
 
@@ -149,7 +149,7 @@ Foram avaliadas **13 alternativas** (10 plataformas obrigatórias + 3 modalidade
 | **A6 — PostHog auto-hospedado** | Operação de 6 componentes de infraestrutura distribuída **sem suporte do fornecedor** (descontinuado em 2023) é incompatível com a restrição **R5**. Nota 1 em C10 (Operação). TCO 2,5× superior ao selecionado |
 | **A7 — PostHog Cloud EU** | **Dominado** pelo Matomo Cloud na análise de Pareto (superior em C01, C02, C03 e C04; inferior em nenhum). Custo por evento gera exposição orçamentária severa sob picos de 30× |
 | **A8 — Google Analytics 4** | Nota 1 em C02 (Controle) e 2 em C01 (LGPD). Transferência internacional para jurisdição sem decisão de adequação da ANPD; uso questionado por quatro autoridades europeias sob norma análoga; retenção máxima de 14 meses definida unilateralmente; **precedente concretizado de descontinuidade de versão com perda de histórico** (Universal Analytics, 2023) |
-| **A9 — Adobe Analytics** | TCO estimado entre R$ 4,5 M e R$ 7 M em 5 anos — 7× a 10× superior ao selecionado, para atender ao mesmo conjunto de requisitos prioritários. Desproporção incompatível com o princípio da economicidade (art. 5º da Lei 14.133/2021). Lock-in máximo do estudo |
+| **A9 — Adobe Analytics** | TCO estimado entre R$ 4,5 M e R$ 7 M em 5 anos — 19× a 30× superior ao selecionado em regime marginal (~R$ 235 k), para atender ao mesmo conjunto de requisitos prioritários. Desproporção incompatível com o princípio da economicidade (art. 5º da Lei 14.133/2021). Lock-in máximo do estudo |
 | **A11 — Simple Analytics** | **Dominado** pelo Plausible CE em 8 critérios. Não agrega capacidade sobre a alternativa complementar já selecionada, com custo recorrente adicional |
 | **A13 — Open Web Analytics** | **Eliminado na triagem (critério E6)**: CVE-2022-24637 (execução remota de código) e cadência de correções incompatível com o cenário QA-05. **Dominado estritamente** pelo Matomo On-Premise — superior em 9 critérios, inferior em nenhum |
 
@@ -270,13 +270,13 @@ A justificativa é integralmente derivada de evidência documentada neste reposi
 
 ### J1 — Resultado quantitativo da avaliação multicritério
 
-O Matomo On-Premise obteve **505 de 600 pontos (84,2 %)**, único resultado na faixa "Recomendada" (≥ 80 %), com vantagem de 35 pontos sobre o segundo colocado e 95 pontos sobre o GA4.
+O Matomo On-Premise obteve **520 de 600 pontos (86,7 %)** na faixa "Recomendada" (≥ 80 %), com vantagem de 35 pontos sobre o 2º colocado (Plausible CE, 485/600 = 80,8 %, também na faixa "Recomendada") e 110 pontos sobre o GA4.
 
 **Evidência:** [`07-matriz-decisao.md`, seções 2 e 3](07-matriz-decisao.md#2-matriz-consolidada).
 
 ### J2 — Robustez à variação de pesos
 
-Lidera em 3 dos 5 cenários de ponderação testados, com margens de 25 a 35 pontos nesses cenários. Nos dois cenários em que não lidera, é superado por 10 pontos (1,7 %, dentro da incerteza da escala) e por **outra modalidade do mesmo produto**.
+Sob regime de custo marginal SETDIG (fundamento em P1/P2/R4), lidera exclusivamente em 3 cenários + empate técnico em 1 cenário = **4 de 5 cenários** — critério formal de robustez **atingido**. Único cenário sem liderança ("Operação enxuta") é vencido pelo próprio Matomo em outra modalidade (Cloud).
 
 **Evidência:** [`07-matriz-decisao.md`, seção 5](07-matriz-decisao.md#5-análise-de-sensibilidade).
 
@@ -312,7 +312,7 @@ As alternativas soberanas de melhor TCO (Plausible: nota 3; Umami: nota 2) **fal
 
 ### J7 — Economicidade demonstrada
 
-TCO estimado de **~R$ 660 mil em 5 anos**, contra ~R$ 1,32 M (Piwik PRO), ~R$ 1,68 M (PostHog auto-hospedado) e R$ 4,5 M a R$ 7 M (Adobe Analytics), para atender ao mesmo conjunto de requisitos prioritários.
+TCO estimado em regime marginal SETDIG (fundamento em P1/P2/R4): **~R$ 235 mil em 5 anos** (Matomo OP + plugins essenciais), contra ~R$ 1,32 M (Piwik PRO), ~R$ 955 k (PostHog auto-hospedado) e R$ 4,44 M+ (Adobe Analytics), para atender ao mesmo conjunto de requisitos prioritários.
 
 O custo é **insensível a volume**: um pico de 30× de tráfego não gera aumento de custo de licença, ao contrário de todas as alternativas SaaS por evento ou por page view.
 
@@ -399,9 +399,9 @@ Esse atributo é estruturalmente indisponível em qualquer alternativa propriet�
 > Uma preocupação metodológica legítima é que um estudo que conclui pela manutenção do que já existe possa ter sido conduzido para justificar a decisão pré-existente.
 >
 > Três elementos objetivos afastam essa leitura:
-> 1. **O Matomo foi avaliado sem peso de status quo.** Nenhum critério da matriz atribui valor à plataforma já estar em uso. A pontuação de 505 decorre exclusivamente de atributos do produto.
+> 1. **O Matomo foi avaliado sem peso de status quo.** Nenhum critério da matriz atribui valor à plataforma já estar em uso. A pontuação de 520 decorre exclusivamente de atributos do produto.
 > 2. **O estudo não confirma a operação vigente — ele a reprova.** Sete lacunas técnicas foram identificadas, e a decisão é **condicionada** à correção de todas elas. Manter o Matomo como está **não é a decisão tomada**.
-> 3. **A robustez foi declarada como parcial, não como total.** O estudo registra explicitamente que a liderança se inverte em dois cenários de ponderação e formaliza alternativas de contingência. Um estudo orientado a justificar a decisão prévia não registraria essas inversões.
+> 3. **A robustez foi declarada em regime de custo marginal com transparência sobre a modalidade.** O estudo registra explicitamente o empate no cenário "Capacidade analítica" (Piwik PRO) e a inversão no cenário "Operação enxuta" (Matomo Cloud, mesmo produto). Alternativas de contingência estão formalmente registradas.
 
 ---
 

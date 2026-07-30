@@ -526,14 +526,16 @@ gantt
 | Custo recorrente — anos 2 a 5 (3,5 anos × R$ 116 k) | R$ 406.000 |
 | **TCO total em 5 anos** | **R$ 1.061.000** |
 
-> **📌 Observação — Divergência em relação ao TCO da matriz**
-> O TCO estimado em [`05-comparativo-detalhado.md`](05-comparativo-detalhado.md#13-custos) para o Matomo On-Premise é de ~R$ 660 k. O valor acima é de ~R$ 1,06 M. A diferença de ~R$ 400 k é explicável e não invalida a comparação:
+> **📌 Observação — Reconciliação com o TCO da matriz (regime marginal)**
+> O TCO estimado em [`05-comparativo-detalhado.md`](05-comparativo-detalhado.md#13-custos) para o Matomo On-Premise é de **~R$ 235 k em regime marginal SETDIG** (fundamento em P1/P2/R4). O valor acima é de ~R$ 1,06 M — projeto de adequação institucional completo.
 >
-> 1. **A matriz comparou plataformas em condição de igualdade** — o custo de estabelecer arquitetura, conformidade e integração com BI seria incorrido em **qualquer** plataforma auto-hospedado escolhida.
-> 2. **Este roadmap inclui custos de adequação institucional** (RIPD, capacitação, teste de intrusão, painel de BI) que não são custos da plataforma, e sim da maturidade que o Estado está adquirindo.
-> 3. **Aplicando a mesma base de cálculo às alternativas**, a ordem relativa se mantém: as demais plataformas auto-hospedado incorreriam nos mesmos custos institucionais, e as SaaS os incorreriam parcialmente, acrescidos de licença.
+> A diferença de ~R$ 825 k reflete o **escopo distinto** dos dois números:
 >
-> A comparação da matriz permanece válida; este orçamento é o custo real de execução, não a base comparativa.
+> 1. **TCO da matriz (R$ 235 k)** — custo marginal *da plataforma* sobre o baseline SETDIG. Comparável entre alternativas em pé de igualdade.
+> 2. **Orçamento do roadmap (R$ 1,06 M)** — custo *do projeto de adequação institucional completo* (RIPD, capacitação, teste de intrusão, painel de BI). Estes custos existiriam com qualquer plataforma auto-hospedada e representam a maturidade que o Estado adquire.
+> 3. **Aplicando a mesma base às alternativas**, a ordem relativa se mantém: auto-hospedadas incorreriam nos mesmos custos institucionais; SaaS os incorreriam parcialmente, acrescidos de licença.
+>
+> A comparação da matriz permanece válida; este orçamento é o custo real de execução do projeto, não a base comparativa.
 
 ---
 

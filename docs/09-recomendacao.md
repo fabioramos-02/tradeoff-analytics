@@ -235,9 +235,9 @@ Acrescente-se: retenção máxima de 14 meses definida unilateralmente pelo forn
 
 ### 4.4 Por que não o Adobe Analytics
 
-**Fundamento único e suficiente:** TCO estimado entre R$ 4,5 M e R$ 7 M em 5 anos, contra ~R$ 660 k da solução recomendada, para atender ao mesmo conjunto de requisitos prioritários.
+**Fundamento único e suficiente:** TCO estimado em R$ 4,44 M+ em 5 anos, contra ~R$ 235 k marginais da solução recomendada, para atender ao mesmo conjunto de requisitos prioritários.
 
-Uma diferença de 7× a 10× no custo para mensurar portais institucionais estaduais é de difícil sustentação perante os princípios da economicidade (CF/88, art. 70) e da eficiência (CF/88, art. 37), bem como do art. 5º da Lei nº 14.133/2021.
+Uma diferença de aproximadamente 19× no custo para mensurar portais institucionais estaduais é de difícil sustentação perante os princípios da economicidade (CF/88, art. 70) e da eficiência (CF/88, art. 37), bem como do art. 5º da Lei nº 14.133/2021.
 
 Acrescente-se o lock-in máximo do estudo (nota 1 em C04) e o custo de saída estimado em R$ 600 k+.
 

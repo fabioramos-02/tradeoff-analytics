@@ -360,19 +360,20 @@ Metodologia e cenários: [`../anexos/benchmark.md`](../anexos/benchmark.md).
 
 ---
 
-## 13. Custos --- Não valido Revisar
+## 13. Custos (regime de custo marginal SETDIG)
 
-Valores em BRL, cenário de referência (12 M page views/mês, 80 propriedades), horizonte de 5 anos. Modelagem completa e premissas em [`../comparativos/custo.md`](../comparativos/custo.md).
+Valores em BRL, cenário de referência (12 M page views/mês, 80 propriedades), horizonte de 5 anos, **regime marginal** (fundamento em P1/P2/R4 — ver [`03-criterios-de-avaliacao.md §5.C03`](03-criterios-de-avaliacao.md#c03--tco-peso-15)). Modelagem completa em [`../comparativos/custo.md`](../comparativos/custo.md).
 
 | Componente de custo | MAT | MTC | GA4 | PLA | UMA | OWA | ADB | SIM | CLA | CFA | PHS | PWP |
 |--------------------|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|
-| **Licença / assinatura (5 anos)** | ~R$ 60 k¹ | ~R$ 480 k | R$ 0² | R$ 0 | R$ 0 | R$ 0 | ~R$ 3–6 M³ | ~R$ 180 k | R$ 0 | R$ 0 | R$ 0 | ~R$ 900 k³ |
-| **Infraestrutura (5 anos)** | ~R$ 220 k | R$ 0 | R$ 0 | ~R$ 180 k | ~R$ 120 k | ~R$ 180 k | R$ 0 | R$ 0 | R$ 0 | R$ 0 | ~R$ 600 k | R$ 0 |
-| **Implantação (único)** | ~R$ 60 k | ~R$ 15 k | ~R$ 30 k | ~R$ 50 k | ~R$ 30 k | ~R$ 50 k | ~R$ 400 k | ~R$ 15 k | ~R$ 8 k | ~R$ 4 k | ~R$ 150 k | ~R$ 120 k |
-| **Operação e equipe (5 anos)** | ~R$ 300 k | ~R$ 100 k | ~R$ 150 k | ~R$ 200 k | ~R$ 150 k | ~R$ 400 k | ~R$ 500 k | ~R$ 80 k | ~R$ 40 k | ~R$ 20 k | ~R$ 900 k | ~R$ 150 k |
-| **Custo estimado de saída** | ~R$ 20 k | ~R$ 40 k | ~R$ 200 k | ~R$ 20 k | ~R$ 20 k | ~R$ 20 k | ~R$ 600 k | ~R$ 40 k | Perda total | ~R$ 30 k | ~R$ 30 k | ~R$ 150 k |
-| **TCO 5 anos (aprox.)** | **~R$ 660 k** | **~R$ 635 k** | **~R$ 380 k** | **~R$ 450 k** | **~R$ 320 k** | **~R$ 650 k** | **~R$ 4,5–7 M** | **~R$ 315 k** | **~R$ 48 k** | **~R$ 24 k** | **~R$ 1,68 M** | **~R$ 1,32 M** |
-| **Nota C03 (TCO)** | **4** | **3** | **4** | **4** | **5** | **3** | **1** | **3** | **5** | **5** | **2** | **2** |
+| **Licença / assinatura (5 anos)** | ~R$ 60 k¹ | ~R$ 240 k | R$ 0² | R$ 0 | R$ 0 | R$ 0 | ~R$ 4 M+³ | ~R$ 16 k | R$ 0 | R$ 0 | ~R$ 300 k | ~R$ 900 k³ |
+| **Infra marginal (5 anos)** | ~R$ 30 k | R$ 0 | R$ 0 | ~R$ 20 k | ~R$ 15 k | ~R$ 20 k | R$ 0 | R$ 0 | R$ 0 | R$ 0 | ~R$ 300 k | R$ 0 |
+| **Implantação (snippet ~200 portais)** | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 10 k | ~R$ 5 k | ~R$ 15 k | ~R$ 30 k |
+| **Equipe marginal (5 anos)** | ~R$ 75 k | ~R$ 45 k | ~R$ 60 k | ~R$ 60 k | ~R$ 45 k | ~R$ 90 k | ~R$ 240 k | ~R$ 12 k | ~R$ 15 k | ~R$ 6 k | ~R$ 240 k | ~R$ 150 k |
+| **Adequação LGPD + Riscos** | ~R$ 60 k | ~R$ 70 k | ~R$ 150 k | ~R$ 30 k | ~R$ 30 k | ~R$ 45 k | ~R$ 190 k | ~R$ 14 k | ~R$ 42 k | ~R$ 12 k | ~R$ 100 k | ~R$ 240 k |
+| **TCO 5 anos marginal (aprox.)** | **~R$ 235 k** | **~R$ 365 k** | **~R$ 220 k** | **~R$ 120 k** | **~R$ 100 k** | **~R$ 165 k** | **~R$ 4,44 M+** | **~R$ 52 k** | **~R$ 67 k** | **~R$ 23 k** | **~R$ 955 k** | **~R$ 1,32 M** |
+| **TCO 5 anos pleno (referência)** | ~R$ 700 k | ~R$ 365 k | ~R$ 220 k | ~R$ 415 k | ~R$ 285 k | ~R$ 675 k | ~R$ 4,44 M+ | ~R$ 52 k | ~R$ 67 k | ~R$ 23 k | ~R$ 1,6 M | ~R$ 1,32 M |
+| **Nota C03 (TCO — marginal)** | **5** | **3** | **4** | **5** | **5** | **5** | **1** | **3** | **5** | **5** | **3** | **2** |
 
 **Notas de rodapé:**
 1. Matomo On-Premise: licença do core é gratuita (GPL v3). O valor refere-se a plugins premium (Heatmaps & Session Recording, Funnels, Form Analytics, Custom Reports, Roll-Up Reporting) em licença perpétua com atualizações anuais.

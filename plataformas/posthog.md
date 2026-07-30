@@ -444,7 +444,7 @@ Regime de custo marginal SETDIG. Detalhamento em [`../comparativos/custo.md §1.
 
 ## 17. Notas do avaliador
 
-PostHog é tecnicamente excelente para o problema que se propõe a resolver — *product analytics* de SaaS moderno. **Não** é o problema central da SETDIG. A pontuação de 440/600 (OSS) é a mais alta entre plataformas que **não foram selecionadas**, e reflete o fato de que a plataforma **compete tecnicamente** com o Matomo em cobertura funcional.
+PostHog é tecnicamente excelente para o problema que se propõe a resolver — *product analytics* de SaaS moderno. **Não** é o problema central da SETDIG. A pontuação de 455/600 (OSS) é a mais alta entre plataformas que **não foram selecionadas**, e reflete o fato de que a plataforma **compete tecnicamente** com o Matomo em cobertura funcional.
 
 A decisão de **não recomendar** o PostHog está apoiada em três razões objetivas:
 

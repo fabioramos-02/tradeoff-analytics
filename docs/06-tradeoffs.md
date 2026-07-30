@@ -669,7 +669,7 @@ flowchart TD
 > O PostHog auto-hospedado tem a melhor cobertura funcional entre as opções de licença livre. Perde na matriz por dois motivos objetivos:
 >
 > 1. **C10 — Operação: nota 1.** Operar 6 componentes de infraestrutura distribuída sem suporte do fornecedor é incompatível com a restrição R5 ([01, seção 8](01-contexto.md#8-restrições)): não haverá ampliação do quadro da STI.
-> 2. **C03 — TCO: nota 2.** O custo de infraestrutura e de operação estimado (~R$ 1,68 M em 5 anos) supera em 2,5× o do Matomo On-Premise, para atender ao mesmo conjunto de requisitos prioritários.
+> 2. **C03 — TCO: nota 3.** O custo em regime marginal (~R$ 955 k em 5 anos) supera em ~4× o do Matomo On-Premise (~R$ 235 k marginal), para atender ao mesmo conjunto de requisitos prioritários. O abatimento é parcial porque Kafka + ClickHouse dedicado + MinIO estão fora do padrão SETDIG.
 >
 > Se a premissa **P2** fosse diferente — isto é, se o Estado dispusesse de equipe de engenharia de plataforma dedicada —, o PostHog seria um candidato substancialmente mais competitivo.
 
