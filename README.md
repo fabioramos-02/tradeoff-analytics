@@ -217,6 +217,7 @@ flowchart TB
 | [Escalabilidade](comparativos/escalabilidade.md) | Limites conhecidos, estratégias de escala, benchmarks |
 | [Governança](comparativos/governanca.md) | Lock-in, portabilidade, transparência, auditoria, soberania |
 | [Matomo × PostHog (bilateral)](comparativos/matomo-vs-posthog.md) | Duelo direto entre os dois candidatos auto-hospedados de maior pontuação |
+| [Migração Matomo → PostHog](comparativos/migracao-matomo-posthog.md) | Custo, risco e perda de série histórica em cenário hipotético de troca após implantação em curso |
 
 ### 📁 `anexos/`
 
