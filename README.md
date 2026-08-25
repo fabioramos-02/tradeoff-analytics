@@ -2,8 +2,8 @@
 
 > **Documento de Arquitetura de Soluções**
 > **Órgão:** Secretaria-Executiva de Transformação Digital — SETDIG (SEGOV/MS)
-> **Versão:** 1.0
-> **Data-base das informações:** julho/2026
+> **Versão:** 2.0 (revisão 2026 — ADR-002 supersedes ADR-001)
+> **Data-base das informações:** agosto/2026
 > **Classificação:** Público / Interno — documento técnico de apoio à decisão
 > **Status:** Proposto (aguardando homologação do Comitê de Arquitetura)
 
@@ -68,37 +68,52 @@ Este repositório supre essa lacuna. Ele produz o **artefato arquitetural formal
 
 ## 3. Resumo executivo
 
-### 3.1 Resultado da matriz de decisão
+### 3.1 Resultado da matriz de decisão (revisão 2026)
 
-| # | Plataforma | Modalidade | Pontuação ponderada | % do máximo |
-|---|-----------|-----------|--------------------:|------------:|
-| 🥇 1 | **Matomo** | On-Premise (auto-hospedado) | **520 / 600** | **86,7%** |
-| 🥈 2 | Plausible | Community Edition (auto-hospedado) | 485 / 600 | 80,8% |
-| 🥉 3 | Matomo | Cloud (SaaS, hospedagem UE) | 465 / 600 | 77,5% |
-| 3 | Piwik PRO | Private Cloud / On-Premise | 465 / 600 | 77,5% |
-| 5 | PostHog | Auto-hospedado (Open Source Edition) | 455 / 600 | 75,8% |
-| 6 | Umami | Auto-hospedado | 445 / 600 | 74,2% |
-| 7 | PostHog | Cloud EU | 425 / 600 | 70,8% |
-| 8 | Google Analytics 4 | SaaS (tier gratuito) | 410 / 600 | 68,3% |
-| 9 | Adobe Analytics | SaaS enterprise | 405 / 600 | 67,5% |
-| 10 | Microsoft Clarity | SaaS gratuito | 355 / 600 | 59,2% |
-| 10 | Simple Analytics | SaaS (hospedagem UE) | 355 / 600 | 59,2% |
-| 12 | Cloudflare Web Analytics | SaaS gratuito | 345 / 600 | 57,5% |
-| 13 | Open Web Analytics | Auto-hospedado | 330 / 600 | 55,0% |
+> **📌 Nota metodológica**
+> Os totais abaixo refletem os **pesos revisados** aprovados no [ADR-002](docs/08-adr-002.md): C03 (TCO) rebaixado a peso 0 (informativo) e 15 pontos redistribuídos entre C05, C06, C08, C09, C10 e C11. As notas permanecem inalteradas — só o peso mudou. A coluna "ADR-001" preserva o total anterior para rastreabilidade.
+
+| # | Plataforma | Modalidade | Pontuação revisada | % | *ADR-001* |
+|---|-----------|-----------|-------------------:|--:|:---------:|
+| 🥇 1 | **Matomo** | On-Premise (auto-hospedado) | **500 / 600** | **83,3 %** | *520 / 86,7 %* |
+| 🥈 2 | Piwik PRO | Private Cloud / On-Premise | 499 / 600 | 83,2 % | *465 / 77,5 %* |
+| 🥉 3 | Matomo | Cloud (SaaS, hospedagem UE) | 485 / 600 | 80,8 % | *465 / 77,5 %* |
+| 4 | PostHog | Auto-hospedado (Open Source Edition) | 464 / 600 | 77,3 % | *455 / 75,8 %* |
+| 5 | Plausible | Community Edition (auto-hospedado) | 460 / 600 | 76,7 % | *485 / 80,8 %* |
+| 6 | Adobe Analytics | SaaS enterprise | 459 / 600 | 76,5 % | *405 / 67,5 %* |
+| 7 | PostHog | Cloud EU | 448 / 600 | 74,7 % | *425 / 70,8 %* |
+| 8 | Google Analytics 4 | SaaS (tier gratuito) | 417 / 600 | 69,5 % | *410 / 68,3 %* |
+| 9 | Umami | Auto-hospedado | 414 / 600 | 69,0 % | *445 / 74,2 %* |
+| 10 | Simple Analytics | SaaS (hospedagem UE) | 359 / 600 | 59,8 % | *355 / 59,2 %* |
+| 11 | Microsoft Clarity | SaaS gratuito | 334 / 600 | 55,7 % | *355 / 59,2 %* |
+| 12 | Cloudflare Web Analytics | SaaS gratuito | 319 / 600 | 53,2 % | *345 / 57,5 %* |
+| 13 | Open Web Analytics | Auto-hospedado | 278 / 600 | 46,3 % | *330 / 55,0 %* |
 
 Memória de cálculo completa e justificativa nota a nota: [`docs/07-matriz-decisao.md`](docs/07-matriz-decisao.md).
 
-### 3.2 Decisão recomendada
+### 3.2 Decisão recomendada (ADR-002 supersedes ADR-001)
 
-> **✅ Bloco de Decisão — ADR-001**
+> **✅ Bloco de Decisão — ADR-002 (revisão 2026)**
 >
-> **Manter o Matomo On-Premise como plataforma padrão de Web Analytics do Governo do Estado de MS**, condicionado à execução de um plano de adequação arquitetural (arquitetura de referência, ingestão assíncrona, política de retenção, alta disponibilidade e camada de integração com BI).
+> **Parque existente (EDS + sites gov MS):** manter **Matomo On-Premise** como plataforma padrão única. Continua atendendo aos requisitos de portais institucionais e de conteúdo.
 >
-> **Complemento aprovado:** adoção de **Plausible Community Edition** como camada leve e opcional para portais de conteúdo de alto volume e baixa criticidade analítica, quando o requisito for exclusivamente métrica agregada com custo operacional mínimo.
+> **Novo portal Xvia (superapp cidadão):** adotar **Matomo On-Premise + PostHog auto-hospedado em paralelo** como camada complementar de product analytics. Matomo mantém web analytics tradicional (audiência, campanhas, conformidade); PostHog agrega jornada identificada, feature flags, experimentação e session replay consentido. O overhead do 2º script no navegador (~+55 KB gzip, +50–200 ms LCP) é aceito conscientemente em troca do ganho funcional para produto digital transacional de alta complexidade.
 >
-> **Complemento condicionado:** **Microsoft Clarity** pode ser usado apenas de forma temporária e circunscrita, em portais sem tratamento de dado pessoal sensível, e preferencialmente substituído pelo plugin *Heatmaps & Session Recording* do próprio Matomo, eliminando transferência internacional de dados.
+> **Complemento aprovado:** **Plausible Community Edition** permanece opcional em portais de conteúdo de altíssimo volume e baixa criticidade analítica.
 >
-> Detalhamento: [`docs/08-adr.md`](docs/08-adr.md) e [`docs/09-recomendacao.md`](docs/09-recomendacao.md).
+> **Contingências formais:** Piwik PRO (agora #2 no ranking revisado, 499 pts) e Matomo Cloud (#3, 485 pts) — ambos na faixa "Recomendada" — permanecem como alternativas caso a premissa P2 (capacidade técnica interna) seja invalidada.
+>
+> **Detalhamento:** [`docs/08-adr-002.md`](docs/08-adr-002.md) (vigente) · [`docs/08-adr.md`](docs/08-adr.md) (ADR-001 depreciado, preservado como histórico) · [`docs/09-recomendacao.md`](docs/09-recomendacao.md).
+
+### 3.2.1 O que mudou entre ADR-001 e ADR-002
+
+| Dimensão | ADR-001 (2026-07) | ADR-002 (2026-08) |
+|----------|-------------------|-------------------|
+| Peso C03 (TCO) | 15 (12,5 %) | 0 (informativo) |
+| Recomendação do parque | Matomo OP + Plausible CE | Matomo OP (Plausible CE opcional) |
+| Recomendação Xvia | Cenário C ("requer justificativa") | **Matomo OP + PostHog auto-hospedado** |
+| Cenário "Econômico" na sensibilidade | Ativo | Substituído por "Custo pleno (referência histórica)" |
+| Contingência #1 | Matomo Cloud | Piwik PRO (novo #2 no ranking) |
 
 ### 3.3 Fundamentos técnicos objetivos da decisão
 
@@ -110,7 +125,7 @@ Memória de cálculo completa e justificativa nota a nota: [`docs/07-matriz-deci
 | Precedente institucional | **Europa Analytics**, o serviço de analytics da Comissão Europeia, opera sobre Matomo |
 | Cobertura funcional | Único candidato auto-hospedado que cobre simultaneamente: funis, heatmaps, session recording, form analytics, A/B testing, dimensões customizadas e Tag Manager nativo |
 | Integração com BI | API de relatórios em HTTP/JSON/CSV/XML + acesso direto ao banco para conectores nativos de Power BI, Superset, Metabase e Grafana |
-| TCO em 5 anos | Menor TCO entre plataformas com cobertura funcional equivalente — ver [`comparativos/custo.md`](comparativos/custo.md) |
+| Continuidade do parque em produção | Matomo já opera em EDS e sites gov MS — trocar plataforma padrão seria mudança de baixa razão custo/benefício; a revisão 2026 confirma essa continuidade |
 
 ### 3.4 Fragilidades reconhecidas do Matomo
 
@@ -184,8 +199,9 @@ flowchart TB
 | [04 — Panorama de mercado](docs/04-mercado.md) | Segmentação do mercado, ciclo de vida, players, tendências, plataformas descartadas |
 | [05 — Comparativo detalhado](docs/05-comparativo-detalhado.md) | Tabela mestra comparando as 10+6 plataformas em ~90 dimensões |
 | [06 — Trade-offs](docs/06-tradeoffs.md) | Ganhos, perdas, custos ocultos, riscos, dependências, curva de aprendizado |
-| [07 — Matriz de decisão](docs/07-matriz-decisao.md) | Matriz ponderada com justificativa nota a nota e análise de sensibilidade |
-| [08 — ADR](docs/08-adr.md) | Architecture Decision Record formal (ADR-001) |
+| [07 — Matriz de decisão](docs/07-matriz-decisao.md) | Matriz ponderada com justificativa nota a nota e análise de sensibilidade (**pesos revisados 2026**) |
+| [08 — ADR-001](docs/08-adr.md) | Architecture Decision Record original — 🔴 **Depreciado**, substituído por ADR-002 |
+| [08 — ADR-002](docs/08-adr-002.md) | ADR vigente — Matomo padrão do parque + PostHog complementar no Xvia |
 | [09 — Recomendação](docs/09-recomendacao.md) | Recomendação fundamentada com arquitetura-alvo |
 | [10 — Roadmap](docs/10-roadmap.md) | Plano de implementação em ondas, marcos e critérios de aceite |
 | [11 — Riscos](docs/11-riscos.md) | Registro de riscos com probabilidade, impacto, resposta e responsável |
@@ -216,8 +232,9 @@ flowchart TB
 | [Infraestrutura](comparativos/infraestrutura.md) | Stack, banco, containers, Kubernetes, HA, DR |
 | [Escalabilidade](comparativos/escalabilidade.md) | Limites conhecidos, estratégias de escala, benchmarks |
 | [Governança](comparativos/governanca.md) | Lock-in, portabilidade, transparência, auditoria, soberania |
-| [Matomo × PostHog (bilateral)](comparativos/matomo-vs-posthog.md) | Duelo direto entre os dois candidatos auto-hospedados de maior pontuação |
-| [Migração Matomo → PostHog](comparativos/migracao-matomo-posthog.md) | Custo, risco e perda de série histórica em cenário hipotético de troca após implantação em curso |
+| [Matomo × PostHog (complementaridade)](comparativos/matomo-vs-posthog.md) | Papéis complementares — web analytics tradicional (Matomo) × product analytics (PostHog) |
+| [Coexistência Matomo + PostHog no Xvia](comparativos/coexistencia-matomo-posthog.md) | Modelo de instrumentação paralela, segmentação de eventos, política de retenção coordenada |
+| [Custo (informativo)](comparativos/custo.md) | Preservado como referência de dimensionamento e prestação de contas — não é mais critério de decisão (ADR-002) |
 
 ### 📁 `anexos/`
 
@@ -240,12 +257,13 @@ analytics-platform-study/
 ├── docs/
 │   ├── 01-contexto.md
 │   ├── 02-requisitos.md
-│   ├── 03-criterios-de-avaliacao.md
+│   ├── 03-criterios-de-avaliacao.md    # pesos revisados 2026
 │   ├── 04-mercado.md
 │   ├── 05-comparativo-detalhado.md
 │   ├── 06-tradeoffs.md
-│   ├── 07-matriz-decisao.md
-│   ├── 08-adr.md
+│   ├── 07-matriz-decisao.md            # ranking revisado 2026
+│   ├── 08-adr.md                       # ADR-001 (depreciado)
+│   ├── 08-adr-002.md                   # ADR-002 (vigente)
 │   ├── 09-recomendacao.md
 │   ├── 10-roadmap.md
 │   ├── 11-riscos.md
@@ -264,14 +282,14 @@ analytics-platform-study/
 │   └── posthog.md
 │
 ├── comparativos/
-│   ├── custo.md
+│   ├── custo.md                        # (informativo — não decisor a partir do ADR-002)
 │   ├── lgpd.md
 │   ├── api.md
 │   ├── infraestrutura.md
 │   ├── escalabilidade.md
 │   ├── governanca.md
-│   ├── matomo-vs-posthog.md
-│   └── migracao-matomo-posthog.md
+│   ├── matomo-vs-posthog.md            # complementaridade
+│   └── coexistencia-matomo-posthog.md  # (renomeado de migracao-matomo-posthog.md)
 │
 └── anexos/
     ├── matriz.md

@@ -2,6 +2,9 @@
 
 > **Anterior:** [09 — Recomendação](09-recomendacao.md) · **Próximo:** [11 — Riscos](11-riscos.md)
 
+> **📌 Nota metodológica — Revisão 2026 (ADR-002)**
+> O roadmap original (Ondas 0–4) permanece **inteiramente válido** para o parque existente. A revisão adiciona a **Onda 5 — Portal Xvia (PostHog complementar)** (§7bis), com gate de reavaliação em 12 meses. A remoção do peso de custo (C03=0) elimina o orçamento como driver de priorização entre ondas, mas o §9 mantém o orçamento previsto como referência de execução e de prestação de contas.
+
 ---
 
 ## Sumário
@@ -13,6 +16,7 @@
 - [5. Onda 2 — Resiliência e segurança](#5-onda-2--resiliência-e-segurança)
 - [6. Onda 3 — Capacidade analítica e integração com BI](#6-onda-3--capacidade-analítica-e-integração-com-bi)
 - [7. Onda 4 — Escala, padronização e governança](#7-onda-4--escala-padronização-e-governança)
+- [7bis. Onda 5 — Portal Xvia (PostHog complementar)](#7bis-onda-5--portal-xvia-posthog-complementar)
 - [8. Cronograma consolidado](#8-cronograma-consolidado)
 - [9. Orçamento por onda](#9-orçamento-por-onda)
 - [10. Equipe e papéis](#10-equipe-e-papéis)
@@ -422,6 +426,68 @@ timeline
 - [ ] Rotina de revisão de indicadores estabelecida
 - [ ] Documentação final e runbook v3
 - [ ] Registro de lições aprendidas
+
+---
+
+## 7bis. Onda 5 — Portal Xvia (PostHog complementar)
+
+**Período:** Mês 12 a 24 (paralela às Ondas 3 e 4) · **Objetivo:** implantar PostHog auto-hospedado como camada complementar de product analytics no portal Xvia, com gate de reavaliação em 12 meses de operação.
+
+**Escopo restrito:** aplica-se **exclusivamente ao portal Xvia**. Não altera o parque de sites gov MS (Ondas 0–4).
+
+### 7bis.1 Pré-requisitos
+
+| # | Pré-requisito | Origem |
+|---|---------------|--------|
+| PR-1 | ADR-002 homologado | [`08-adr-002.md §12`](08-adr-002.md#12-registro-de-aprovação) |
+| PR-2 | Instância Matomo do Xvia estável | Onda 3 do parque |
+| PR-3 | Encarregado de Dados aprova DPIA do session replay | Interno |
+| PR-4 | Reserva orçamentária para capacitação ClickHouse/Kafka + eventual suporte especializado | SETDIG |
+
+### 7bis.2 Atividades
+
+| # | Atividade | Responsável | Duração | Requisito |
+|---|-----------|------------|---------|-----------|
+| 5.1 | Elaborar DPIA específico do session replay PostHog | DPO + STI | 3 semanas | R-11 |
+| 5.2 | Dimensionar e provisionar stack PostHog auto-hospedado (Django + PostgreSQL + ClickHouse + Kafka + Redis + MinIO) em K8s | STI | 6 semanas | — |
+| 5.3 | Capacitação da STI em ClickHouse e Kafka (80–120 h) | STI + fornecedor de treinamento | 8 semanas (paralelas) | R-18 |
+| 5.4 | Definir e documentar segmentação de eventos "qual dado vai onde" (Matomo × PostHog) | Arquitetura + Xvia | 3 semanas | R-19 |
+| 5.5 | Instrumentar Xvia com ambos os SDKs (Matomo JS + PostHog JS), com mascaramento agressivo padrão | Time Xvia | 6 semanas | RNF-02 |
+| 5.6 | Configurar feature flags e experimentos no PostHog para ≥ 3 fluxos do Xvia | Time Xvia | 4 semanas | — |
+| 5.7 | Configurar funis identificados no PostHog para ≥ 5 serviços transacionais críticos | Time Xvia + SGD | 4 semanas | RN-02 |
+| 5.8 | Ativar session replay apenas em serviços de alta complexidade, com opt-in explícito | Time Xvia + DPO | 3 semanas | R-11 |
+| 5.9 | Configurar reconciliação mensal de métricas equivalentes (Matomo × PostHog) | SGD + BI | 3 semanas | R-19, G10 |
+| 5.10 | Configurar monitoramento contínuo de LCP com alerta em > 75 ms | STI | 2 semanas | G9, RNF-02 |
+| 5.11 | Runbook operacional específico do stack PostHog | STI | 3 semanas | R-18 |
+| 5.12 | **Gate de 12 meses** — apresentar ao Comitê os indicadores §11.3 do ADR-002; decidir continuidade, ajuste ou reversão | Arquitetura + Comitê | 4 semanas | G12 |
+
+### 7bis.3 Entregas da Onda 5
+
+- [ ] DPIA do session replay aprovado pelo DPO
+- [ ] Stack PostHog em produção sob custódia do Estado
+- [ ] Time da STI capacitado em ClickHouse e Kafka
+- [ ] Documento de segmentação Matomo × PostHog publicado
+- [ ] Xvia instrumentado com ambos os SDKs
+- [ ] ≥ 3 feature flags ativas
+- [ ] ≥ 5 funis identificados configurados
+- [ ] Session replay ativo apenas em serviços de alta complexidade, 100 % com consentimento explícito
+- [ ] Reconciliação mensal operante, com divergência ≤ 15 %
+- [ ] LCP do Xvia monitorado, com alerta ativo em > 75 ms
+- [ ] Runbook operacional publicado
+- [ ] Relatório do gate de 12 meses apresentado ao Comitê
+
+### 7bis.4 Critérios de sucesso (para o gate de 12 meses)
+
+Ativação do gate exige demonstrar **todos** os critérios abaixo:
+
+1. LCP do Xvia (p75, 3G) mantido ≤ 75 ms por pelo menos 10 dos 12 meses.
+2. ≥ 3 feature flags em uso produtivo (não apenas configuradas — usadas por ≥ 1 mês em produção).
+3. ≥ 5 funis identificados configurados e usados por SGD em relatórios executivos.
+4. Session replay usado em ≥ 1 serviço crítico com consentimento e sem incidente de captura acidental.
+5. Divergência Matomo × PostHog em métricas equivalentes ≤ 15 % por pelo menos 9 dos 12 meses.
+6. STI opera o stack de forma autônoma (ou com suporte especializado contratado formalmente).
+
+**Falha em qualquer critério aciona G12** ([`08-adr-002.md §11.2`](08-adr-002.md#112-gatilhos-de-revisão-antecipada)) — reavaliação em 60 dias, com cenários: (a) ajuste da configuração; (b) migração para PostHog Cloud EU; (c) reversão a Matomo puro no Xvia.
 
 ---
 

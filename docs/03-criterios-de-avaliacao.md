@@ -3,6 +3,9 @@
 > **Método:** Gartner Decision Framework + ATAM Utility Tree + MAUT
 > **Anterior:** [02 — Requisitos](02-requisitos.md) · **Próximo:** [04 — Panorama de mercado](04-mercado.md)
 
+> **📌 Nota metodológica — Revisão 2026**
+> Esta versão do documento reflete a **revisão dos pesos** consequente ao [ADR-002](08-adr-002.md). O critério **C03 (TCO)** passa a ter **peso 0** e função **informativa**, e os 15 pontos são redistribuídos entre C05, C06, C08, C09, C10 e C11. O racional é objetivo: sob premissas P1/P2/R4 ([`01-contexto.md §7–§8`](01-contexto.md#7-premissas)), a infraestrutura on-premise do Estado absorve o custo marginal de operação, retirando do TCO a função de direcionador de escolha. O comparativo de custo permanece publicado em [`../comparativos/custo.md`](../comparativos/custo.md) como referência de dimensionamento e de prestação de contas ao TCE-MS. A versão anterior dos pesos, aplicada no ADR-001, está preservada no histórico do arquivo.
+
 ---
 
 ## Sumário
@@ -193,17 +196,20 @@ Análise completa dos trade-offs por plataforma: [`06-tradeoffs.md`](06-tradeoff
 |---|----------|-----:|-----------:|--------------|----------|
 | C01 | **LGPD** | 15 | 12,5 % | D2 | Conformidade |
 | C02 | **Controle dos dados** | 15 | 12,5 % | D1 | Governança |
-| C03 | **TCO** | 15 | 12,5 % | D7 | Econômico |
+| C03 | **TCO** *(informativo, peso 0)* | 0 | 0,0 % | D7 | Econômico |
 | C04 | **Independência tecnológica** | 10 | 8,3 % | D3 | Governança |
-| C05 | **Recursos analíticos** | 10 | 8,3 % | D5 | Funcional |
-| C06 | **APIs** | 10 | 8,3 % | D6 | Técnico |
+| C05 | **Recursos analíticos** | 13 | 10,8 % | D5 | Funcional |
+| C06 | **APIs** | 13 | 10,8 % | D6 | Técnico |
 | C07 | **Integrações** | 10 | 8,3 % | D6 | Técnico |
-| C08 | **Escalabilidade** | 10 | 8,3 % | D8 | Técnico |
-| C09 | **Segurança** | 10 | 8,3 % | Transversal | Conformidade |
-| C10 | **Operação** | 5 | 4,2 % | D4 | Operacional |
-| C11 | **Comunidade** | 5 | 4,2 % | Transversal | Sustentabilidade |
+| C08 | **Escalabilidade** | 13 | 10,8 % | D8 | Técnico |
+| C09 | **Segurança** | 12 | 10,0 % | Transversal | Conformidade |
+| C10 | **Operação** | 7 | 5,8 % | D4 | Operacional |
+| C11 | **Comunidade** | 7 | 5,8 % | Transversal | Sustentabilidade |
 | C12 | **Documentação** | 5 | 4,2 % | Transversal | Sustentabilidade |
 | | **Total** | **120** | **100 %** | | |
+
+> **📌 Observação — Como ler esta tabela após a revisão 2026**
+> A soma de pesos permanece **120** (máximo teórico de 600 pontos), preservando comparabilidade histórica com o ADR-001. O peso do C03 (TCO) foi realocado da seguinte forma: **+3 em C05, C06 e C08** (fatores técnicos/funcionais que passam a dominar a escolha), **+2 em C09** (segurança concentra responsabilidade no Estado em ambiente on-premise), **+2 em C10** (complexidade operacional do 2º stack no Xvia aumenta o peso da rubrica) e **+2 em C11** (sustentabilidade do produto ganha relevância sem custo como filtro). C01, C02, C04, C07 e C12 mantêm os pesos originais. C03 permanece na tabela para preservar a rastreabilidade da revisão.
 
 ### 4.2 Distribuição por natureza
 
@@ -229,27 +235,34 @@ Análise completa dos trade-offs por plataforma: [`06-tradeoffs.md`](06-tradeoff
 }}%%
 
 pie showData
-    title Distribuição dos pesos por natureza do critério
-    "Conformidade (LGPD + Segurança)" : 25
+    title Distribuição dos pesos por natureza do critério (revisão 2026)
+    "Conformidade (LGPD + Segurança)" : 27
     "Governança (Controle + Independência)" : 25
-    "Técnico (APIs + Integrações + Escalabilidade)" : 30
-    "Econômico (TCO)" : 15
-    "Funcional (Recursos analíticos)" : 10
-    "Operacional (Operação)" : 5
-    "Sustentabilidade (Comunidade + Documentação)" : 10
+    "Técnico (APIs + Integrações + Escalabilidade)" : 36
+    "Funcional (Recursos analíticos)" : 13
+    "Operacional (Operação)" : 7
+    "Sustentabilidade (Comunidade + Documentação)" : 12
 ```
 
 ### 4.3 Justificativa da atribuição de pesos
 
-> **✅ Bloco de Decisão — Racional dos pesos**
+> **✅ Bloco de Decisão — Racional dos pesos (revisão 2026)**
 >
-> **Peso 15 (12,5 % cada) para LGPD, Controle dos dados e TCO.** Os três representam os riscos de maior severidade em contexto público: risco regulatório (sanção da ANPD de até R$ 50 milhões por infração, art. 52 da LGPD), risco de soberania (perda de controle sobre ativo público de dados) e risco econômico (comprometimento orçamentário plurianual, sujeito a fiscalização de órgão de controle). Nenhum outro critério tem consequência de severidade comparável.
+> **Peso 15 (12,5 % cada) para LGPD e Controle dos dados.** Continuam representando os riscos de maior severidade em contexto público: risco regulatório (sanção da ANPD de até R$ 50 milhões por infração, art. 52 da LGPD) e risco de soberania (perda de controle sobre ativo público de dados). Nenhum outro critério tem consequência de severidade comparável no eixo de conformidade e governança.
 >
-> **Peso 10 (8,3 % cada) para os critérios técnicos e de governança de segundo nível.** Independência tecnológica, Recursos analíticos, APIs, Integrações, Escalabilidade e Segurança determinam a viabilidade técnica e a longevidade da solução, mas são endereçáveis por arquitetura complementar (por exemplo: escalabilidade insuficiente pode ser mitigada com fila e réplicas; integrações ausentes podem ser construídas sobre a API).
+> **Peso 13 (10,8 % cada) para Recursos analíticos, APIs e Escalabilidade.** Elevados de 10 na revisão 2026. Sob premissa on-premise consolidada (P1/P2/R4), o valor real de uma plataforma passa a ser majoritariamente sua capacidade técnica e funcional — não o custo de licença. Escalabilidade sobe para acompanhar o novo vetor de crescimento (portal Xvia).
 >
-> **Peso 5 (4,2 % cada) para Operação, Comunidade e Documentação.** São critérios de custo de aprendizado e de sustentação, não de viabilidade. Uma documentação fraca aumenta o custo do projeto, mas não o inviabiliza; uma não conformidade com a LGPD, sim.
+> **Peso 12 para Segurança.** Elevado de 10. Em ambiente on-premise, a responsabilidade de segurança concentra-se no Estado e o produto tem papel maior na composição da postura defensiva.
 >
-> **Por que Segurança tem peso 10 e não 15.** Segurança em plataforma auto-hospedado é substancialmente determinada pela **arquitetura de implantação do Estado** (WAF, segmentação de rede, hardening, gestão de patches), e não apenas pelo produto. O critério pontua a contribuição do produto para a postura de segurança — que é relevante, mas não é a variável dominante. A ausência de gestão de vulnerabilidades ativa, por outro lado, é tratada na **triagem eliminatória (E6)**, onde tem peso absoluto.
+> **Peso 10 para Independência tecnológica e Integrações.** Mantidos. Determinam a longevidade da solução e a viabilidade da integração com o ecossistema do Estado.
+>
+> **Peso 7 para Operação e Comunidade.** Elevados de 5. Complexidade operacional cresce com a coexistência de duas plataformas (Matomo + PostHog) no Xvia e comunidade viva torna-se mais crítica na ausência de contrato comercial de suporte.
+>
+> **Peso 5 para Documentação.** Mantido. Custo de aprendizado — importante, não decisor.
+>
+> **Peso 0 para TCO.** Rebaixado de 15 na revisão 2026. Racional em nota de topo do documento e no [ADR-002](08-adr-002.md). Mantido na tabela por rastreabilidade e continua modelado em [`../comparativos/custo.md`](../comparativos/custo.md) para dimensionamento de infra e prestação de contas ao TCE-MS.
+>
+> **Por que Segurança tem peso 12 e não 15.** Segurança em plataforma auto-hospedada é substancialmente determinada pela **arquitetura de implantação do Estado** (WAF, segmentação de rede, hardening, gestão de patches), e não apenas pelo produto. O critério pontua a contribuição do produto para a postura de segurança — relevante, porém não dominante. A ausência de gestão de vulnerabilidades ativa é tratada na **triagem eliminatória (E6)**, onde tem peso absoluto.
 
 ### 4.4 Pesos alternativos testados
 
@@ -257,11 +270,14 @@ Cenários de ponderação alternativa avaliados na análise de sensibilidade (se
 
 | Cenário | Descrição | Ajuste de pesos |
 |---------|-----------|-----------------|
-| **Base** | Ponderação oficial deste estudo | Conforme tabela 4.1 |
+| **Base** | Ponderação oficial deste estudo (revisão 2026) | Conforme tabela 4.1 |
 | **Conformidade máxima** | Priorização absoluta de LGPD e soberania | LGPD 25, Controle 25, demais reduzidos proporcionalmente |
-| **Econômico** | Priorização de custo | TCO 30, demais reduzidos proporcionalmente |
 | **Capacidade analítica** | Priorização de funcionalidade | Recursos analíticos 25, APIs 15, Integrações 15 |
 | **Operação enxuta** | Priorização de baixo esforço operacional | Operação 25, Escalabilidade 15, Documentação 10 |
+| **Custo pleno (referência histórica)** | Reintrodução do TCO como no ADR-001 (peso 15) | TCO 15; C05, C06, C08 voltam a 10; C09 volta a 10; C10 e C11 voltam a 5 |
+
+> **📌 Observação — Cenário "Econômico" retirado**
+> O cenário "Econômico" (TCO 30) foi retirado na revisão 2026 por perder aderência às premissas P1/P2/R4. Em seu lugar entra o cenário **"Custo pleno (referência histórica)"**, que reintroduz o TCO com o peso do ADR-001 — serve para demonstrar que a mudança de peso é intencional e reprodutível, não fruto de recalibração arbitrária. Ele **não** é candidato à decisão; é ferramenta de auditoria.
 
 ---
 
@@ -304,9 +320,12 @@ Cada critério define **exatamente** o que caracteriza cada nota. Isso torna a a
 | **2** | Dado em SaaS; exportação apenas de dado agregado ou com limitações relevantes |
 | **1** | Dado sob custódia exclusiva do fornecedor; exportação parcial, tardia ou inexistente |
 
-### C03 — TCO (peso 15)
+### C03 — TCO (peso 0 — critério informativo)
 
-**O que mede:** custo total de propriedade em horizonte de 5 anos, incluindo implantação, licenciamento, infraestrutura, equipe, operação, atualização e custo estimado de saída. Modelagem completa em [`../comparativos/custo.md`](../comparativos/custo.md).
+> **📌 Nota metodológica — Revisão 2026**
+> Este critério passou a **peso 0** com a homologação do [ADR-002](08-adr-002.md). A definição operacional, as faixas de nota e o regime de custo marginal permanecem publicados como **referência informativa** para: (a) dimensionamento de infraestrutura on-premise; (b) prestação de contas ao TCE-MS e à CGE-MS; (c) reprodução do cenário de sensibilidade "Custo pleno (referência histórica)" definido na seção 4.4. As notas atribuídas em [`07-matriz-decisao.md §2.1`](07-matriz-decisao.md#21-notas-atribuídas) continuam sendo mantidas para preservar essa reprodutibilidade — porém multiplicadas por peso 0 na fórmula de agregação, portanto sem efeito no ranking.
+
+**O que mede (para fins informativos):** custo total de propriedade em horizonte de 5 anos, incluindo implantação, licenciamento, infraestrutura, equipe, operação, atualização e custo estimado de saída. Modelagem completa em [`../comparativos/custo.md`](../comparativos/custo.md).
 
 | Nota | Definição (TCO 5 anos, cenário de referência de [01, seção 9](01-contexto.md#9-perfil-de-carga-e-dimensionamento)) |
 |:----:|-----------|
@@ -334,7 +353,7 @@ Cada critério define **exatamente** o que caracteriza cada nota. Isso torna a a
 >
 > **O que o custo marginal NÃO faz:** não altera a nota **C10 (Operação)**, que mede esforço técnico intrínseco da plataforma (nº de componentes, cron, tuning), independentemente de quem paga a operação.
 
-### C04 — Independência tecnológica (peso 10)
+### C04 — Independência tecnológica (peso 10 — inalterado)
 
 **O que mede:** capacidade do Estado de continuar operando e de trocar de solução sem penalidade proibitiva.
 
@@ -346,7 +365,7 @@ Cada critério define **exatamente** o que caracteriza cada nota. Isso torna a a
 | **2** | Proprietária com forte acoplamento a ecossistema do fornecedor |
 | **1** | Proprietária com acoplamento profundo, formatos fechados e custo de saída elevado |
 
-### C05 — Recursos analíticos (peso 10)
+### C05 — Recursos analíticos (peso 13 — elevado de 10)
 
 **O que mede:** cobertura funcional frente aos requisitos RF-01 a RF-45.
 
@@ -360,7 +379,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | 35 % – 54 % |
 | **1** | < 35 % |
 
-### C06 — APIs (peso 10)
+### C06 — APIs (peso 13 — elevado de 10)
 
 **O que mede:** qualidade, completude e usabilidade da superfície programática. Detalhamento em [`../comparativos/api.md`](../comparativos/api.md).
 
@@ -374,7 +393,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | API restrita (endpoints, janela temporal ou volume limitados) |
 | **1** | Sem API ou API não utilizável para integração de BI |
 
-### C07 — Integrações (peso 10)
+### C07 — Integrações (peso 10 — inalterado)
 
 **O que mede:** integração com o ecossistema de ferramentas do Estado — BI, identidade, tag management, consent management.
 
@@ -386,7 +405,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | Integração exige desenvolvimento significativo; sem federação de identidade |
 | **1** | Integração inviável ou muito limitada |
 
-### C08 — Escalabilidade (peso 10)
+### C08 — Escalabilidade (peso 13 — elevado de 10)
 
 **O que mede:** capacidade de crescer em volume sem redesenho arquitetural. Detalhamento em [`../comparativos/escalabilidade.md`](../comparativos/escalabilidade.md).
 
@@ -398,7 +417,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | Escala limitada; atende o cenário conservador; degradação previsível acima disso |
 | **1** | Sem estratégia de escala documentada; gargalo estrutural sem contorno |
 
-### C09 — Segurança (peso 10)
+### C09 — Segurança (peso 12 — elevado de 10)
 
 **O que mede:** contribuição do produto para a postura de segurança.
 
@@ -412,7 +431,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | Gestão de vulnerabilidades fraca; controles limitados; histórico de CVEs relevantes |
 | **1** | Sem processo de segurança demonstrável; CVE crítica em aberto |
 
-### C10 — Operação (peso 5)
+### C10 — Operação (peso 7 — elevado de 5)
 
 **O que mede:** esforço para implantar, operar, atualizar e sustentar.
 
@@ -424,7 +443,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | Auto-hospedado complexo (4+ componentes, dependências de streaming/storage, tuning frequente) |
 | **1** | Operação exige equipe dedicada especializada; sem suporte oficial para a modalidade |
 
-### C11 — Comunidade (peso 5)
+### C11 — Comunidade (peso 7 — elevado de 5)
 
 **O que mede:** vitalidade do ecossistema e probabilidade de continuidade.
 
@@ -438,7 +457,7 @@ Método: percentual de requisitos funcionais atendidos, ponderado por prioridade
 | **2** | Comunidade pequena; dependência de poucos mantenedores |
 | **1** | Comunidade inativa ou projeto em manutenção mínima |
 
-### C12 — Documentação (peso 5)
+### C12 — Documentação (peso 5 — inalterado)
 
 **O que mede:** qualidade, completude e atualidade da documentação oficial.
 
@@ -488,8 +507,11 @@ Em caso de empate na pontuação total, aplicar sequencialmente:
 
 1. Maior nota em **C01 — LGPD**
 2. Maior nota em **C02 — Controle dos dados**
-3. Menor **TCO absoluto** (valor, não nota)
-4. Maior nota em **C04 — Independência tecnológica**
+3. Maior nota em **C04 — Independência tecnológica**
+4. Maior nota em **C09 — Segurança**
+
+> **📌 Nota metodológica — Revisão 2026**
+> O item "Menor TCO absoluto", presente no ADR-001, foi retirado do critério de desempate na revisão 2026 por consequência lógica da despriorização do C03. Em seu lugar entra C09 (Segurança), coerente com o eixo dominante de conformidade e governança.
 
 ---
 

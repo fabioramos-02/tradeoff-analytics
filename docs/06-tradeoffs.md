@@ -126,6 +126,25 @@ flowchart LR
 
 ---
 
+### TP-11 — Coexistência de 2 plataformas no portal Xvia
+
+Introduzido pela revisão 2026 ([ADR-002](08-adr-002.md)). Aplica-se **exclusivamente ao portal Xvia**, não ao parque existente.
+
+| Rodar Matomo + PostHog em paralelo no Xvia (opção escolhida) | Rodar apenas Matomo estendido com plugins (alternativa) |
+|------------------------------------------------------------|--------------------------------------------------------|
+| ✅ Product analytics maduro (funil identificado, feature flags, HogQL, session replay consentido) | ❌ Cobertura parcial de product analytics (60–70 %) |
+| ✅ Ferramenta certa para cada eixo — web analytics no Matomo, product analytics no PostHog | ✅ Uma única plataforma para operar |
+| ✅ Habilita experimentação estruturada (A/B testing) e cohort analysis identificada | ⚠️ A/B testing existe como plugin, cohort é limitado |
+| ❌ Overhead no navegador — ~+55 KB gzip, +50–200 ms no LCP em 3G | ✅ 1 script apenas |
+| ❌ Operação de 2 stacks pela STI (Matomo + PostHog) | ✅ Um único stack a operar |
+| ❌ Governança de dado duplicado — política de retenção coordenada, "qual métrica vem de onde" | ✅ Fonte única de verdade |
+| ⚠️ DPIA específico para session replay | ✅ DPIA já existente do Matomo |
+
+> **📌 Observação — Por que isso é aceito no Xvia e não no parque**
+> O usuário do portal Xvia chega com intenção específica de serviço (superapp cidadão, jornada identificada). Nesse contexto, a taxa de abandono por LCP é qualitativamente menor que em portal de conteúdo — e o valor do product analytics é qualitativamente maior. Em portais institucionais e sites gov, ambos os fatores se invertem, o que sustenta a manutenção do Matomo puro no parque. A decisão explícita no ADR-002 §6.1–§6.2 registra esse contraste.
+
+---
+
 ## 2. Modelo de análise por plataforma
 
 Cada plataforma é analisada nas 10 dimensões solicitadas:

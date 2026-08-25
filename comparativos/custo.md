@@ -1,8 +1,17 @@
-# Comparativo — Custo (TCO em 5 anos)
+# Comparativo — Custo (TCO em 5 anos) — INFORMATIVO
 
 > **Corte transversal** · Base: portal médio, ~500 mil *page views*/mês, ~50 propriedades/sites
 > **Regime de custo:** **marginal para o Estado** — ver §1.4
-> [← Voltar ao índice](../README.md) · [Matriz de decisão](../docs/07-matriz-decisao.md)
+> [← Voltar ao índice](../README.md) · [Matriz de decisão](../docs/07-matriz-decisao.md) · [ADR-002](../docs/08-adr-002.md)
+
+> **📌 Nota metodológica — Custo passou a ser critério informativo (revisão 2026)**
+> A partir do [ADR-002](../docs/08-adr-002.md), o critério C03 (TCO) foi rebaixado a **peso 0** na matriz de decisão. Este comparativo permanece publicado e mantido atualizado, mas com finalidade **estritamente informativa**:
+>
+> - Serve como referência de **dimensionamento de infraestrutura** on-premise.
+> - Serve como base para **prestação de contas** ao TCE-MS e à CGE-MS, demonstrando economicidade das decisões arquiteturais.
+> - Reproduz o cenário de sensibilidade **"Custo pleno (referência histórica)"** definido em [`../docs/03-criterios-de-avaliacao.md §4.4`](../docs/03-criterios-de-avaliacao.md#44-pesos-alternativos-testados), permitindo auditoria da revisão.
+>
+> **O que este documento NÃO faz mais:** não é insumo para ranquear plataformas nem para eliminar alternativas. Sob a premissa on-premise consolidada (P1/P2/R4), o custo marginal é absorvido pela infra do Estado; ferramentas que atendem melhor o caso de uso (funcional, técnico, LGPD) devem prevalecer, mesmo com TCO superior. Ver justificativa em [`../docs/03-criterios-de-avaliacao.md §4.3`](../docs/03-criterios-de-avaliacao.md#43-justificativa-da-atribuição-de-pesos).
 
 ---
 

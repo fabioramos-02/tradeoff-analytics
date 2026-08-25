@@ -1,7 +1,10 @@
 # 07 — Matriz de Decisão Ponderada
 
 > **Método:** MAUT — Multi-Attribute Utility Theory
-> **Anterior:** [06 — Trade-offs](06-tradeoffs.md) · **Próximo:** [08 — ADR](08-adr.md)
+> **Anterior:** [06 — Trade-offs](06-tradeoffs.md) · **Próximo:** [08 — ADR-001](08-adr.md) · [08 — ADR-002](08-adr-002.md)
+
+> **📌 Nota metodológica — Revisão 2026**
+> Os totais e o ranking desta matriz refletem os **pesos revisados** aprovados no [ADR-002](08-adr-002.md) — C03 (TCO) rebaixado a peso 0 e 15 pontos redistribuídos entre C05, C06, C08, C09, C10 e C11. **As notas atribuídas foram preservadas** — a mudança é exclusivamente de peso. As colunas de pontuação ADR-001 permanecem impressas nas seções 2.2 e 3.1 para rastreabilidade e auditoria. Justificativa completa em [`03-criterios-de-avaliacao.md §4.3`](03-criterios-de-avaliacao.md#43-justificativa-da-atribuição-de-pesos).
 
 ---
 
@@ -31,21 +34,21 @@
 
 ### 1.1 Pesos aplicados
 
-| Código | Critério | Peso |
-|:------:|----------|-----:|
-| C01 | LGPD | 15 |
-| C02 | Controle dos dados | 15 |
-| C03 | TCO | 15 |
-| C04 | Independência tecnológica | 10 |
-| C05 | Recursos analíticos | 10 |
-| C06 | APIs | 10 |
-| C07 | Integrações | 10 |
-| C08 | Escalabilidade | 10 |
-| C09 | Segurança | 10 |
-| C10 | Operação | 5 |
-| C11 | Comunidade | 5 |
-| C12 | Documentação | 5 |
-| | **Total** | **120** |
+| Código | Critério | Peso ADR-001 | **Peso revisado (ADR-002)** |
+|:------:|----------|-------------:|----------------------------:|
+| C01 | LGPD | 15 | **15** |
+| C02 | Controle dos dados | 15 | **15** |
+| C03 | TCO *(informativo)* | 15 | **0** |
+| C04 | Independência tecnológica | 10 | **10** |
+| C05 | Recursos analíticos | 10 | **13** |
+| C06 | APIs | 10 | **13** |
+| C07 | Integrações | 10 | **10** |
+| C08 | Escalabilidade | 10 | **13** |
+| C09 | Segurança | 10 | **12** |
+| C10 | Operação | 5 | **7** |
+| C11 | Comunidade | 5 | **7** |
+| C12 | Documentação | 5 | **5** |
+| | **Total** | **120** | **120** |
 
 ---
 
@@ -71,21 +74,26 @@
 
 ### 2.2 Pontuação ponderada (peso × nota)
 
-| Plataforma | C01 | C02 | C03 | C04 | C05 | C06 | C07 | C08 | C09 | C10 | C11 | C12 | **Total** |
-|-----------|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----------:|
-| **Matomo On-Premise** | 75 | 75 | 75 | 50 | 40 | 40 | 40 | 30 | 40 | 15 | 20 | 20 | **520** |
-| **Plausible CE** | 75 | 75 | 75 | 40 | 30 | 30 | 30 | 40 | 40 | 15 | 15 | 20 | **485** |
-| **Matomo Cloud** | 60 | 45 | 45 | 40 | 50 | 40 | 40 | 40 | 40 | 25 | 20 | 20 | **465** |
-| **Piwik PRO** | 75 | 60 | 30 | 20 | 50 | 40 | 40 | 50 | 50 | 20 | 10 | 20 | **465** |
-| **PostHog auto-hospedado** | 60 | 75 | 45 | 30 | 50 | 40 | 40 | 30 | 40 | 5 | 20 | 20 | **455** |
-| **Umami** | 75 | 75 | 75 | 40 | 20 | 30 | 20 | 30 | 30 | 20 | 15 | 15 | **445** |
-| **PostHog Cloud EU** | 45 | 30 | 45 | 20 | 50 | 40 | 40 | 50 | 40 | 25 | 20 | 20 | **425** |
-| **Google Analytics 4** | 30 | 15 | 60 | 10 | 40 | 40 | 50 | 50 | 40 | 25 | 25 | 25 | **410** |
-| **Adobe Analytics** | 45 | 30 | 15 | 10 | 50 | 50 | 50 | 50 | 50 | 20 | 15 | 20 | **405** |
-| **Microsoft Clarity** | 30 | 15 | 75 | 10 | 30 | 20 | 30 | 50 | 40 | 25 | 15 | 15 | **355** |
-| **Simple Analytics** | 60 | 30 | 45 | 20 | 20 | 30 | 20 | 40 | 40 | 25 | 10 | 15 | **355** |
-| **Cloudflare Web Analytics** | 45 | 15 | 75 | 10 | 10 | 30 | 20 | 50 | 40 | 25 | 10 | 15 | **345** |
-| **Open Web Analytics** | 60 | 75 | 75 | 30 | 20 | 20 | 10 | 10 | 10 | 10 | 5 | 5 | **330** |
+**Pesos revisados 2026** — C01=15, C02=15, C03=0, C04=10, C05=13, C06=13, C07=10, C08=13, C09=12, C10=7, C11=7, C12=5.
+
+| Plataforma | C01 | C02 | C03 | C04 | C05 | C06 | C07 | C08 | C09 | C10 | C11 | C12 | **Total revisado** | *Total ADR-001* |
+|-----------|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|-------------------:|----------------:|
+| **Matomo On-Premise** | 75 | 75 | 0 | 50 | 52 | 52 | 40 | 39 | 48 | 21 | 28 | 20 | **500** | *520* |
+| **Piwik PRO** | 75 | 60 | 0 | 20 | 65 | 52 | 40 | 65 | 60 | 28 | 14 | 20 | **499** | *465* |
+| **Matomo Cloud** | 60 | 45 | 0 | 40 | 65 | 52 | 40 | 52 | 48 | 35 | 28 | 20 | **485** | *465* |
+| **PostHog auto-hospedado** | 60 | 75 | 0 | 30 | 65 | 52 | 40 | 39 | 48 | 7 | 28 | 20 | **464** | *455* |
+| **Plausible CE** | 75 | 75 | 0 | 40 | 39 | 39 | 30 | 52 | 48 | 21 | 21 | 20 | **460** | *485* |
+| **Adobe Analytics** | 45 | 30 | 0 | 10 | 65 | 65 | 50 | 65 | 60 | 28 | 21 | 20 | **459** | *405* |
+| **PostHog Cloud EU** | 45 | 30 | 0 | 20 | 65 | 52 | 40 | 65 | 48 | 35 | 28 | 20 | **448** | *425* |
+| **Google Analytics 4** | 30 | 15 | 0 | 10 | 52 | 52 | 50 | 65 | 48 | 35 | 35 | 25 | **417** | *410* |
+| **Umami** | 75 | 75 | 0 | 40 | 26 | 39 | 20 | 39 | 36 | 28 | 21 | 15 | **414** | *445* |
+| **Simple Analytics** | 60 | 30 | 0 | 20 | 26 | 39 | 20 | 52 | 48 | 35 | 14 | 15 | **359** | *355* |
+| **Microsoft Clarity** | 30 | 15 | 0 | 10 | 39 | 26 | 30 | 65 | 48 | 35 | 21 | 15 | **334** | *355* |
+| **Cloudflare Web Analytics** | 45 | 15 | 0 | 10 | 13 | 39 | 20 | 65 | 48 | 35 | 14 | 15 | **319** | *345* |
+| **Open Web Analytics** | 60 | 75 | 0 | 30 | 26 | 26 | 10 | 13 | 12 | 14 | 7 | 5 | **278** | *330* |
+
+> **📌 Observação — Interpretação da coluna "Total ADR-001"**
+> A última coluna preserva a pontuação calculada com os pesos originais (C03=15) para permitir auditoria da revisão. **Não** deve ser lida como ranking alternativo — o critério de decisão vigente é o "Total revisado".
 
 ---
 
@@ -95,55 +103,68 @@
 
 | # | Plataforma | Pontuação | % | Faixa | Situação na triagem |
 |--:|-----------|----------:|--:|-------|--------------------|
-| 🥇 **1** | **Matomo On-Premise** | **520** | **86,7 %** | 🟢 **Recomendada** | Aprovada |
-| 🥈 2 | Plausible CE | 485 | 80,8 % | 🟢 Recomendada | Aprovada |
-| 🥉 3 | Matomo Cloud | 465 | 77,5 % | 🟡 Viável | Aprovada com ressalva |
-| 🥉 3 | Piwik PRO | 465 | 77,5 % | 🟡 Viável | Aprovada |
-| 5 | PostHog auto-hospedado | 455 | 75,8 % | 🟡 Viável | Aprovada |
-| 6 | Umami | 445 | 74,2 % | 🟡 Viável | Aprovada |
-| 7 | PostHog Cloud EU | 425 | 70,8 % | 🟡 Viável | Aprovada com ressalva |
-| 8 | Google Analytics 4 | 410 | 68,3 % | 🟠 Condicionada | Aprovada com ressalva grave |
-| 9 | Adobe Analytics | 405 | 67,5 % | 🟠 Condicionada | Aprovada com ressalva |
-| 10 | Microsoft Clarity | 355 | 59,2 % | 🔴 Não recomendada | **Eliminada como primária** |
-| 10 | Simple Analytics | 355 | 59,2 % | 🔴 Não recomendada | Aprovada com ressalva |
-| 12 | Cloudflare Web Analytics | 345 | 57,5 % | 🔴 Não recomendada | **Eliminada como primária** |
-| 13 | Open Web Analytics | 330 | 55,0 % | 🔴 Não recomendada | **Eliminada (E6)** |
+| 🥇 **1** | **Matomo On-Premise** | **500** | **83,3 %** | 🟢 **Recomendada** | Aprovada |
+| 🥈 2 | Piwik PRO | 499 | 83,2 % | 🟢 Recomendada | Aprovada |
+| 🥉 3 | Matomo Cloud | 485 | 80,8 % | 🟢 Recomendada | Aprovada com ressalva |
+| 4 | PostHog auto-hospedado | 464 | 77,3 % | 🟡 Viável | Aprovada |
+| 5 | Plausible CE | 460 | 76,7 % | 🟡 Viável | Aprovada |
+| 6 | Adobe Analytics | 459 | 76,5 % | 🟡 Viável | Aprovada com ressalva |
+| 7 | PostHog Cloud EU | 448 | 74,7 % | 🟡 Viável | Aprovada com ressalva |
+| 8 | Google Analytics 4 | 417 | 69,5 % | 🟠 Condicionada | Aprovada com ressalva grave |
+| 9 | Umami | 414 | 69,0 % | 🟠 Condicionada | Aprovada |
+| 10 | Simple Analytics | 359 | 59,8 % | 🔴 Não recomendada | Aprovada com ressalva |
+| 11 | Microsoft Clarity | 334 | 55,7 % | 🔴 Não recomendada | **Eliminada como primária** |
+| 12 | Cloudflare Web Analytics | 319 | 53,2 % | 🔴 Não recomendada | **Eliminada como primária** |
+| 13 | Open Web Analytics | 278 | 46,3 % | 🔴 Não recomendada | **Eliminada (E6)** |
 
-### 3.2 Desempate — 3º lugar
+> **📌 Observação — Movimentações relevantes em relação ao ADR-001**
+>
+> - **Matomo On-Premise:** mantém a liderança (520 → 500), com vantagem de apenas **1 ponto** sobre Piwik PRO. Resolvido no desempate por C02 (Controle=5 vs 4).
+> - **Piwik PRO** sobe de #3 (empate) para #2 isolado, refletindo o valor real da capacidade analítica (C05=5) e escalabilidade (C08=5) sem a penalização de custo.
+> - **Matomo Cloud** entra na faixa "Recomendada" (485, 80,8 %), viabilizando-se como contingência sem ressalva de faixa.
+> - **PostHog auto-hospedado** sobe de #5 (455) para #4 (464), passando a ser a **melhor opção soberana de product analytics** — coerente com sua adoção no portal Xvia definida pelo [ADR-002](08-adr-002.md).
+> - **Plausible CE** cai de #2 (485) para #5 (460). Sua cobertura funcional limitada (C05=3) passa a pesar mais na ausência da compensação por TCO baixo.
+> - **Adobe Analytics** salta de #9 (405) para #6 (459), quase empatando com Plausible. **Sua exclusão do papel de plataforma padrão passa a se fundamentar exclusivamente em C04 (Independência=1)** — lock-in máximo do estudo — e não mais em custo. Discussão detalhada no [ADR-002](08-adr-002.md).
 
-Matomo Cloud e Piwik PRO empatam em 465 pontos. Aplicando a regra de desempate de [`03-criterios-de-avaliacao.md`, seção 6.4](03-criterios-de-avaliacao.md#64-regra-de-desempate):
+### 3.2 Desempate — 1º lugar (revisão 2026)
 
-| Critério de desempate | Matomo Cloud | Piwik PRO | Vencedor |
-|----------------------|:------------:|:---------:|----------|
-| 1º — Nota em C01 (LGPD) | 4 | **5** | **Piwik PRO** |
+Matomo On-Premise (500) e Piwik PRO (499) ficam a 1 ponto de distância — margem inferior à precisão da escala. Aplicando a regra de desempate de [`03-criterios-de-avaliacao.md §6.4`](03-criterios-de-avaliacao.md#64-regra-de-desempate) para consolidar a leitura:
 
-**Resultado:** Piwik PRO ocupa o 3º lugar; Matomo Cloud, o 4º.
+| Critério de desempate | Matomo OP | Piwik PRO | Vencedor |
+|----------------------|:---------:|:---------:|----------|
+| 1º — Nota em C01 (LGPD) | 5 | 5 | Empate |
+| 2º — Nota em C02 (Controle) | **5** | 4 | **Matomo OP** |
+
+**Resultado:** Matomo On-Premise mantém a liderança por superioridade estrita em Controle dos dados — coerente com o veto do Encarregado de Dados sobre plataformas com mediação proprietária no acesso ao armazenamento.
+
+> **📌 Observação — Diferença dentro da margem de escala**
+> A distância de 1 ponto (0,17 %) é inferior à precisão da escala inteira 1–5 (limitação L7). A leitura correta é: **Matomo OP e Piwik PRO são equivalentes na dimensão global; a preferência pelo Matomo se sustenta na superioridade em C02, C04 (Independência 5 vs 2) e C11 (Comunidade 4 vs 2) — três critérios estruturais que a matriz mede mas que a soma nivela.**
 
 ### 3.3 Visualização do ranking
 
 ```mermaid
 xychart-beta
-    title "Pontuação ponderada (máximo 600)"
-    x-axis ["Matomo OP", "Plausible", "Matomo Cloud", "Piwik PRO", "PostHog SH", "Umami", "PostHog Cloud", "GA4", "Adobe", "Clarity", "Simple", "Cloudflare", "OWA"]
+    title "Pontuação ponderada revisada 2026 (máximo 600)"
+    x-axis ["Matomo OP", "Piwik PRO", "Matomo Cloud", "PostHog SH", "Plausible", "Adobe", "PostHog Cloud", "GA4", "Umami", "Simple", "Clarity", "Cloudflare", "OWA"]
     y-axis "Pontos" 0 --> 600
-    bar [520, 485, 465, 465, 455, 445, 425, 410, 405, 355, 355, 345, 330]
+    bar [500, 499, 485, 464, 460, 459, 448, 417, 414, 359, 334, 319, 278]
 ```
 
 ### 3.4 Perfil das cinco primeiras colocadas
 
 ```mermaid
 radar-beta
-  axis lgpd["LGPD"], ctrl["Controle"], tco["TCO"], indep["Independência"], rec["Recursos"], api["APIs"], integ["Integrações"], esc["Escalabilidade"]
-  curve matomo["Matomo On-Premise"]{5, 5, 5, 5, 4, 4, 4, 3}
-  curve plausible["Plausible CE"]{5, 5, 5, 4, 3, 3, 3, 4}
-  curve piwik["Piwik PRO"]{5, 4, 2, 2, 5, 4, 4, 5}
-  curve ga4["Google Analytics 4"]{2, 1, 4, 1, 4, 4, 5, 5}
+  axis lgpd["LGPD"], ctrl["Controle"], indep["Independência"], rec["Recursos"], api["APIs"], integ["Integrações"], esc["Escalabilidade"], seg["Segurança"]
+  curve matomo["Matomo On-Premise"]{5, 5, 5, 4, 4, 4, 3, 4}
+  curve piwik["Piwik PRO"]{5, 4, 2, 5, 4, 4, 5, 5}
+  curve posthog["PostHog auto-hospedado"]{4, 5, 3, 5, 4, 4, 3, 4}
+  curve ga4["Google Analytics 4"]{2, 1, 1, 4, 4, 5, 5, 4}
   max 5
   min 0
 ```
 
 > **📌 Observação**
-> O gráfico de radar evidencia a característica central do Matomo On-Premise: **a área coberta é a mais uniforme**. Piwik PRO e GA4 apresentam picos altos em alguns eixos e vales profundos em outros. Em decisão multicritério com pesos concentrados nos eixos de conformidade e governança, a uniformidade vence a especialização.
+> Sem o eixo TCO, o radar destaca a característica central do Matomo On-Premise: **cobertura uniforme dos eixos de conformidade, governança e capacidade**. Piwik PRO acumula picos em capacidade técnica (C05, C08, C09) mas afunda em Independência (C04=2). PostHog auto-hospedado mostra o perfil de product analytics — forte em capacidade, fraco em operação (traço não representado no radar mas presente em C10=1). GA4 permanece com o perfil característico de SaaS estrangeira: excelência técnica, colapso em soberania.
 
 ---
 
@@ -410,13 +431,16 @@ Cada nota abaixo remete à definição operacional em [`03-criterios-de-avaliaca
 
 ## 5. Análise de sensibilidade
 
+> **📌 Nota metodológica — Cenários pós-revisão 2026**
+> A tabela abaixo preserva os cenários testados no ADR-001. Com o rebaixamento do C03 a peso 0, o cenário **"Econômico"** perdeu aderência às premissas e foi **substituído** pelo cenário **"Custo pleno (referência histórica)"** definido em [`03-criterios-de-avaliacao.md §4.4`](03-criterios-de-avaliacao.md#44-pesos-alternativos-testados), que reproduz a ponderação do ADR-001 para fins de auditoria. Os resultados numéricos abaixo permanecem consistentes com o ADR-001 e continuam válidos para leitura da robustez do Matomo On-Premise **em qualquer ponderação testada — inclusive a original**. Nova rodada completa de sensibilidade sob os pesos revisados fica prevista para revisão bienal de 2028 ([`08-adr-002.md §11`](08-adr-002.md)).
+
 ### 5.1 Cenários de ponderação testados
 
 | Cenário | Vetor de pesos `[C01…C12]` | Soma |
 |---------|---------------------------|-----:|
-| **Base** | `15, 15, 15, 10, 10, 10, 10, 10, 10, 5, 5, 5` | 120 |
+| **Base (revisão 2026)** | `15, 15, 0, 10, 13, 13, 10, 13, 12, 7, 7, 5` | 120 |
 | **Conformidade máxima** | `25, 25, 10, 10, 5, 5, 5, 5, 15, 5, 5, 5` | 120 |
-| **Econômico** | `10, 10, 30, 5, 10, 10, 10, 10, 10, 10, 2,5, 2,5` | 120 |
+| **Custo pleno (referência histórica ADR-001)** | `15, 15, 15, 10, 10, 10, 10, 10, 10, 5, 5, 5` | 120 |
 | **Capacidade analítica** | `10, 10, 10, 5, 25, 15, 15, 10, 10, 5, 2,5, 2,5` | 120 |
 | **Operação enxuta** | `10, 10, 15, 5, 10, 5, 5, 15, 5, 25, 5, 10` | 120 |
 
@@ -424,8 +448,11 @@ Todos os cenários preservam a soma de pesos em 120, mantendo o máximo de 600 p
 
 ### 5.2 Resultados por cenário
 
-| Plataforma | Base | Conformidade máxima | Econômico | Capacidade analítica | Operação enxuta |
-|-----------|-----:|--------------------:|----------:|---------------------:|----------------:|
+> **📌 Observação — Coluna "Base"**
+> A coluna **"Base"** desta tabela reflete a ponderação original do ADR-001 (renomeada em §5.1 para **"Custo pleno (referência histórica)"**). A ponderação vigente pós-revisão 2026 é a listada em §2.2. Reprodutibilidade preservada.
+
+| Plataforma | Base *(= Custo pleno)* | Conformidade máxima | Econômico *(descontinuado)* | Capacidade analítica | Operação enxuta |
+|-----------|----------:|--------------------:|----------:|---------------------:|----------------:|
 | **Matomo On-Premise** | **520** 🥇 | **540** 🥇 | **515** 🥇 | 500 🥇⁽ᵉ⁾ | 480 🥉 |
 | Plausible CE | 485 🥈 | 515 🥈 | 487,5 🥈 | 447,5 | 465 |
 | Piwik PRO | 465 🥉 | 480 | 445 | **500** 🥇⁽ᵉ⁾ | 470 |
@@ -499,6 +526,9 @@ Método: partindo do cenário base, varia-se isoladamente o peso de um critério
 
 ## 6. Análise de dominância
 
+> **📌 Nota metodológica — Revisão 2026**
+> As relações de dominância abaixo foram computadas com C03 ativo. Sob os pesos revisados (C03=0), a relação **Simple Analytics × Plausible CE** permanece (dominância independe do peso quando os critérios comparados são estáveis), e **PostHog Cloud EU × Matomo Cloud** também permanece. A relação **Matomo On-Premise × Open Web Analytics** continua estrita — o Matomo é superior em 10 critérios e o C03 (agora zerado) era um dos empates, portanto a conclusão se fortalece.
+
 Uma alternativa **domina** outra se for igual ou melhor em todos os critérios e estritamente melhor em ao menos um. Alternativas dominadas podem ser eliminadas sem depender de pesos — é o teste mais forte de uma análise multicritério, porque independe da ponderação escolhida.
 
 ### 6.1 Relações de dominância identificadas
@@ -539,57 +569,65 @@ As alternativas **não dominadas** — isto é, aquelas em que qualquer melhoria
 
 ## 7. Conclusão da matriz
 
-### 7.1 Resultado quantitativo
+### 7.1 Resultado quantitativo (revisão 2026)
 
-> **✅ Bloco de Decisão — Resultado da matriz**
+> **✅ Bloco de Decisão — Resultado da matriz revisada**
 >
-> **O Matomo On-Premise obtém a maior pontuação ponderada: 520 de 600 pontos (86,7 %)** — na faixa 🟢 "Recomendada" (≥ 80 %). Plausible CE também alcança essa faixa (485/600 = 80,8 %), confirmada como camada complementar.
+> **O Matomo On-Premise obtém a maior pontuação ponderada: 500 de 600 pontos (83,3 %)** — na faixa 🟢 "Recomendada" (≥ 80 %). **Piwik PRO** (499, 83,2 %) e **Matomo Cloud** (485, 80,8 %) completam o pódio, ambos também na faixa "Recomendada".
 >
-> **Vantagem sobre o 2º colocado:** 35 pontos (7,2 %).
-> **Vantagem sobre o GA4 (status quo de mercado):** 110 pontos (26,8 %).
+> **Vantagem sobre o 2º colocado:** 1 ponto (0,17 %) — dentro da margem de escala. Resolvido no desempate por C02 (Controle).
+> **Vantagem sobre o GA4 (status quo de mercado):** 83 pontos (13,8 %).
 >
-> **Robustez:** liderança exclusiva em 3 cenários + empate técnico em 1 cenário = **4 de 5 cenários** com liderança compartilhada ou exclusiva. Critério formal de robustez **atingido** sob regime de custo marginal (P1/P2/R4). Único cenário em que não lidera é "Operação enxuta", vencido pelo **próprio Matomo em outra modalidade** (Cloud), reforçando a escolha do produto.
+> **Robustez:** sob a ponderação original (ADR-001, agora renomeada "Custo pleno (referência histórica)"), a liderança do Matomo OP em 4 de 5 cenários permanece registrada. Nova rodada de sensibilidade com os pesos revisados fica prevista para revisão bienal.
 >
 > **Dominância:** situa-se na fronteira de Pareto e **domina estritamente** o Open Web Analytics.
+>
+> **Leitura estratégica pós-revisão:**
+> - **Matomo OP** continua padrão do parque (EDS + sites gov MS existentes) — decisão do ADR-002 §6.1.
+> - **PostHog auto-hospedado** (#4, 464) sobe para ser a **melhor opção soberana de product analytics** disponível — habilita sua adoção como camada complementar do portal Xvia (ADR-002 §6.2).
+> - **Piwik PRO** e **Matomo Cloud** consolidam-se como contingências formais legítimas, ambas em faixa "Recomendada".
 
-### 7.2 Decomposição da vantagem
+### 7.2 Decomposição da vantagem (revisão 2026)
 
-Origem dos 110 pontos de vantagem do Matomo On-Premise sobre o GA4:
+Origem dos 83 pontos de vantagem do Matomo On-Premise sobre o GA4 sob os pesos revisados:
 
 | Critério | Peso | Matomo OP | GA4 | Diferença de pontos |
 |----------|-----:|:---------:|:---:|--------------------:|
 | C02 — Controle dos dados | 15 | 5 | 1 | **+60** |
 | C01 — LGPD | 15 | 5 | 2 | **+45** |
 | C04 — Independência tecnológica | 10 | 5 | 1 | **+40** |
-| C03 — TCO | 15 | 5 | 4 | **+15** |
-| C05 — Recursos analíticos | 10 | 4 | 4 | 0 |
-| C06 — APIs | 10 | 4 | 4 | 0 |
-| C09 — Segurança | 10 | 4 | 4 | 0 |
-| C11 — Comunidade | 5 | 4 | 5 | −5 |
+| C03 — TCO *(informativo)* | 0 | 5 | 4 | 0 |
+| C05 — Recursos analíticos | 13 | 4 | 4 | 0 |
+| C06 — APIs | 13 | 4 | 4 | 0 |
+| C09 — Segurança | 12 | 4 | 4 | 0 |
+| C11 — Comunidade | 7 | 4 | 5 | −7 |
 | C12 — Documentação | 5 | 4 | 5 | −5 |
 | C07 — Integrações | 10 | 4 | 5 | −10 |
-| C10 — Operação | 5 | 3 | 5 | −10 |
-| C08 — Escalabilidade | 10 | 3 | 5 | **−20** |
-| | | | **Saldo** | **+110** |
+| C10 — Operação | 7 | 3 | 5 | −14 |
+| C08 — Escalabilidade | 13 | 3 | 5 | **−26** |
+| | | | **Saldo** | **+83** |
 
 | Grupo de critérios | Saldo do Matomo On-Premise |
 |-------------------|---------------------------:|
 | Conformidade e governança (C01, C02, C04) | **+145** |
-| Custo, funcionalidade e segurança (C03, C05, C06, C09) | **+15** |
-| Conveniência e ecossistema (C07, C08, C10, C11, C12) | **−50** |
-| **Saldo líquido** | **+110** |
+| Custo (C03, peso 0) | **0** |
+| Funcionalidade e segurança (C05, C06, C09) | 0 |
+| Conveniência e ecossistema (C07, C08, C10, C11, C12) | **−62** |
+| **Saldo líquido** | **+83** |
 
-**Leitura:** a vantagem do Matomo On-Premise é integralmente construída sobre conformidade, soberania e independência. Em custo e funcionalidade há empate técnico. Em conveniência e ecossistema, o GA4 é superior — e essa superioridade está corretamente refletida na pontuação, apenas não é suficiente para compensar a perda nos critérios de maior peso.
+**Leitura:** a vantagem do Matomo On-Premise continua integralmente construída sobre conformidade, soberania e independência. Sem o peso de TCO, a margem sobre GA4 encolhe de 110 para 83 pontos — coerente com a mudança de premissa. A leitura estratégica permanece intacta: **excelência em conveniência de SaaS estrangeira não compensa perda em soberania para dado de cidadão sob custódia de órgão público.**
 
-### 7.3 Ressalvas explícitas
+### 7.3 Ressalvas explícitas (revisão 2026)
 
-1. **A recomendação é condicionada quanto à modalidade.** A liderança do Matomo On-Premise depende da validade da premissa **P2** (capacidade técnica interna). Se essa premissa for invalidada, a modalidade recomendada passa a ser o **Matomo Cloud** (líder no cenário "operação enxuta") ou o **Piwik PRO**.
+1. **A margem sobre o 2º colocado é mínima.** Matomo OP (500) e Piwik PRO (499) diferem por 1 ponto — dentro da margem da escala (limitação L7). A preferência pelo Matomo se sustenta em superioridade estrita em C02, C04 e C11 (justificativa do desempate em §3.2), não na pontuação agregada.
 
-2. **A diferença para o Piwik PRO no cenário analítico não sustenta afirmação de superioridade.** 10 pontos em 600 (1,7 %) equivalem à alteração de uma única nota em um critério de peso 10 — dentro da margem de incerteza da escala. Naquele cenário específico, as duas plataformas devem ser tratadas como equivalentes.
+2. **A recomendação é condicionada quanto à modalidade.** A liderança do Matomo On-Premise depende da validade da premissa **P2** (capacidade técnica interna). Se essa premissa for invalidada, a modalidade recomendada passa a ser o **Matomo Cloud** (agora #3, na faixa "Recomendada") ou o **Piwik PRO** (#2). Detalhamento no [ADR-002 §6.6](08-adr-002.md).
 
-3. **O Plausible CE é a melhor alternativa complementar, não substituta.** Sua pontuação de 485 é obtida com cobertura funcional de nota 3 — adequada a portais de conteúdo, insuficiente para análise de serviços transacionais.
+3. **PostHog auto-hospedado (#4, 464) é candidato legítimo à camada complementar.** Sua cobertura funcional (C05=5) e capacidade programática (C06=4) o qualificam para product analytics no portal Xvia, decisão formalizada no [ADR-002 §6.2](08-adr-002.md). Nota 1 em C10 (Operação) é o principal condicionante: adoção exige plano de capacitação e/ou contratação de suporte especializado.
 
-4. **Nenhuma nota deste estudo foi medida em ambiente do Estado.** As notas de escalabilidade e desempenho decorrem de documentação e de arquitetura conhecida. A prova de conceito prevista na Onda 1 do roadmap deve confirmá-las.
+4. **Plausible CE (#5) e Adobe (#6) quase empatam.** Diferença de 1 ponto (460 vs 459) é irrelevante. A distinção estratégica entre os dois se dá por C04 (Independência): Plausible tem nota 4 (AGPL, ecossistema aberto), Adobe tem nota 1 (lock-in máximo). Adobe permanece descartado como plataforma padrão pelo lock-in e não mais pelo custo.
+
+5. **Nenhuma nota deste estudo foi medida em ambiente do Estado.** As notas de escalabilidade e desempenho decorrem de documentação e arquitetura conhecida. A prova de conceito prevista na Onda 1 do roadmap deve confirmá-las.
 
 ---
 

@@ -1,7 +1,12 @@
 # 08 — ADR-001: Plataforma de Web Analytics do Governo do Estado de MS
 
 > **Formato:** Michael Nygard / MADR 4.0
-> **Anterior:** [07 — Matriz de decisão](07-matriz-decisao.md) · **Próximo:** [09 — Recomendação](09-recomendacao.md)
+> **Anterior:** [07 — Matriz de decisão](07-matriz-decisao.md) · **Próximo:** [08 — ADR-002 (vigente)](08-adr-002.md) · [09 — Recomendação](09-recomendacao.md)
+
+> **🚨 Alerta — ADR depreciado**
+> Este ADR foi **substituído pelo [ADR-002](08-adr-002.md)** em agosto/2026. Conteúdo preservado integralmente como histórico e para rastreabilidade das decisões. Não deve ser usado como base para novas implantações. Consulte o ADR-002 para a decisão vigente.
+>
+> **Motivo da substituição:** revisão de premissa quanto ao peso do TCO na matriz (rebaixado a peso 0 — critério informativo) e formalização do PostHog auto-hospedado como camada complementar de product analytics no portal Xvia.
 
 ---
 
@@ -29,14 +34,14 @@
 |-------|-------|
 | **Identificador** | ADR-001 |
 | **Título** | Plataforma padrão de Web Analytics para portais e serviços digitais do Governo do Estado de MS |
-| **Status** | 🟡 **Proposto** |
+| **Status** | 🔴 **Depreciado** |
 | **Data** | 2026-07-29 |
 | **Autor** | Arquitetura de Soluções — SETDIG |
 | **Decisores** | Secretário Executivo SETDIG · Superintendente SGD · Superintendente STI · Encarregado de Dados · Segurança da Informação |
 | **Consultados** | Comunicação Social · Órgãos setoriais · Equipe de BI |
 | **Informados** | Órgãos da Administração Direta e Indireta estadual |
 | **Substitui** | Nenhum (primeira formalização) |
-| **Substituído por** | — |
+| **Substituído por** | [ADR-002](08-adr-002.md) — 2026-08 |
 | **Escopo de aplicação** | Portais institucionais, serviços digitais e aplicações web do Poder Executivo estadual |
 | **Prazo de revisão** | 24 meses (julho/2028), ou antecipado por gatilho da seção 11 |
 

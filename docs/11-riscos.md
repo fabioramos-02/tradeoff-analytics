@@ -2,6 +2,9 @@
 
 > **Anterior:** [10 — Roadmap](10-roadmap.md) · **Próximo:** [12 — Referências](12-referencias.md)
 
+> **📌 Nota metodológica — Revisão 2026 (ADR-002)**
+> Riscos R-01 a R-16 preservados do ADR-001 e continuam válidos. Riscos novos introduzidos com o [ADR-002](08-adr-002.md) para o portal Xvia: **R-17** (LCP degradado), **R-18** (STI não sustenta stack PostHog), **R-19** (divergência Matomo × PostHog), **R-20** (descontinuidade do PostHog auto-hospedado) — todos adicionados no §8 (Riscos de projeto e Xvia). O risco **R-11** (captura acidental em session replay) já estava mapeado e é potencializado no contexto do PostHog do Xvia — mesmas mitigações se aplicam, com opt-in explícito reforçado. O **R-10** (aumento de preço dos plugins premium) permanece registrado, mas reclassificado como "monitorar, não priorizar" — custo deixou de ser critério de decisão.
+
 ---
 
 ## Sumário
@@ -445,6 +448,82 @@ quadrantChart
 | **Indicador** | Desvio do cronograma (mensal) |
 | **Responsável** | Gerente de projeto |
 | **Exposição residual** | 🟡 4 (Moderado) |
+
+---
+
+### R-17 — LCP do Xvia degrada por overhead do 2º script
+
+| Campo | Valor |
+|-------|-------|
+| **Categoria** | Xvia — desempenho |
+| **Descrição** | Rodar Matomo + PostHog em paralelo eleva o LCP do portal Xvia acima do limiar aceitável (75 ms em 3G) |
+| **Causa** | Dois scripts de tracking (~77 KB gzip combinados) + 2 requisições paralelas no primeiro carregamento |
+| **Consequência** | Aumento de taxa de rejeição; violação de RNF-02 no contexto do Xvia; percepção degradada em conexão móvel |
+| **Probabilidade** | 🟡 2 (Baixa) — usuário do Xvia chega com intenção específica |
+| **Impacto** | 🟠 3 (Alto) — afeta experiência do superapp em produção |
+| **Exposição** | **6 — 🟡 Moderado** |
+| **Estratégia** | **Monitorar** |
+| **Ações** | 1. Carregamento async/defer de ambos os scripts<br/>2. Segmentação de eventos — só rastrear o que tem valor decisório<br/>3. Monitoramento contínuo de LCP p75 em 3G simulado (Lighthouse CI)<br/>4. **Gatilho G9 do ADR-002** — LCP > 75 ms sustentado por 2 meses aciona reavaliação<br/>5. Contingência: PostHog Cloud EU com CDN de borda ou reversão a Matomo puro no Xvia |
+| **Indicador** | LCP p75 3G do Xvia (mensal) |
+| **Responsável** | STI + time Xvia |
+| **Exposição residual** | 🟡 4 (Moderado) |
+
+---
+
+### R-18 — STI não sustenta operação do stack PostHog
+
+| Campo | Valor |
+|-------|-------|
+| **Categoria** | Xvia — operacional |
+| **Descrição** | Equipe da STI não consegue operar de forma autônoma stack de 6 componentes (Django + PostgreSQL + ClickHouse + Kafka + Redis + MinIO) sem suporte oficial do fornecedor |
+| **Causa** | Competência escassa em ClickHouse e Kafka no mercado brasileiro; sem suporte comercial do PostHog para modalidade auto-hospedada |
+| **Consequência** | Degradação de disponibilidade; incidentes prolongados; possível perda de eventos |
+| **Probabilidade** | 🟠 3 (Média) |
+| **Impacto** | 🟠 3 (Alto) |
+| **Exposição** | **9 — 🟠 Alto** |
+| **Estratégia** | **Mitigar** |
+| **Ações** | 1. Capacitação formal STI em ClickHouse + Kafka (80–120 h) — Onda 5.3<br/>2. Reserva orçamentária para contratação de suporte especializado sob demanda<br/>3. Runbook operacional específico (Onda 5.11)<br/>4. Dupla capacitação (mínimo 2 pessoas)<br/>5. Contingência: migração para PostHog Cloud EU (§6.6 do ADR-002) |
+| **Indicador** | Disponibilidade PostHog Xvia ≥ 99,0 %; tempo médio de resolução de incidente ≤ 4 h |
+| **Responsável** | STI |
+| **Exposição residual** | 🟡 6 (Moderado) |
+
+---
+
+### R-19 — Divergência de dados Matomo × PostHog no Xvia
+
+| Campo | Valor |
+|-------|-------|
+| **Categoria** | Xvia — governança de dados |
+| **Descrição** | Métricas equivalentes (page views, sessões) diferem entre Matomo e PostHog, gerando confusão em relatórios executivos e questionamentos sobre qual número é o "certo" |
+| **Causa** | Diferenças de sampling, definição de sessão, bloqueadores de rastreamento diferentes, timing de disparo dos scripts |
+| **Consequência** | Perda de credibilidade nos relatórios; retrabalho de reconciliação; disputa entre times |
+| **Probabilidade** | 🟠 3 (Média) — é o comportamento esperado, não a exceção |
+| **Impacto** | 🟡 2 (Médio) |
+| **Exposição** | **6 — 🟡 Moderado** |
+| **Estratégia** | **Mitigar** |
+| **Ações** | 1. Documento formal de segmentação "qual métrica vem de onde" ([`../comparativos/coexistencia-matomo-posthog.md`](../comparativos/coexistencia-matomo-posthog.md))<br/>2. Reconciliação mensal com meta de divergência ≤ 15 %<br/>3. Dashboard consolidado no BI corporativo com fonte marcada em cada card<br/>4. **Gatilho G10 do ADR-002** — divergência > 15 % por 3 meses aciona revisão |
+| **Indicador** | Divergência mensal Matomo × PostHog em métricas equivalentes |
+| **Responsável** | SGD + BI |
+| **Exposição residual** | 🟢 3 (Baixo) |
+
+---
+
+### R-20 — Descontinuidade da modalidade auto-hospedada do PostHog
+
+| Campo | Valor |
+|-------|-------|
+| **Categoria** | Xvia — fornecedor |
+| **Descrição** | PostHog encerra suporte à modalidade auto-hospedada (movimento sinalizado desde 2023) |
+| **Causa** | Estratégia comercial do fornecedor de concentrar na modalidade Cloud |
+| **Consequência** | Estado precisa manter fork da versão obtida ou migrar para Cloud EU |
+| **Probabilidade** | 🟢 1 (Muito baixa) em janela de 12 meses / 🟠 3 (Média) em janela de 3 anos |
+| **Impacto** | 🟠 3 (Alto) — reconfiguração e possível DPIA novo para Cloud EU |
+| **Exposição** | **3–9 — 🟢/🟠 Baixo a Alto** (depende do horizonte) |
+| **Estratégia** | **Monitorar** |
+| **Ações** | 1. Acompanhar releases e comunicações do fornecedor<br/>2. Manter capacidade de operar sobre a versão obtida (licença MIT permite indefinidamente)<br/>3. **Gatilho G11 do ADR-002** — anúncio formal aciona revisão em 90 dias<br/>4. Fallback documentado: migração para PostHog Cloud EU com RIPD |
+| **Indicador** | Monitoramento contínuo dos canais oficiais do PostHog |
+| **Responsável** | Arquitetura |
+| **Exposição residual** | 🟢/🟠 Baixo a Moderado |
 
 ---
 

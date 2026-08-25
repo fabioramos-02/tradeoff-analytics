@@ -1,6 +1,9 @@
 # 09 — Recomendação Técnica
 
-> **Anterior:** [08 — ADR](08-adr.md) · **Próximo:** [10 — Roadmap](10-roadmap.md)
+> **Anterior:** [08 — ADR-001](08-adr.md) · [08 — ADR-002 (vigente)](08-adr-002.md) · **Próximo:** [10 — Roadmap](10-roadmap.md)
+
+> **📌 Nota metodológica — Revisão 2026**
+> Este documento reflete a decisão vigente registrada no [ADR-002](08-adr-002.md), que separa a recomendação em **dois perfis**: parque existente (§1.1) e novo portal Xvia (§1.2). A recomendação para o parque **confirma** a linha do ADR-001 sob pesos revisados; a recomendação para o Xvia é nova. Fundamentos técnicos e aderências normativas (§2–§7) permanecem válidos para ambos os perfis; nuances específicas do Xvia estão no §8 (estratégia de camadas).
 
 ---
 
@@ -22,24 +25,43 @@
 
 ## 1. Recomendação
 
-> **✅ RECOMENDAÇÃO PRINCIPAL**
->
-> **Manter o Matomo, na modalidade On-Premise, como plataforma padrão de Web Analytics do Governo do Estado de Mato Grosso do Sul**, condicionado à execução integral do plano de adequação arquitetural definido em [`10-roadmap.md`](10-roadmap.md).
->
-> **Fundamento quantitativo:** 520 de 600 pontos (86,7 %) na matriz de decisão ponderada — resultado na faixa "Recomendada", com vantagem de 35 pontos sobre o segundo colocado (Plausible CE, também na faixa "Recomendada" com 485/600).
->
-> **Fundamento qualitativo:** é a única plataforma avaliada que combina soberania verificável sobre os dados, cobertura funcional suficiente para os requisitos obrigatórios, independência tecnológica assegurada por licença copyleft e TCO na menor faixa entre as opções de cobertura funcional equivalente — **sem apresentar deficiência crítica não mitigável por arquitetura**.
+### 1.1 Recomendação para o parque existente (EDS + sites gov MS)
 
-### 1.1 Recomendações complementares
+> **✅ RECOMENDAÇÃO PRINCIPAL — PARQUE**
+>
+> **Manter o Matomo, na modalidade On-Premise, como plataforma padrão única de Web Analytics do parque existente do Governo do Estado de MS** — portais institucionais, sites gov e serviços digitais de conteúdo. Condicionada à execução integral do plano de adequação arquitetural definido em [`10-roadmap.md`](10-roadmap.md) (Ondas 1–4).
+>
+> **Fundamento quantitativo:** 500 de 600 pontos (83,3 %) na matriz revisada 2026 — faixa "Recomendada". Vantagem de 1 ponto sobre Piwik PRO (499), desempatada por C02 (Controle=5 vs 4). Ver [`07-matriz-decisao.md §3.2`](07-matriz-decisao.md#32-desempate--1º-lugar-revisão-2026).
+>
+> **Fundamento qualitativo:** combina soberania verificável sobre os dados, cobertura funcional suficiente para os requisitos obrigatórios do parque e independência tecnológica assegurada por licença copyleft — sem apresentar deficiência crítica não mitigável por arquitetura.
 
-| # | Recomendação | Natureza |
-|---|-------------|----------|
-| **RC-1** | Adotar **Plausible Community Edition** como camada leve opcional para portais de conteúdo de alto volume e baixa criticidade analítica | Facultativa, mediante justificativa |
-| **RC-2** | Substituir o **Microsoft Clarity** pelo plugin *Heatmaps & Session Recording* do Matomo, eliminando a transferência internacional de dados de sessão | Obrigatória, com prazo |
-| **RC-3** | Usar **Cloudflare Web Analytics** como métrica de borda complementar em domínios já servidos pela CDN | Facultativa, sem custo |
-| **RC-4** | Vedar o **Google Analytics 4** como plataforma padrão; uso residual apenas com autorização expressa do Encarregado de Dados | Obrigatória |
-| **RC-5** | Vedar integralmente o **Open Web Analytics** por falha em critério eliminatório de segurança | Obrigatória |
-| **RC-6** | Registrar **Matomo Cloud** e **Piwik PRO** como alternativas de contingência formais, ativáveis apenas por novo ADR | Formal |
+### 1.2 Recomendação para o novo portal Xvia (superapp cidadão)
+
+> **✅ RECOMENDAÇÃO PRINCIPAL — XVIA**
+>
+> **Adotar arquitetura híbrida: Matomo On-Premise + PostHog auto-hospedado em paralelo no portal Xvia**, com segmentação clara de responsabilidade entre as duas plataformas:
+>
+> - **Matomo:** audiência agregada, campanhas, SEO, métricas de conteúdo, base legal cookieless simplificada.
+> - **PostHog:** jornada identificada de usuário autenticado, funil de serviços transacionais, feature flags e experimentação, session replay **consentido** e mascarado.
+>
+> Ambos rodam sob custódia do Estado, sem transferência internacional.
+>
+> **Fundamento quantitativo:** PostHog auto-hospedado alcança 464/600 (77,3 %) sob pesos revisados — 4ª posição do ranking, e **a maior pontuação entre plataformas soberanas de product analytics** avaliadas.
+>
+> **Fundamento qualitativo:** o perfil analítico do Xvia (jornada identificada, funil transacional, experimentação estruturada, session replay em serviços críticos) não é o domínio do Matomo. Reforçar o Matomo com plugins cobre parcialmente a lacuna — não a fecha. PostHog cobre.
+>
+> **Aceitação explícita de overhead:** ~+55 KB gzip e +50–200 ms no LCP do Xvia em conexão 3G, monitorado por G9 do [ADR-002](08-adr-002.md#112-gatilhos-de-revisão-antecipada) (gatilho de reavaliação se LCP > 75 ms sustentado por 2 meses).
+
+### 1.3 Recomendações complementares
+
+| # | Recomendação | Escopo | Natureza |
+|---|-------------|--------|----------|
+| **RC-1** | Adotar **Plausible Community Edition** como camada leve opcional para portais de conteúdo de altíssimo volume e baixa criticidade analítica | Parque | Facultativa, mediante justificativa |
+| **RC-2** | Substituir o **Microsoft Clarity** pelo plugin *Heatmaps & Session Recording* do Matomo (no parque) e por session replay do PostHog (no Xvia, com consentimento) | Ambos | Obrigatória, com prazo |
+| **RC-3** | Usar **Cloudflare Web Analytics** como métrica de borda complementar em domínios já servidos pela CDN | Parque | Facultativa, sem custo |
+| **RC-4** | Vedar o **Google Analytics 4** como plataforma padrão em qualquer contexto | Ambos | Obrigatória |
+| **RC-5** | Vedar integralmente o **Open Web Analytics** por falha em critério eliminatório de segurança | Ambos | Obrigatória |
+| **RC-6** | Registrar contingências formais ativáveis apenas por novo ADR: **Matomo Cloud** e **Piwik PRO** para o parque; **PostHog Cloud EU** para o Xvia | Ambos | Formal |
 
 ---
 
@@ -515,6 +537,7 @@ Nem todo portal precisa da mesma profundidade analítica. Aplicar a mesma config
 | **C — Portal de conteúdo de alto volume** | Notícias, transparência, agenda | **Matomo** ou **Plausible CE** | Métricas agregadas | O valor marginal da análise profunda é baixo; custo operacional pode ser reduzido |
 | **D — Site temporário ou de campanha** | Hotsite de campanha, evento | **Matomo** (propriedade dedicada) | Configuração mínima + UTM | Provisionamento rápido; descarte após o ciclo |
 | **E — Aplicação interna** | Sistemas administrativos | **Matomo** (instância principal, propriedade segregada) | Eventos e metas de uso | Mensuração de adoção interna |
+| **F — Superapp cidadão (Xvia)** | Portal Xvia | **Matomo + PostHog auto-hospedado** em paralelo | Matomo: audiência anônima cookieless. PostHog: usuário identificado, funil transacional, feature flags, session replay consentido | Perfil de product analytics — ver [`../comparativos/coexistencia-matomo-posthog.md`](../comparativos/coexistencia-matomo-posthog.md) |
 
 ### 8.1 Árvore de decisão de configuração
 
