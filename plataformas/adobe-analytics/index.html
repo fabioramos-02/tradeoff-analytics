@@ -1,0 +1,3670 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/plataformas/adobe-analytics/">
+      
+      
+        <link rel="prev" href="../open-web-analytics/">
+      
+      
+        <link rel="next" href="../simple-analytics/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Adobe Analytics - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adobe-analytics" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adobe Analytics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visão-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visão geral
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Visão geral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-identificação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Identificação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-história" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 História
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-comunidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Comunidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-modelo-de-negócio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Modelo de negócio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Casos de uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-licenciamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Licenciamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Licenciamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-edições" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Edições
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hospedagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Hospedagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-funcionalidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Funcionalidades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Funcionalidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cobertura-dos-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Cobertura dos requisitos funcionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-analytics-api-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Analytics API 2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-sdks-oficiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 SDKs oficiais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exemplos-de-integração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Exemplos de integração
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exemplos de integração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Power BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Grafana
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-metabase-e-apache-superset" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Metabase e Apache Superset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-qlik-sense" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Qlik Sense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-google-looker-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Google Looker Studio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integrações" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Integrações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Infraestrutura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Segurança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-custos" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Custos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-pontos-fortes" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Pontos fortes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-pontos-fracos" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Pontos fracos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-quando-utilizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Quando utilizar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-quando-evitar" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Quando evitar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-notas-do-avaliador" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Notas do avaliador
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Notas do avaliador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171-notas-atribuídas" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.1 Notas atribuídas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172-observação-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.2 Observação final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visão-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visão geral
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Visão geral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-identificação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Identificação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-história" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 História
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-comunidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Comunidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-modelo-de-negócio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Modelo de negócio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Casos de uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-licenciamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Licenciamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Licenciamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-edições" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Edições
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hospedagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Hospedagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-funcionalidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Funcionalidades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Funcionalidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cobertura-dos-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Cobertura dos requisitos funcionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-analytics-api-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Analytics API 2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-sdks-oficiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 SDKs oficiais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exemplos-de-integração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Exemplos de integração
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exemplos de integração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Power BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Grafana
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-metabase-e-apache-superset" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Metabase e Apache Superset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-qlik-sense" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Qlik Sense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-google-looker-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Google Looker Studio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integrações" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Integrações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Infraestrutura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Segurança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-custos" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Custos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-pontos-fortes" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Pontos fortes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-pontos-fracos" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Pontos fracos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-quando-utilizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Quando utilizar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-quando-evitar" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Quando evitar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-notas-do-avaliador" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Notas do avaliador
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Notas do avaliador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171-notas-atribuídas" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.1 Notas atribuídas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172-observação-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.2 Observação final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="adobe-analytics">Adobe Analytics<a class="headerlink" href="#adobe-analytics" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Ficha técnica de plataforma</strong> · Pontuação na matriz: <strong>405/600 (67,5 %)</strong> — 9º lugar · 🟠 Condicionada
+<strong>Situação:</strong> ❌ <strong>Não selecionada</strong> — desproporção de custo frente ao princípio da economicidade
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a> · <a href="../../comparativos/custo/">Análise de custo</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-visão-geral">1. Visão geral</a></li>
+<li><a href="#2-licenciamento">2. Licenciamento</a></li>
+<li><a href="#3-hospedagem">3. Hospedagem</a></li>
+<li><a href="#4-funcionalidades">4. Funcionalidades</a></li>
+<li><a href="#5-apis">5. APIs</a></li>
+<li><a href="#6-exemplos-de-integração">6. Exemplos de integração</a></li>
+<li><a href="#7-integrações">7. Integrações</a></li>
+<li><a href="#8-infraestrutura">8. Infraestrutura</a></li>
+<li><a href="#9-segurança">9. Segurança</a></li>
+<li><a href="#10-governança">10. Governança</a></li>
+<li><a href="#11-performance">11. Performance</a></li>
+<li><a href="#12-custos">12. Custos</a></li>
+<li><a href="#13-pontos-fortes">13. Pontos fortes</a></li>
+<li><a href="#14-pontos-fracos">14. Pontos fracos</a></li>
+<li><a href="#15-quando-utilizar">15. Quando utilizar</a></li>
+<li><a href="#16-quando-evitar">16. Quando evitar</a></li>
+<li><a href="#17-notas-do-avaliador">17. Notas do avaliador</a></li>
+</ul>
+<hr />
+<h2 id="1-visão-geral">1. Visão geral<a class="headerlink" href="#1-visão-geral" title="Permanent link">&para;</a></h2>
+<h3 id="11-identificação">1.1 Identificação<a class="headerlink" href="#11-identificação" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nome</strong></td>
+<td>Adobe Analytics</td>
+</tr>
+<tr>
+<td><strong>Nomes anteriores</strong></td>
+<td>Omniture SiteCatalyst → Adobe SiteCatalyst → Adobe Analytics</td>
+</tr>
+<tr>
+<td><strong>Origem</strong></td>
+<td>Omniture, fundada em 1996</td>
+</tr>
+<tr>
+<td><strong>Aquisição pela Adobe</strong></td>
+<td>2009</td>
+</tr>
+<tr>
+<td><strong>Mantenedor</strong></td>
+<td>Adobe Inc.</td>
+</tr>
+<tr>
+<td><strong>Sede</strong></td>
+<td>Estados Unidos</td>
+</tr>
+<tr>
+<td><strong>Segmento</strong></td>
+<td>Enterprise Web Analytics / Customer Journey Analytics</td>
+</tr>
+<tr>
+<td><strong>Site oficial</strong></td>
+<td><code>https://business.adobe.com/products/analytics/adobe-analytics.html</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-história">1.2 História<a class="headerlink" href="#12-história" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>timeline
+    title Evolução do Adobe Analytics
+    1996 : Fundação da Omniture
+    2006 : SiteCatalyst consolida-se como líder do segmento enterprise
+    2009 : Adobe adquire a Omniture por aproximadamente USD 1,8 bilhão
+    2012 : Integração à Adobe Marketing Cloud
+    2016 : Analysis Workspace substitui os relatórios legados
+    2019 : Adobe Experience Platform — unificação de dados de cliente
+    2020 : Customer Journey Analytics (CJA) sobre a Experience Platform
+    2021 : Web SDK (alloy.js) substitui o AppMeasurement legado
+    2023 : Migração da autenticação de API de JWT para OAuth Server-to-Server
+    2025 : Camada de análise assistida por IA (Adobe AI Assistant)</code></pre>
+<h3 id="13-comunidade">1.3 Comunidade<a class="headerlink" href="#13-comunidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Indicador</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idade do produto</td>
+<td>29+ anos</td>
+</tr>
+<tr>
+<td>Governança</td>
+<td>Fechada — Adobe Inc.</td>
+</tr>
+<tr>
+<td>Base instalada</td>
+<td>Grandes corporações globais</td>
+</tr>
+<tr>
+<td>Certificação oficial</td>
+<td>✅ Adobe Certified Professional / Expert</td>
+</tr>
+<tr>
+<td>Rede de parceiros no Brasil</td>
+<td>🟢 Consolidada</td>
+</tr>
+<tr>
+<td>Comunidade técnica</td>
+<td>🟡 Relevante, porém restrita ao segmento enterprise</td>
+</tr>
+<tr>
+<td>Adoção no setor público</td>
+<td>⚠️ Presente em administrações de grande porte (ex.: setor público britânico)</td>
+</tr>
+<tr>
+<td><strong>Nota C11 (Comunidade)</strong></td>
+<td><strong>3/5</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-modelo-de-negócio">1.4 Modelo de negócio<a class="headerlink" href="#14-modelo-de-negócio" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    AA["Adobe Analytics&lt;br/&gt;Licença enterprise"] --&gt; UP1["Adobe Experience Platform"]
+    AA --&gt; UP2["Customer Journey Analytics"]
+    AA --&gt; UP3["Adobe Target&lt;br/&gt;(A/B testing)"]
+    AA --&gt; UP4["Adobe Real-Time CDP"]
+    AA --&gt; SRV["Serviços profissionais&lt;br/&gt;e consultoria certificada"]
+
+    style AA fill:#f8d7da,stroke:#dc3545,stroke-width:2px</code></pre>
+<p><strong>Classificação:</strong> licenciamento enterprise por contrato, com forte estratégia de expansão dentro da suíte Adobe Experience Cloud.</p>
+<h3 id="15-casos-de-uso">1.5 Casos de uso<a class="headerlink" href="#15-casos-de-uso" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caso de uso</th>
+<th style="text-align: center;">Aderência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grande corporação com orçamento de marketing dedicado</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>E-commerce de larga escala com atribuição complexa</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>Organização já investida na Adobe Experience Cloud</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>Análise de jornada omnichannel</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>Portal institucional público estadual</td>
+<td style="text-align: center;">🔴 <strong>Desproporcional</strong></td>
+</tr>
+<tr>
+<td>Organização sem equipe analítica dedicada</td>
+<td style="text-align: center;">🔴 Inadequada</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-licenciamento">2. Licenciamento<a class="headerlink" href="#2-licenciamento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tipo</strong></td>
+<td>🔴 Proprietária</td>
+</tr>
+<tr>
+<td><strong>Licença</strong></td>
+<td>Contrato comercial (Adobe Enterprise Term License Agreement)</td>
+</tr>
+<tr>
+<td><strong>Código-fonte</strong></td>
+<td>❌ Fechado</td>
+</tr>
+<tr>
+<td><strong>Auditabilidade</strong></td>
+<td>❌ Nenhuma</td>
+</tr>
+<tr>
+<td><strong>Preço</strong></td>
+<td>❌ <strong>Não público</strong> — negociado por contrato</td>
+</tr>
+<tr>
+<td><strong>Modelo de cobrança</strong></td>
+<td>Por volume de <em>server calls</em> / contrato anual com compromisso mínimo</td>
+</tr>
+<tr>
+<td><strong>Direito perpétuo</strong></td>
+<td>❌ Nenhum</td>
+</tr>
+<tr>
+<td><strong>Fork</strong></td>
+<td>❌ Impossível</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-edições">2.1 Edições<a class="headerlink" href="#21-edições" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Edição</th>
+<th>Escopo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Select</strong></td>
+<td>Web analytics essencial</td>
+</tr>
+<tr>
+<td><strong>Prime</strong></td>
+<td>Multicanal, atribuição avançada</td>
+</tr>
+<tr>
+<td><strong>Ultimate</strong></td>
+<td>Atribuição algorítmica, Data Workbench, previsões</td>
+</tr>
+<tr>
+<td><strong>Customer Journey Analytics</strong></td>
+<td>Análise sobre a Adobe Experience Platform</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Preço não público</strong>
+A Adobe <strong>não publica preços</strong>. As estimativas usadas neste estudo (faixa de R$ 4,5 M a R$ 7 M em 5 anos, incluindo licença, implantação, consultoria e treinamento) são <strong>estimativas de mercado</strong> e <strong>não devem ser usadas em peça orçamentária ou licitatória sem cotação formal</strong>.</p>
+<p>Registrado como pendência <strong>V4</strong> em <a href="../../docs/12-referencias/#242-pendências-de-verificação-antes-da-homologação"><code>../docs/12-referencias.md</code></a>.</p>
+<p>Independentemente do valor exato, a <strong>ordem de grandeza</strong> é inequivocamente superior à das alternativas avaliadas, e é essa ordem de grandeza — não o valor preciso — que fundamenta a análise de economicidade.</p>
+</blockquote>
+<hr />
+<h2 id="3-hospedagem">3. Hospedagem<a class="headerlink" href="#3-hospedagem" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Modalidade</th>
+<th style="text-align: center;">Suporte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto-hospedado</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Docker / Kubernetes</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>SaaS público</td>
+<td style="text-align: center;">✅ Única modalidade</td>
+</tr>
+<tr>
+<td>Região de dados selecionável</td>
+<td style="text-align: center;">⚠️ Negociável contratualmente</td>
+</tr>
+<tr>
+<td>On-premises</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Nuvem privada do cliente</td>
+<td style="text-align: center;">⚠️ Negociável em contratos de grande porte</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Localização dos dados</strong></td>
+<td>Datacenters da Adobe; região negociável em contrato</td>
+</tr>
+<tr>
+<td><strong>Transferência internacional</strong></td>
+<td>⚠️ Sim</td>
+</tr>
+<tr>
+<td><strong>Instrumento</strong></td>
+<td>DPA formal + cláusulas contratuais padrão</td>
+</tr>
+<tr>
+<td><strong>Aplicabilidade à LGPD</strong></td>
+<td>⚠️ Exige avaliação do art. 33</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-funcionalidades">4. Funcionalidades<a class="headerlink" href="#4-funcionalidades" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th style="text-align: center;">Suporte</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dashboards</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Analysis Workspace — a interface analítica mais poderosa do mercado</td>
+</tr>
+<tr>
+<td><strong>Eventos customizados</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Modelo de eventos, props e eVars</td>
+</tr>
+<tr>
+<td><strong>Goals</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Métricas calculadas e eventos de sucesso</td>
+</tr>
+<tr>
+<td><strong>Conversion Funnel</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Fallout e Flow analysis</td>
+</tr>
+<tr>
+<td><strong>Heatmaps</strong></td>
+<td style="text-align: center;">💲</td>
+<td>Via Adobe Target ou Activity Map</td>
+</tr>
+<tr>
+<td><strong>Session Recording</strong></td>
+<td style="text-align: center;">💲</td>
+<td>Módulo adicional</td>
+</tr>
+<tr>
+<td><strong>User Journey</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Flow, Journey Canvas, CJA</td>
+</tr>
+<tr>
+<td><strong>A/B Testing</strong></td>
+<td style="text-align: center;">💲</td>
+<td>Adobe Target (produto separado)</td>
+</tr>
+<tr>
+<td><strong>Form Analytics</strong></td>
+<td style="text-align: center;">💲</td>
+<td>Via instrumentação customizada ou módulo</td>
+</tr>
+<tr>
+<td><strong>Real Time</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Real-Time Reports</td>
+</tr>
+<tr>
+<td><strong>Cohort</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Cohort Analysis nativo</td>
+</tr>
+<tr>
+<td><strong>Retention</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Nativo</td>
+</tr>
+<tr>
+<td><strong>Custom Dimensions</strong></td>
+<td style="text-align: center;">✅</td>
+<td>eVars, props, dimensões calculadas — muito extensível</td>
+</tr>
+<tr>
+<td><strong>Segmentação</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Segment Builder com lógica ilimitada; segmentos sequenciais</td>
+</tr>
+<tr>
+<td><strong>Atribuição</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Modelos regra-base e <strong>algorítmica</strong> (Attribution IQ)</td>
+</tr>
+<tr>
+<td><strong>Anomaly detection</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Nativo, estatístico</td>
+</tr>
+<tr>
+<td><strong>Contribution analysis</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Análise automática de causa de anomalia</td>
+</tr>
+<tr>
+<td><strong>Data Warehouse</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Exportação de dados detalhados</td>
+</tr>
+<tr>
+<td><strong>Data Feeds</strong></td>
+<td style="text-align: center;">💲</td>
+<td>Exportação de dado bruto (<em>hit-level</em>)</td>
+</tr>
+<tr>
+<td><strong>Machine learning / IA</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Previsões, segmentos preditivos, AI Assistant</td>
+</tr>
+<tr>
+<td><strong>Amostragem</strong></td>
+<td style="text-align: center;">❌</td>
+<td>Nenhuma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-cobertura-dos-requisitos-funcionais">4.1 Cobertura dos requisitos funcionais<a class="headerlink" href="#41-cobertura-dos-requisitos-funcionais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prioridade</th>
+<th style="text-align: center;">Atendidos</th>
+<th style="text-align: right;">Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Must have</em></td>
+<td style="text-align: center;">17 / 17</td>
+<td style="text-align: right;">100 %</td>
+</tr>
+<tr>
+<td><em>Should have</em></td>
+<td style="text-align: center;">17 / 18</td>
+<td style="text-align: right;">94 %</td>
+</tr>
+<tr>
+<td><em>Could have</em></td>
+<td style="text-align: center;">11 / 12</td>
+<td style="text-align: right;">92 %</td>
+</tr>
+<tr>
+<td><strong>Ponderada</strong></td>
+<td style="text-align: center;"><strong>96 / 99</strong></td>
+<td style="text-align: right;"><strong>97 %</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota C05 (Recursos analíticos): 5/5</strong> — a maior cobertura funcional do estudo.</p>
+<hr />
+<h2 id="5-apis">5. APIs<a class="headerlink" href="#5-apis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Tipo</th>
+<th>Finalidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Analytics API 2.0</strong></td>
+<td>REST</td>
+<td>Relatórios, segmentos, métricas calculadas</td>
+</tr>
+<tr>
+<td><strong>Bulk Data Insertion API</strong></td>
+<td>REST</td>
+<td>Ingestão em lote</td>
+</tr>
+<tr>
+<td><strong>Data Warehouse Request API</strong></td>
+<td>REST</td>
+<td>Exportação de dados detalhados</td>
+</tr>
+<tr>
+<td><strong>Data Feeds</strong></td>
+<td>Arquivo (FTP/S3)</td>
+<td>Dado bruto <em>hit-level</em></td>
+</tr>
+<tr>
+<td><strong>Livestream</strong></td>
+<td>Streaming</td>
+<td>Fluxo de eventos em tempo quase real</td>
+</tr>
+<tr>
+<td><strong>GraphQL</strong></td>
+<td>❌</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Webhooks</strong></td>
+<td>⚠️</td>
+<td>Via Adobe I/O Events</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-analytics-api-20">5.1 Analytics API 2.0<a class="headerlink" href="#51-analytics-api-20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base</strong></td>
+<td><code>https://analytics.adobe.io/api/{companyId}/</code></td>
+</tr>
+<tr>
+<td><strong>Autenticação</strong></td>
+<td><strong>OAuth Server-to-Server</strong> (o método JWT foi descontinuado)</td>
+</tr>
+<tr>
+<td><strong>Versionamento</strong></td>
+<td>✅ Explícito (<code>2.0</code>)</td>
+</tr>
+<tr>
+<td><strong>Formato</strong></td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><strong>Rate limits</strong></td>
+<td>✅ Documentados por organização e por token</td>
+</tr>
+<tr>
+<td><strong>Cabeçalhos obrigatórios</strong></td>
+<td><code>x-api-key</code>, <code>x-proxy-global-company-id</code>, <code>Authorization</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-sdks-oficiais">5.2 SDKs oficiais<a class="headerlink" href="#52-sdks-oficiais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Linguagem</th>
+<th style="text-align: center;">Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Java</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>.NET</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Web SDK (<code>alloy.js</code>)</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>iOS / Android</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota C06 (APIs): 5/5</strong> — a superfície de API mais completa do estudo: leitura, escrita, exportação de dado bruto, streaming, SDKs amplos, versionamento explícito e autenticação robusta.</p>
+<hr />
+<h2 id="6-exemplos-de-integração">6. Exemplos de integração<a class="headerlink" href="#6-exemplos-de-integração" title="Permanent link">&para;</a></h2>
+<h3 id="61-python">6.1 Python<a class="headerlink" href="#61-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
+<span class="sd">Adobe Analytics API 2.0 — autenticação OAuth Server-to-Server.</span>
+<span class="sd">Requisitos: requests</span>
+<span class="sd">"""</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">IMS_TOKEN_URL</span> <span class="o">=</span> <span class="s2">"https://ims-na1.adobelogin.com/ims/token/v3"</span>
+<span class="n">API_BASE</span> <span class="o">=</span> <span class="s2">"https://analytics.adobe.io/api"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obter_token</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Obtém access token via OAuth Server-to-Server."""</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">IMS_TOKEN_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"grant_type"</span><span class="p">:</span> <span class="s2">"client_credentials"</span><span class="p">,</span>
+        <span class="s2">"client_id"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"ADOBE_CLIENT_ID"</span><span class="p">],</span>
+        <span class="s2">"client_secret"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"ADOBE_CLIENT_SECRET"</span><span class="p">],</span>
+        <span class="s2">"scope"</span><span class="p">:</span> <span class="s2">"openid,AdobeID,additional_info.projectedProductContext"</span><span class="p">,</span>
+    <span class="p">},</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"access_token"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">relatorio</span><span class="p">(</span><span class="n">rsid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data_inicio</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data_fim</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+              <span class="n">dimension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"variables/page"</span><span class="p">,</span>
+              <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"metrics/pageviews"</span><span class="p">,</span> <span class="n">limite</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">obter_token</span><span class="p">()</span>
+    <span class="n">company_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"ADOBE_COMPANY_ID"</span><span class="p">]</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"ADOBE_CLIENT_ID"</span><span class="p">],</span>
+        <span class="s2">"x-proxy-global-company-id"</span><span class="p">:</span> <span class="n">company_id</span><span class="p">,</span>
+        <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"rsid"</span><span class="p">:</span> <span class="n">rsid</span><span class="p">,</span>
+        <span class="s2">"globalFilters"</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dateRange"</span><span class="p">,</span>
+            <span class="s2">"dateRange"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">data_inicio</span><span class="si">}</span><span class="s2">T00:00:00.000/</span><span class="si">{</span><span class="n">data_fim</span><span class="si">}</span><span class="s2">T23:59:59.999"</span><span class="p">,</span>
+        <span class="p">}],</span>
+        <span class="s2">"metricContainer"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"metrics"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"columnId"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">:</span> <span class="n">metric</span><span class="p">}]</span>
+        <span class="p">},</span>
+        <span class="s2">"dimension"</span><span class="p">:</span> <span class="n">dimension</span><span class="p">,</span>
+        <span class="s2">"settings"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"limit"</span><span class="p">:</span> <span class="n">limite</span><span class="p">,</span> <span class="s2">"page"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"countRepeatInstances"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">API_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">company_id</span><span class="si">}</span><span class="s2">/reports"</span><span class="p">,</span>
+                      <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">dados</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"item"</span><span class="p">:</span> <span class="n">linha</span><span class="p">[</span><span class="s2">"value"</span><span class="p">],</span> <span class="s2">"valor"</span><span class="p">:</span> <span class="n">linha</span><span class="p">[</span><span class="s2">"data"</span><span class="p">][</span><span class="mi">0</span><span class="p">]}</span>
+        <span class="k">for</span> <span class="n">linha</span> <span class="ow">in</span> <span class="n">dados</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rows"</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="p">]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">linha</span> <span class="ow">in</span> <span class="n">relatorio</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"ADOBE_RSID"</span><span class="p">],</span> <span class="s2">"2026-07-01"</span><span class="p">,</span> <span class="s2">"2026-07-31"</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">linha</span><span class="p">[</span><span class="s1">'valor'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;12,.0f</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">linha</span><span class="p">[</span><span class="s1">'item'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="62-nodejs">6.2 Node.js<a class="headerlink" href="#62-nodejs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/** Adobe Analytics API 2.0 — Node.js 18+ */</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">obterToken</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">URLSearchParams</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">grant_type</span><span class="o">:</span><span class="w"> </span><span class="s1">'client_credentials'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">client_id</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ADOBE_CLIENT_ID</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">client_secret</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ADOBE_CLIENT_SECRET</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="s1">'openid,AdobeID,additional_info.projectedProductContext'</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://ims-na1.adobelogin.com/ims/token/v3'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">'POST'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">'Content-Type'</span><span class="o">:</span><span class="w"> </span><span class="s1">'application/x-www-form-urlencoded'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">body</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">res</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Adobe IMS </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">()).</span><span class="nx">access_token</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">relatorio</span><span class="p">({</span><span class="w"> </span><span class="nx">rsid</span><span class="p">,</span><span class="w"> </span><span class="nx">dataInicio</span><span class="p">,</span><span class="w"> </span><span class="nx">dataFim</span><span class="p">,</span><span class="w"> </span><span class="nx">dimension</span><span class="p">,</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">obterToken</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">companyId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ADOBE_COMPANY_ID</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://analytics.adobe.io/api/</span><span class="si">${</span><span class="nx">companyId</span><span class="si">}</span><span class="sb">/reports`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">'POST'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'x-api-key'</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ADOBE_CLIENT_ID</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'x-proxy-global-company-id'</span><span class="o">:</span><span class="w"> </span><span class="nx">companyId</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'Content-Type'</span><span class="o">:</span><span class="w"> </span><span class="s1">'application/json'</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">rsid</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">globalFilters</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'dateRange'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">dateRange</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">dataInicio</span><span class="si">}</span><span class="sb">T00:00:00.000/</span><span class="si">${</span><span class="nx">dataFim</span><span class="si">}</span><span class="sb">T23:59:59.999`</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}],</span>
+<span class="w">      </span><span class="nx">metricContainer</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">columnId</span><span class="o">:</span><span class="w"> </span><span class="s1">'0'</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">dimension</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">settings</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">limit</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="nx">page</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">res</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Adobe Analytics </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">rows</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">valor</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="p">}));</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="63-power-bi">6.3 Power BI<a class="headerlink" href="#63-power-bi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conector nativo do Adobe Analytics</td>
+<td>✅ Disponível no Power BI Desktop</td>
+</tr>
+<tr>
+<td>Data Feeds → Data Lake → Power BI</td>
+<td>✅ Preferencial para grande volume</td>
+</tr>
+<tr>
+<td>Power Query M sobre a API 2.0</td>
+<td>🔧 Requer tratamento de OAuth</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>Power BI Desktop → Obter Dados → Adobe Analytics
+→ Autenticar (conta Adobe)
+→ Selecionar Report Suite
+→ Escolher dimensões e métricas
+</code></pre></div>
+<h3 id="64-grafana">6.4 Grafana<a class="headerlink" href="#64-grafana" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datasource nativo</td>
+<td>❌ Não existe</td>
+</tr>
+<tr>
+<td>Coletor próprio (API 2.0) → Prometheus/InfluxDB</td>
+<td>🔧 Caminho usual</td>
+</tr>
+<tr>
+<td>Data Feeds → data warehouse → datasource SQL</td>
+<td>✅ Preferencial</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-metabase-e-apache-superset">6.5 Metabase e Apache Superset<a class="headerlink" href="#65-metabase-e-apache-superset" title="Permanent link">&para;</a></h3>
+<p>Nenhuma conexão direta — não há endpoint SQL. Caminho:</p>
+<pre class="mermaid"><code>flowchart LR
+    AA["Adobe Analytics"] --&gt;|"Data Feeds&lt;br/&gt;(módulo pago)"| S3[("Object Storage&lt;br/&gt;S3 / SFTP")]
+    S3 --&gt;|"ETL"| DW[("Data Warehouse&lt;br/&gt;do Estado")]
+    DW --&gt; MB["Metabase"]
+    DW --&gt; SS["Superset"]
+
+    AA -.-&gt;|"alternativa"| API["API 2.0"]
+    API -.-&gt; ETL["ETL próprio"]
+    ETL -.-&gt; DW
+
+    style S3 fill:#fff3cd</code></pre>
+<h3 id="66-qlik-sense">6.6 Qlik Sense<a class="headerlink" href="#66-qlik-sense" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Qlik REST Connector sobre a Analytics API 2.0</span>
+<span class="c1">// Requer obtenção prévia do token OAuth (por script externo ou variável)</span>
+<span class="k">LIB</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span>TO<span class="w"> </span><span class="s">'AdobeAnalyticsREST'</span><span class="p">;</span>
+
+<span class="kd">RestConnectorMasterTable:</span>
+<span class="k">SQL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="ss">"value"</span><span class="p">,</span><span class="w"> </span><span class="ss">"__KEY_rows"</span><span class="p">,</span><span class="w"> </span><span class="ss">"data"</span>
+<span class="k">FROM</span><span class="w"> </span>JSON<span class="w"> </span><span class="p">(</span>wrap<span class="w"> </span>on<span class="p">)</span><span class="w"> </span><span class="ss">"rows"</span>
+<span class="k">WITH</span><span class="w"> </span>CONNECTION<span class="w"> </span><span class="p">(</span>
+<span class="w">    </span>URL<span class="w"> </span><span class="ss">"https://analytics.adobe.io/api/</span><span class="si">$(</span><span class="nv">vCompanyId</span><span class="si">)</span><span class="ss">/reports"</span><span class="p">,</span>
+<span class="w">    </span>HTTPHEADER<span class="w"> </span><span class="ss">"Authorization"</span><span class="w"> </span><span class="ss">"Bearer </span><span class="si">$(</span><span class="nv">vToken</span><span class="si">)</span><span class="ss">"</span><span class="p">,</span>
+<span class="w">    </span>HTTPHEADER<span class="w"> </span><span class="ss">"x-api-key"</span><span class="w"> </span><span class="ss">"</span><span class="si">$(</span><span class="nv">vClientId</span><span class="si">)</span><span class="ss">"</span><span class="p">,</span>
+<span class="w">    </span>HTTPHEADER<span class="w"> </span><span class="ss">"x-proxy-global-company-id"</span><span class="w"> </span><span class="ss">"</span><span class="si">$(</span><span class="nv">vCompanyId</span><span class="si">)</span><span class="ss">"</span><span class="p">,</span>
+<span class="w">    </span>BODY<span class="w"> </span><span class="ss">"</span><span class="si">$(</span><span class="nv">vPayloadJson</span><span class="si">)</span><span class="ss">"</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="67-google-looker-studio">6.7 Google Looker Studio<a class="headerlink" href="#67-google-looker-studio" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conector nativo</td>
+<td>❌ Não existe</td>
+</tr>
+<tr>
+<td>Conector de terceiro (pago)</td>
+<td>⚠️ Disponível no mercado</td>
+</tr>
+<tr>
+<td>Via BigQuery (Data Feeds → BigQuery)</td>
+<td>🔧 Viável</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação</strong>
+A integração Adobe → Google é deliberadamente pouco favorecida por ambos os fornecedores, por serem concorrentes diretos no mercado de plataformas de experiência. Organizações que operam nas duas suítes constroem a ponte por conta própria.</p>
+</blockquote>
+<hr />
+<h2 id="7-integrações">7. Integrações<a class="headerlink" href="#7-integrações" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Integração</th>
+<th style="text-align: center;">Suporte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Tag Manager</strong></td>
+<td style="text-align: center;">✅ Tag customizada</td>
+</tr>
+<tr>
+<td><strong>Adobe Experience Platform Tags (Launch)</strong></td>
+<td style="text-align: center;">✅ <strong>Nativo</strong> — tag manager próprio</td>
+</tr>
+<tr>
+<td><strong>Matomo Tag Manager</strong></td>
+<td style="text-align: center;">🔧</td>
+</tr>
+<tr>
+<td><strong>Consent Manager</strong></td>
+<td style="text-align: center;">✅ Adobe Privacy Service + integração com CMPs</td>
+</tr>
+<tr>
+<td><strong>IAB TCF</strong></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Identity Provider</strong></td>
+<td style="text-align: center;">✅ Adobe IMS federado</td>
+</tr>
+<tr>
+<td><strong>OAuth 2.0</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+</tr>
+<tr>
+<td><strong>OpenID Connect</strong></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>SAML 2.0</strong></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Adobe Experience Cloud</strong></td>
+<td style="text-align: center;">✅ Integração de primeira classe</td>
+</tr>
+<tr>
+<td><strong>Salesforce, Microsoft Dynamics</strong></td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Ecossistema de parceiros</strong></td>
+<td style="text-align: center;">✅ Amplo</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota C07 (Integrações): 5/5</strong></p>
+<hr />
+<h2 id="8-infraestrutura">8. Infraestrutura<a class="headerlink" href="#8-infraestrutura" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Banco utilizado</strong></td>
+<td>❌ Não divulgado (proprietário)</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade</strong></td>
+<td>✅ Enterprise, sem esforço do cliente</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td>Gerenciado</td>
+</tr>
+<tr>
+<td><strong>Alta disponibilidade</strong></td>
+<td>✅ Com SLA contratual</td>
+</tr>
+<tr>
+<td><strong>Cluster</strong></td>
+<td>➖ Não aplicável</td>
+</tr>
+<tr>
+<td><strong>Backup</strong></td>
+<td>➖ Responsabilidade do fornecedor</td>
+</tr>
+<tr>
+<td><strong>Disaster Recovery</strong></td>
+<td>✅ Contratual</td>
+</tr>
+<tr>
+<td><strong>Controle do cliente</strong></td>
+<td>❌ Nenhum</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-segurança">9. Segurança<a class="headerlink" href="#9-segurança" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LGPD</strong></td>
+<td>⚠️ DPA robusto e controles de privacidade maduros; transferência internacional exige avaliação</td>
+</tr>
+<tr>
+<td><strong>GDPR</strong></td>
+<td>✅ Privacy Service com atendimento a direitos do titular</td>
+</tr>
+<tr>
+<td><strong>ISO 27001</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>SOC 2 Type II</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>FedRAMP</strong></td>
+<td>✅ Em determinadas ofertas governamentais dos EUA</td>
+</tr>
+<tr>
+<td><strong>Controle de acesso</strong></td>
+<td>✅ RBAC granular via Adobe Admin Console</td>
+</tr>
+<tr>
+<td><strong>MFA</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Auditoria</strong></td>
+<td>✅ Audit Logs completo</td>
+</tr>
+<tr>
+<td><strong>Logs</strong></td>
+<td>✅ Exportáveis</td>
+</tr>
+<tr>
+<td><strong>Criptografia em trânsito</strong></td>
+<td>✅ TLS</td>
+</tr>
+<tr>
+<td><strong>Criptografia em repouso</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Retenção de dados</strong></td>
+<td>✅ Contratual, configurável</td>
+</tr>
+<tr>
+<td><strong>Nota C09 (Segurança)</strong></td>
+<td><strong>5/5</strong> — a mais alta do estudo</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — Segurança não é o problema do Adobe</strong>
+O Adobe Analytics obtém a nota máxima em segurança e a maior cobertura funcional do estudo. Sua inadequação para este caso de uso <strong>não é técnica</strong> — é de <strong>economicidade e de governança de dados</strong>.</p>
+<p>Registrar isso explicitamente é importante para a integridade do estudo: descartar uma plataforma por custo é diferente de descartá-la por deficiência técnica, e a fundamentação deve refletir a razão real.</p>
+</blockquote>
+<hr />
+<h2 id="10-governança">10. Governança<a class="headerlink" href="#10-governança" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th style="text-align: center;">Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vendor lock-in</strong></td>
+<td style="text-align: center;">🔴 <strong>Muito alto</strong> — o maior do estudo</td>
+</tr>
+<tr>
+<td><strong>Controle dos dados</strong></td>
+<td style="text-align: center;">🟠 Parcial — Data Feeds disponíveis, porém como módulo pago</td>
+</tr>
+<tr>
+<td><strong>Portabilidade</strong></td>
+<td style="text-align: center;">🟠 Parcial</td>
+</tr>
+<tr>
+<td><strong>Transparência</strong></td>
+<td style="text-align: center;">🔴 Nenhuma — código fechado</td>
+</tr>
+<tr>
+<td><strong>Auditoria</strong></td>
+<td style="text-align: center;">🟡 Documental, apoiada em certificações robustas</td>
+</tr>
+<tr>
+<td><strong>Soberania</strong></td>
+<td style="text-align: center;">🟠 Contratual — região negociável, sem custódia própria</td>
+</tr>
+<tr>
+<td><strong>Continuidade sem o fornecedor</strong></td>
+<td style="text-align: center;">❌ Impossível</td>
+</tr>
+<tr>
+<td><strong>Custo de saída</strong></td>
+<td style="text-align: center;">🔴 ~R$ 600 k+</td>
+</tr>
+<tr>
+<td><strong>Nota C02 (Controle)</strong></td>
+<td style="text-align: center;"><strong>2/5</strong></td>
+</tr>
+<tr>
+<td><strong>Nota C04 (Independência)</strong></td>
+<td style="text-align: center;"><strong>1/5</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — O lock-in mais profundo do estudo</strong>
+O lock-in do Adobe Analytics não decorre apenas do formato dos dados. Decorre da <strong>implementação</strong>:</p>
+<ol>
+<li>A instrumentação usa eVars, props e events com semântica específica da plataforma — não portável;</li>
+<li>Segmentos, métricas calculadas e Analysis Workspaces representam anos de trabalho analítico acumulado, não exportáveis para outra ferramenta;</li>
+<li>A equipe é certificada em uma ferramenta específica;</li>
+<li>Integrações com Target, Launch e Experience Platform criam dependências cruzadas.</li>
+</ol>
+<p>Migrar do Adobe Analytics não é exportar dados — é <strong>reimplementar toda a camada analítica</strong>. Daí o custo de saída estimado em R$ 600 k+.</p>
+</blockquote>
+<hr />
+<h2 id="11-performance">11. Performance<a class="headerlink" href="#11-performance" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volume suportado</strong></td>
+<td>Ilimitado (enterprise)</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade horizontal</strong></td>
+<td>✅ Gerenciada</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade vertical</strong></td>
+<td>➖ Não aplicável</td>
+</tr>
+<tr>
+<td><strong>Latência de coleta</strong></td>
+<td>🟢 Baixa</td>
+</tr>
+<tr>
+<td><strong>Latência de relatório</strong></td>
+<td>🟢 Rápida, mesmo em consultas complexas</td>
+</tr>
+<tr>
+<td><strong>Frescor dos dados</strong></td>
+<td>🟢 30 min a 2 h para relatórios completos</td>
+</tr>
+<tr>
+<td><strong>Tamanho do script (gzip)</strong></td>
+<td>🔴 ~80 KB+ (Web SDK / AppMeasurement)</td>
+</tr>
+<tr>
+<td><strong>Impacto no LCP</strong></td>
+<td>🔴 <strong>Alto</strong> — o maior do estudo</td>
+</tr>
+<tr>
+<td><strong>Amostragem</strong></td>
+<td>❌ Nenhuma</td>
+</tr>
+<tr>
+<td><strong>Nota C08 (Escalabilidade)</strong></td>
+<td><strong>5/5</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Peso do script</strong>
+O Web SDK do Adobe é aproximadamente <strong>80× maior</strong> que o tracker do Plausible e <strong>4× maior</strong> que o do Matomo. Em portal público acessado majoritariamente por dispositivos móveis em conexões limitadas, isso tem impacto mensurável em Core Web Vitals e, portanto, em acessibilidade digital.</p>
+</blockquote>
+<hr />
+<h2 id="12-custos">12. Custos<a class="headerlink" href="#12-custos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">5 anos (estimativa de mercado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Licenciamento</strong></td>
+<td style="text-align: right;">R$ 3.000.000 – R$ 6.000.000</td>
+</tr>
+<tr>
+<td>Infraestrutura</td>
+<td style="text-align: right;">R$ 0 (SaaS)</td>
+</tr>
+<tr>
+<td><strong>Implantação e consultoria</strong></td>
+<td style="text-align: right;">R$ 300.000 – R$ 800.000</td>
+</tr>
+<tr>
+<td><strong>Treinamento e certificação</strong></td>
+<td style="text-align: right;">R$ 80.000 – R$ 150.000</td>
+</tr>
+<tr>
+<td>Equipe / operação (especialista dedicado)</td>
+<td style="text-align: right;">R$ 500.000</td>
+</tr>
+<tr>
+<td>Adobe Target (se A/B testing for requisito)</td>
+<td style="text-align: right;">Contrato adicional</td>
+</tr>
+<tr>
+<td>Data Feeds (dado bruto)</td>
+<td style="text-align: right;">Módulo adicional</td>
+</tr>
+<tr>
+<td><strong>Custo estimado de saída</strong></td>
+<td style="text-align: right;">R$ 600.000+</td>
+</tr>
+<tr>
+<td><strong>TCO 5 anos</strong></td>
+<td style="text-align: right;"><strong>≈ R$ 4.500.000 – R$ 7.000.000</strong></td>
+</tr>
+<tr>
+<td><strong>Nota C03 (TCO)</strong></td>
+<td style="text-align: right;"><strong>1/5</strong> — nota mínima</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta — Análise de economicidade</strong></p>
+<table>
+<thead>
+<tr>
+<th>Comparação</th>
+<th style="text-align: right;">Razão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adobe Analytics × Matomo On-Premise</td>
+<td style="text-align: right;"><strong>7× a 10×</strong></td>
+</tr>
+<tr>
+<td>Adobe Analytics × Piwik PRO</td>
+<td style="text-align: right;">3,5× a 5×</td>
+</tr>
+<tr>
+<td>Adobe Analytics × PostHog auto-hospedado</td>
+<td style="text-align: right;">2,7× a 4×</td>
+</tr>
+</tbody>
+</table>
+<p>Uma diferença dessa ordem para mensurar portais institucionais estaduais tem sustentação difícil perante:
+- <strong>CF/88, art. 37</strong> — princípio da eficiência;
+- <strong>CF/88, art. 70</strong> — controle de economicidade pelo Tribunal de Contas;
+- <strong>Lei nº 14.133/2021, art. 5º</strong> — princípio da economicidade nas contratações.</p>
+<p>A questão não é se o Adobe Analytics é melhor — em capacidade analítica, é. A questão é se a <strong>capacidade adicional justifica o custo adicional</strong> no caso de uso concreto. Para portais institucionais de um Estado, a resposta objetiva é não: os requisitos <em>Must have</em> são integralmente atendidos por alternativas a 10 % a 15 % do custo.</p>
+</blockquote>
+<hr />
+<h2 id="13-pontos-fortes">13. Pontos fortes<a class="headerlink" href="#13-pontos-fortes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Ponto forte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>A maior profundidade analítica do mercado</strong> — Analysis Workspace</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Atribuição algorítmica</strong> (Attribution IQ)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Segmentação ilimitada</strong>, incluindo segmentos sequenciais</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Detecção de anomalias e contribution analysis</strong> nativas</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>API mais completa do estudo</strong> — leitura, escrita, dado bruto, streaming</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Segurança e certificações no nível mais alto</strong> (ISO 27001, SOC 2, FedRAMP)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>SLA contratual e suporte enterprise</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Escalabilidade ilimitada sem amostragem</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Tag manager próprio</strong> (Adobe Experience Platform Tags)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Ecossistema integrado</strong> — Target, CJA, Real-Time CDP</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Rede de parceiros consolidada no Brasil</strong></td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Documentação e certificação formal</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="14-pontos-fracos">14. Pontos fracos<a class="headerlink" href="#14-pontos-fracos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Ponto fraco</th>
+<th style="text-align: center;">Mitigável?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>TCO 7× a 10× superior às alternativas adequadas</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Lock-in mais profundo do estudo</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Preço não público</strong> — dificulta planejamento e licitação</td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Custo de saída ~R$ 600 k+</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Script de ~80 KB degrada o desempenho do portal</strong></td>
+<td style="text-align: center;">⚠️ Configuração parcial</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Curva de aprendizado muito alta</strong></td>
+<td style="text-align: center;">⚠️ Certificação formal</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Dependência de consultoria certificada</strong></td>
+<td style="text-align: center;">⚠️ Capacitação interna</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Transferência internacional</strong></td>
+<td style="text-align: center;">⚠️ Região negociável</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Código fechado — sem auditoria verificável</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>A/B testing exige produto adicional (Adobe Target)</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Dado bruto exige módulo pago (Data Feeds)</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Contratação complexa para órgão público</strong></td>
+<td style="text-align: center;">⚠️ Processo licitatório</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-quando-utilizar">15. Quando utilizar<a class="headerlink" href="#15-quando-utilizar" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Use o Adobe Analytics quando:</strong></p>
+<ul>
+<li>A organização for <strong>grande corporação</strong> com orçamento de marketing digital na ordem de milhões;</li>
+<li>A <strong>atribuição multicanal complexa</strong> for central ao negócio;</li>
+<li>A organização já operar a <strong>Adobe Experience Cloud</strong>;</li>
+<li>Existir <strong>equipe analítica dedicada e certificada</strong>;</li>
+<li><strong>Análise omnichannel</strong> (web, app, loja física, call center) for requisito;</li>
+<li><strong>SLA contratual e suporte enterprise</strong> forem obrigatórios;</li>
+<li><strong>Certificações formais do fornecedor</strong> (ISO 27001, SOC 2, FedRAMP) forem exigência normativa;</li>
+<li>O volume for de bilhões de eventos e a ausência de amostragem for crítica.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="16-quando-evitar">16. Quando evitar<a class="headerlink" href="#16-quando-evitar" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>🚨 Evite o Adobe Analytics quando:</strong></p>
+<ul>
+<li>O orçamento não comportar a ordem de grandeza de milhões — <strong>caso deste estudo</strong>;</li>
+<li>Não houver <strong>equipe analítica dedicada</strong> para extrair valor da profundidade oferecida;</li>
+<li><strong>Independência tecnológica</strong> for requisito de governança;</li>
+<li><strong>Auditabilidade verificável</strong> for exigência de controle;</li>
+<li>O caso de uso for <strong>web analytics convencional</strong> — a capacidade adicional não seria utilizada;</li>
+<li><strong>Soberania sobre os dados</strong> for requisito;</li>
+<li>O <strong>desempenho do portal</strong> for crítico (peso do script);</li>
+<li>A organização não puder assumir <strong>compromisso contratual plurianual</strong> de alto valor;</li>
+<li>Como plataforma de portais institucionais de um governo estadual — <strong>desproporcional</strong>.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="17-notas-do-avaliador">17. Notas do avaliador<a class="headerlink" href="#17-notas-do-avaliador" title="Permanent link">&para;</a></h2>
+<h3 id="171-notas-atribuídas">17.1 Notas atribuídas<a class="headerlink" href="#171-notas-atribuídas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th style="text-align: right;">Peso</th>
+<th style="text-align: center;">Nota</th>
+<th style="text-align: right;">Pontos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C01 — LGPD</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr>
+<td>C02 — Controle dos dados</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr>
+<td>C03 — TCO</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>C04 — Independência tecnológica</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>C05 — Recursos analíticos</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C06 — APIs</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C07 — Integrações</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C08 — Escalabilidade</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C09 — Segurança</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C10 — Operação</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>C11 — Comunidade</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>C12 — Documentação</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>120</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"><strong>405 / 600 (67,5 %)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="172-observação-final">17.2 Observação final<a class="headerlink" href="#172-observação-final" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>📌 Observação — A plataforma mais capaz do estudo, em 9º lugar</strong></p>
+<p>O Adobe Analytics obtém <strong>nota 5 em cinco critérios</strong> — mais que qualquer outra plataforma avaliada. É, tecnicamente, a plataforma mais capaz do estudo.</p>
+<p>Sua posição decorre de <strong>nota 1 em C03 (TCO, peso 15)</strong> e <strong>nota 1 em C04 (Independência, peso 10)</strong>. Somente nesses dois critérios perde <strong>85 pontos</strong> para o Matomo On-Premise.</p>
+<p>Isso ilustra com precisão o que uma matriz de decisão ponderada faz: <strong>não escolhe a plataforma mais capaz, escolhe a mais adequada ao contexto</strong>. Um Ferrari é um carro melhor que uma van escolar, e ainda assim não se compra Ferrari para transportar alunos.</p>
+<p>A comparação vale nos dois sentidos: se o contexto fosse uma corporação global com orçamento de marketing dedicado, os pesos seriam outros e o Adobe Analytics venceria com folga.</p>
+</blockquote>
+<hr />
+<h2 id="referências">Referências<a class="headerlink" href="#referências" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Produto: <code>https://business.adobe.com/products/analytics/adobe-analytics.html</code></li>
+<li>Documentação: <code>https://experienceleague.adobe.com/docs/analytics.html</code></li>
+<li>Analytics API 2.0: <code>https://developer.adobe.com/analytics-apis/docs/2.0/</code></li>
+<li>Autenticação OAuth S2S: <code>https://developer.adobe.com/developer-console/docs/guides/authentication/</code></li>
+<li>Data Feeds: <code>https://experienceleague.adobe.com/docs/analytics/export/analytics-data-feed/data-feed-overview.html</code></li>
+<li>Conformidade: <code>https://www.adobe.com/trust/compliance/compliance-list.html</code></li>
+<li>Lista completa: <a href="../../docs/12-referencias/#12-documentação-oficial--adobe-analytics"><code>../docs/12-referencias.md</code>, seção 12</a></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>← Anterior</th>
+<th>Índice</th>
+<th>Próxima →</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../open-web-analytics/">Open Web Analytics</a></td>
+<td><a href="../../">Plataformas</a></td>
+<td><a href="../simple-analytics/">Simple Analytics</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

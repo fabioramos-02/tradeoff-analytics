@@ -1,0 +1,2866 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/migracao-matomo-posthog/">
+      
+      
+        <link rel="prev" href="../matomo-vs-posthog/">
+      
+      
+        <link rel="next" href="../../anexos/matriz/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Migração Matomo → PostHog - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparativo--risco-e-custo-de-migração-matomo--posthog" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Migração Matomo → PostHog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto--situação-atual-no-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto — situação atual no Estado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resposta-direta--a-série-histórica-não-migra" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resposta direta — a série histórica não migra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-que-se-perde-em-uma-migração-matomo--posthog" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. O que se perde em uma migração Matomo → PostHog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. O que se perde em uma migração Matomo → PostHog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tabela-consolidada" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Tabela consolidada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-o-que-perder-o-dado-significa-na-prática-governamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 O que "perder o dado" significa na prática governamental
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-por-que-a-incompatibilidade--modelos-de-dados-divergentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Por que a incompatibilidade — modelos de dados divergentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Por que a incompatibilidade — modelos de dados divergentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-matomo--modelo-relacional-orientado-a-visita" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Matomo — modelo relacional orientado a visita
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-posthog--modelo-event-stream-colunar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 PostHog — modelo event-stream colunar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-por-que-não-há-mapeamento-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Por que não há mapeamento 1:1
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-estratégias-de-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Estratégias de migração
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Estratégias de migração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-estratégia-a--congelar-o-matomo-mais-comum" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Estratégia A — Congelar o Matomo (mais comum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-estratégia-b--coleta-paralela-recomendada-quando-a-decisão-é-reversível" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Estratégia B — Coleta paralela (recomendada quando a decisão é reversível)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-estratégia-c--exportação-para-bi-externo-complementar" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Estratégia C — Exportação para BI externo (complementar)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-estratégia-d--reprocessamento-de-logs-web-não-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Estratégia D — Reprocessamento de logs web (não recomendado)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-custo-real-da-migração-adição-ao-tco" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Custo real da migração (adição ao TCO)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Custo real da migração (adição ao TCO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-rubricas-do-custo-de-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Rubricas do custo de migração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-impacto-acumulado-no-tco-5-anos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Impacto acumulado no TCO 5 anos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-custo-de-hedge-estratégia-b--coleta-paralela-sem-substituição" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Custo de "hedge" (Estratégia B — coleta paralela sem substituição)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-impacto-normativo--governança-lgpd-e-lei-de-acesso-à-informação" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Impacto normativo — governança, LGPD e Lei de Acesso à Informação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Impacto normativo — governança, LGPD e Lei de Acesso à Informação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-lgpd--nova-dpia-obrigatória" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 LGPD — nova DPIA obrigatória
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-lei-de-acesso-à-informação-125272011" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Lei de Acesso à Informação (12.527/2011)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-lei-de-governo-digital-141292021" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Lei de Governo Digital (14.129/2021)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-norma-interna-setdig" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Norma interna SETDIG
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-impacto-no-adr-001" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Impacto no ADR-001
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cenário-específico-setdigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Cenário-específico SETDIG/MS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Cenário-específico SETDIG/MS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-estado-presente-da-implantação" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Estado presente da implantação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-cenários-futuros-hipotéticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Cenários futuros hipotéticos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-análise-da-irreversibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Análise da irreversibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-recomendação-circunstanciada" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Recomendação circunstanciada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Recomendação circunstanciada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-gate-formal-de-reavaliação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Gate formal de reavaliação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-antipadrão-a-evitar--migração-impulsiva-por-experiência-positiva-com-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Antipadrão a evitar — migração impulsiva por experiência positiva com Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Antipadrão a evitar — migração impulsiva por experiência positiva com Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-perguntas-de-sanidade-antes-de-propor-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Perguntas de sanidade antes de propor migração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências-cruzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências cruzadas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto--situação-atual-no-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto — situação atual no Estado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resposta-direta--a-série-histórica-não-migra" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resposta direta — a série histórica não migra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-que-se-perde-em-uma-migração-matomo--posthog" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. O que se perde em uma migração Matomo → PostHog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. O que se perde em uma migração Matomo → PostHog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tabela-consolidada" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Tabela consolidada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-o-que-perder-o-dado-significa-na-prática-governamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 O que "perder o dado" significa na prática governamental
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-por-que-a-incompatibilidade--modelos-de-dados-divergentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Por que a incompatibilidade — modelos de dados divergentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Por que a incompatibilidade — modelos de dados divergentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-matomo--modelo-relacional-orientado-a-visita" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Matomo — modelo relacional orientado a visita
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-posthog--modelo-event-stream-colunar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 PostHog — modelo event-stream colunar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-por-que-não-há-mapeamento-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Por que não há mapeamento 1:1
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-estratégias-de-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Estratégias de migração
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Estratégias de migração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-estratégia-a--congelar-o-matomo-mais-comum" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Estratégia A — Congelar o Matomo (mais comum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-estratégia-b--coleta-paralela-recomendada-quando-a-decisão-é-reversível" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Estratégia B — Coleta paralela (recomendada quando a decisão é reversível)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-estratégia-c--exportação-para-bi-externo-complementar" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Estratégia C — Exportação para BI externo (complementar)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-estratégia-d--reprocessamento-de-logs-web-não-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Estratégia D — Reprocessamento de logs web (não recomendado)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-custo-real-da-migração-adição-ao-tco" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Custo real da migração (adição ao TCO)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Custo real da migração (adição ao TCO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-rubricas-do-custo-de-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Rubricas do custo de migração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-impacto-acumulado-no-tco-5-anos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Impacto acumulado no TCO 5 anos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-custo-de-hedge-estratégia-b--coleta-paralela-sem-substituição" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Custo de "hedge" (Estratégia B — coleta paralela sem substituição)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-impacto-normativo--governança-lgpd-e-lei-de-acesso-à-informação" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Impacto normativo — governança, LGPD e Lei de Acesso à Informação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Impacto normativo — governança, LGPD e Lei de Acesso à Informação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-lgpd--nova-dpia-obrigatória" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 LGPD — nova DPIA obrigatória
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-lei-de-acesso-à-informação-125272011" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Lei de Acesso à Informação (12.527/2011)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-lei-de-governo-digital-141292021" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Lei de Governo Digital (14.129/2021)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-norma-interna-setdig" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Norma interna SETDIG
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-impacto-no-adr-001" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Impacto no ADR-001
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cenário-específico-setdigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Cenário-específico SETDIG/MS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Cenário-específico SETDIG/MS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-estado-presente-da-implantação" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Estado presente da implantação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-cenários-futuros-hipotéticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Cenários futuros hipotéticos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-análise-da-irreversibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Análise da irreversibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-recomendação-circunstanciada" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Recomendação circunstanciada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Recomendação circunstanciada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-gate-formal-de-reavaliação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Gate formal de reavaliação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-antipadrão-a-evitar--migração-impulsiva-por-experiência-positiva-com-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Antipadrão a evitar — migração impulsiva por experiência positiva com Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Antipadrão a evitar — migração impulsiva por experiência positiva com Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-perguntas-de-sanidade-antes-de-propor-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Perguntas de sanidade antes de propor migração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências-cruzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências cruzadas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="comparativo--risco-e-custo-de-migração-matomo--posthog">Comparativo — Risco e custo de migração Matomo → PostHog<a class="headerlink" href="#comparativo--risco-e-custo-de-migração-matomo--posthog" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Corte transversal</strong> · Análise do custo de trocar Matomo por PostHog <strong>após</strong> implantação já em curso na infraestrutura do Estado
+<strong>Motivação:</strong> MS está implantando Matomo On-Premise agora. Se a decisão fosse revertida para PostHog, qual o custo real da migração?
+<a href="../../">← Voltar ao índice</a> · <a href="../matomo-vs-posthog/">Matomo × PostHog (comparativo bilateral)</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-contexto--situação-atual-no-estado">1. Contexto — situação atual no Estado</a></li>
+<li><a href="#2-resposta-direta--a-série-histórica-não-migra">2. Resposta direta — a série histórica não migra</a></li>
+<li><a href="#3-o-que-se-perde-em-uma-migração-matomo--posthog">3. O que se perde em uma migração Matomo → PostHog</a></li>
+<li><a href="#4-por-que-a-incompatibilidade--modelos-de-dados-divergentes">4. Por que a incompatibilidade — modelos de dados divergentes</a></li>
+<li><a href="#5-estratégias-de-migração">5. Estratégias de migração</a></li>
+<li><a href="#6-custo-real-da-migração-adição-ao-tco">6. Custo real da migração (adição ao TCO)</a></li>
+<li><a href="#7-impacto-normativo--governança-lgpd-e-lei-de-acesso-à-informação">7. Impacto normativo — governança, LGPD e Lei de Acesso à Informação</a></li>
+<li><a href="#8-impacto-no-adr-001">8. Impacto no ADR-001</a></li>
+<li><a href="#9-cenário-específico-setdigms">9. Cenário-específico SETDIG/MS</a></li>
+<li><a href="#10-recomendação-circunstanciada">10. Recomendação circunstanciada</a></li>
+<li><a href="#11-antipadrão-a-evitar--migração-impulsiva-por-experiência-positiva-com-cloud">11. Antipadrão a evitar — migração impulsiva por experiência positiva com Cloud</a></li>
+</ul>
+<hr />
+<h2 id="1-contexto--situação-atual-no-estado">1. Contexto — situação atual no Estado<a class="headerlink" href="#1-contexto--situação-atual-no-estado" title="Permanent link">&para;</a></h2>
+<p>Situação declarada em 2026-07:</p>
+<table>
+<thead>
+<tr>
+<th>Fato</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plataforma em implantação ativa</td>
+<td><strong>Matomo On-Premise</strong> na infraestrutura do Governo do Estado de MS</td>
+</tr>
+<tr>
+<td>Investimento em curso</td>
+<td>Infra provisionada, scripts implantados em portais WordPress, geração de histórico de acesso iniciada</td>
+</tr>
+<tr>
+<td>Estado da decisão arquitetural</td>
+<td>Este estudo (ADR-001) recomendou o Matomo — implantação alinhada à recomendação</td>
+</tr>
+<tr>
+<td>Motivação da pergunta</td>
+<td>Viés positivo pela experiência com <strong>PostHog Cloud</strong> em outro contexto</td>
+</tr>
+<tr>
+<td>Pergunta técnica</td>
+<td><em>"Se trocar para PostHog, perdemos os dados?"</em></td>
+</tr>
+</tbody>
+</table>
+<p>Este documento responde a essa pergunta e quantifica o custo da hipótese.</p>
+<hr />
+<h2 id="2-resposta-direta--a-série-histórica-não-migra">2. Resposta direta — a série histórica não migra<a class="headerlink" href="#2-resposta-direta--a-série-histórica-não-migra" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>🚨 Alerta — resposta objetiva</strong>
+<strong>Sim, os dados são perdidos</strong> — no sentido operacional que importa: <strong>não existe migração automática ou ferramenta oficial</strong> que reconstrua o histórico do Matomo dentro do PostHog. A série temporal de indicadores <strong>quebra na data da troca</strong>.</p>
+<p>O que sobrevive:</p>
+<ul>
+<li>Os <strong>dados brutos permanecem no banco do Matomo</strong> (MySQL/MariaDB) — consultáveis via SQL ou pela API do Matomo enquanto a instância existir.</li>
+<li>Métricas <strong>agregadas históricas</strong> podem ser exportadas para um data warehouse externo (Power BI, Superset, Metabase) e ali permanecerem consultáveis.</li>
+</ul>
+<p>O que se perde:</p>
+<ul>
+<li><strong>Continuidade da série dentro da nova plataforma</strong> — o PostHog começa do zero.</li>
+<li><strong>Dashboards operacionais</strong> já configurados no Matomo (não são portáveis).</li>
+<li><strong>Metas, funis, segmentos e permissões</strong> — reconfigurados manualmente.</li>
+<li><strong>Comparabilidade ano-a-ano</strong> dentro de uma única ferramenta.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="3-o-que-se-perde-em-uma-migração-matomo--posthog">3. O que se perde em uma migração Matomo → PostHog<a class="headerlink" href="#3-o-que-se-perde-em-uma-migração-matomo--posthog" title="Permanent link">&para;</a></h2>
+<h3 id="31-tabela-consolidada">3.1 Tabela consolidada<a class="headerlink" href="#31-tabela-consolidada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ativo analítico</th>
+<th style="text-align: center;">Migra automaticamente?</th>
+<th>Estratégia de continuidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Histórico de visitas (agregado)</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Exportar CSV/API para BI externo; congelar Matomo em modo consulta</td>
+</tr>
+<tr>
+<td>Histórico de visitas (bruto, evento a evento)</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Consulta ao banco MariaDB do Matomo (SQL direto)</td>
+</tr>
+<tr>
+<td>Eventos customizados</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Reimplantar tracking no PostHog; sem retrocompatibilidade</td>
+</tr>
+<tr>
+<td>Metas / conversões</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Recriar manualmente</td>
+</tr>
+<tr>
+<td>Funis de conversão</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Recriar; modelo de funil difere entre as plataformas</td>
+</tr>
+<tr>
+<td>Segmentos salvos</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Recriar</td>
+</tr>
+<tr>
+<td>Dashboards</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Recriar do zero — modelo de widget difere</td>
+</tr>
+<tr>
+<td>Custom Reports (plugin pago)</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Não há equivalente direto no PostHog</td>
+</tr>
+<tr>
+<td>Heatmaps e session recordings</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Session recording do PostHog existe, mas não replica gravações antigas</td>
+</tr>
+<tr>
+<td>Usuários e permissões</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Reconfigurar; modelos de RBAC diferentes</td>
+</tr>
+<tr>
+<td>Sites e configurações</td>
+<td style="text-align: center;">❌ Não</td>
+<td>Reconfigurar por projeto no PostHog</td>
+</tr>
+<tr>
+<td>Tags do Matomo Tag Manager</td>
+<td style="text-align: center;">❌ Não</td>
+<td>PostHog não tem Tag Manager próprio — reimplantar</td>
+</tr>
+<tr>
+<td><strong>Dados brutos no banco Matomo</strong></td>
+<td style="text-align: center;">✅ Permanecem</td>
+<td>Preservação passiva; leitura por SQL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-o-que-perder-o-dado-significa-na-prática-governamental">3.2 O que "perder o dado" significa na prática governamental<a class="headerlink" href="#32-o-que-perder-o-dado-significa-na-prática-governamental" title="Permanent link">&para;</a></h3>
+<p>Para um órgão público, a série histórica de audiência dos portais é ativo:</p>
+<ol>
+<li><strong>Prestação de contas</strong> — indicadores de acesso a serviços digitais alimentam relatórios de gestão, PPA e prestação ao TCE-MS.</li>
+<li><strong>Transparência ativa</strong> (Lei nº 12.527/2011 e Lei nº 14.129/2021) — dados de uso dos portais podem compor páginas públicas de transparência.</li>
+<li><strong>Governança da transformação digital</strong> — a evolução ano-a-ano de acessos por serviço mede o próprio avanço da EGD estadual.</li>
+<li><strong>Baseline para experimentos</strong> — comparações "antes/depois" de melhorias em portais exigem série contínua.</li>
+</ol>
+<p><strong>Quebrar a série significa perder essas capacidades por 12–24 meses</strong>, tempo mínimo para reconstruir baseline confiável na nova plataforma.</p>
+<hr />
+<h2 id="4-por-que-a-incompatibilidade--modelos-de-dados-divergentes">4. Por que a incompatibilidade — modelos de dados divergentes<a class="headerlink" href="#4-por-que-a-incompatibilidade--modelos-de-dados-divergentes" title="Permanent link">&para;</a></h2>
+<h3 id="41-matomo--modelo-relacional-orientado-a-visita">4.1 Matomo — modelo relacional orientado a visita<a class="headerlink" href="#41-matomo--modelo-relacional-orientado-a-visita" title="Permanent link">&para;</a></h3>
+<p>Tabelas principais:</p>
+<table>
+<thead>
+<tr>
+<th>Tabela</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>matomo_log_visit</code></td>
+<td>Visita (sessão): timestamp de entrada/saída, resolução, geolocalização, referenciador</td>
+</tr>
+<tr>
+<td><code>matomo_log_link_visit_action</code></td>
+<td>Cada ação (page view, evento, download) associada a uma visita</td>
+</tr>
+<tr>
+<td><code>matomo_log_action</code></td>
+<td>Dicionário de URLs, títulos, nomes de evento (deduplicados)</td>
+</tr>
+<tr>
+<td><code>matomo_archive_numeric_*</code></td>
+<td>Agregações pré-computadas por período (produzidas pelo <code>core:archive</code>)</td>
+</tr>
+<tr>
+<td><code>matomo_archive_blob_*</code></td>
+<td>Segmentos e visualizações serializadas</td>
+</tr>
+<tr>
+<td><code>matomo_site</code></td>
+<td>Configurações de site rastreado</td>
+</tr>
+<tr>
+<td><code>matomo_goal</code></td>
+<td>Metas configuradas</td>
+</tr>
+</tbody>
+</table>
+<p>Modelo mental: <strong>visita como unidade primária</strong>, com ações filhas.</p>
+<h3 id="42-posthog--modelo-event-stream-colunar">4.2 PostHog — modelo event-stream colunar<a class="headerlink" href="#42-posthog--modelo-event-stream-colunar" title="Permanent link">&para;</a></h3>
+<p>Tabelas principais (ClickHouse):</p>
+<table>
+<thead>
+<tr>
+<th>Tabela</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>events</code></td>
+<td>Cada evento com timestamp, <code>distinct_id</code>, <code>properties</code> (JSON)</td>
+</tr>
+<tr>
+<td><code>person</code></td>
+<td>Identidade agregada de usuário (deduplicada por <code>distinct_id</code>)</td>
+</tr>
+<tr>
+<td><code>person_distinct_id</code></td>
+<td>Mapeamento de identificadores para pessoas</td>
+</tr>
+<tr>
+<td><code>session_replay_events</code></td>
+<td>Frames de session replay</td>
+</tr>
+<tr>
+<td><code>feature_flag_hash_key_overrides</code></td>
+<td>Overrides de feature flags</td>
+</tr>
+</tbody>
+</table>
+<p>Modelo mental: <strong>evento como unidade primária</strong>, sessão derivada por lógica de reconstrução.</p>
+<h3 id="43-por-que-não-há-mapeamento-11">4.3 Por que não há mapeamento 1:1<a class="headerlink" href="#43-por-que-não-há-mapeamento-11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Diferença estrutural</th>
+<th>Consequência para migração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo agrega no ingest (arquivamento); PostHog agrega no query (ClickHouse)</td>
+<td>Contadores diários do Matomo não têm correspondente exato no PostHog</td>
+</tr>
+<tr>
+<td>Matomo identifica visitas por hash de fingerprint volátil; PostHog identifica pessoas por <code>distinct_id</code> persistente</td>
+<td>Contagem de "visitantes únicos" é conceitualmente distinta</td>
+</tr>
+<tr>
+<td>Matomo tem <em>goals</em> como entidades de primeira classe; PostHog usa <em>insights</em> configuráveis</td>
+<td>Metas do Matomo não têm análogo direto</td>
+</tr>
+<tr>
+<td>Matomo trata heatmap como plugin dedicado; PostHog trata como derivado do session replay</td>
+<td>Heatmaps antigos não se convertem</td>
+</tr>
+<tr>
+<td>Matomo permite retenção configurável por site; PostHog por projeto ou (na EE) por evento</td>
+<td>Políticas de retenção diferem</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão técnica:</strong> mesmo com esforço de engenharia dedicado, uma migração fiel exigiria <strong>reimplementar a semântica</strong> dos indicadores no PostHog — e ainda assim os números não bateriam exatamente. Isso é o oposto de "migração automática".</p>
+<hr />
+<h2 id="5-estratégias-de-migração">5. Estratégias de migração<a class="headerlink" href="#5-estratégias-de-migração" title="Permanent link">&para;</a></h2>
+<h3 id="51-estratégia-a--congelar-o-matomo-mais-comum">5.1 Estratégia A — Congelar o Matomo (mais comum)<a class="headerlink" href="#51-estratégia-a--congelar-o-matomo-mais-comum" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Antes["Antes da troca"]
+        WEB1[Portais] --&gt;|"matomo.js"| MAT1[(Matomo)]
+    end
+
+    subgraph Depois["Após a troca"]
+        WEB2[Portais] --&gt;|"posthog-js"| POST[(PostHog)]
+        MAT2[(Matomo em&lt;br/&gt;modo consulta)] -.-&gt;|"acesso histórico&lt;br/&gt;via SQL/API"| BI[BI corporativo]
+    end
+
+    Antes --&gt; Depois</code></pre>
+<p>Fluxo:</p>
+<ol>
+<li>Deploy do PostHog em paralelo.</li>
+<li>Data D: troca do tracker nos portais (Matomo → PostHog).</li>
+<li>Matomo permanece <strong>online, somente leitura</strong>, com desativação da coleta.</li>
+<li>Consultas históricas continuam sendo feitas na instância Matomo enquanto for útil.</li>
+<li>Após 24–36 meses (fim da utilidade prática), a instância Matomo é desligada e o banco arquivado.</li>
+</ol>
+<p><strong>Custo:</strong> infra Matomo em standby (~30 % do custo original) durante o período de retenção.</p>
+<p><strong>Perda:</strong> nenhuma dashboard funciona em modo integrado — sempre é preciso escolher "período antes" (Matomo) ou "período depois" (PostHog).</p>
+<h3 id="52-estratégia-b--coleta-paralela-recomendada-quando-a-decisão-é-reversível">5.2 Estratégia B — Coleta paralela (recomendada quando a decisão é reversível)<a class="headerlink" href="#52-estratégia-b--coleta-paralela-recomendada-quando-a-decisão-é-reversível" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    WEB[Portais] --&gt; MAT[(Matomo)]
+    WEB --&gt; POST[(PostHog)]
+
+    style MAT fill:#1E293B,stroke:#22C55E,stroke-width:2px,color:#FFF
+    style POST fill:#1E293B,stroke:#3B82F6,stroke-width:2px,color:#FFF</code></pre>
+<p>Fluxo:</p>
+<ol>
+<li>Portais carregam <strong>ambos</strong> os trackers durante 3–6 meses.</li>
+<li>Analistas comparam métricas dia a dia — validam se PostHog cumpre o esperado.</li>
+<li>No fim do período de validação, decide-se:</li>
+<li>Manter Matomo (reverter a troca) → nenhuma perda; PostHog é descontinuado.</li>
+<li>Manter PostHog → Matomo entra em modo congelamento (Estratégia A).</li>
+</ol>
+<p><strong>Custo:</strong> dois trackers no cliente (impacto de performance somado); duas instâncias operadas em paralelo; dupla capacitação de equipe.</p>
+<p><strong>Ganho:</strong> decisão baseada em dado real, não em vídeo demo. Reversível.</p>
+<h3 id="53-estratégia-c--exportação-para-bi-externo-complementar">5.3 Estratégia C — Exportação para BI externo (complementar)<a class="headerlink" href="#53-estratégia-c--exportação-para-bi-externo-complementar" title="Permanent link">&para;</a></h3>
+<p>Executada <strong>em paralelo</strong> com A ou B, não substitui:</p>
+<ol>
+<li>Extração periódica do banco Matomo para o data warehouse do Estado (Power BI dataset, Superset connection, Metabase).</li>
+<li>Dashboards de longa duração vivem no BI, não em cada plataforma de analytics.</li>
+<li>Ambas as plataformas (Matomo antigo e PostHog novo) alimentam o mesmo BI — série histórica reconstruída na camada de BI, não na plataforma de analytics.</li>
+</ol>
+<p><strong>Vantagem:</strong> desacopla decisão de plataforma de tracking da decisão de plataforma de visualização.</p>
+<p><strong>Custo:</strong> desenvolvimento e manutenção de pipelines ETL.</p>
+<h3 id="54-estratégia-d--reprocessamento-de-logs-web-não-recomendado">5.4 Estratégia D — Reprocessamento de logs web (não recomendado)<a class="headerlink" href="#54-estratégia-d--reprocessamento-de-logs-web-não-recomendado" title="Permanent link">&para;</a></h3>
+<p>Teoricamente viável: reproduzir eventos passados a partir dos logs de acesso do servidor web (Nginx/Apache) para o PostHog.</p>
+<p><strong>Por que não recomendado:</strong></p>
+<ul>
+<li>Logs web não têm dado de sessão (não conseguem reconstruir "visita").</li>
+<li>Não contêm eventos JavaScript (cliques, tempo em vídeo).</li>
+<li>Volumetria explode — cada acesso vira múltiplas requisições.</li>
+<li>Custo de engenharia &gt; valor entregue.</li>
+</ul>
+<hr />
+<h2 id="6-custo-real-da-migração-adição-ao-tco">6. Custo real da migração (adição ao TCO)<a class="headerlink" href="#6-custo-real-da-migração-adição-ao-tco" title="Permanent link">&para;</a></h2>
+<p>Modelagem em regime marginal SETDIG. Cenário: parque de ~200 portais, coleta paralela por 6 meses (Estratégia B), depois congelamento do Matomo (Estratégia A) por 24 meses.</p>
+<h3 id="61-rubricas-do-custo-de-migração">6.1 Rubricas do custo de migração<a class="headerlink" href="#61-rubricas-do-custo-de-migração" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Rubrica</th>
+<th style="text-align: right;">Estimativa (única)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provisionamento do PostHog (Kafka+CH+MinIO+K8s Helm)</td>
+<td style="text-align: right;">R$ 90.000</td>
+</tr>
+<tr>
+<td>Capacitação da equipe SETDIG (ClickHouse + Kafka + operação PostHog)</td>
+<td style="text-align: right;">R$ 60.000</td>
+</tr>
+<tr>
+<td>Recriação de dashboards operacionais (~200 portais)</td>
+<td style="text-align: right;">R$ 40.000</td>
+</tr>
+<tr>
+<td>Recriação de metas, funis e segmentos</td>
+<td style="text-align: right;">R$ 30.000</td>
+</tr>
+<tr>
+<td>Reconfiguração de tags em cada portal WordPress</td>
+<td style="text-align: right;">R$ 20.000</td>
+</tr>
+<tr>
+<td>Reimplantação de Consent Manager (banner recalibrado)</td>
+<td style="text-align: right;">R$ 25.000</td>
+</tr>
+<tr>
+<td>Coleta paralela — operação em duplicidade por 6 meses</td>
+<td style="text-align: right;">R$ 50.000</td>
+</tr>
+<tr>
+<td>Comunicação e treinamento de usuários finais dos dashboards</td>
+<td style="text-align: right;">R$ 15.000</td>
+</tr>
+<tr>
+<td>Nova DPIA (produto orientado a identificação)</td>
+<td style="text-align: right;">R$ 30.000</td>
+</tr>
+<tr>
+<td>Migração de integrações com BI corporativo</td>
+<td style="text-align: right;">R$ 40.000</td>
+</tr>
+<tr>
+<td>Manutenção do Matomo em modo congelamento (24 meses × R$ 1.500/mês)</td>
+<td style="text-align: right;">R$ 36.000</td>
+</tr>
+<tr>
+<td><strong>Custo de migração (única)</strong></td>
+<td style="text-align: right;"><strong>R$ 436.000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-impacto-acumulado-no-tco-5-anos">6.2 Impacto acumulado no TCO 5 anos<a class="headerlink" href="#62-impacto-acumulado-no-tco-5-anos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th style="text-align: right;">TCO 5 anos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manter Matomo On-Premise (recomendado — ADR-001)</td>
+<td style="text-align: right;">R$ 235.000</td>
+</tr>
+<tr>
+<td>Migrar para PostHog OSS após implantação Matomo</td>
+<td style="text-align: right;">R$ 235.000 (Matomo já pago) + <strong>R$ 436.000 (migração)</strong> + R$ 955.000 (PostHog 5 anos) = <strong>R$ 1.626.000</strong></td>
+</tr>
+<tr>
+<td><strong>Diferencial da hipótese de migração</strong></td>
+<td style="text-align: right;"><strong>+R$ 1.391.000 (6,9× mais caro)</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — o custo do "arrependimento"</strong>
+Reverter a decisão do ADR-001 após a implantação em curso custa <strong>quase R$ 1,4 M em 5 anos</strong>. Isso não é apenas custo financeiro — é custo político (justificativa perante TCE-MS), custo institucional (perda de credibilidade da esteira de arquitetura) e custo operacional (equipe sob dois stacks distintos simultaneamente).</p>
+</blockquote>
+<h3 id="63-custo-de-hedge-estratégia-b--coleta-paralela-sem-substituição">6.3 Custo de "hedge" (Estratégia B — coleta paralela sem substituição)<a class="headerlink" href="#63-custo-de-hedge-estratégia-b--coleta-paralela-sem-substituição" title="Permanent link">&para;</a></h3>
+<p>Se o objetivo for <strong>validar</strong> o PostHog sem descartar o Matomo:</p>
+<table>
+<thead>
+<tr>
+<th>Rubrica</th>
+<th style="text-align: right;">Estimativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provisionamento do PostHog em ambiente de piloto</td>
+<td style="text-align: right;">R$ 45.000</td>
+</tr>
+<tr>
+<td>Coleta paralela em 3 portais representativos por 6 meses</td>
+<td style="text-align: right;">R$ 30.000</td>
+</tr>
+<tr>
+<td>Análise comparativa e relatório de decisão</td>
+<td style="text-align: right;">R$ 25.000</td>
+</tr>
+<tr>
+<td><strong>Custo do hedge</strong></td>
+<td style="text-align: right;"><strong>R$ 100.000</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Este é o <strong>valor máximo defensável</strong> para investigar o PostHog sem comprometer a implantação Matomo. Se o piloto confirmar preferência pelo PostHog, o custo de migração completa se soma.</p>
+<hr />
+<h2 id="7-impacto-normativo--governança-lgpd-e-lei-de-acesso-à-informação">7. Impacto normativo — governança, LGPD e Lei de Acesso à Informação<a class="headerlink" href="#7-impacto-normativo--governança-lgpd-e-lei-de-acesso-à-informação" title="Permanent link">&para;</a></h2>
+<h3 id="71-lgpd--nova-dpia-obrigatória">7.1 LGPD — nova DPIA obrigatória<a class="headerlink" href="#71-lgpd--nova-dpia-obrigatória" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fato</th>
+<th>Consequência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo em configuração cookieless dispensa consentimento (precedente CNIL)</td>
+<td>DPIA atual permite operar sob <strong>legítimo interesse</strong></td>
+</tr>
+<tr>
+<td>PostHog é orientado a identificação (<code>distinct_id</code> persistente)</td>
+<td>DPIA precisa ser <strong>refeita</strong>; provavelmente exigirá <strong>consentimento</strong> para session replay e feature flags</td>
+</tr>
+<tr>
+<td>Migração de plataforma = mudança material no tratamento</td>
+<td><strong>Comunicação obrigatória à ANPD</strong> (art. 48 quando aplicável) e revisão do ROPA</td>
+</tr>
+<tr>
+<td>Retenção do banco Matomo em modo congelamento</td>
+<td>Precisa ter <strong>base legal declarada</strong> (guarda para atender direito do titular ou obrigação legal)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-lei-de-acesso-à-informação-125272011">7.2 Lei de Acesso à Informação (12.527/2011)<a class="headerlink" href="#72-lei-de-acesso-à-informação-125272011" title="Permanent link">&para;</a></h3>
+<p>Se dashboards de audiência dos portais forem publicados como transparência ativa, a migração:</p>
+<ul>
+<li>Interrompe a série histórica publicada;</li>
+<li>Exige nova nota metodológica explicando a descontinuidade;</li>
+<li>Cria janela em que <strong>duas metodologias distintas</strong> convivem no mesmo painel público.</li>
+</ul>
+<p>Justificar essa quebra perante controle social é ônus institucional adicional.</p>
+<h3 id="73-lei-de-governo-digital-141292021">7.3 Lei de Governo Digital (14.129/2021)<a class="headerlink" href="#73-lei-de-governo-digital-141292021" title="Permanent link">&para;</a></h3>
+<p>Princípios impactados:</p>
+<ul>
+<li><strong>Interoperabilidade</strong> — migração ativa e não planejada é o oposto de interoperabilidade estável.</li>
+<li><strong>Economicidade</strong> — TCO 6,9× superior contraria o art. 3º da Lei 14.129/2021.</li>
+<li><strong>Continuidade</strong> — quebra da série é o oposto de continuidade de indicadores.</li>
+</ul>
+<h3 id="74-norma-interna-setdig">7.4 Norma interna SETDIG<a class="headerlink" href="#74-norma-interna-setdig" title="Permanent link">&para;</a></h3>
+<p>Alterações materiais em plataforma padrão exigem:</p>
+<ul>
+<li>Revisão do ADR (novo ADR-002 revogando ou emendando o ADR-001);</li>
+<li>Aprovação do Comitê de Arquitetura;</li>
+<li>Comunicação a todas as Secretarias que operam portais rastreados;</li>
+<li>Prazo mínimo de deprecation formal.</li>
+</ul>
+<hr />
+<h2 id="8-impacto-no-adr-001">8. Impacto no ADR-001<a class="headerlink" href="#8-impacto-no-adr-001" title="Permanent link">&para;</a></h2>
+<p>Migrar Matomo → PostHog <strong>agora</strong> exige:</p>
+<ol>
+<li><strong>Revogar ou emendar o ADR-001</strong> — a decisão foi formal, com base em matriz auditável.</li>
+<li><strong>Registrar novo ADR</strong> justificando por que a matriz mudou. As justificativas plausíveis são:</li>
+<li><strong>Mudança das premissas</strong> (P1/P2/R4 deixaram de valer) → improvável no horizonte de meses.</li>
+<li><strong>Mudança dos requisitos</strong> (novo caso de uso exige <em>product analytics</em> de SaaS) → possível se surgir superapp cidadão.</li>
+<li><strong>Novo dado técnico</strong> (Matomo falhou em requisito) → não é o caso.</li>
+<li><strong>Aceitar o custo financeiro documentado</strong> (R$ 1,4 M adicional em 5 anos) e explicá-lo em memória técnica.</li>
+<li><strong>Comunicar à ANPD</strong> e revisar ROPA.</li>
+</ol>
+<p>Nenhuma dessas condições está satisfeita hoje. <strong>Reverter a decisão do ADR-001 seria arquiteturalmente indefensável no momento</strong>.</p>
+<hr />
+<h2 id="9-cenário-específico-setdigms">9. Cenário-específico SETDIG/MS<a class="headerlink" href="#9-cenário-específico-setdigms" title="Permanent link">&para;</a></h2>
+<h3 id="91-estado-presente-da-implantação">9.1 Estado presente da implantação<a class="headerlink" href="#91-estado-presente-da-implantação" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Investimento</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infraestrutura provisionada</td>
+<td>🟢 Em curso</td>
+</tr>
+<tr>
+<td>Scripts implantados em portais WordPress</td>
+<td>🟢 Em curso</td>
+</tr>
+<tr>
+<td>Configuração inicial de sites e permissões</td>
+<td>🟢 Em curso</td>
+</tr>
+<tr>
+<td>Geração de histórico de acesso</td>
+<td>🟢 Iniciada</td>
+</tr>
+<tr>
+<td>Integração com BI corporativo</td>
+<td>🟡 Planejada</td>
+</tr>
+<tr>
+<td>Adequação LGPD (DPIA cookieless)</td>
+<td>🟡 Em elaboração</td>
+</tr>
+</tbody>
+</table>
+<p>Todo investimento já feito precisaria ser <strong>abandonado ou refeito</strong> no PostHog:</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Custo já investido no Matomo</th>
+<th>Perda se migrar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provisão de infra</td>
+<td>Já contratado</td>
+<td>Parcialmente reaproveitável (VMs, storage)</td>
+</tr>
+<tr>
+<td>Configuração de tracking em portais</td>
+<td>~40 h × R$ 120 = ~R$ 5 k</td>
+<td>Perda total; recriar no PostHog</td>
+</tr>
+<tr>
+<td>Configuração de sites Matomo</td>
+<td>~30 h × R$ 120 = ~R$ 4 k</td>
+<td>Perda total</td>
+</tr>
+<tr>
+<td>Capacitação equipe SETDIG em Matomo</td>
+<td>~80 h × R$ 120 = ~R$ 10 k</td>
+<td>Perda total; capacitar de novo em PostHog</td>
+</tr>
+<tr>
+<td>DPIA em elaboração</td>
+<td>~R$ 20 k</td>
+<td>Precisa ser refeita — modelo distinto</td>
+</tr>
+<tr>
+<td><strong>Total afundado</strong></td>
+<td><strong>~R$ 40 k</strong></td>
+<td>Perda de 100 % se migrar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-cenários-futuros-hipotéticos">9.2 Cenários futuros hipotéticos<a class="headerlink" href="#92-cenários-futuros-hipotéticos" title="Permanent link">&para;</a></h3>
+<p><strong>Cenário 1 — Manter Matomo, avaliar PostHog em piloto isolado</strong> (recomendado)</p>
+<ul>
+<li>Continua implantação Matomo conforme ADR-001.</li>
+<li>Provisiona PostHog em piloto isolado para 1 serviço digital específico (se houver caso de uso claro).</li>
+<li>Investimento: ~R$ 100 k em hedge (§6.3).</li>
+<li>Não afeta a decisão principal.</li>
+</ul>
+<p><strong>Cenário 2 — Coleta paralela obrigatória por 6 meses</strong></p>
+<ul>
+<li>Ambos os trackers em todos os portais por 6 meses.</li>
+<li>Custo adicional: R$ 100 k.</li>
+<li>Ao fim, decisão informada por dado real.</li>
+<li><strong>Só faz sentido se houver dúvida legítima</strong> — não é o caso hoje (matriz decidiu com folga).</li>
+</ul>
+<p><strong>Cenário 3 — Migração completa Matomo → PostHog</strong></p>
+<ul>
+<li>Custo adicional: R$ 1,39 M em 5 anos.</li>
+<li>Perda de série histórica de audiência.</li>
+<li>Nova DPIA + comunicação ANPD.</li>
+<li>Revogação do ADR-001.</li>
+<li><strong>Requer justificativa arquitetural forte</strong> — não existe hoje.</li>
+</ul>
+<p><strong>Cenário 4 — Superapp cidadão futuro exige <em>product analytics</em></strong></p>
+<ul>
+<li>Mantém Matomo para portais institucionais.</li>
+<li>Adota PostHog <strong>exclusivamente</strong> para o superapp.</li>
+<li>Convivência de plataformas por escopo de uso.</li>
+<li>Custo: soma dos dois TCOs (~R$ 1,2 M em 5 anos).</li>
+<li><strong>Cenário defensável</strong> se e quando o superapp for formalizado como iniciativa estratégica.</li>
+</ul>
+<h3 id="93-análise-da-irreversibilidade">9.3 Análise da irreversibilidade<a class="headerlink" href="#93-análise-da-irreversibilidade" title="Permanent link">&para;</a></h3>
+<p>Contra o senso comum, <strong>a decisão do ADR-001 é reversível</strong> — a qualquer momento pode-se revogar por novo ADR. O que <strong>não é reversível</strong> é a <strong>série histórica</strong> e o <strong>investimento afundado</strong>.</p>
+<p>Regra prática: <strong>quanto mais tempo o Matomo operar, maior o custo de migrar</strong>. A janela onde a migração é <em>comparativamente barata</em> (&lt; 3 meses de operação) já se fechou parcialmente. Após 12 meses de operação estabilizada, o custo triplica.</p>
+<hr />
+<h2 id="10-recomendação-circunstanciada">10. Recomendação circunstanciada<a class="headerlink" href="#10-recomendação-circunstanciada" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Bloco de Decisão — a migração não é economicamente defensável no momento</strong></p>
+<p><strong>Recomendação:</strong> manter a implantação do Matomo On-Premise em curso, conforme ADR-001. Não iniciar migração para PostHog agora.</p>
+<p><strong>Fundamento:</strong></p>
+<ol>
+<li><strong>Custo financeiro:</strong> +R$ 1,39 M em 5 anos, 6,9× o TCO original.</li>
+<li><strong>Perda de continuidade histórica</strong> dos indicadores dos portais — quebra irreversível de série temporal.</li>
+<li><strong>Investimento afundado</strong> de ~R$ 40 k já aplicado na implantação atual.</li>
+<li><strong>Nova DPIA obrigatória</strong> e comunicação à ANPD.</li>
+<li><strong>Revogação formal do ADR-001</strong> com justificativa arquitetural que hoje não existe.</li>
+<li><strong>Nenhum requisito prioritário</strong> dos portais estaduais depende de recursos exclusivos do PostHog.</li>
+</ol>
+<p><strong>Hedge admissível:</strong> provisionar PostHog em <strong>piloto isolado</strong> para um serviço digital específico, ao custo de ~R$ 100 k, sem afetar a implantação Matomo. Isso permite validar o produto em contexto real sem comprometer a decisão principal.</p>
+<p><strong>Gatilho para reavaliar:</strong> formalização de iniciativa de <strong>superapp cidadão</strong> ou serviço digital transacional complexo que exija <em>feature flags</em>, <em>experimentation</em> ou <em>product analytics</em> orientado a produto. Neste cenário, o PostHog entraria como plataforma <strong>adicional para escopo específico</strong>, não como substituta do Matomo.</p>
+</blockquote>
+<h3 id="101-gate-formal-de-reavaliação">10.1 Gate formal de reavaliação<a class="headerlink" href="#101-gate-formal-de-reavaliação" title="Permanent link">&para;</a></h3>
+<p>O ADR-001 já prevê revisão em 24 meses (2028-07). Antecipação da revisão requer:</p>
+<ul>
+<li>Requisito funcional novo, formalmente documentado, não atendido pelo Matomo;</li>
+<li>Falha material do Matomo em requisito <em>Must have</em> (não identificada até o momento);</li>
+<li>Mudança normativa (LGPD, EGD, norma SETDIG) que reprove a arquitetura vigente;</li>
+<li>Decisão do Comitê de Arquitetura.</li>
+</ul>
+<p>Nenhum desses gatilhos foi acionado.</p>
+<hr />
+<h2 id="11-antipadrão-a-evitar--migração-impulsiva-por-experiência-positiva-com-cloud">11. Antipadrão a evitar — migração impulsiva por experiência positiva com Cloud<a class="headerlink" href="#11-antipadrão-a-evitar--migração-impulsiva-por-experiência-positiva-com-cloud" title="Permanent link">&para;</a></h2>
+<p>Padrão comum de decisão institucional que este documento pretende evitar:</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Experimenta&lt;br/&gt;PostHog Cloud] --&gt; B[Impressiona-se&lt;br/&gt;com features]
+    B --&gt; C[Assume que OSS&lt;br/&gt;entrega o mesmo]
+    C --&gt; D[Propõe migração&lt;br/&gt;sem quantificar custo]
+    D --&gt; E[Descoberta tardia:&lt;br/&gt;OSS ≠ Cloud + série quebra]
+    E --&gt; F[Meia-migração:&lt;br/&gt;custo alto, valor baixo]
+
+    style A fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFF
+    style B fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFF
+    style C fill:#713F12,stroke:#FACC15,stroke-width:3px,color:#FFF
+    style D fill:#713F12,stroke:#FACC15,stroke-width:3px,color:#FFF
+    style E fill:#7F1D1D,stroke:#EF4444,stroke-width:3px,color:#FFF
+    style F fill:#7F1D1D,stroke:#EF4444,stroke-width:3px,color:#FFF</code></pre>
+<p><strong>Como evitar:</strong></p>
+<ol>
+<li>Documentar formalmente <strong>qual requisito</strong> o Matomo não atende. Se essa lista está vazia, a migração é injustificada.</li>
+<li>Testar o PostHog <strong>em modalidade auto-hospedada real</strong> (não Cloud) por 30 dias antes de qualquer decisão.</li>
+<li>Estimar o custo total incluindo migração — nunca comparar TCO da nova plataforma isoladamente.</li>
+<li>Passar pela esteira do Comitê de Arquitetura com ADR de revisão formal, não por decisão de gestor individual.</li>
+</ol>
+<h3 id="111-perguntas-de-sanidade-antes-de-propor-migração">11.1 Perguntas de sanidade antes de propor migração<a class="headerlink" href="#111-perguntas-de-sanidade-antes-de-propor-migração" title="Permanent link">&para;</a></h3>
+<p>Se responder <strong>"não"</strong> a qualquer uma delas, a migração não é justificada:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Existe requisito funcional obrigatório que o Matomo comprovadamente não atende?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Testei o PostHog auto-hospedado (não a Cloud) em cenário representativo?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Calculei o TCO incluindo os R$ 400 k+ de migração?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Aceito a perda da série histórica dos portais?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tenho orçamento e mandato para revogar o ADR-001?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Comuniquei à ANPD e revisei o ROPA?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Consegui aprovação do Comitê de Arquitetura?</li>
+</ul>
+<hr />
+<h2 id="referências-cruzadas">Referências cruzadas<a class="headerlink" href="#referências-cruzadas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Comparativo bilateral Matomo × PostHog: <a href="../matomo-vs-posthog/"><code>matomo-vs-posthog.md</code></a></li>
+<li>ADR-001: <a href="../../docs/08-adr/"><code>../docs/08-adr.md</code></a></li>
+<li>Custo em regime marginal: <a href="../custo/"><code>custo.md</code></a></li>
+<li>LGPD e transferência internacional: <a href="../lgpd/"><code>lgpd.md</code></a></li>
+<li>Trade-offs Matomo: <a href="../../docs/06-tradeoffs/#3-matomo-on-premise"><code>../docs/06-tradeoffs.md §3</code></a></li>
+<li>Trade-offs PostHog: <a href="../../docs/06-tradeoffs/"><code>../docs/06-tradeoffs.md</code></a></li>
+<li>Ficha Matomo: <a href="../../plataformas/matomo/"><code>../plataformas/matomo.md</code></a></li>
+<li>Ficha PostHog: <a href="../../plataformas/posthog/"><code>../plataformas/posthog.md</code></a></li>
+<li>Roadmap de implantação Matomo: <a href="../../docs/10-roadmap/"><code>../docs/10-roadmap.md</code></a></li>
+<li>Registro de riscos: <a href="../../docs/11-riscos/"><code>../docs/11-riscos.md</code></a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

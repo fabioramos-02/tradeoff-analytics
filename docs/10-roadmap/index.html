@@ -1,0 +1,4432 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/10-roadmap/">
+      
+      
+        <link rel="prev" href="../09-recomendacao/">
+      
+      
+        <link rel="next" href="../11-riscos/">
+      
+      
+      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Roadmap - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#10--roadmap-de-implementação" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Roadmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-estratégia-de-execução" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Estratégia de execução
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Estratégia de execução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-princípios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Princípios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-mapeamento-lacunas--ondas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Mapeamento lacunas → ondas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visão-geral-das-ondas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Visão geral das ondas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão geral das ondas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-resumo-executivo-das-ondas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Resumo executivo das ondas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-onda-0--homologação" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Onda 0 — Homologação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Onda 0 — Homologação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-atividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Atividades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-entregas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Entregas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-critérios-de-saída" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Critérios de saída
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-onda-1--diagnóstico-conformidade-e-gate-de-capacidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Onda 1 — Diagnóstico, conformidade e gate de capacidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Onda 1 — Diagnóstico, conformidade e gate de capacidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-frente-a--diagnóstico" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Frente A — Diagnóstico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-frente-b--conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Frente B — Conformidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-frente-c--capacitação-e-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Frente C — Capacitação e gate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-gate-de-validação-da-premissa-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Gate de validação da premissa P2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-entregas-da-onda-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Entregas da Onda 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-indicadores-de-sucesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Indicadores de sucesso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-onda-2--resiliência-e-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Onda 2 — Resiliência e segurança
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Onda 2 — Resiliência e segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-frente-a--desacoplamento-de-ingestão-aa-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Frente A — Desacoplamento de ingestão (AA-1)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-frente-b--arquitetura-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Frente B — Arquitetura de dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-frente-c--continuidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Frente C — Continuidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-frente-d--segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Frente D — Segurança
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-frente-e--infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Frente E — Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-critérios-de-saída" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Critérios de saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-entregas-da-onda-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Entregas da Onda 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-onda-3--capacidade-analítica-e-integração-com-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Onda 3 — Capacidade analítica e integração com BI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Onda 3 — Capacidade analítica e integração com BI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-frente-a--capacidade-analítica" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Frente A — Capacidade analítica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-frente-b--substituição-do-microsoft-clarity-rc-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Frente B — Substituição do Microsoft Clarity (RC-2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-frente-c--integração-com-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Frente C — Integração com BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-critérios-de-saída" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Critérios de saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-entregas-da-onda-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Entregas da Onda 3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-onda-4--escala-padronização-e-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Onda 4 — Escala, padronização e governança
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Onda 4 — Escala, padronização e governança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-atividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Atividades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-entregas-da-onda-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Entregas da Onda 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-cronograma-consolidado" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Cronograma consolidado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Cronograma consolidado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-marcos-críticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Marcos críticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-orçamento-por-onda" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Orçamento por onda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Orçamento por onda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-detalhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Detalhamento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-custo-recorrente-pós-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Custo recorrente pós-projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-conciliação-com-o-tco-de-5-anos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Conciliação com o TCO de 5 anos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-equipe-e-papéis" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Equipe e papéis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Equipe e papéis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-matriz-raci-resumida" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Matriz RACI resumida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-critérios-de-aceite" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Critérios de aceite
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Critérios de aceite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-por-onda" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Por onda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-critério-de-aceite-global-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Critério de aceite global do projeto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-plano-de-contingência" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Plano de contingência
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Plano de contingência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-contingência-principal--reprovação-no-gate-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Contingência principal — reprovação no Gate 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-contingências-específicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.2 Contingências específicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-impacto-das-contingências-no-cronograma-e-no-orçamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.3 Impacto das contingências no cronograma e no orçamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-estratégia-de-execução" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Estratégia de execução
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Estratégia de execução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-princípios" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Princípios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-mapeamento-lacunas--ondas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Mapeamento lacunas → ondas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visão-geral-das-ondas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Visão geral das ondas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão geral das ondas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-resumo-executivo-das-ondas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Resumo executivo das ondas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-onda-0--homologação" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Onda 0 — Homologação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Onda 0 — Homologação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-atividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Atividades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-entregas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Entregas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-critérios-de-saída" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Critérios de saída
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-onda-1--diagnóstico-conformidade-e-gate-de-capacidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Onda 1 — Diagnóstico, conformidade e gate de capacidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Onda 1 — Diagnóstico, conformidade e gate de capacidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-frente-a--diagnóstico" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Frente A — Diagnóstico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-frente-b--conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Frente B — Conformidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-frente-c--capacitação-e-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Frente C — Capacitação e gate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-gate-de-validação-da-premissa-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Gate de validação da premissa P2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-entregas-da-onda-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Entregas da Onda 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-indicadores-de-sucesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Indicadores de sucesso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-onda-2--resiliência-e-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Onda 2 — Resiliência e segurança
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Onda 2 — Resiliência e segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-frente-a--desacoplamento-de-ingestão-aa-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Frente A — Desacoplamento de ingestão (AA-1)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-frente-b--arquitetura-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Frente B — Arquitetura de dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-frente-c--continuidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Frente C — Continuidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-frente-d--segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Frente D — Segurança
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-frente-e--infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Frente E — Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-critérios-de-saída" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Critérios de saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-entregas-da-onda-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Entregas da Onda 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-onda-3--capacidade-analítica-e-integração-com-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Onda 3 — Capacidade analítica e integração com BI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Onda 3 — Capacidade analítica e integração com BI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-frente-a--capacidade-analítica" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Frente A — Capacidade analítica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-frente-b--substituição-do-microsoft-clarity-rc-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Frente B — Substituição do Microsoft Clarity (RC-2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-frente-c--integração-com-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Frente C — Integração com BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-critérios-de-saída" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Critérios de saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-entregas-da-onda-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Entregas da Onda 3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-onda-4--escala-padronização-e-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Onda 4 — Escala, padronização e governança
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Onda 4 — Escala, padronização e governança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-atividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Atividades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-entregas-da-onda-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Entregas da Onda 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-cronograma-consolidado" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Cronograma consolidado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Cronograma consolidado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-marcos-críticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Marcos críticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-orçamento-por-onda" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Orçamento por onda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Orçamento por onda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-detalhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Detalhamento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-custo-recorrente-pós-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Custo recorrente pós-projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-conciliação-com-o-tco-de-5-anos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Conciliação com o TCO de 5 anos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-equipe-e-papéis" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Equipe e papéis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Equipe e papéis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-matriz-raci-resumida" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Matriz RACI resumida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-critérios-de-aceite" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Critérios de aceite
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Critérios de aceite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-por-onda" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Por onda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-critério-de-aceite-global-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Critério de aceite global do projeto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-plano-de-contingência" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Plano de contingência
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Plano de contingência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-contingência-principal--reprovação-no-gate-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Contingência principal — reprovação no Gate 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-contingências-específicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.2 Contingências específicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-impacto-das-contingências-no-cronograma-e-no-orçamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.3 Impacto das contingências no cronograma e no orçamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="10--roadmap-de-implementação">10 — Roadmap de Implementação<a class="headerlink" href="#10--roadmap-de-implementação" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Anterior:</strong> <a href="../09-recomendacao/">09 — Recomendação</a> · <strong>Próximo:</strong> <a href="../11-riscos/">11 — Riscos</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-estratégia-de-execução">1. Estratégia de execução</a></li>
+<li><a href="#2-visão-geral-das-ondas">2. Visão geral das ondas</a></li>
+<li><a href="#3-onda-0--homologação">3. Onda 0 — Homologação</a></li>
+<li><a href="#4-onda-1--diagnóstico-conformidade-e-gate-de-capacidade">4. Onda 1 — Diagnóstico, conformidade e gate de capacidade</a></li>
+<li><a href="#5-onda-2--resiliência-e-segurança">5. Onda 2 — Resiliência e segurança</a></li>
+<li><a href="#6-onda-3--capacidade-analítica-e-integração-com-bi">6. Onda 3 — Capacidade analítica e integração com BI</a></li>
+<li><a href="#7-onda-4--escala-padronização-e-governança">7. Onda 4 — Escala, padronização e governança</a></li>
+<li><a href="#8-cronograma-consolidado">8. Cronograma consolidado</a></li>
+<li><a href="#9-orçamento-por-onda">9. Orçamento por onda</a></li>
+<li><a href="#10-equipe-e-papéis">10. Equipe e papéis</a></li>
+<li><a href="#11-critérios-de-aceite">11. Critérios de aceite</a></li>
+<li><a href="#12-plano-de-contingência">12. Plano de contingência</a></li>
+</ul>
+<hr />
+<h2 id="1-estratégia-de-execução">1. Estratégia de execução<a class="headerlink" href="#1-estratégia-de-execução" title="Permanent link">&para;</a></h2>
+<h3 id="11-princípios">1.1 Princípios<a class="headerlink" href="#11-princípios" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Princípio</th>
+<th>Aplicação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td><strong>Conformidade antes de funcionalidade</strong></td>
+<td>Nenhuma nova capacidade analítica é entregue antes de a conformidade LGPD estar formalizada</td>
+</tr>
+<tr>
+<td>P2</td>
+<td><strong>Resiliência antes de escala</strong></td>
+<td>O desacoplamento da ingestão precede qualquer ampliação de escopo de propriedades</td>
+</tr>
+<tr>
+<td>P3</td>
+<td><strong>Sem migração de plataforma</strong></td>
+<td>O esforço é de adequação arquitetural; não há troca de produto, portanto não há risco de perda de série histórica</td>
+</tr>
+<tr>
+<td>P4</td>
+<td><strong>Entrega incremental com valor por onda</strong></td>
+<td>Cada onda entrega benefício verificável, não apenas trabalho intermediário</td>
+</tr>
+<tr>
+<td>P5</td>
+<td><strong>Gate de decisão antes de investimento pesado</strong></td>
+<td>A premissa P2 é validada na Onda 1, antes do investimento das ondas seguintes</td>
+</tr>
+<tr>
+<td>P6</td>
+<td><strong>Infrastructure as Code desde o início</strong></td>
+<td>Toda a infraestrutura é declarada em código, eliminando conhecimento tácito</td>
+</tr>
+<tr>
+<td>P7</td>
+<td><strong>Reversibilidade</strong></td>
+<td>Toda alteração possui procedimento de rollback documentado e testado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-mapeamento-lacunas--ondas">1.2 Mapeamento lacunas → ondas<a class="headerlink" href="#12-mapeamento-lacunas--ondas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Lacuna (<a href="../01-contexto/#53-lacunas-técnicas-da-arquitetura-vigente">01, seção 5.3</a>)</th>
+<th>Descrição</th>
+<th style="text-align: center;">Onda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L2</strong></td>
+<td>Ausência de política formal de retenção</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td><strong>L5</strong></td>
+<td>Ausência de padrão de anonimização documentado</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td><strong>L1</strong></td>
+<td>Ingestão síncrona (sem fila)</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><strong>L4</strong></td>
+<td>Sem alta disponibilidade documentada</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><strong>L7</strong></td>
+<td>Sem plano de Disaster Recovery testado</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><strong>L6</strong></td>
+<td>Sem integração com provedor de identidade</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><strong>L3</strong></td>
+<td>Ausência de camada de agregação para BI</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-visão-geral-das-ondas">2. Visão geral das ondas<a class="headerlink" href="#2-visão-geral-das-ondas" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>timeline
+    title Roadmap de adequação arquitetural — 18 meses
+    section Onda 0 · Mês 0-1
+        Homologação : Aprovação do ADR-001
+                    : Pareceres do DPO e da Segurança
+                    : Constituição da equipe
+    section Onda 1 · Mês 1-3
+        Diagnóstico e conformidade : Inventário e benchmark da instância atual
+                                   : Configuração de anonimização e retenção
+                                   : RIPD e registro de operações
+                                   : GATE de validação da premissa P2
+    section Onda 2 · Mês 4-9
+        Resiliência e segurança : Fila de ingestão com Redis
+                                : Host dedicado de arquivamento
+                                : Réplica de leitura
+                                : Backup e DR testados
+                                : Federação de identidade
+                                : Hardening e WAF
+    section Onda 3 · Mês 10-14
+        Capacidade analítica : Plugins premium
+                             : Funis dos serviços prioritários
+                             : Pipeline de ETL para o BI
+                             : Substituição do Microsoft Clarity
+    section Onda 4 · Mês 15-18
+        Escala e governança : Migração dos órgãos para o padrão
+                            : Autoatendimento de provisionamento
+                            : Instância segregada de alta criticidade
+                            : Publicação de dados abertos</code></pre>
+<h3 id="21-resumo-executivo-das-ondas">2.1 Resumo executivo das ondas<a class="headerlink" href="#21-resumo-executivo-das-ondas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Onda</th>
+<th>Período</th>
+<th>Objetivo</th>
+<th>Valor entregue</th>
+<th style="text-align: right;">Investimento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>0</strong></td>
+<td>Mês 0–1</td>
+<td>Homologar a decisão</td>
+<td>Decisão formalizada e auditável</td>
+<td style="text-align: right;">~R$ 15 k</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>Mês 1–3</td>
+<td>Conformidade e diagnóstico</td>
+<td>Risco regulatório mitigado; premissa P2 validada</td>
+<td style="text-align: right;">~R$ 85 k</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Mês 4–9</td>
+<td>Resiliência e segurança</td>
+<td>Zero perda de eventos em pico; DR testado</td>
+<td style="text-align: right;">~R$ 260 k</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td>Mês 10–14</td>
+<td>Capacidade analítica</td>
+<td>Funis dos serviços digitais; BI integrado</td>
+<td style="text-align: right;">~R$ 175 k</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td>Mês 15–18</td>
+<td>Escala e padronização</td>
+<td>80 % dos portais no padrão; autoatendimento</td>
+<td style="text-align: right;">~R$ 120 k</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>~R$ 655 k</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-onda-0--homologação">3. Onda 0 — Homologação<a class="headerlink" href="#3-onda-0--homologação" title="Permanent link">&para;</a></h2>
+<p><strong>Período:</strong> Mês 0 a 1 · <strong>Objetivo:</strong> transformar o estudo em decisão institucional vinculante.</p>
+<h3 id="31-atividades">3.1 Atividades<a class="headerlink" href="#31-atividades" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th>Dependência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>Apresentação do estudo ao Comitê de Arquitetura</td>
+<td>Arquitetura</td>
+<td>1 semana</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>Parecer do Encarregado de Dados sobre o padrão de conformidade</td>
+<td>DPO</td>
+<td>2 semanas</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td>Parecer da Segurança da Informação sobre a arquitetura-alvo</td>
+<td>SI</td>
+<td>2 semanas</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>0.4</td>
+<td>Verificação junto à PGE sobre normativos estaduais de LGPD aplicáveis</td>
+<td>Arquitetura + PGE</td>
+<td>2 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>Homologação do ADR-001 pelo Secretário Executivo</td>
+<td>SETDIG</td>
+<td>1 semana</td>
+<td>0.2, 0.3, 0.4</td>
+</tr>
+<tr>
+<td>0.6</td>
+<td>Publicação do repositório do estudo (MkDocs ou wiki)</td>
+<td>Arquitetura</td>
+<td>1 semana</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>0.7</td>
+<td>Constituição da equipe do projeto e alocação formal</td>
+<td>STI + SGD</td>
+<td>1 semana</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>0.8</td>
+<td>Comunicação da decisão aos órgãos setoriais</td>
+<td>SETDIG</td>
+<td>1 semana</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-entregas">3.2 Entregas<a class="headerlink" href="#32-entregas" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ADR-001 homologado, com registro de aprovação preenchido</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Parecer favorável do Encarregado de Dados (ou ressalvas registradas)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Parecer favorável da Segurança da Informação (ou ressalvas registradas)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Manifestação da PGE sobre normativos estaduais aplicáveis</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Repositório do estudo publicado e acessível</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Equipe constituída, com papéis atribuídos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Comunicação formal aos órgãos</li>
+</ul>
+<h3 id="33-critérios-de-saída">3.3 Critérios de saída<a class="headerlink" href="#33-critérios-de-saída" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ Gate 0</strong>
+A Onda 1 só inicia se: (a) o ADR-001 estiver homologado; <strong>e</strong> (b) não houver veto do DPO ou da Segurança da Informação; <strong>e</strong> (c) a equipe estiver formalmente alocada.</p>
+<p><strong>Veto do DPO ou da SI suspende integralmente o roadmap</strong> e exige revisão do estudo antes de qualquer prosseguimento.</p>
+</blockquote>
+<hr />
+<h2 id="4-onda-1--diagnóstico-conformidade-e-gate-de-capacidade">4. Onda 1 — Diagnóstico, conformidade e gate de capacidade<a class="headerlink" href="#4-onda-1--diagnóstico-conformidade-e-gate-de-capacidade" title="Permanent link">&para;</a></h2>
+<p><strong>Período:</strong> Mês 1 a 3 · <strong>Objetivo:</strong> eliminar o risco regulatório imediato e decidir sobre a modalidade de entrega.</p>
+<h3 id="41-frente-a--diagnóstico">4.1 Frente A — Diagnóstico<a class="headerlink" href="#41-frente-a--diagnóstico" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>Inventário completo de propriedades rastreadas, por órgão</td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>Medição de volume real: page views, eventos, visitantes, picos</td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>Levantamento da configuração atual de cada instância</td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>Benchmark da instância atual conforme <a href="../../anexos/benchmark/"><code>../anexos/benchmark.md</code></a></td>
+<td>STI</td>
+<td>3 semanas</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>Análise de gap entre a configuração atual e a arquitetura-alvo</td>
+<td>Arquitetura</td>
+<td>1 semana</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>Revisão do dimensionamento com base no volume medido</td>
+<td>Arquitetura</td>
+<td>1 semana</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-frente-b--conformidade">4.2 Frente B — Conformidade<a class="headerlink" href="#42-frente-b--conformidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th>Requisito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.10</td>
+<td>Aplicar anonimização de IP (2 bytes) em todas as propriedades</td>
+<td>STI</td>
+<td>1 semana</td>
+<td>RL-03</td>
+</tr>
+<tr>
+<td>1.11</td>
+<td>Desabilitar cookies de identificação (<code>disableCookies</code>)</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td>RL-04</td>
+</tr>
+<tr>
+<td>1.12</td>
+<td>Configurar <code>enable_userid_overwrites_visitorid = 0</code></td>
+<td>STI</td>
+<td>1 dia</td>
+<td>RL-13</td>
+</tr>
+<tr>
+<td>1.13</td>
+<td>Habilitar respeito a Do Not Track</td>
+<td>STI</td>
+<td>1 dia</td>
+<td>RL-08</td>
+</tr>
+<tr>
+<td>1.14</td>
+<td>Configurar política de retenção: bruto 6 meses, agregado 60 meses</td>
+<td>STI</td>
+<td>1 semana</td>
+<td>RL-05</td>
+</tr>
+<tr>
+<td>1.15</td>
+<td>Executar a primeira purga de dado bruto excedente</td>
+<td>STI</td>
+<td>1 semana</td>
+<td>RL-05</td>
+</tr>
+<tr>
+<td>1.16</td>
+<td>Habilitar log de auditoria e definir destino de exportação</td>
+<td>STI</td>
+<td>1 semana</td>
+<td>RL-10</td>
+</tr>
+<tr>
+<td>1.17</td>
+<td>Publicar mecanismo de opt-out nos portais</td>
+<td>STI + Comunicação</td>
+<td>2 semanas</td>
+<td>RL-07</td>
+</tr>
+<tr>
+<td>1.18</td>
+<td>Atualizar aviso de privacidade dos portais (seção analytics)</td>
+<td>Comunicação + DPO</td>
+<td>3 semanas</td>
+<td>LGPD art. 9º</td>
+</tr>
+<tr>
+<td>1.19</td>
+<td>Elaborar registro de operações de tratamento</td>
+<td>DPO + STI</td>
+<td>3 semanas</td>
+<td>RL-09</td>
+</tr>
+<tr>
+<td>1.20</td>
+<td>Elaborar RIPD da plataforma de analytics</td>
+<td>DPO</td>
+<td>4 semanas</td>
+<td>LGPD art. 38</td>
+</tr>
+<tr>
+<td>1.21</td>
+<td>Formalizar a política de retenção como norma interna</td>
+<td>SETDIG + DPO</td>
+<td>3 semanas</td>
+<td>RL-05</td>
+</tr>
+<tr>
+<td>1.22</td>
+<td>Suspender ou restringir o uso do Microsoft Clarity em serviços transacionais</td>
+<td>STI + DPO</td>
+<td>2 semanas</td>
+<td>RC-2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta — A atividade 1.15 é irreversível</strong>
+A purga de dado bruto excedente <strong>elimina permanentemente</strong> registros anteriores ao prazo de retenção. Antes da execução:
+1. Confirmar que o dado agregado correspondente (<code>matomo_archive_*</code>) está íntegro — é ele que preserva a série histórica;
+2. Executar backup completo e <strong>verificar a restauração</strong> em ambiente separado;
+3. Executar primeiro em ambiente de homologação, com validação dos relatórios;
+4. Obter autorização formal do Encarregado de Dados.</p>
+<p>A eliminação do dado bruto <strong>não elimina a série histórica de relatórios</strong>, pois o Matomo mantém os agregados. Essa distinção deve estar clara para todos os envolvidos antes da execução.</p>
+</blockquote>
+<h3 id="43-frente-c--capacitação-e-gate">4.3 Frente C — Capacitação e gate<a class="headerlink" href="#43-frente-c--capacitação-e-gate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.30</td>
+<td>Capacitação da equipe de infraestrutura (40 h)</td>
+<td>STI</td>
+<td>4 semanas</td>
+</tr>
+<tr>
+<td>1.31</td>
+<td>Capacitação de analistas na plataforma (24 h)</td>
+<td>SGD</td>
+<td>3 semanas</td>
+</tr>
+<tr>
+<td>1.32</td>
+<td>Elaboração do runbook operacional inicial</td>
+<td>STI</td>
+<td>3 semanas</td>
+</tr>
+<tr>
+<td>1.33</td>
+<td><strong>Avaliação formal da capacidade de sustentação (premissa P2)</strong></td>
+<td>Arquitetura + STI</td>
+<td>2 semanas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-gate-de-validação-da-premissa-p2">4.4 Gate de validação da premissa P2<a class="headerlink" href="#44-gate-de-validação-da-premissa-p2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ Gate 1 — Validação da capacidade técnica interna</strong></p>
+<p>Avaliação formal, com resultado documentado, sobre a capacidade da STI de sustentar a plataforma na modalidade On-Premise.</p>
+<p><strong>Critérios objetivos de aprovação — todos devem ser atendidos:</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Critério</th>
+<th>Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1.1</td>
+<td>Ao menos <strong>2 servidores</strong> capacitados em Linux, MySQL e operação do Matomo</td>
+<td>Avaliação prática pós-capacitação</td>
+</tr>
+<tr>
+<td>G1.2</td>
+<td>Alocação formal de <strong>≥ 0,3 FTE</strong> para operação da plataforma</td>
+<td>Portaria ou designação formal</td>
+</tr>
+<tr>
+<td>G1.3</td>
+<td>Ferramental de monitoramento disponível e operante</td>
+<td>Métricas coletadas do ambiente atual</td>
+</tr>
+<tr>
+<td>G1.4</td>
+<td>Procedimento de backup <strong>testado com restauração bem-sucedida</strong></td>
+<td>Relatório de teste</td>
+</tr>
+<tr>
+<td>G1.5</td>
+<td>Runbook operacional elaborado e validado</td>
+<td>Documento aprovado</td>
+</tr>
+<tr>
+<td>G1.6</td>
+<td>Capacidade de aplicar patch de segurança em ≤ 72 h demonstrada</td>
+<td>Simulação executada</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado aprovado</strong> → prosseguir para a Onda 2 na modalidade On-Premise.</p>
+<p><strong>Resultado reprovado</strong> → acionar o plano de contingência (seção 12): elaborar <strong>ADR-002</strong> propondo a migração para Matomo Cloud, com o Piwik PRO como segunda alternativa. As ondas 2 a 4 são replanejadas.</p>
+</blockquote>
+<h3 id="45-entregas-da-onda-1">4.5 Entregas da Onda 1<a class="headerlink" href="#45-entregas-da-onda-1" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Inventário completo de propriedades e configurações</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Relatório de benchmark com volume real medido</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Dimensionamento revisado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Todas as propriedades com anonimização de IP e cookieless</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Política de retenção formalizada e aplicada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Primeira purga executada e validada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Registro de operações de tratamento</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> RIPD aprovado pelo Encarregado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Aviso de privacidade atualizado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Opt-out publicado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Runbook operacional v1</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Equipe capacitada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Resultado do Gate 1 documentado</strong></li>
+</ul>
+<h3 id="46-indicadores-de-sucesso">4.6 Indicadores de sucesso<a class="headerlink" href="#46-indicadores-de-sucesso" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Indicador</th>
+<th>Meta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Propriedades com anonimização de IP</td>
+<td>100 %</td>
+</tr>
+<tr>
+<td>Propriedades operando cookieless</td>
+<td>≥ 95 %</td>
+</tr>
+<tr>
+<td>Aderência à política de retenção</td>
+<td>100 %</td>
+</tr>
+<tr>
+<td>RIPD aprovado</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Servidores capacitados</td>
+<td>≥ 2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-onda-2--resiliência-e-segurança">5. Onda 2 — Resiliência e segurança<a class="headerlink" href="#5-onda-2--resiliência-e-segurança" title="Permanent link">&para;</a></h2>
+<p><strong>Período:</strong> Mês 4 a 9 · <strong>Objetivo:</strong> eliminar o risco de perda de eventos e estabelecer postura de segurança e continuidade.</p>
+<h3 id="51-frente-a--desacoplamento-de-ingestão-aa-1">5.1 Frente A — Desacoplamento de ingestão (AA-1)<a class="headerlink" href="#51-frente-a--desacoplamento-de-ingestão-aa-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th style="text-align: center;">Lacuna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.1</td>
+<td>Provisionar Redis com persistência AOF e réplica</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">L1</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>Instalar e configurar o plugin <code>QueuedTracking</code></td>
+<td>STI</td>
+<td>1 semana</td>
+<td style="text-align: center;">L1</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>Configurar número de filas e workers conforme volume medido</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">L1</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>Implementar monitoramento de profundidade de fila com alertas</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">L1</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td><strong>Teste de carga com pico de 30×</strong> (cenário QA-01)</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">L1</td>
+</tr>
+<tr>
+<td>2.6</td>
+<td>Ajuste fino com base no resultado do teste</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">L1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-frente-b--arquitetura-de-dados">5.2 Frente B — Arquitetura de dados<a class="headerlink" href="#52-frente-b--arquitetura-de-dados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th style="text-align: center;">Lacuna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.10</td>
+<td>Provisionar host dedicado para o cron de arquivamento (AA-3)</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.11</td>
+<td>Desabilitar arquivamento disparado pelo navegador</td>
+<td>STI</td>
+<td>1 dia</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.12</td>
+<td>Configurar paralelização do arquivamento</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.13</td>
+<td>Definir governança de segmentos pré-processados</td>
+<td>Arquitetura + SGD</td>
+<td>2 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.14</td>
+<td>Provisionar réplica de leitura do MySQL (AA-4)</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr>
+<td>2.15</td>
+<td>Configurar aplicação de relatórios para usar a réplica</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr>
+<td>2.16</td>
+<td>Aplicar tuning do MySQL conforme seção 9.3 da recomendação</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.17</td>
+<td>Implementar particionamento das tabelas <code>matomo_log_*</code></td>
+<td>STI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-frente-c--continuidade">5.3 Frente C — Continuidade<a class="headerlink" href="#53-frente-c--continuidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th style="text-align: center;">Lacuna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.20</td>
+<td>Implementar backup diário completo + binlog contínuo (AA-9)</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">L7</td>
+</tr>
+<tr>
+<td>2.21</td>
+<td>Definir e documentar RPO (≤ 24 h) e RTO (≤ 8 h)</td>
+<td>Arquitetura</td>
+<td>1 semana</td>
+<td style="text-align: center;">L7</td>
+</tr>
+<tr>
+<td>2.22</td>
+<td>Elaborar plano de Disaster Recovery</td>
+<td>Arquitetura + STI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">L7</td>
+</tr>
+<tr>
+<td>2.23</td>
+<td><strong>Executar teste completo de DR</strong> com restauração em ambiente limpo</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">L7</td>
+</tr>
+<tr>
+<td>2.24</td>
+<td>Estabelecer rotina trimestral de teste de restauração</td>
+<td>STI</td>
+<td>1 semana</td>
+<td style="text-align: center;">L7</td>
+</tr>
+<tr>
+<td>2.25</td>
+<td>Implementar segundo nó de coleta atrás do balanceador (AA-2)</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">L4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-frente-d--segurança">5.4 Frente D — Segurança<a class="headerlink" href="#54-frente-d--segurança" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th style="text-align: center;">Lacuna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.30</td>
+<td>Restringir a interface administrativa a rede interna/VPN (AA-5)</td>
+<td>STI + SI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.31</td>
+<td>Configurar WAF sobre o endpoint de coleta</td>
+<td>STI + SI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.32</td>
+<td>Aplicar hardening do sistema operacional e do PHP</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>2.33</td>
+<td>Habilitar MFA obrigatório para todos os usuários administrativos</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">RNF-31</td>
+</tr>
+<tr>
+<td>2.34</td>
+<td>Integrar autenticação com o provedor de identidade (SAML/OIDC) (AA-7)</td>
+<td>STI</td>
+<td>4 semanas</td>
+<td style="text-align: center;">L6</td>
+</tr>
+<tr>
+<td>2.35</td>
+<td>Exportar log de auditoria para o SIEM</td>
+<td>STI + SI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">RNF-34</td>
+</tr>
+<tr>
+<td>2.36</td>
+<td>Estabelecer processo de aplicação de patch em ≤ 72 h</td>
+<td>STI + SI</td>
+<td>2 semanas</td>
+<td style="text-align: center;">RNF-36</td>
+</tr>
+<tr>
+<td>2.37</td>
+<td>Executar teste de intrusão na plataforma</td>
+<td>SI</td>
+<td>3 semanas</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="55-frente-e--infrastructure-as-code">5.5 Frente E — Infrastructure as Code<a class="headerlink" href="#55-frente-e--infrastructure-as-code" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.40</td>
+<td>Declarar toda a infraestrutura em código (AA-11)</td>
+<td>STI</td>
+<td>6 semanas</td>
+</tr>
+<tr>
+<td>2.41</td>
+<td>Implementar ambiente de homologação equivalente ao de produção</td>
+<td>STI</td>
+<td>3 semanas</td>
+</tr>
+<tr>
+<td>2.42</td>
+<td>Documentar procedimento de atualização com rollback</td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+<tr>
+<td>2.43</td>
+<td>Atualizar o runbook operacional (v2)</td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="56-critérios-de-saída">5.6 Critérios de saída<a class="headerlink" href="#56-critérios-de-saída" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ Gate 2</strong>
+A Onda 3 só inicia se, cumulativamente:
+- Teste de carga com pico de 30× concluído com <strong>perda de eventos ≤ 1 %</strong> e <strong>latência p95 ≤ 200 ms</strong>;
+- Teste de DR executado com sucesso dentro do RTO de 8 h;
+- MFA habilitado para 100 % dos usuários administrativos;
+- Interface administrativa inacessível pela internet pública;
+- Teste de intrusão sem achado crítico em aberto.</p>
+</blockquote>
+<h3 id="57-entregas-da-onda-2">5.7 Entregas da Onda 2<a class="headerlink" href="#57-entregas-da-onda-2" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Fila de ingestão operante com monitoramento</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Teste de carga de pico aprovado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Host de arquivamento dedicado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Réplica de leitura operante</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Backup diário verificado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Plano de DR documentado e testado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Segundo nó de coleta em produção</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Interface administrativa restrita</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> WAF configurado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> MFA obrigatório</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Federação de identidade integrada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Log de auditoria no SIEM</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Infraestrutura declarada em código</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ambiente de homologação disponível</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Relatório de teste de intrusão</li>
+</ul>
+<hr />
+<h2 id="6-onda-3--capacidade-analítica-e-integração-com-bi">6. Onda 3 — Capacidade analítica e integração com BI<a class="headerlink" href="#6-onda-3--capacidade-analítica-e-integração-com-bi" title="Permanent link">&para;</a></h2>
+<p><strong>Período:</strong> Mês 10 a 14 · <strong>Objetivo:</strong> habilitar diagnóstico de jornadas de serviço digital e alimentar o BI corporativo.</p>
+<h3 id="61-frente-a--capacidade-analítica">6.1 Frente A — Capacidade analítica<a class="headerlink" href="#61-frente-a--capacidade-analítica" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th>Requisito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.1</td>
+<td>Aquisição dos plugins premium (Funnels, Heatmaps &amp; Session Recording, Form Analytics, Custom Reports, Roll-Up Reporting)</td>
+<td>SETDIG</td>
+<td>6 semanas</td>
+<td>RF-27, RF-32/33/34</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>Instalar e configurar os plugins</td>
+<td>STI</td>
+<td>2 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>Mapear os 20 serviços digitais de maior volume</td>
+<td>SGD</td>
+<td>3 semanas</td>
+<td>RN-02</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>Configurar metas para os serviços digitais prioritários</td>
+<td>SGD</td>
+<td>4 semanas</td>
+<td>RF-26, RN-01</td>
+</tr>
+<tr>
+<td>3.5</td>
+<td>Configurar funis multi-etapa para os 20 serviços prioritários</td>
+<td>SGD</td>
+<td>6 semanas</td>
+<td>RF-27, RN-02</td>
+</tr>
+<tr>
+<td>3.6</td>
+<td>Definir e implantar taxonomia padrão de eventos</td>
+<td>Arquitetura + SGD</td>
+<td>4 semanas</td>
+<td>RF-02</td>
+</tr>
+<tr>
+<td>3.7</td>
+<td>Implementar dimensões customizadas padronizadas (órgão, tipo de serviço, canal)</td>
+<td>STI + SGD</td>
+<td>3 semanas</td>
+<td>RF-05</td>
+</tr>
+<tr>
+<td>3.8</td>
+<td>Implementar tracking server-side para eventos críticos de conclusão de serviço</td>
+<td>STI</td>
+<td>4 semanas</td>
+<td>RF-06</td>
+</tr>
+<tr>
+<td>3.9</td>
+<td>Configurar o Matomo Tag Manager como padrão</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td>RI-13</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-frente-b--substituição-do-microsoft-clarity-rc-2">6.2 Frente B — Substituição do Microsoft Clarity (RC-2)<a class="headerlink" href="#62-frente-b--substituição-do-microsoft-clarity-rc-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.15</td>
+<td>Configurar Heatmaps &amp; Session Recording do Matomo com mascaramento total por padrão</td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+<tr>
+<td>3.16</td>
+<td>Elaborar RIPD específico da funcionalidade de gravação de sessão</td>
+<td>DPO</td>
+<td>3 semanas</td>
+</tr>
+<tr>
+<td>3.17</td>
+<td>Definir lista de propriedades autorizadas a usar gravação de sessão</td>
+<td>SGD + DPO</td>
+<td>2 semanas</td>
+</tr>
+<tr>
+<td>3.18</td>
+<td>Executar operação em paralelo e comparar resultados</td>
+<td>SGD</td>
+<td>4 semanas</td>
+</tr>
+<tr>
+<td>3.19</td>
+<td><strong>Remover o script do Microsoft Clarity de todos os portais</strong></td>
+<td>STI</td>
+<td>2 semanas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-frente-c--integração-com-bi">6.3 Frente C — Integração com BI<a class="headerlink" href="#63-frente-c--integração-com-bi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th>Requisito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.20</td>
+<td>Modelar o <em>data mart</em> de analytics</td>
+<td>Arquitetura + BI</td>
+<td>4 semanas</td>
+<td>RN-04</td>
+</tr>
+<tr>
+<td>3.21</td>
+<td>Implementar camada de <em>views</em> SQL estáveis sobre o schema do Matomo</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.22</td>
+<td>Desenvolver o pipeline de ETL da réplica para o data warehouse</td>
+<td>BI</td>
+<td>6 semanas</td>
+<td>RI-17</td>
+</tr>
+<tr>
+<td>3.23</td>
+<td>Implementar consumo alternativo via Reporting API para casos não cobertos pelo ETL</td>
+<td>BI</td>
+<td>3 semanas</td>
+<td>RI-01</td>
+</tr>
+<tr>
+<td>3.24</td>
+<td>Construir painel corporativo de transformação digital</td>
+<td>BI + SGD</td>
+<td>6 semanas</td>
+<td>RN-04</td>
+</tr>
+<tr>
+<td>3.25</td>
+<td>Validar consistência entre o painel de BI e a interface do Matomo</td>
+<td>BI + SGD</td>
+<td>2 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.26</td>
+<td>Documentar o padrão de integração para os órgãos</td>
+<td>Arquitetura</td>
+<td>2 semanas</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-critérios-de-saída">6.4 Critérios de saída<a class="headerlink" href="#64-critérios-de-saída" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ Gate 3</strong>
+A Onda 4 só inicia se:
+- ≥ 20 serviços digitais prioritários com funil configurado e produzindo dados;
+- Pipeline de ETL executando na janela definida (≤ 2 h) sem degradar a coleta;
+- Painel corporativo publicado e validado;
+- Script do Microsoft Clarity removido de 100 % dos portais.</p>
+</blockquote>
+<h3 id="65-entregas-da-onda-3">6.5 Entregas da Onda 3<a class="headerlink" href="#65-entregas-da-onda-3" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Plugins premium adquiridos e operantes</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 20 serviços prioritários com funil configurado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Metas configuradas para os serviços digitais</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Taxonomia padrão de eventos publicada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Dimensões customizadas padronizadas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tracking server-side para eventos críticos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Matomo Tag Manager como padrão</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Microsoft Clarity substituído e removido</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <em>Data mart</em> de analytics modelado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Pipeline de ETL operante</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Painel corporativo publicado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Guia de integração para órgãos</li>
+</ul>
+<hr />
+<h2 id="7-onda-4--escala-padronização-e-governança">7. Onda 4 — Escala, padronização e governança<a class="headerlink" href="#7-onda-4--escala-padronização-e-governança" title="Permanent link">&para;</a></h2>
+<p><strong>Período:</strong> Mês 15 a 18 · <strong>Objetivo:</strong> estender o padrão a toda a Administração e institucionalizar a governança.</p>
+<h3 id="71-atividades">7.1 Atividades<a class="headerlink" href="#71-atividades" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Atividade</th>
+<th>Responsável</th>
+<th>Duração</th>
+<th>Requisito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.1</td>
+<td>Elaborar o guia de adoção para órgãos setoriais</td>
+<td>Arquitetura + SGD</td>
+<td>3 semanas</td>
+<td>RN-03</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>Migrar os portais dos órgãos para a instância padronizada</td>
+<td>STI + órgãos</td>
+<td>10 semanas</td>
+<td>RN-03</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>Implementar autoatendimento de provisionamento de propriedades</td>
+<td>STI</td>
+<td>6 semanas</td>
+<td>RN-07</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>Provisionar instância segregada para serviços de alta criticidade (AA-12)</td>
+<td>STI</td>
+<td>4 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td>Migrar serviços de saúde e assistência social para a instância segregada</td>
+<td>STI + órgãos</td>
+<td>4 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4.6</td>
+<td>Implementar relatórios agregados (roll-up) por Secretaria</td>
+<td>SGD</td>
+<td>3 semanas</td>
+<td>RF-42</td>
+</tr>
+<tr>
+<td>4.7</td>
+<td>Avaliar e, se justificado, implantar Plausible CE para portais classe C</td>
+<td>STI</td>
+<td>4 semanas</td>
+<td>RC-1</td>
+</tr>
+<tr>
+<td>4.8</td>
+<td>Publicar estatísticas agregadas de uso como dado aberto</td>
+<td>SGD + Comunicação</td>
+<td>4 semanas</td>
+<td>RN-06, RF-14</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>Institucionalizar o comitê de governança de analytics</td>
+<td>SETDIG</td>
+<td>3 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4.10</td>
+<td>Estabelecer rotina de revisão trimestral dos indicadores do ADR</td>
+<td>Arquitetura</td>
+<td>2 semanas</td>
+<td>ADR seção 11.3</td>
+</tr>
+<tr>
+<td>4.11</td>
+<td>Atualizar o runbook operacional (v3) e a documentação final</td>
+<td>STI</td>
+<td>3 semanas</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4.12</td>
+<td>Realizar retrospectiva do projeto e registrar lições aprendidas</td>
+<td>Todos</td>
+<td>2 semanas</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-entregas-da-onda-4">7.2 Entregas da Onda 4<a class="headerlink" href="#72-entregas-da-onda-4" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Guia de adoção publicado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ≥ 80 % dos portais na instância padronizada</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Autoatendimento de provisionamento operante (≤ 1 dia útil)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Instância segregada de alta criticidade em produção</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Relatórios agregados por Secretaria</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Avaliação do Plausible CE concluída</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Conjunto de dados abertos publicado</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Comitê de governança constituído</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Rotina de revisão de indicadores estabelecida</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Documentação final e runbook v3</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Registro de lições aprendidas</li>
+</ul>
+<hr />
+<h2 id="8-cronograma-consolidado">8. Cronograma consolidado<a class="headerlink" href="#8-cronograma-consolidado" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>gantt
+    title Roadmap de adequação — Plataforma de Web Analytics
+    dateFormat YYYY-MM-DD
+    axisFormat %b/%y
+
+    section Onda 0 · Homologação
+    Apresentação e pareceres          :o01, 2026-08-01, 30d
+    Homologação do ADR-001            :milestone, m0, 2026-08-31, 0d
+
+    section Onda 1 · Conformidade
+    Diagnóstico e benchmark           :o11, 2026-09-01, 60d
+    Configuração de conformidade      :o12, 2026-09-01, 45d
+    RIPD e registro de tratamento     :o13, 2026-09-15, 45d
+    Capacitação da equipe             :o14, 2026-09-15, 45d
+    Gate 1 · Validação da premissa P2 :milestone, crit, m1, 2026-10-31, 0d
+
+    section Onda 2 · Resiliência
+    Fila de ingestão (Redis)          :crit, o21, 2026-11-01, 75d
+    Arquitetura de dados              :o22, 2026-11-15, 90d
+    Backup e Disaster Recovery        :o23, 2026-12-01, 75d
+    Segurança e hardening             :o24, 2026-12-01, 90d
+    Infrastructure as Code            :o25, 2027-01-01, 75d
+    Gate 2 · Teste de carga e DR      :milestone, crit, m2, 2027-04-30, 0d
+
+    section Onda 3 · Capacidade analítica
+    Aquisição de plugins premium      :o31, 2027-05-01, 45d
+    Funis dos serviços prioritários   :o32, 2027-06-01, 75d
+    Substituição do Clarity           :o33, 2027-06-01, 60d
+    Pipeline de ETL e painel de BI    :o34, 2027-06-15, 90d
+    Gate 3 · Funis e BI operantes     :milestone, crit, m3, 2027-09-30, 0d
+
+    section Onda 4 · Escala e governança
+    Migração dos órgãos               :o41, 2027-10-01, 75d
+    Autoatendimento de provisionamento:o42, 2027-10-15, 45d
+    Instância de alta criticidade     :o43, 2027-11-01, 45d
+    Governança e dados abertos        :o44, 2027-12-01, 60d
+    Encerramento do projeto           :milestone, m4, 2028-01-31, 0d</code></pre>
+<h3 id="81-marcos-críticos">8.1 Marcos críticos<a class="headerlink" href="#81-marcos-críticos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Marco</th>
+<th>Data prevista</th>
+<th style="text-align: center;">Criticidade</th>
+<th>Consequência do atraso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M0</strong> — ADR homologado</td>
+<td>Ago/2026</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td>Bloqueia todo o roadmap</td>
+</tr>
+<tr>
+<td><strong>M1</strong> — Gate da premissa P2</td>
+<td>Out/2026</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td>Define a modalidade; atraso posterga todo o investimento</td>
+</tr>
+<tr>
+<td><strong>M2</strong> — Teste de carga e DR aprovados</td>
+<td>Abr/2027</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td>Risco R-02 permanece crítico</td>
+</tr>
+<tr>
+<td><strong>M3</strong> — Funis e BI operantes</td>
+<td>Set/2027</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Requisitos RN-02 e RN-04 não atendidos</td>
+</tr>
+<tr>
+<td><strong>M4</strong> — Encerramento</td>
+<td>Jan/2028</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td>Padronização incompleta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-orçamento-por-onda">9. Orçamento por onda<a class="headerlink" href="#9-orçamento-por-onda" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Natureza das estimativas</strong>
+Os valores são <strong>estimativas de planejamento</strong>, não cotações. Baseiam-se em bandas de referência de mercado de TI público e nas premissas de infraestrutura de <a href="../../comparativos/custo/"><code>../comparativos/custo.md</code></a>. <strong>Não devem ser usados em peça orçamentária ou licitatória sem cotação formal.</strong></p>
+</blockquote>
+<h3 id="91-detalhamento">9.1 Detalhamento<a class="headerlink" href="#91-detalhamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Onda</th>
+<th>Item</th>
+<th>Natureza</th>
+<th style="text-align: right;">Valor estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>0</strong></td>
+<td>Horas de equipe própria (homologação)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 15.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td><strong>Subtotal Onda 0</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>R$ 15.000</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>Horas de equipe própria (diagnóstico e conformidade)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 45.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Capacitação técnica (2 servidores)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 25.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Assessoria em conformidade (RIPD)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 15.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td><strong>Subtotal Onda 1</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>R$ 85.000</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Infraestrutura adicional (Redis, réplica, host de arquivamento, nó de coleta)</td>
+<td>CAPEX/OPEX</td>
+<td style="text-align: right;">R$ 120.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Armazenamento de backup (3 TB)</td>
+<td>CAPEX</td>
+<td style="text-align: right;">R$ 25.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Horas de equipe própria</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 80.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Teste de intrusão</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 35.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td><strong>Subtotal Onda 2</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>R$ 260.000</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td>Plugins premium Matomo (licença + 1º ano de atualizações)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 25.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Horas de equipe própria (configuração analítica)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 70.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Desenvolvimento do pipeline de ETL e painel de BI</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 80.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td><strong>Subtotal Onda 3</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>R$ 175.000</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td>Infraestrutura da instância segregada</td>
+<td>CAPEX/OPEX</td>
+<td style="text-align: right;">R$ 45.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Horas de equipe própria (migração e governança)</td>
+<td>OPEX</td>
+<td style="text-align: right;">R$ 60.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Infraestrutura do Plausible CE (se adotado)</td>
+<td>CAPEX/OPEX</td>
+<td style="text-align: right;">R$ 15.000</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td><strong>Subtotal Onda 4</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>R$ 120.000</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td><strong>TOTAL DO PROJETO (18 meses)</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>R$ 655.000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-custo-recorrente-pós-projeto">9.2 Custo recorrente pós-projeto<a class="headerlink" href="#92-custo-recorrente-pós-projeto" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Valor anual estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infraestrutura (7 instâncias + armazenamento)</td>
+<td style="text-align: right;">R$ 44.000</td>
+</tr>
+<tr>
+<td>Renovação de atualizações dos plugins premium</td>
+<td style="text-align: right;">R$ 12.000</td>
+</tr>
+<tr>
+<td>Operação (0,3 FTE)</td>
+<td style="text-align: right;">R$ 60.000</td>
+</tr>
+<tr>
+<td><strong>Total anual recorrente</strong></td>
+<td style="text-align: right;"><strong>R$ 116.000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="93-conciliação-com-o-tco-de-5-anos">9.3 Conciliação com o TCO de 5 anos<a class="headerlink" href="#93-conciliação-com-o-tco-de-5-anos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projeto de adequação (18 meses)</td>
+<td style="text-align: right;">R$ 655.000</td>
+</tr>
+<tr>
+<td>Custo recorrente — anos 2 a 5 (3,5 anos × R$ 116 k)</td>
+<td style="text-align: right;">R$ 406.000</td>
+</tr>
+<tr>
+<td><strong>TCO total em 5 anos</strong></td>
+<td style="text-align: right;"><strong>R$ 1.061.000</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — Reconciliação com o TCO da matriz (regime marginal)</strong>
+O TCO estimado em <a href="../05-comparativo-detalhado/#13-custos"><code>05-comparativo-detalhado.md</code></a> para o Matomo On-Premise é de <strong>~R$ 235 k em regime marginal SETDIG</strong> (fundamento em P1/P2/R4). O valor acima é de ~R$ 1,06 M — projeto de adequação institucional completo.</p>
+<p>A diferença de ~R$ 825 k reflete o <strong>escopo distinto</strong> dos dois números:</p>
+<ol>
+<li><strong>TCO da matriz (R$ 235 k)</strong> — custo marginal <em>da plataforma</em> sobre o baseline SETDIG. Comparável entre alternativas em pé de igualdade.</li>
+<li><strong>Orçamento do roadmap (R$ 1,06 M)</strong> — custo <em>do projeto de adequação institucional completo</em> (RIPD, capacitação, teste de intrusão, painel de BI). Estes custos existiriam com qualquer plataforma auto-hospedada e representam a maturidade que o Estado adquire.</li>
+<li><strong>Aplicando a mesma base às alternativas</strong>, a ordem relativa se mantém: auto-hospedadas incorreriam nos mesmos custos institucionais; SaaS os incorreriam parcialmente, acrescidos de licença.</li>
+</ol>
+<p>A comparação da matriz permanece válida; este orçamento é o custo real de execução do projeto, não a base comparativa.</p>
+</blockquote>
+<hr />
+<h2 id="10-equipe-e-papéis">10. Equipe e papéis<a class="headerlink" href="#10-equipe-e-papéis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th style="text-align: center;">Alocação</th>
+<th>Responsabilidades</th>
+<th style="text-align: center;">Ondas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Patrocinador</strong> (Secretário Executivo)</td>
+<td style="text-align: center;">5 %</td>
+<td>Homologação, remoção de impedimentos, decisões de contingência</td>
+<td style="text-align: center;">Todas</td>
+</tr>
+<tr>
+<td><strong>Arquiteto de Soluções</strong></td>
+<td style="text-align: center;">30 %</td>
+<td>Arquitetura-alvo, gates, ADRs, governança técnica</td>
+<td style="text-align: center;">Todas</td>
+</tr>
+<tr>
+<td><strong>Gerente de projeto</strong></td>
+<td style="text-align: center;">50 %</td>
+<td>Cronograma, riscos, articulação entre órgãos</td>
+<td style="text-align: center;">Todas</td>
+</tr>
+<tr>
+<td><strong>Administrador de infraestrutura</strong> (2 pessoas)</td>
+<td style="text-align: center;">50 % cada</td>
+<td>Implantação, tuning, backup, monitoramento, IaC</td>
+<td style="text-align: center;">1–4</td>
+</tr>
+<tr>
+<td><strong>DBA</strong></td>
+<td style="text-align: center;">20 %</td>
+<td>Tuning do MySQL, réplica, particionamento, backup</td>
+<td style="text-align: center;">2–3</td>
+</tr>
+<tr>
+<td><strong>Analista de segurança</strong></td>
+<td style="text-align: center;">20 %</td>
+<td>Hardening, WAF, teste de intrusão, SIEM</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><strong>Encarregado de Dados (DPO)</strong></td>
+<td style="text-align: center;">20 %</td>
+<td>RIPD, registro de tratamento, pareceres, autorizações</td>
+<td style="text-align: center;">1, 3</td>
+</tr>
+<tr>
+<td><strong>Analista de dados / BI</strong></td>
+<td style="text-align: center;">40 %</td>
+<td>ETL, <em>data mart</em>, painel corporativo</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td><strong>Analista de negócio</strong> (SGD)</td>
+<td style="text-align: center;">40 %</td>
+<td>Taxonomia, metas, funis, capacitação de usuários</td>
+<td style="text-align: center;">1, 3, 4</td>
+</tr>
+<tr>
+<td><strong>Analista de comunicação</strong></td>
+<td style="text-align: center;">10 %</td>
+<td>Aviso de privacidade, comunicação, dados abertos</td>
+<td style="text-align: center;">1, 4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="101-matriz-raci-resumida">10.1 Matriz RACI resumida<a class="headerlink" href="#101-matriz-raci-resumida" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atividade-chave</th>
+<th style="text-align: center;">Patrocinador</th>
+<th style="text-align: center;">Arquiteto</th>
+<th style="text-align: center;">GP</th>
+<th style="text-align: center;">Infra</th>
+<th style="text-align: center;">DPO</th>
+<th style="text-align: center;">BI</th>
+<th style="text-align: center;">SGD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homologação do ADR</td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>Configuração de conformidade</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"><strong>R</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+</tr>
+<tr>
+<td>Gate da premissa P2</td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: center;"><strong>R</strong></td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+</tr>
+<tr>
+<td>Fila de ingestão</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"><strong>R/A</strong></td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+</tr>
+<tr>
+<td>Teste de DR</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"><strong>R/A</strong></td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+</tr>
+<tr>
+<td>Configuração de funis</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"><strong>R/A</strong></td>
+</tr>
+<tr>
+<td>Pipeline de ETL</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;"><strong>R/A</strong></td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td>Migração dos órgãos</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"><strong>R/A</strong></td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R</strong> = Responsável pela execução · <strong>A</strong> = Aprovador · <strong>C</strong> = Consultado · <strong>I</strong> = Informado</p>
+<hr />
+<h2 id="11-critérios-de-aceite">11. Critérios de aceite<a class="headerlink" href="#11-critérios-de-aceite" title="Permanent link">&para;</a></h2>
+<h3 id="111-por-onda">11.1 Por onda<a class="headerlink" href="#111-por-onda" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Onda</th>
+<th>Critério de aceite</th>
+<th>Método de verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>0</strong></td>
+<td>ADR homologado sem veto</td>
+<td>Documento assinado</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>100 % das propriedades com anonimização e retenção conforme</td>
+<td>Consulta SQL de auditoria</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>RIPD aprovado</td>
+<td>Parecer do Encarregado</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>Gate P2 com resultado documentado</td>
+<td>Relatório de avaliação</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Perda de eventos ≤ 1 % em pico de 30×</td>
+<td>Teste de carga</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Latência p95 do endpoint ≤ 200 ms sob pico</td>
+<td>Teste de carga</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>RTO ≤ 8 h comprovado</td>
+<td>Teste de DR</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>MFA em 100 % dos usuários administrativos</td>
+<td>Auditoria de contas</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Zero achado crítico em aberto</td>
+<td>Relatório de teste de intrusão</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td>≥ 20 serviços com funil produzindo dados</td>
+<td>Inspeção da plataforma</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td>ETL executando em ≤ 2 h sem degradar a coleta</td>
+<td>Log de execução + métricas</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td>Clarity removido de 100 % dos portais</td>
+<td>Varredura automatizada de tags</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td>≥ 80 % dos portais na instância padronizada</td>
+<td>Inventário</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td>Provisionamento em ≤ 1 dia útil</td>
+<td>Registro de chamados</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td>Dados abertos publicados</td>
+<td>URL pública</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112-critério-de-aceite-global-do-projeto">11.2 Critério de aceite global do projeto<a class="headerlink" href="#112-critério-de-aceite-global-do-projeto" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ Aceite final</strong>
+O projeto é considerado concluído com sucesso quando <strong>todos os 12 indicadores de acompanhamento</strong> definidos em <a href="../08-adr/#113-indicadores-de-acompanhamento"><code>08-adr.md</code>, seção 11.3</a> forem medidos e apresentarem resultado dentro da meta por <strong>dois trimestres consecutivos</strong>.</p>
+<p>A conclusão das atividades do roadmap <strong>não é</strong>, por si só, critério de aceite. O critério é o resultado operacional sustentado.</p>
+</blockquote>
+<hr />
+<h2 id="12-plano-de-contingência">12. Plano de contingência<a class="headerlink" href="#12-plano-de-contingência" title="Permanent link">&para;</a></h2>
+<h3 id="121-contingência-principal--reprovação-no-gate-1">12.1 Contingência principal — reprovação no Gate 1<a class="headerlink" href="#121-contingência-principal--reprovação-no-gate-1" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    G1{"Gate 1&lt;br/&gt;Premissa P2&lt;br/&gt;validada?"}
+    G1 --&gt;|"✅ Aprovada"| ON["Prosseguir Onda 2&lt;br/&gt;modalidade On-Premise"]
+    G1 --&gt;|"❌ Reprovada"| AV{"Deficiência é&lt;br/&gt;sanável em&lt;br/&gt;≤ 6 meses?"}
+
+    AV --&gt;|"Sim"| PL["Plano de capacitação&lt;br/&gt;estendido&lt;br/&gt;+ contratação de suporte&lt;br/&gt;comercial temporário"]
+    AV --&gt;|"Não"| ADR2["Elaborar ADR-002"]
+
+    PL --&gt; G1B{"Reavaliação&lt;br/&gt;em 6 meses"}
+    G1B --&gt;|"✅"| ON
+    G1B --&gt;|"❌"| ADR2
+
+    ADR2 --&gt; C1["Contingência 1&lt;br/&gt;Matomo Cloud"]
+    C1 --&gt; AV2{"Viável&lt;br/&gt;contratualmente?"}
+    AV2 --&gt;|"Sim"| EXEC1["Migrar para Matomo Cloud&lt;br/&gt;Replanejar ondas 2-4"]
+    AV2 --&gt;|"Não"| C2["Contingência 2&lt;br/&gt;Piwik PRO"]
+    C2 --&gt; EXEC2["Processo licitatório&lt;br/&gt;Replanejar ondas 2-4"]
+
+    style G1 fill:#fef3c7,stroke:#f59e0b,stroke-width:3px
+    style ON fill:#d1fae5,stroke:#10b981,stroke-width:2px
+    style ADR2 fill:#fee2e2,stroke:#ef4444,stroke-width:2px</code></pre>
+<h3 id="122-contingências-específicas">12.2 Contingências específicas<a class="headerlink" href="#122-contingências-específicas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>Gatilho</th>
+<th>Resposta</th>
+<th>Responsável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reprovação no Gate 1</strong></td>
+<td>Menos de 2 critérios G1.x atendidos</td>
+<td>Plano de capacitação estendido; se persistir, ADR-002 → Matomo Cloud</td>
+<td>Arquiteto</td>
+</tr>
+<tr>
+<td><strong>Teste de carga reprovado</strong></td>
+<td>Perda de eventos &gt; 1 % com a fila configurada</td>
+<td>Redimensionar Redis e workers; adicionar nós de coleta; se persistir, avaliar arquitetura de ingestão alternativa</td>
+<td>Infra + Arquiteto</td>
+</tr>
+<tr>
+<td><strong>Teste de DR reprovado</strong></td>
+<td>RTO &gt; 8 h</td>
+<td>Revisar estratégia de backup; considerar réplica em sítio secundário</td>
+<td>Infra</td>
+</tr>
+<tr>
+<td><strong>Achado crítico no teste de intrusão</strong></td>
+<td>Vulnerabilidade crítica explorável</td>
+<td>Suspender exposição pública até correção; acionar gatilho G5 do ADR</td>
+<td>SI</td>
+</tr>
+<tr>
+<td><strong>Indisponibilidade orçamentária para plugins</strong></td>
+<td>Dotação não confirmada</td>
+<td>Reduzir escopo da Onda 3: manter metas e funis básicos; adiar heatmap e session recording</td>
+<td>Patrocinador</td>
+</tr>
+<tr>
+<td><strong>Atraso superior a 2 ondas</strong></td>
+<td>Cronograma com desvio &gt; 6 meses</td>
+<td>Acionar gatilho G7 do ADR — revisão antecipada</td>
+<td>GP + Arquiteto</td>
+</tr>
+<tr>
+<td><strong>Manifestação da ANPD</strong></td>
+<td>Publicação de entendimento sobre analytics</td>
+<td>Acionar gatilho G1 do ADR — revisão em 60 dias</td>
+<td>DPO + Arquiteto</td>
+</tr>
+<tr>
+<td><strong>Crescimento superior a 5×</strong></td>
+<td>Volume medido excede a projeção</td>
+<td>Acionar gatilho G4 do ADR — reavaliar arquitetura de dados</td>
+<td>Arquiteto</td>
+</tr>
+<tr>
+<td><strong>Perda de pessoal-chave</strong></td>
+<td>Saída de servidor capacitado</td>
+<td>Ativar segundo capacitado; contratar suporte comercial temporário; revalidar Gate 1</td>
+<td>STI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="123-impacto-das-contingências-no-cronograma-e-no-orçamento">12.3 Impacto das contingências no cronograma e no orçamento<a class="headerlink" href="#123-impacto-das-contingências-no-cronograma-e-no-orçamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Contingência</th>
+<th style="text-align: center;">Impacto no prazo</th>
+<th style="text-align: right;">Impacto no orçamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capacitação estendida</td>
+<td style="text-align: center;">+6 meses</td>
+<td style="text-align: right;">+R$ 60 k</td>
+</tr>
+<tr>
+<td>Migração para Matomo Cloud</td>
+<td style="text-align: center;">+3 meses</td>
+<td style="text-align: right;">+R$ 480 k (5 anos) − R$ 220 k (infra evitada)</td>
+</tr>
+<tr>
+<td>Migração para Piwik PRO</td>
+<td style="text-align: center;">+9 meses (licitação)</td>
+<td style="text-align: right;">+R$ 900 k (5 anos)</td>
+</tr>
+<tr>
+<td>Redimensionamento pós-teste de carga</td>
+<td style="text-align: center;">+2 meses</td>
+<td style="text-align: right;">+R$ 60 k</td>
+</tr>
+<tr>
+<td>Escopo reduzido da Onda 3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: right;">−R$ 25 k</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⬅️ Anterior</th>
+<th>➡️ Próximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../09-recomendacao/">09 — Recomendação</a></td>
+<td><a href="../11-riscos/">11 — Riscos</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

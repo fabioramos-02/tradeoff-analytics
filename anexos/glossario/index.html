@@ -1,0 +1,3368 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/anexos/glossario/">
+      
+      
+        <link rel="prev" href="../benchmark/">
+      
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Glossário - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#anexo--glossário" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Glossário
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-como-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Como usar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-termos-de-arquitetura-corporativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Termos de arquitetura corporativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Termos de arquitetura corporativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adr--architecture-decision-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADR — Architecture Decision Record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-driver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architectural driver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atam--architecture-trade-off-analysis-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      ATAM — Architecture Trade-off Analysis Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fitness-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fitness function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#madr--markdown-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      MADR — Markdown ADR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maut--multi-attribute-utility-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAUT — Multi-Attribute Utility Theory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-attribute-utility-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Attribute Utility Tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensitivity-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#togaf--the-open-group-architecture-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      TOGAF — The Open Group Architecture Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trade-off-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trade-off point
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-termos-de-web-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Termos de Web Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Termos de Web Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ab-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      A/B testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beacon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beacon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cohort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-funnel-funil-de-conversão" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion funnel (funil de conversão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookieless-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cookieless analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom dimension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dau--mau" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAU / MAU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event (evento)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-party--third-party-cookies-e-dado" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-party / Third-party (cookies e dado)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fingerprinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fingerprinting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal (meta)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heatmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heatmap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lcp--cls--inp--core-web-vitals" class="md-nav__link">
+    <span class="md-ellipsis">
+      LCP / CLS / INP — Core Web Vitals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page view
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-time analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retention-retenção" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retention (retenção)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session recording
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-tracking-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag (tracking tag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      User journey
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-termos-de-infraestrutura-e-engenharia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Termos de infraestrutura e engenharia
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Termos de infraestrutura e engenharia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archiving-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archiving (Matomo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdn--content-delivery-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      CDN — Content Delivery Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clickhouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      ClickHouse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpa--data-processing-addendum" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPA — Data Processing Addendum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helm chart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ha--high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      HA — High Availability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingest--ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingest / ingestion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8s--kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      K8s — Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop--point-of-presence" class="md-nav__link">
+    <span class="md-ellipsis">
+      PoP — Point of Presence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpo--rto" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPO / RTO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sla--service-level-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      SLA — Service Level Agreement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slo--sli" class="md-nav__link">
+    <span class="md-ellipsis">
+      SLO / SLI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-termos-jurídicos-e-regulatórios" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Termos jurídicos e regulatórios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Termos jurídicos e regulatórios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anpd--autoridade-nacional-de-proteção-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      ANPD — Autoridade Nacional de Proteção de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-legal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base legal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLOUD Act
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consentimento-lgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consentimento (LGPD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpia--ripd--data-protection-impact-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPIA / RIPD — Data Protection Impact Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpo--data-protection-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPO — Data Protection Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fingerprinting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fingerprinting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gdpr--general-data-protection-regulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      GDPR — General Data Protection Regulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legítimo-interesse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legítimo interesse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lgpd--lei-geral-de-proteção-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      LGPD — Lei Geral de Proteção de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ropa--registro-de-operações-de-tratamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROPA — Registro de Operações de Tratamento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#titular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Titular
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transferência-internacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transferência internacional
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-termos-de-licenciamento-e-negócios" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Termos de licenciamento e negócios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Termos de licenciamento e negócios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agpl--affero-general-public-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGPL — Affero General Public License
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyleft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copyleft
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpl--gnu-general-public-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPL — GNU General Public License
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mit-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIT (License)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saas--software-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      SaaS — Software as a Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tco--total-cost-of-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCO — Total Cost of Ownership
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor lock-in
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-siglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Siglas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-como-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Como usar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-termos-de-arquitetura-corporativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Termos de arquitetura corporativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Termos de arquitetura corporativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adr--architecture-decision-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADR — Architecture Decision Record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-driver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architectural driver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atam--architecture-trade-off-analysis-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      ATAM — Architecture Trade-off Analysis Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fitness-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fitness function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#madr--markdown-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      MADR — Markdown ADR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maut--multi-attribute-utility-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAUT — Multi-Attribute Utility Theory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-attribute-utility-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Attribute Utility Tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensitivity-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#togaf--the-open-group-architecture-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      TOGAF — The Open Group Architecture Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trade-off-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trade-off point
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-termos-de-web-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Termos de Web Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Termos de Web Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ab-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      A/B testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beacon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beacon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cohort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-funnel-funil-de-conversão" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion funnel (funil de conversão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookieless-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cookieless analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom dimension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dau--mau" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAU / MAU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event (evento)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-party--third-party-cookies-e-dado" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-party / Third-party (cookies e dado)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fingerprinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fingerprinting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal (meta)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heatmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heatmap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lcp--cls--inp--core-web-vitals" class="md-nav__link">
+    <span class="md-ellipsis">
+      LCP / CLS / INP — Core Web Vitals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page view
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-time analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retention-retenção" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retention (retenção)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session recording
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-tracking-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag (tracking tag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      User journey
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-termos-de-infraestrutura-e-engenharia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Termos de infraestrutura e engenharia
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Termos de infraestrutura e engenharia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archiving-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archiving (Matomo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdn--content-delivery-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      CDN — Content Delivery Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clickhouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      ClickHouse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpa--data-processing-addendum" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPA — Data Processing Addendum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helm chart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ha--high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      HA — High Availability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingest--ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingest / ingestion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8s--kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      K8s — Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop--point-of-presence" class="md-nav__link">
+    <span class="md-ellipsis">
+      PoP — Point of Presence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpo--rto" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPO / RTO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sla--service-level-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      SLA — Service Level Agreement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slo--sli" class="md-nav__link">
+    <span class="md-ellipsis">
+      SLO / SLI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-termos-jurídicos-e-regulatórios" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Termos jurídicos e regulatórios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Termos jurídicos e regulatórios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anpd--autoridade-nacional-de-proteção-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      ANPD — Autoridade Nacional de Proteção de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-legal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base legal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLOUD Act
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consentimento-lgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consentimento (LGPD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpia--ripd--data-protection-impact-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPIA / RIPD — Data Protection Impact Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpo--data-protection-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPO — Data Protection Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fingerprinting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fingerprinting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gdpr--general-data-protection-regulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      GDPR — General Data Protection Regulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legítimo-interesse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legítimo interesse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lgpd--lei-geral-de-proteção-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      LGPD — Lei Geral de Proteção de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ropa--registro-de-operações-de-tratamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROPA — Registro de Operações de Tratamento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#titular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Titular
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transferência-internacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transferência internacional
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-termos-de-licenciamento-e-negócios" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Termos de licenciamento e negócios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Termos de licenciamento e negócios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agpl--affero-general-public-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGPL — Affero General Public License
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyleft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copyleft
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpl--gnu-general-public-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPL — GNU General Public License
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mit-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIT (License)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saas--software-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      SaaS — Software as a Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tco--total-cost-of-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCO — Total Cost of Ownership
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor lock-in
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-siglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Siglas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="anexo--glossário">Anexo — Glossário<a class="headerlink" href="#anexo--glossário" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Anexo estrutural</strong> · Definição de termos técnicos, siglas e jargão do estudo
+<a href="../../">← Voltar ao índice</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-como-usar">1. Como usar</a></li>
+<li><a href="#2-termos-de-arquitetura-corporativa">2. Termos de arquitetura corporativa</a></li>
+<li><a href="#3-termos-de-web-analytics">3. Termos de Web Analytics</a></li>
+<li><a href="#4-termos-de-infraestrutura-e-engenharia">4. Termos de infraestrutura e engenharia</a></li>
+<li><a href="#5-termos-jurídicos-e-regulatórios">5. Termos jurídicos e regulatórios</a></li>
+<li><a href="#6-termos-de-licenciamento-e-negócios">6. Termos de licenciamento e negócios</a></li>
+<li><a href="#7-siglas">7. Siglas</a></li>
+</ul>
+<hr />
+<h2 id="1-como-usar">1. Como usar<a class="headerlink" href="#1-como-usar" title="Permanent link">&para;</a></h2>
+<p>Consulte por ordem alfabética dentro de cada seção. Referências cruzadas em <code>[[colchetes]]</code> indicam o termo correspondente em outra seção deste glossário. Fontes normativas relevantes: <a href="../../docs/12-referencias/"><code>docs/12-referencias.md</code></a>.</p>
+<hr />
+<h2 id="2-termos-de-arquitetura-corporativa">2. Termos de arquitetura corporativa<a class="headerlink" href="#2-termos-de-arquitetura-corporativa" title="Permanent link">&para;</a></h2>
+<h3 id="adr--architecture-decision-record">ADR — Architecture Decision Record<a class="headerlink" href="#adr--architecture-decision-record" title="Permanent link">&para;</a></h3>
+<p>Registro formal, versionado e datado de uma decisão arquitetural relevante, com contexto, alternativas consideradas, decisão tomada e consequências. Formato Nygard (2011) ou MADR 4.0. Neste estudo: <a href="../../docs/08-adr/"><code>docs/08-adr.md</code></a>.</p>
+<h3 id="architectural-driver">Architectural driver<a class="headerlink" href="#architectural-driver" title="Permanent link">&para;</a></h3>
+<p>Fator (funcional, não-funcional, restritivo ou de negócio) que <strong>conduz</strong> a definição de uma arquitetura. Categorias comuns: qualidade requerida, restrições técnicas, restrições organizacionais, princípios corporativos.</p>
+<h3 id="atam--architecture-trade-off-analysis-method">ATAM — Architecture Trade-off Analysis Method<a class="headerlink" href="#atam--architecture-trade-off-analysis-method" title="Permanent link">&para;</a></h3>
+<p>Método desenvolvido pelo Software Engineering Institute (SEI/CMU) para avaliar arquiteturas em relação a atributos de qualidade concorrentes. Produz uma <strong>árvore de utilidade</strong>, identifica <strong>pontos de sensibilidade</strong> e <strong>trade-off points</strong>.</p>
+<h3 id="fitness-function">Fitness function<a class="headerlink" href="#fitness-function" title="Permanent link">&para;</a></h3>
+<p>Métrica quantitativa que avalia se uma arquitetura atende a um atributo de qualidade específico. Ex.: "arquivamento &lt; 15 min" é uma fitness function para o atributo <em>timeliness</em>.</p>
+<h3 id="madr--markdown-adr">MADR — Markdown ADR<a class="headerlink" href="#madr--markdown-adr" title="Permanent link">&para;</a></h3>
+<p>Template padronizado para ADR em Markdown, mantido pela comunidade em <code>adr.github.io</code>. Versão 4.0 é a de referência neste estudo.</p>
+<h3 id="maut--multi-attribute-utility-theory">MAUT — Multi-Attribute Utility Theory<a class="headerlink" href="#maut--multi-attribute-utility-theory" title="Permanent link">&para;</a></h3>
+<p>Fundamentação matemática de decisão multicritério. Consiste em atribuir notas a cada critério, ponderar por peso e agregar linearmente. Neste estudo: <a href="../../docs/07-matriz-decisao/"><code>docs/07-matriz-decisao.md</code></a>.</p>
+<h3 id="quality-attribute-utility-tree">Quality Attribute Utility Tree<a class="headerlink" href="#quality-attribute-utility-tree" title="Permanent link">&para;</a></h3>
+<p>Árvore hierárquica de atributos de qualidade (segurança, desempenho, disponibilidade, manutenibilidade, etc.) refinados até se transformarem em <strong>cenários mensuráveis</strong>.</p>
+<h3 id="sensitivity-point">Sensitivity point<a class="headerlink" href="#sensitivity-point" title="Permanent link">&para;</a></h3>
+<p>Ponto do sistema em que uma pequena mudança em uma decisão arquitetural produz <strong>grande impacto</strong> em algum atributo de qualidade.</p>
+<h3 id="togaf--the-open-group-architecture-framework">TOGAF — The Open Group Architecture Framework<a class="headerlink" href="#togaf--the-open-group-architecture-framework" title="Permanent link">&para;</a></h3>
+<p>Framework de arquitetura corporativa, cuja versão 10 (2022) é a referência. ADM (Architecture Development Method) é o processo iterativo em fases (A a H) descrito no framework.</p>
+<h3 id="trade-off-point">Trade-off point<a class="headerlink" href="#trade-off-point" title="Permanent link">&para;</a></h3>
+<p>Ponto do sistema em que uma decisão arquitetural afeta <strong>múltiplos</strong> atributos de qualidade simultaneamente, alguns positivamente e outros negativamente.</p>
+<hr />
+<h2 id="3-termos-de-web-analytics">3. Termos de Web Analytics<a class="headerlink" href="#3-termos-de-web-analytics" title="Permanent link">&para;</a></h2>
+<h3 id="ab-testing">A/B testing<a class="headerlink" href="#ab-testing" title="Permanent link">&para;</a></h3>
+<p>Experimentação com dois ou mais grupos aleatorizados. Compara variantes de uma página/fluxo para medir efeito de uma mudança sobre uma métrica-alvo. Requer amostragem estatisticamente significativa.</p>
+<h3 id="beacon">Beacon<a class="headerlink" href="#beacon" title="Permanent link">&para;</a></h3>
+<p>Requisição HTTP disparada pelo navegador (ou app) para o servidor de analytics, transportando um evento (page view, evento customizado, session ping). Nome vem do formato clássico de "pixel de rastreamento" (1×1 GIF).</p>
+<h3 id="cohort">Cohort<a class="headerlink" href="#cohort" title="Permanent link">&para;</a></h3>
+<p>Grupo de usuários que compartilham uma característica ou evento comum em um mesmo intervalo de tempo. Ex.: "cidadãos que se cadastraram em julho/2026".</p>
+<h3 id="conversion-funnel-funil-de-conversão">Conversion funnel (funil de conversão)<a class="headerlink" href="#conversion-funnel-funil-de-conversão" title="Permanent link">&para;</a></h3>
+<p>Sequência ordenada de etapas até uma conversão-alvo. Métrica principal: taxa de completude entre etapas.</p>
+<h3 id="cookieless-analytics">Cookieless analytics<a class="headerlink" href="#cookieless-analytics" title="Permanent link">&para;</a></h3>
+<p>Modelo de analytics que <strong>não persiste cookies</strong> no navegador. Identifica visitantes por hash volátil (IP + user-agent + salt diário), descartado após o cálculo. Base para modelos privacy-first.</p>
+<h3 id="custom-dimension">Custom dimension<a class="headerlink" href="#custom-dimension" title="Permanent link">&para;</a></h3>
+<p>Metadado extra anexado a um evento ou visitante, definido pelo próprio operador. Ex.: "tipo de serviço", "unidade organizacional".</p>
+<h3 id="dau--mau">DAU / MAU<a class="headerlink" href="#dau--mau" title="Permanent link">&para;</a></h3>
+<p>Daily Active Users / Monthly Active Users — contadores de usuários únicos ativos em uma janela.</p>
+<h3 id="event-evento">Event (evento)<a class="headerlink" href="#event-evento" title="Permanent link">&para;</a></h3>
+<p>Ação discreta do usuário registrada pela plataforma (clique, envio de formulário, tempo em vídeo). Modelo dominante em analytics moderna.</p>
+<h3 id="first-party--third-party-cookies-e-dado">First-party / Third-party (cookies e dado)<a class="headerlink" href="#first-party--third-party-cookies-e-dado" title="Permanent link">&para;</a></h3>
+<p><em>First-party</em>: dado ou cookie do próprio domínio visitado. <em>Third-party</em>: dado ou cookie de um domínio diferente (típico de trackers cross-site). Regulação recente restringe <em>third-party</em>.</p>
+<h3 id="fingerprinting">Fingerprinting<a class="headerlink" href="#fingerprinting" title="Permanent link">&para;</a></h3>
+<p>Técnica de identificação passiva do dispositivo/navegador por combinação de atributos (fonte, resolução, plugins). Considerada tratamento de dado pessoal pela ANPD/CNIL/DPAs europeias.</p>
+<h3 id="goal-meta">Goal (meta)<a class="headerlink" href="#goal-meta" title="Permanent link">&para;</a></h3>
+<p>Métrica-alvo formalizada na plataforma (ex.: "envio de formulário", "download de documento"). Base para funis e taxa de conversão.</p>
+<h3 id="heatmap">Heatmap<a class="headerlink" href="#heatmap" title="Permanent link">&para;</a></h3>
+<p>Visualização agregada da atividade do usuário na página (cliques, scroll, mouse). Cores mostram intensidade.</p>
+<h3 id="lcp--cls--inp--core-web-vitals">LCP / CLS / INP — Core Web Vitals<a class="headerlink" href="#lcp--cls--inp--core-web-vitals" title="Permanent link">&para;</a></h3>
+<p>Métricas do Google Web.dev que avaliam experiência de usuário:
+- <strong>LCP</strong> (Largest Contentful Paint) — tempo até o maior elemento visível.
+- <strong>CLS</strong> (Cumulative Layout Shift) — instabilidade visual.
+- <strong>INP</strong> (Interaction to Next Paint) — latência de interação.</p>
+<h3 id="page-view">Page view<a class="headerlink" href="#page-view" title="Permanent link">&para;</a></h3>
+<p>Um carregamento de página, disparando o evento padrão da plataforma.</p>
+<h3 id="real-time-analytics">Real-time analytics<a class="headerlink" href="#real-time-analytics" title="Permanent link">&para;</a></h3>
+<p>Ingestão e visualização de eventos com latência de segundos ou poucos minutos.</p>
+<h3 id="retention-retenção">Retention (retenção)<a class="headerlink" href="#retention-retenção" title="Permanent link">&para;</a></h3>
+<p>Métrica de fidelidade: porcentagem de usuários de um cohort que retorna em janelas futuras.</p>
+<h3 id="session-recording">Session recording<a class="headerlink" href="#session-recording" title="Permanent link">&para;</a></h3>
+<p>Reconstrução visual da sessão do usuário via captura de eventos DOM. Considera-se tratamento de dado potencialmente sensível — sujeita a consentimento explícito.</p>
+<h3 id="server-side-tagging">Server-side tagging<a class="headerlink" href="#server-side-tagging" title="Permanent link">&para;</a></h3>
+<p>Mediar a chamada do beacon do navegador para o serviço de analytics <strong>via infraestrutura do próprio controlador</strong> (um GTM server-side, por exemplo), em vez do envio direto para o operador estrangeiro. Reduz <em>fingerprinting</em> e ajusta o dado antes do envio.</p>
+<h3 id="tag-tracking-tag">Tag (tracking tag)<a class="headerlink" href="#tag-tracking-tag" title="Permanent link">&para;</a></h3>
+<p>Trecho de código JavaScript embarcado no site que dispara beacons a cada evento.</p>
+<h3 id="tag-manager">Tag Manager<a class="headerlink" href="#tag-manager" title="Permanent link">&para;</a></h3>
+<p>Ferramenta para gerenciar múltiplas tags sem alterar o código do site (Google Tag Manager, Matomo Tag Manager). Cliente ou server-side.</p>
+<h3 id="user-journey">User journey<a class="headerlink" href="#user-journey" title="Permanent link">&para;</a></h3>
+<p>Sequência de páginas ou eventos percorridos pelo usuário até uma conversão ou abandono.</p>
+<hr />
+<h2 id="4-termos-de-infraestrutura-e-engenharia">4. Termos de infraestrutura e engenharia<a class="headerlink" href="#4-termos-de-infraestrutura-e-engenharia" title="Permanent link">&para;</a></h2>
+<h3 id="archiving-matomo">Archiving (Matomo)<a class="headerlink" href="#archiving-matomo" title="Permanent link">&para;</a></h3>
+<p>Rotina periódica de agregação de eventos brutos em relatórios pré-calculados. Executada pelo comando <code>console core:archive</code>. Determinante para o desempenho do Matomo em alto volume.</p>
+<h3 id="cdn--content-delivery-network">CDN — Content Delivery Network<a class="headerlink" href="#cdn--content-delivery-network" title="Permanent link">&para;</a></h3>
+<p>Rede de servidores de borda geograficamente distribuída, servindo conteúdo estático próximo ao usuário. Cloudflare, Akamai, CloudFront.</p>
+<h3 id="clickhouse">ClickHouse<a class="headerlink" href="#clickhouse" title="Permanent link">&para;</a></h3>
+<p>Banco de dados colunar OLAP open-source, otimizado para consultas analíticas sobre grandes volumes. Utilizado por Plausible, PostHog e Matomo Cloud.</p>
+<h3 id="dpa--data-processing-addendum">DPA — Data Processing Addendum<a class="headerlink" href="#dpa--data-processing-addendum" title="Permanent link">&para;</a></h3>
+<p>Adendo contratual entre controlador e operador estabelecendo termos do tratamento de dado pessoal.</p>
+<h3 id="helm-chart">Helm chart<a class="headerlink" href="#helm-chart" title="Permanent link">&para;</a></h3>
+<p>Pacote de implantação para Kubernetes que agrupa manifests, valores e templates.</p>
+<h3 id="ha--high-availability">HA — High Availability<a class="headerlink" href="#ha--high-availability" title="Permanent link">&para;</a></h3>
+<p>Arquitetura de deployment resistente a falha de um componente individual, tipicamente via múltiplas réplicas atrás de load balancer.</p>
+<h3 id="ingest--ingestion">Ingest / ingestion<a class="headerlink" href="#ingest--ingestion" title="Permanent link">&para;</a></h3>
+<p>Recebimento e persistência inicial de eventos pela plataforma.</p>
+<h3 id="kafka">Kafka<a class="headerlink" href="#kafka" title="Permanent link">&para;</a></h3>
+<p>Sistema de streaming distribuído open-source (Apache). Utilizado como buffer de ingestão em plataformas de alta escala (PostHog).</p>
+<h3 id="k8s--kubernetes">K8s — Kubernetes<a class="headerlink" href="#k8s--kubernetes" title="Permanent link">&para;</a></h3>
+<p>Orquestrador de containers de referência. Runtime primário do parque SETDIG.</p>
+<h3 id="pop--point-of-presence">PoP — Point of Presence<a class="headerlink" href="#pop--point-of-presence" title="Permanent link">&para;</a></h3>
+<p>Localização geográfica onde um provedor de rede (CDN, ISP, cloud) mantém infraestrutura.</p>
+<h3 id="rpo--rto">RPO / RTO<a class="headerlink" href="#rpo--rto" title="Permanent link">&para;</a></h3>
+<p><em>Recovery Point Objective</em> — quanto dado pode ser perdido (janela). <em>Recovery Time Objective</em> — quanto tempo pode ficar indisponível.</p>
+<h3 id="sla--service-level-agreement">SLA — Service Level Agreement<a class="headerlink" href="#sla--service-level-agreement" title="Permanent link">&para;</a></h3>
+<p>Nível de serviço contratado, tipicamente disponibilidade (ex.: 99,9 %/ano) e penalidades por descumprimento.</p>
+<h3 id="slo--sli">SLO / SLI<a class="headerlink" href="#slo--sli" title="Permanent link">&para;</a></h3>
+<p><em>Service Level Objective</em> (objetivo interno) e <em>Service Level Indicator</em> (métrica que mede). Não são contratuais como o SLA — são internos.</p>
+<hr />
+<h2 id="5-termos-jurídicos-e-regulatórios">5. Termos jurídicos e regulatórios<a class="headerlink" href="#5-termos-jurídicos-e-regulatórios" title="Permanent link">&para;</a></h2>
+<h3 id="anpd--autoridade-nacional-de-proteção-de-dados">ANPD — Autoridade Nacional de Proteção de Dados<a class="headerlink" href="#anpd--autoridade-nacional-de-proteção-de-dados" title="Permanent link">&para;</a></h3>
+<p>Órgão regulador do tratamento de dado pessoal no Brasil, criado pela LGPD. Emite normativos, guias e aplica sanções.</p>
+<h3 id="base-legal">Base legal<a class="headerlink" href="#base-legal" title="Permanent link">&para;</a></h3>
+<p>Fundamento previsto na LGPD (art. 7º ou art. 11 para dado sensível) que autoriza o tratamento. Base incorreta invalida o tratamento.</p>
+<h3 id="cloud-act">CLOUD Act<a class="headerlink" href="#cloud-act" title="Permanent link">&para;</a></h3>
+<p><em>Clarifying Lawful Overseas Use of Data Act</em> — lei federal americana (2018) que autoriza requisição extraterritorial de dado por empresa constituída nos EUA. Aplica-se a Google, Microsoft, Cloudflare, PostHog Cloud US, entre outras.</p>
+<h3 id="consentimento-lgpd">Consentimento (LGPD)<a class="headerlink" href="#consentimento-lgpd" title="Permanent link">&para;</a></h3>
+<p>Base legal específica: manifestação livre, informada e inequívoca do titular. Deve ser específica (por finalidade) e revogável a qualquer momento.</p>
+<h3 id="controlador">Controlador<a class="headerlink" href="#controlador" title="Permanent link">&para;</a></h3>
+<p>Agente que decide <strong>a finalidade</strong> e <strong>os meios</strong> do tratamento de dado pessoal. No caso de portal público estadual: o próprio Estado (via órgão titular do portal).</p>
+<h3 id="dpia--ripd--data-protection-impact-assessment">DPIA / RIPD — Data Protection Impact Assessment<a class="headerlink" href="#dpia--ripd--data-protection-impact-assessment" title="Permanent link">&para;</a></h3>
+<p>Relatório de Impacto à Proteção de Dados. Documento formal exigido pela LGPD quando o tratamento apresenta risco elevado.</p>
+<h3 id="dpo--data-protection-officer">DPO — Data Protection Officer<a class="headerlink" href="#dpo--data-protection-officer" title="Permanent link">&para;</a></h3>
+<p>Encarregado de proteção de dado pessoal. Papel obrigatório para o controlador (LGPD art. 41).</p>
+<h3 id="fingerprinting_1">Fingerprinting<a class="headerlink" href="#fingerprinting_1" title="Permanent link">&para;</a></h3>
+<p>Tratado por autoridades europeias como equivalente a cookie <em>third-party</em> para fins de consentimento — mesmo sem persistência de cookie, é dado pessoal se identificar o titular.</p>
+<h3 id="gdpr--general-data-protection-regulation">GDPR — General Data Protection Regulation<a class="headerlink" href="#gdpr--general-data-protection-regulation" title="Permanent link">&para;</a></h3>
+<p>Regulamento europeu (2018) equivalente à LGPD em muitos pontos. Precedentes GDPR são citados pela ANPD como referência interpretativa.</p>
+<h3 id="legítimo-interesse">Legítimo interesse<a class="headerlink" href="#legítimo-interesse" title="Permanent link">&para;</a></h3>
+<p>Base legal (LGPD art. 7º, IX) que autoriza tratamento sem consentimento quando o interesse do controlador (ou terceiro) prevalece sobre os direitos do titular. Exige avaliação (LIA — <em>Legitimate Interest Assessment</em>).</p>
+<h3 id="lgpd--lei-geral-de-proteção-de-dados">LGPD — Lei Geral de Proteção de Dados<a class="headerlink" href="#lgpd--lei-geral-de-proteção-de-dados" title="Permanent link">&para;</a></h3>
+<p>Lei nº 13.709/2018. Regime central de proteção de dado pessoal no Brasil.</p>
+<h3 id="operador">Operador<a class="headerlink" href="#operador" title="Permanent link">&para;</a></h3>
+<p>Agente que trata dado pessoal em nome do controlador. No caso SaaS: o fornecedor.</p>
+<h3 id="ropa--registro-de-operações-de-tratamento">ROPA — Registro de Operações de Tratamento<a class="headerlink" href="#ropa--registro-de-operações-de-tratamento" title="Permanent link">&para;</a></h3>
+<p>Documento formal exigido pela LGPD (art. 37) descrevendo cada tratamento realizado pelo controlador.</p>
+<h3 id="titular">Titular<a class="headerlink" href="#titular" title="Permanent link">&para;</a></h3>
+<p>Pessoa natural a quem se referem os dados. Neste estudo: o cidadão do Estado.</p>
+<h3 id="transferência-internacional">Transferência internacional<a class="headerlink" href="#transferência-internacional" title="Permanent link">&para;</a></h3>
+<p>Envio de dado pessoal para outro país. Regulada pelos arts. 33 a 36 da LGPD.</p>
+<hr />
+<h2 id="6-termos-de-licenciamento-e-negócios">6. Termos de licenciamento e negócios<a class="headerlink" href="#6-termos-de-licenciamento-e-negócios" title="Permanent link">&para;</a></h2>
+<h3 id="agpl--affero-general-public-license">AGPL — Affero General Public License<a class="headerlink" href="#agpl--affero-general-public-license" title="Permanent link">&para;</a></h3>
+<p>Licença copyleft (GPL) estendida ao caso de software oferecido como serviço via rede. Software AGPL usado como SaaS obriga o operador a publicar o código-fonte de suas modificações. Adotada por Plausible.</p>
+<h3 id="copyleft">Copyleft<a class="headerlink" href="#copyleft" title="Permanent link">&para;</a></h3>
+<p>Cláusula em licença de software que <strong>obriga</strong> obras derivadas a manter a mesma licença. Contrária a licenças permissivas (MIT, Apache, BSD).</p>
+<h3 id="gpl--gnu-general-public-license">GPL — GNU General Public License<a class="headerlink" href="#gpl--gnu-general-public-license" title="Permanent link">&para;</a></h3>
+<p>Licença copyleft clássica. Versão 3 (2007) é a de referência. Adotada por Matomo.</p>
+<h3 id="mit-license">MIT (License)<a class="headerlink" href="#mit-license" title="Permanent link">&para;</a></h3>
+<p>Licença permissiva minimalista. Permite uso, modificação, redistribuição e comercialização, inclusive em software proprietário. Adotada por Umami, PostHog (core), clarity-js.</p>
+<h3 id="open-core">Open core<a class="headerlink" href="#open-core" title="Permanent link">&para;</a></h3>
+<p>Modelo de negócio: núcleo do produto sob licença open-source, complementos ("enterprise edition") sob licença proprietária. Adotado por PostHog, GitLab, Elastic (pré-2021).</p>
+<h3 id="saas--software-as-a-service">SaaS — Software as a Service<a class="headerlink" href="#saas--software-as-a-service" title="Permanent link">&para;</a></h3>
+<p>Software oferecido como serviço, tipicamente por assinatura, sem instalação pelo cliente.</p>
+<h3 id="tco--total-cost-of-ownership">TCO — Total Cost of Ownership<a class="headerlink" href="#tco--total-cost-of-ownership" title="Permanent link">&para;</a></h3>
+<p>Custo total de posse. Soma de licenciamento, infraestrutura, equipe, adequação regulatória, riscos e operação ao longo do horizonte considerado.</p>
+<h3 id="vendor-lock-in">Vendor lock-in<a class="headerlink" href="#vendor-lock-in" title="Permanent link">&para;</a></h3>
+<p>Situação em que o cliente <strong>não consegue</strong> migrar de fornecedor sem custo desproporcional (por dependência técnica, contratual ou de formato de dado).</p>
+<hr />
+<h2 id="7-siglas">7. Siglas<a class="headerlink" href="#7-siglas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sigla</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADM</td>
+<td>Architecture Development Method (TOGAF)</td>
+</tr>
+<tr>
+<td>ADR</td>
+<td>Architecture Decision Record</td>
+</tr>
+<tr>
+<td>AGPL</td>
+<td>Affero General Public License</td>
+</tr>
+<tr>
+<td>ANPD</td>
+<td>Autoridade Nacional de Proteção de Dados</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Application Programming Interface</td>
+</tr>
+<tr>
+<td>ATAM</td>
+<td>Architecture Trade-off Analysis Method</td>
+</tr>
+<tr>
+<td>BI</td>
+<td>Business Intelligence</td>
+</tr>
+<tr>
+<td>CE</td>
+<td>Community Edition</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>Content Delivery Network</td>
+</tr>
+<tr>
+<td>CH</td>
+<td>ClickHouse</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>Cumulative Layout Shift</td>
+</tr>
+<tr>
+<td>CNIL</td>
+<td>Commission Nationale de l'Informatique et des Libertés (França)</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Central Processing Unit</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>Comma-Separated Values</td>
+</tr>
+<tr>
+<td>DPA</td>
+<td>Data Processing Addendum</td>
+</tr>
+<tr>
+<td>DPIA</td>
+<td>Data Protection Impact Assessment</td>
+</tr>
+<tr>
+<td>DPO</td>
+<td>Data Protection Officer</td>
+</tr>
+<tr>
+<td>DR</td>
+<td>Disaster Recovery</td>
+</tr>
+<tr>
+<td>DW</td>
+<td>Data Warehouse</td>
+</tr>
+<tr>
+<td>EE</td>
+<td>Enterprise Edition</td>
+</tr>
+<tr>
+<td>EGD</td>
+<td>Estratégia de Governo Digital</td>
+</tr>
+<tr>
+<td>ETL</td>
+<td>Extract, Transform, Load</td>
+</tr>
+<tr>
+<td>FTE</td>
+<td>Full-Time Equivalent</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>Google Analytics</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td>Google Analytics 4</td>
+</tr>
+<tr>
+<td>GCP</td>
+<td>Google Cloud Platform</td>
+</tr>
+<tr>
+<td>GDPR</td>
+<td>General Data Protection Regulation</td>
+</tr>
+<tr>
+<td>GPL</td>
+<td>GNU General Public License</td>
+</tr>
+<tr>
+<td>GTM</td>
+<td>Google Tag Manager</td>
+</tr>
+<tr>
+<td>HA</td>
+<td>High Availability</td>
+</tr>
+<tr>
+<td>HPA</td>
+<td>Horizontal Pod Autoscaler</td>
+</tr>
+<tr>
+<td>IdP</td>
+<td>Identity Provider</td>
+</tr>
+<tr>
+<td>INP</td>
+<td>Interaction to Next Paint</td>
+</tr>
+<tr>
+<td>ISO</td>
+<td>International Organization for Standardization</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JavaScript Object Notation</td>
+</tr>
+<tr>
+<td>JWT</td>
+<td>JSON Web Token</td>
+</tr>
+<tr>
+<td>K8s</td>
+<td>Kubernetes</td>
+</tr>
+<tr>
+<td>LAI</td>
+<td>Lei de Acesso à Informação (12.527/2011)</td>
+</tr>
+<tr>
+<td>LB</td>
+<td>Load Balancer</td>
+</tr>
+<tr>
+<td>LCP</td>
+<td>Largest Contentful Paint</td>
+</tr>
+<tr>
+<td>LGPD</td>
+<td>Lei Geral de Proteção de Dados</td>
+</tr>
+<tr>
+<td>LIA</td>
+<td>Legitimate Interest Assessment</td>
+</tr>
+<tr>
+<td>MADR</td>
+<td>Markdown Architecture Decision Record</td>
+</tr>
+<tr>
+<td>MAUT</td>
+<td>Multi-Attribute Utility Theory</td>
+</tr>
+<tr>
+<td>OIDC</td>
+<td>OpenID Connect</td>
+</tr>
+<tr>
+<td>OP</td>
+<td>On-Premise</td>
+</tr>
+<tr>
+<td>OSS</td>
+<td>Open-Source Software</td>
+</tr>
+<tr>
+<td>OWA</td>
+<td>Open Web Analytics</td>
+</tr>
+<tr>
+<td>OWASP</td>
+<td>Open Web Application Security Project</td>
+</tr>
+<tr>
+<td>PDCA</td>
+<td>Plan-Do-Check-Act</td>
+</tr>
+<tr>
+<td>POC</td>
+<td>Proof of Concept</td>
+</tr>
+<tr>
+<td>PoP</td>
+<td>Point of Presence</td>
+</tr>
+<tr>
+<td>PV</td>
+<td>Page View</td>
+</tr>
+<tr>
+<td>RBAC</td>
+<td>Role-Based Access Control</td>
+</tr>
+<tr>
+<td>REST</td>
+<td>Representational State Transfer</td>
+</tr>
+<tr>
+<td>RIPD</td>
+<td>Relatório de Impacto à Proteção de Dados</td>
+</tr>
+<tr>
+<td>ROPA</td>
+<td>Registro de Operações de Tratamento</td>
+</tr>
+<tr>
+<td>RPO</td>
+<td>Recovery Point Objective</td>
+</tr>
+<tr>
+<td>RTO</td>
+<td>Recovery Time Objective</td>
+</tr>
+<tr>
+<td>SaaS</td>
+<td>Software as a Service</td>
+</tr>
+<tr>
+<td>SAML</td>
+<td>Security Assertion Markup Language</td>
+</tr>
+<tr>
+<td>SCC</td>
+<td>Standard Contractual Clauses</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>Software Development Kit</td>
+</tr>
+<tr>
+<td>SETDIG</td>
+<td>Secretaria-Executiva de Transformação Digital</td>
+</tr>
+<tr>
+<td>SEGOV</td>
+<td>Secretaria de Estado de Governo e Gestão Estratégica</td>
+</tr>
+<tr>
+<td>SEI/CMU</td>
+<td>Software Engineering Institute / Carnegie Mellon University</td>
+</tr>
+<tr>
+<td>SGD</td>
+<td>Superintendência de Governo Digital</td>
+</tr>
+<tr>
+<td>SIEM</td>
+<td>Security Information and Event Management</td>
+</tr>
+<tr>
+<td>SLA</td>
+<td>Service Level Agreement</td>
+</tr>
+<tr>
+<td>SLI</td>
+<td>Service Level Indicator</td>
+</tr>
+<tr>
+<td>SLO</td>
+<td>Service Level Objective</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Structured Query Language</td>
+</tr>
+<tr>
+<td>SSO</td>
+<td>Single Sign-On</td>
+</tr>
+<tr>
+<td>STI</td>
+<td>Superintendência de Tecnologia da Informação</td>
+</tr>
+<tr>
+<td>TCO</td>
+<td>Total Cost of Ownership</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>Transport Layer Security</td>
+</tr>
+<tr>
+<td>TOGAF</td>
+<td>The Open Group Architecture Framework</td>
+</tr>
+<tr>
+<td>UE</td>
+<td>União Europeia</td>
+</tr>
+<tr>
+<td>WAF</td>
+<td>Web Application Firewall</td>
+</tr>
+<tr>
+<td>YAGNI</td>
+<td>You Aren't Gonna Need It</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Referências completas para termos aqui listados: <a href="../../docs/12-referencias/"><code>docs/12-referencias.md</code></a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

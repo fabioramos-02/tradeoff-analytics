@@ -1,0 +1,3868 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/plataformas/google-analytics/">
+      
+      
+        <link rel="prev" href="../matomo/">
+      
+      
+        <link rel="next" href="../plausible/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Google Analytics 4 - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#google-analytics-4" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Google Analytics 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visão-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visão geral
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Visão geral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-identificação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Identificação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-história" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 História
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-comunidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Comunidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-modelo-de-negócio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Modelo de negócio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Casos de uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-licenciamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Licenciamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Licenciamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-limites-do-tier-gratuito" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Limites do tier gratuito
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hospedagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Hospedagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-funcionalidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Funcionalidades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Funcionalidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cobertura-dos-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Cobertura dos requisitos funcionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-data-api-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Data API v1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Data API v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quotas-relevantes-tier-gratuito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quotas relevantes (tier gratuito)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-measurement-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Measurement Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-sdks-oficiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 SDKs oficiais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exemplos-de-integração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Exemplos de integração
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exemplos de integração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Node.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Node.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envio-server-side-measurement-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Envio server-side (Measurement Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Power BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Grafana
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-metabase-e-apache-superset" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Metabase e Apache Superset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-qlik-sense" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Qlik Sense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-google-looker-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Google Looker Studio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integrações" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Integrações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Infraestrutura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Segurança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-custos" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Custos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-pontos-fortes" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Pontos fortes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-pontos-fracos" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Pontos fracos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-quando-utilizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Quando utilizar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-quando-evitar" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Quando evitar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-notas-do-avaliador" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Notas do avaliador
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Notas do avaliador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171-notas-atribuídas" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.1 Notas atribuídas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172-observação-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.2 Observação final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visão-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visão geral
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Visão geral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-identificação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Identificação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-história" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 História
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-comunidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Comunidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-modelo-de-negócio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Modelo de negócio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Casos de uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-licenciamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Licenciamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Licenciamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-limites-do-tier-gratuito" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Limites do tier gratuito
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hospedagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Hospedagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-funcionalidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Funcionalidades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Funcionalidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cobertura-dos-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Cobertura dos requisitos funcionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-data-api-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Data API v1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Data API v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quotas-relevantes-tier-gratuito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quotas relevantes (tier gratuito)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-measurement-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Measurement Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-sdks-oficiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 SDKs oficiais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exemplos-de-integração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Exemplos de integração
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exemplos de integração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Node.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Node.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envio-server-side-measurement-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Envio server-side (Measurement Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Power BI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Grafana
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-metabase-e-apache-superset" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Metabase e Apache Superset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-qlik-sense" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Qlik Sense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-google-looker-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Google Looker Studio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integrações" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Integrações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Infraestrutura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Segurança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-custos" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Custos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-pontos-fortes" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Pontos fortes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-pontos-fracos" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Pontos fracos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-quando-utilizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Quando utilizar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-quando-evitar" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Quando evitar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-notas-do-avaliador" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Notas do avaliador
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Notas do avaliador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171-notas-atribuídas" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.1 Notas atribuídas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172-observação-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.2 Observação final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="google-analytics-4">Google Analytics 4<a class="headerlink" href="#google-analytics-4" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Ficha técnica de plataforma</strong> · Pontuação na matriz: <strong>410/600 (68,3 %)</strong> — 8º lugar · 🟠 Condicionada
+<strong>Situação:</strong> ⛔ <strong>Vedado como plataforma padrão</strong> pelo ADR-001
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a> · <a href="../../comparativos/lgpd/">Análise LGPD</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-visão-geral">1. Visão geral</a></li>
+<li><a href="#2-licenciamento">2. Licenciamento</a></li>
+<li><a href="#3-hospedagem">3. Hospedagem</a></li>
+<li><a href="#4-funcionalidades">4. Funcionalidades</a></li>
+<li><a href="#5-apis">5. APIs</a></li>
+<li><a href="#6-exemplos-de-integração">6. Exemplos de integração</a></li>
+<li><a href="#7-integrações">7. Integrações</a></li>
+<li><a href="#8-infraestrutura">8. Infraestrutura</a></li>
+<li><a href="#9-segurança">9. Segurança</a></li>
+<li><a href="#10-governança">10. Governança</a></li>
+<li><a href="#11-performance">11. Performance</a></li>
+<li><a href="#12-custos">12. Custos</a></li>
+<li><a href="#13-pontos-fortes">13. Pontos fortes</a></li>
+<li><a href="#14-pontos-fracos">14. Pontos fracos</a></li>
+<li><a href="#15-quando-utilizar">15. Quando utilizar</a></li>
+<li><a href="#16-quando-evitar">16. Quando evitar</a></li>
+<li><a href="#17-notas-do-avaliador">17. Notas do avaliador</a></li>
+</ul>
+<hr />
+<h2 id="1-visão-geral">1. Visão geral<a class="headerlink" href="#1-visão-geral" title="Permanent link">&para;</a></h2>
+<h3 id="11-identificação">1.1 Identificação<a class="headerlink" href="#11-identificação" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nome</strong></td>
+<td>Google Analytics 4 (GA4)</td>
+</tr>
+<tr>
+<td><strong>Antecessores</strong></td>
+<td>Urchin (adquirido em 2005) → Google Analytics → Universal Analytics → GA4</td>
+</tr>
+<tr>
+<td><strong>Ano de lançamento (GA4)</strong></td>
+<td>2020 (como "App + Web"); consolidado em 2020–2022</td>
+</tr>
+<tr>
+<td><strong>Mantenedor</strong></td>
+<td>Google LLC</td>
+</tr>
+<tr>
+<td><strong>Sede</strong></td>
+<td>Estados Unidos</td>
+</tr>
+<tr>
+<td><strong>Segmento</strong></td>
+<td>Web Analytics tradicional + Product Analytics</td>
+</tr>
+<tr>
+<td><strong>Site oficial</strong></td>
+<td><code>https://analytics.google.com/</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-história">1.2 História<a class="headerlink" href="#12-história" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>timeline
+    title Evolução do Google Analytics
+    2005 : Google adquire a Urchin e lança o Google Analytics gratuito
+         : Comoditização do mercado de web analytics
+    2007 : Lançamento da API de exportação de dados
+    2012 : Universal Analytics — modelo de sessão e usuário
+    2016 : Google Analytics 360 — versão enterprise paga
+    2019 : Lançamento da propriedade "App + Web" (beta do GA4)
+    2020 : GA4 se torna o padrão para novas propriedades
+    2022 : Anúncio do desligamento do Universal Analytics
+         : DPAs de Áustria, França, Itália e Dinamarca declaram uso do GA incompatível com o RGPD
+    2023 : Desligamento do Universal Analytics — perda de série histórica para milhões de propriedades
+         : EU-US Data Privacy Framework restabelece base de adequação UE-EUA
+    2024 : Exportação para BigQuery disponível no tier gratuito
+    2025 : Camada de insights por IA generativa consolidada</code></pre>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — A lição de 2023</strong>
+O desligamento do Universal Analytics é o evento mais relevante deste histórico para uma decisão de arquitetura pública. Ele demonstrou que:</p>
+<ol>
+<li>Uma plataforma SaaS gratuita pode ser <strong>descontinuada unilateralmente</strong>, com prazo definido pelo fornecedor;</li>
+<li>A migração <strong>não preservou o histórico</strong> — os dados do UA não são importáveis para o GA4;</li>
+<li>O custo integral da migração (reimplantação de tags, reconfiguração, retreinamento, perda de série histórica) foi transferido ao cliente;</li>
+<li>O modelo de dados mudou de sessão para evento, exigindo <strong>retreinamento completo</strong> das equipes.</li>
+</ol>
+<p>Esse é o fundamento empírico — não hipotético — da nota <strong>1</strong> atribuída ao critério C04 (Independência tecnológica).</p>
+</blockquote>
+<h3 id="13-comunidade">1.3 Comunidade<a class="headerlink" href="#13-comunidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Indicador</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base instalada</td>
+<td>A maior do mercado de web analytics</td>
+</tr>
+<tr>
+<td>Profissionais no Brasil</td>
+<td>🟢 Oferta ampla — agências, consultorias, certificações</td>
+</tr>
+<tr>
+<td>Material de aprendizagem</td>
+<td>🟢 Abundante, incluindo em português</td>
+</tr>
+<tr>
+<td>Certificação oficial</td>
+<td>✅ Google Analytics Certification (gratuita)</td>
+</tr>
+<tr>
+<td>Comunidade de desenvolvedores</td>
+<td>🟢 Grande</td>
+</tr>
+<tr>
+<td>Governança</td>
+<td>❌ Fechada — nenhuma participação externa</td>
+</tr>
+<tr>
+<td><strong>Nota C11 (Comunidade)</strong></td>
+<td><strong>5/5</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-modelo-de-negócio">1.4 Modelo de negócio<a class="headerlink" href="#14-modelo-de-negócio" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    GA4["Google Analytics 4&lt;br/&gt;Gratuito"] --&gt; V1["Dados alimentam&lt;br/&gt;o ecossistema de&lt;br/&gt;publicidade do Google"]
+    GA4 --&gt; V2["Upsell para&lt;br/&gt;Google Analytics 360&lt;br/&gt;(enterprise)"]
+    GA4 --&gt; V3["Retenção no ecossistema&lt;br/&gt;Ads · BigQuery · Looker&lt;br/&gt;Google Cloud"]
+
+    style GA4 fill:#f8d7da,stroke:#dc3545,stroke-width:2px</code></pre>
+<p><strong>Classificação:</strong> produto gratuito estratégico. A gratuidade é sustentada pelo valor dos dados e pela retenção no ecossistema, não por assinatura.</p>
+<blockquote>
+<p><strong>📌 Observação — Implicação para o setor público</strong>
+Um produto cujo modelo de negócio depende do valor dos dados coletados exige, do controlador público, avaliação específica sobre finalidade e compartilhamento. Os Termos de Serviço do Google Analytics preveem hipóteses de uso dos dados pelo fornecedor. Para um órgão público brasileiro, isso deve ser examinado à luz dos princípios da finalidade e da necessidade (art. 6º, I e III da LGPD).</p>
+</blockquote>
+<h3 id="15-casos-de-uso">1.5 Casos de uso<a class="headerlink" href="#15-casos-de-uso" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caso de uso</th>
+<th style="text-align: center;">Aderência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site comercial com foco em marketing digital</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>E-commerce integrado a Google Ads</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>Aplicativo móvel (via Firebase)</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>Organização já no ecossistema Google Cloud</td>
+<td style="text-align: center;">🟢 Excelente</td>
+</tr>
+<tr>
+<td>Portal público com requisito de soberania</td>
+<td style="text-align: center;">🔴 <strong>Inadequada</strong></td>
+</tr>
+<tr>
+<td>Serviço digital com dado pessoal sensível</td>
+<td style="text-align: center;">🔴 <strong>Inadequada</strong></td>
+</tr>
+<tr>
+<td>Organização que precisa de dado exato sem amostragem</td>
+<td style="text-align: center;">🟠 Limitada</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-licenciamento">2. Licenciamento<a class="headerlink" href="#2-licenciamento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tipo</strong></td>
+<td>🔴 Proprietária</td>
+</tr>
+<tr>
+<td><strong>Licença</strong></td>
+<td>Termos de Serviço do Google Analytics</td>
+</tr>
+<tr>
+<td><strong>Código-fonte</strong></td>
+<td>❌ Fechado</td>
+</tr>
+<tr>
+<td><strong>Auditabilidade</strong></td>
+<td>❌ Nenhuma</td>
+</tr>
+<tr>
+<td><strong>Custo — tier gratuito</strong></td>
+<td><strong>R$ 0</strong></td>
+</tr>
+<tr>
+<td><strong>Custo — Google Analytics 360</strong></td>
+<td>Contrato; não público (estimativa de mercado: faixa superior a USD 100 k/ano)</td>
+</tr>
+<tr>
+<td><strong>Direito perpétuo</strong></td>
+<td>❌ Nenhum — o serviço pode ser descontinuado</td>
+</tr>
+<tr>
+<td><strong>Fork</strong></td>
+<td>❌ Impossível</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-limites-do-tier-gratuito">2.1 Limites do tier gratuito<a class="headerlink" href="#21-limites-do-tier-gratuito" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Limite</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eventos coletados</td>
+<td>Sem limite declarado</td>
+</tr>
+<tr>
+<td><strong>Retenção de dados de evento</strong></td>
+<td>⚠️ Máximo <strong>14 meses</strong></td>
+</tr>
+<tr>
+<td>Retenção de dados de aquisição de usuário</td>
+<td>14 meses</td>
+</tr>
+<tr>
+<td><strong>Amostragem em explorações</strong></td>
+<td>⚠️ Aplicada acima de limiar de eventos</td>
+</tr>
+<tr>
+<td>Cardinalidade de dimensões</td>
+<td>Limitada — valores excedentes agrupados em "(other)"</td>
+</tr>
+<tr>
+<td>Dimensões customizadas de evento</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Dimensões customizadas de usuário</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Métricas customizadas</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Audiências</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Conversões (eventos-chave)</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Exportação para BigQuery</td>
+<td>✅ Disponível (com limite diário de eventos exportados)</td>
+</tr>
+<tr>
+<td>SLA</td>
+<td>❌ Nenhum</td>
+</tr>
+<tr>
+<td>Suporte</td>
+<td>❌ Comunidade e documentação</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta — Retenção máxima de 14 meses</strong>
+O limite de retenção de dados de evento é <strong>definido unilateralmente pelo fornecedor</strong> e não é ampliável no tier gratuito. Isso significa que:</p>
+<ol>
+<li>Análise ad-hoc sobre período superior a 14 meses é impossível;</li>
+<li>Séries históricas de longo prazo só existem nos relatórios pré-agregados padrão;</li>
+<li>A única forma de preservar o dado bruto é a <strong>exportação contínua para o BigQuery</strong>, que precisa estar configurada <strong>desde o início da coleta</strong> — dado anterior à configuração é irrecuperável.</li>
+</ol>
+<p>Isso caracteriza falha no requisito <strong>RL-05</strong> (controle sobre a política de retenção): o Estado não define por quanto tempo seus dados são mantidos.</p>
+</blockquote>
+<hr />
+<h2 id="3-hospedagem">3. Hospedagem<a class="headerlink" href="#3-hospedagem" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Modalidade</th>
+<th style="text-align: center;">Suporte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto-hospedado</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Docker / Kubernetes</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>SaaS público</td>
+<td style="text-align: center;">✅ Única modalidade</td>
+</tr>
+<tr>
+<td>Região de dados selecionável</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>On-premises</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Nuvem privada do cliente</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Localização dos dados</strong></td>
+<td>Infraestrutura global do Google; sem controle do cliente</td>
+</tr>
+<tr>
+<td><strong>Transferência internacional</strong></td>
+<td>⚠️ <strong>Sim, incluindo para os Estados Unidos</strong></td>
+</tr>
+<tr>
+<td><strong>Instrumento de transferência</strong></td>
+<td>Cláusulas contratuais padrão e, no contexto europeu, o EU-US Data Privacy Framework</td>
+</tr>
+<tr>
+<td><strong>Aplicabilidade ao Brasil</strong></td>
+<td>⚠️ O DPF <strong>não se aplica</strong> — a LGPD tem regime próprio (arts. 33–36) e a ANPD não reconheceu os EUA como país de nível adequado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-funcionalidades">4. Funcionalidades<a class="headerlink" href="#4-funcionalidades" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th style="text-align: center;">Suporte</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dashboards</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Relatórios padrão + coleções customizáveis</td>
+</tr>
+<tr>
+<td><strong>Eventos customizados</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Modelo integralmente baseado em eventos</td>
+</tr>
+<tr>
+<td><strong>Goals (eventos-chave)</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Até 30 no tier gratuito</td>
+</tr>
+<tr>
+<td><strong>Conversion Funnel</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Exploração de funil, com funil aberto e fechado</td>
+</tr>
+<tr>
+<td><strong>Heatmaps</strong></td>
+<td style="text-align: center;">❌</td>
+<td>Não disponível</td>
+</tr>
+<tr>
+<td><strong>Session Recording</strong></td>
+<td style="text-align: center;">❌</td>
+<td>Não disponível</td>
+</tr>
+<tr>
+<td><strong>User Journey</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Exploração de caminho (<em>path exploration</em>)</td>
+</tr>
+<tr>
+<td><strong>A/B Testing</strong></td>
+<td style="text-align: center;">⚠️</td>
+<td>O Google Optimize foi descontinuado; requer ferramenta externa</td>
+</tr>
+<tr>
+<td><strong>Form Analytics</strong></td>
+<td style="text-align: center;">🔧</td>
+<td>Apenas via eventos customizados manualmente instrumentados</td>
+</tr>
+<tr>
+<td><strong>Real Time</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Relatório em tempo real (janela de 30 min)</td>
+</tr>
+<tr>
+<td><strong>Cohort</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Exploração de coorte</td>
+</tr>
+<tr>
+<td><strong>Retention</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Relatório de retenção nativo</td>
+</tr>
+<tr>
+<td><strong>Custom Dimensions</strong></td>
+<td style="text-align: center;">✅</td>
+<td>50 de evento, 25 de usuário</td>
+</tr>
+<tr>
+<td><strong>Segmentação</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Comparações e segmentos em explorações</td>
+</tr>
+<tr>
+<td><strong>Atribuição</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Modelos de atribuição, incluindo baseada em dados</td>
+</tr>
+<tr>
+<td><strong>Machine learning</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Métricas preditivas, detecção de anomalias, insights</td>
+</tr>
+<tr>
+<td><strong>Exportação para BigQuery</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Disponível no tier gratuito</td>
+</tr>
+<tr>
+<td><strong>Amostragem</strong></td>
+<td style="text-align: center;">⚠️ <strong>Sim</strong></td>
+<td>Aplicada em explorações acima de limiar</td>
+</tr>
+<tr>
+<td><strong>Consulta SQL</strong></td>
+<td style="text-align: center;">⚠️</td>
+<td>Apenas via BigQuery (custo adicional)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-cobertura-dos-requisitos-funcionais">4.1 Cobertura dos requisitos funcionais<a class="headerlink" href="#41-cobertura-dos-requisitos-funcionais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prioridade</th>
+<th style="text-align: center;">Atendidos</th>
+<th style="text-align: right;">Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Must have</em></td>
+<td style="text-align: center;">15 / 17</td>
+<td style="text-align: right;">88 %</td>
+</tr>
+<tr>
+<td><em>Should have</em></td>
+<td style="text-align: center;">14 / 18</td>
+<td style="text-align: right;">78 %</td>
+</tr>
+<tr>
+<td><em>Could have</em></td>
+<td style="text-align: center;">6 / 12</td>
+<td style="text-align: right;">50 %</td>
+</tr>
+<tr>
+<td><strong>Ponderada</strong></td>
+<td style="text-align: center;"><strong>79 / 99</strong></td>
+<td style="text-align: right;"><strong>80 %</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota C05 (Recursos analíticos): 4/5</strong> — cobertura na faixa 75–89 %. Rebaixada de 5 pela ausência de heatmap e session recording, pela aplicação de amostragem e pelos limites de cardinalidade.</p>
+<hr />
+<h2 id="5-apis">5. APIs<a class="headerlink" href="#5-apis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Tipo</th>
+<th>Finalidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data API v1</strong></td>
+<td>REST</td>
+<td>Leitura de relatórios</td>
+</tr>
+<tr>
+<td><strong>Admin API v1</strong></td>
+<td>REST</td>
+<td>Gestão de propriedades, streams, dimensões</td>
+</tr>
+<tr>
+<td><strong>Measurement Protocol (GA4)</strong></td>
+<td>HTTP POST</td>
+<td>Ingestão server-side</td>
+</tr>
+<tr>
+<td><strong>Realtime API</strong></td>
+<td>REST</td>
+<td>Dados em tempo real</td>
+</tr>
+<tr>
+<td><strong>User Deletion API</strong></td>
+<td>REST</td>
+<td>Atendimento a requisições de titular</td>
+</tr>
+<tr>
+<td><strong>GraphQL</strong></td>
+<td>❌</td>
+<td>Não disponível</td>
+</tr>
+<tr>
+<td><strong>Webhooks</strong></td>
+<td>❌</td>
+<td>Não disponível</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-data-api-v1">5.1 Data API v1<a class="headerlink" href="#51-data-api-v1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Endpoint</strong></td>
+<td><code>https://analyticsdata.googleapis.com/v1beta/properties/{propertyId}:runReport</code></td>
+</tr>
+<tr>
+<td><strong>Protocolo</strong></td>
+<td>REST (JSON) e gRPC</td>
+</tr>
+<tr>
+<td><strong>Autenticação</strong></td>
+<td>OAuth 2.0 ou Service Account (JWT)</td>
+</tr>
+<tr>
+<td><strong>Versionamento</strong></td>
+<td>✅ Explícito (<code>v1beta</code>, <code>v1alpha</code>)</td>
+</tr>
+<tr>
+<td><strong>Formato de saída</strong></td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><strong>Paginação</strong></td>
+<td><code>limit</code> e <code>offset</code></td>
+</tr>
+<tr>
+<td><strong>Rate limits</strong></td>
+<td>✅ Documentados — quotas por propriedade, por token e por dia</td>
+</tr>
+</tbody>
+</table>
+<h4 id="quotas-relevantes-tier-gratuito">Quotas relevantes (tier gratuito)<a class="headerlink" href="#quotas-relevantes-tier-gratuito" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Quota</th>
+<th>Limite aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokens core por propriedade por dia</td>
+<td>200.000</td>
+</tr>
+<tr>
+<td>Tokens core por propriedade por hora</td>
+<td>40.000</td>
+</tr>
+<tr>
+<td>Requisições simultâneas por propriedade</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Requisições em tempo real por dia</td>
+<td>200.000 tokens</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Quotas e pipelines de BI</strong>
+As quotas são consumidas por "tokens", cujo custo por requisição varia conforme a complexidade da consulta (número de dimensões, período, filtros). Um pipeline de ETL que extraia dados de 80 propriedades diariamente com granularidade fina pode <strong>esgotar a quota diária</strong>, causando falha silenciosa do pipeline.</p>
+<p>Mitigação: paginação, agregação server-side, agendamento distribuído ao longo do dia e, preferencialmente, <strong>exportação para BigQuery</strong> em vez de consumo da API.</p>
+</blockquote>
+<h3 id="52-measurement-protocol">5.2 Measurement Protocol<a class="headerlink" href="#52-measurement-protocol" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Endpoint</strong></td>
+<td><code>https://www.google-analytics.com/mp/collect</code></td>
+</tr>
+<tr>
+<td><strong>Autenticação</strong></td>
+<td><code>api_secret</code> + <code>measurement_id</code></td>
+</tr>
+<tr>
+<td><strong>Método</strong></td>
+<td>POST com corpo JSON</td>
+</tr>
+<tr>
+<td><strong>Limitações</strong></td>
+<td>⚠️ Eventos enviados pelo Measurement Protocol <strong>não aparecem em todos os relatórios</strong>; alguns relatórios exigem coleta client-side</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-sdks-oficiais">5.3 SDKs oficiais<a class="headerlink" href="#53-sdks-oficiais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Linguagem</th>
+<th style="text-align: center;">Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td style="text-align: center;">✅ <code>google-analytics-data</code></td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td style="text-align: center;">✅ <code>@google-analytics/data</code></td>
+</tr>
+<tr>
+<td>Java</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>.NET</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>iOS / Android</td>
+<td style="text-align: center;">✅ Via Firebase</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota C06 (APIs): 4/5</strong> — API completa, versionada, com SDKs oficiais amplos. Rebaixada de 5 pelas quotas rígidas e pela ausência de acesso ao dado bruto fora do BigQuery.</p>
+<hr />
+<h2 id="6-exemplos-de-integração">6. Exemplos de integração<a class="headerlink" href="#6-exemplos-de-integração" title="Permanent link">&para;</a></h2>
+<h3 id="61-python">6.1 Python<a class="headerlink" href="#61-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
+<span class="sd">Extração de relatório do GA4 via Data API v1.</span>
+<span class="sd">Requisitos: google-analytics-data</span>
+<span class="sd">Autenticação: Service Account (GOOGLE_APPLICATION_CREDENTIALS)</span>
+<span class="sd">"""</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.analytics.data_v1beta</span><span class="w"> </span><span class="kn">import</span> <span class="n">BetaAnalyticsDataClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.analytics.data_v1beta.types</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DateRange</span><span class="p">,</span> <span class="n">Dimension</span><span class="p">,</span> <span class="n">Metric</span><span class="p">,</span> <span class="n">RunReportRequest</span><span class="p">,</span> <span class="n">OrderBy</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">PROPERTY_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"GA4_PROPERTY_ID"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">relatorio_paginas</span><span class="p">(</span><span class="n">data_inicio</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data_fim</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">limite</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">BetaAnalyticsDataClient</span><span class="p">()</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="n">RunReportRequest</span><span class="p">(</span>
+        <span class="nb">property</span><span class="o">=</span><span class="sa">f</span><span class="s2">"properties/</span><span class="si">{</span><span class="n">PROPERTY_ID</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="n">date_ranges</span><span class="o">=</span><span class="p">[</span><span class="n">DateRange</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="n">data_inicio</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">data_fim</span><span class="p">)],</span>
+        <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">Dimension</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"pagePath"</span><span class="p">),</span>
+            <span class="n">Dimension</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"pageTitle"</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">Metric</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"screenPageViews"</span><span class="p">),</span>
+            <span class="n">Metric</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"totalUsers"</span><span class="p">),</span>
+            <span class="n">Metric</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"averageSessionDuration"</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">order_bys</span><span class="o">=</span><span class="p">[</span><span class="n">OrderBy</span><span class="p">(</span>
+            <span class="n">metric</span><span class="o">=</span><span class="n">OrderBy</span><span class="o">.</span><span class="n">MetricOrderBy</span><span class="p">(</span><span class="n">metric_name</span><span class="o">=</span><span class="s2">"screenPageViews"</span><span class="p">),</span>
+            <span class="n">desc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)],</span>
+        <span class="n">limit</span><span class="o">=</span><span class="n">limite</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_report</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+    <span class="c1"># Verificação obrigatória: a resposta pode estar amostrada</span>
+    <span class="k">for</span> <span class="n">md</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">"property_quota"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Quota restante hoje: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">property_quota</span><span class="o">.</span><span class="n">tokens_per_day</span><span class="o">.</span><span class="n">remaining</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">resultados</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">rows</span><span class="p">:</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">"pagina"</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">dimension_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s2">"titulo"</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">dimension_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s2">"visualizacoes"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">metric_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">),</span>
+            <span class="s2">"usuarios"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">metric_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">),</span>
+            <span class="s2">"duracao_media_s"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">metric_values</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">),</span>
+        <span class="p">})</span>
+    <span class="k">return</span> <span class="n">resultados</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">linha</span> <span class="ow">in</span> <span class="n">relatorio_paginas</span><span class="p">(</span><span class="s2">"30daysAgo"</span><span class="p">,</span> <span class="s2">"today"</span><span class="p">,</span> <span class="n">limite</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">linha</span><span class="p">[</span><span class="s1">'visualizacoes'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;8,</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">linha</span><span class="p">[</span><span class="s1">'pagina'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Detecção de amostragem</strong>
+A Data API pode retornar dados amostrados sem sinalização evidente em todos os cenários. Em contexto de prestação de contas pública, <strong>um relatório amostrado não pode ser apresentado como número exato</strong>. Qualquer publicação de estatística oficial extraída do GA4 deve declarar essa condição.</p>
+</blockquote>
+<h3 id="62-nodejs">6.2 Node.js<a class="headerlink" href="#62-nodejs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Extração do GA4 via Data API — Node.js</span>
+<span class="cm"> * npm install @google-analytics/data</span>
+<span class="cm"> */</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BetaAnalyticsDataClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@google-analytics/data'</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BetaAnalyticsDataClient</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">propertyId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GA4_PROPERTY_ID</span><span class="p">;</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">relatorioEventos</span><span class="p">(</span><span class="nx">dataInicio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'30daysAgo'</span><span class="p">,</span><span class="w"> </span><span class="nx">dataFim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'today'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">response</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">runReport</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">property</span><span class="o">:</span><span class="w"> </span><span class="sb">`properties/</span><span class="si">${</span><span class="nx">propertyId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">dateRanges</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">startDate</span><span class="o">:</span><span class="w"> </span><span class="nx">dataInicio</span><span class="p">,</span><span class="w"> </span><span class="nx">endDate</span><span class="o">:</span><span class="w"> </span><span class="nx">dataFim</span><span class="w"> </span><span class="p">}],</span>
+<span class="w">    </span><span class="nx">dimensions</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'eventName'</span><span class="w"> </span><span class="p">}],</span>
+<span class="w">    </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'eventCount'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'totalUsers'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nx">orderBys</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">metric</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">metricName</span><span class="o">:</span><span class="w"> </span><span class="s1">'eventCount'</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">desc</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}],</span>
+<span class="w">    </span><span class="nx">limit</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">rows</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">row</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<span class="w">    </span><span class="nx">evento</span><span class="o">:</span><span class="w"> </span><span class="nx">row</span><span class="p">.</span><span class="nx">dimensionValues</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">ocorrencias</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">metricValues</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">value</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">usuarios</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">metricValues</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">value</span><span class="p">),</span>
+<span class="w">  </span><span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">relatorioEventos</span><span class="p">());</span>
+</code></pre></div>
+<h4 id="envio-server-side-measurement-protocol">Envio server-side (Measurement Protocol)<a class="headerlink" href="#envio-server-side-measurement-protocol" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">enviarEventoGA4</span><span class="p">({</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">nomeEvento</span><span class="p">,</span><span class="w"> </span><span class="nx">parametros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">URL</span><span class="p">(</span><span class="s1">'https://www.google-analytics.com/mp/collect'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'measurement_id'</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GA4_MEASUREMENT_ID</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'api_secret'</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GA4_API_SECRET</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">'POST'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">client_id</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">events</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">nomeEvento</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="nx">parametros</span><span class="w"> </span><span class="p">}],</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="63-power-bi">6.3 Power BI<a class="headerlink" href="#63-power-bi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Detalhe</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Conector nativo do Google Analytics</strong></td>
+<td>Disponível no Power BI Desktop</td>
+<td>✅ Suporta GA4</td>
+</tr>
+<tr>
+<td><strong>Via BigQuery</strong></td>
+<td>Conector nativo do BigQuery</td>
+<td>✅ Preferencial para volume</td>
+</tr>
+<tr>
+<td><strong>Via Data API (Web/REST)</strong></td>
+<td>Power Query M com OAuth</td>
+<td>🔧 Complexo (OAuth em M)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>Power BI Desktop → Obter Dados → Google Analytics
+→ Autenticar com conta Google
+→ Selecionar propriedade GA4
+→ Escolher dimensões e métricas
+</code></pre></div>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Power BI + GA4 e soberania</strong>
+Esse caminho estabelece um fluxo de dados <strong>Google → Microsoft</strong>, ambos fora da jurisdição brasileira. Para um órgão público, essa cadeia de tratamento deve constar do registro de operações (art. 37 da LGPD) e ser avaliada no RIPD.</p>
+</blockquote>
+<h3 id="64-grafana">6.4 Grafana<a class="headerlink" href="#64-grafana" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plugin de datasource do Google Analytics (comunidade)</td>
+<td>⚠️ Funcional, com limitações no GA4</td>
+</tr>
+<tr>
+<td>Datasource BigQuery</td>
+<td>✅ Preferencial</td>
+</tr>
+<tr>
+<td>Coleta própria via Data API → Prometheus/InfluxDB</td>
+<td>🔧 Máximo controle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-metabase-e-apache-superset">6.5 Metabase e Apache Superset<a class="headerlink" href="#65-metabase-e-apache-superset" title="Permanent link">&para;</a></h3>
+<p>Nenhuma das duas ferramentas conecta diretamente ao GA4 — não há endpoint SQL. O caminho é:</p>
+<pre class="mermaid"><code>flowchart LR
+    GA4["GA4"] --&gt;|"exportação diária"| BQ[("BigQuery")]
+    BQ --&gt;|"conector nativo"| MB["Metabase"]
+    BQ --&gt;|"conector nativo"| SS["Superset"]
+
+    GA4 -.-&gt;|"alternativa: ETL próprio"| ETL["Script Python&lt;br/&gt;Data API"]
+    ETL --&gt; PG[("PostgreSQL&lt;br/&gt;local")]
+    PG --&gt; MB
+    PG --&gt; SS
+
+    style BQ fill:#fff3cd</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">-- BigQuery: consulta sobre a tabela de exportação do GA4</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">event_date</span><span class="p">,</span>
+<span class="w">    </span><span class="n">event_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">                                        </span><span class="k">AS</span><span class="w"> </span><span class="n">eventos</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">user_pseudo_id</span><span class="p">)</span><span class="w">                  </span><span class="k">AS</span><span class="w"> </span><span class="n">usuarios</span><span class="p">,</span>
+<span class="w">    </span><span class="n">COUNTIF</span><span class="p">(</span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'page_view'</span><span class="p">)</span><span class="w">               </span><span class="k">AS</span><span class="w"> </span><span class="n">pageviews</span>
+<span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">projeto</span><span class="p">.</span><span class="n">analytics_123456789</span><span class="p">.</span><span class="n">events_</span><span class="o">*`</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">_TABLE_SUFFIX</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">'20260601'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">'20260630'</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="66-qlik-sense">6.6 Qlik Sense<a class="headerlink" href="#66-qlik-sense" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conector Google Analytics do Qlik</td>
+<td>⚠️ Suporte ao GA4 variável por versão</td>
+</tr>
+<tr>
+<td>Conector BigQuery (ODBC/JDBC)</td>
+<td>✅ Preferencial</td>
+</tr>
+<tr>
+<td>REST Connector sobre a Data API</td>
+<td>🔧 Requer tratamento de OAuth</td>
+</tr>
+</tbody>
+</table>
+<h3 id="67-google-looker-studio">6.7 Google Looker Studio<a class="headerlink" href="#67-google-looker-studio" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>Integração nativa e sem atrito</strong> — é o caminho de menor esforço para o GA4.</p>
+<div class="highlight"><pre><span></span><code>Looker Studio → Criar → Fonte de dados → Google Analytics
+→ Selecionar conta, propriedade
+→ Conectar
+</code></pre></div>
+<blockquote>
+<p><strong>📌 Observação</strong>
+Esta é a principal vantagem prática do GA4 e a razão da nota 5 em C07 (Integrações). Nenhuma outra plataforma da matriz possui integração de BI tão imediata. O custo dessa conveniência é a permanência integral dos dados na infraestrutura do fornecedor.</p>
+</blockquote>
+<hr />
+<h2 id="7-integrações">7. Integrações<a class="headerlink" href="#7-integrações" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Integração</th>
+<th style="text-align: center;">Suporte</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Tag Manager</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+<td>Integração de primeira classe</td>
+</tr>
+<tr>
+<td><strong>Matomo Tag Manager</strong></td>
+<td style="text-align: center;">🔧</td>
+<td>Possível via tag customizada</td>
+</tr>
+<tr>
+<td><strong>Consent Manager</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Consent Mode v2 nativo; integração com CMPs certificadas</td>
+</tr>
+<tr>
+<td><strong>IAB TCF</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Suportado via CMPs certificadas</td>
+</tr>
+<tr>
+<td><strong>Identity Provider</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Google Workspace / Cloud Identity</td>
+</tr>
+<tr>
+<td><strong>OAuth 2.0</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Nativo para APIs</td>
+</tr>
+<tr>
+<td><strong>OpenID Connect</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Via Google Identity</td>
+</tr>
+<tr>
+<td><strong>SAML 2.0</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Via Google Workspace</td>
+</tr>
+<tr>
+<td><strong>BigQuery</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+<td>Exportação de eventos</td>
+</tr>
+<tr>
+<td><strong>Google Ads</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+<td>Importação de conversões, audiências</td>
+</tr>
+<tr>
+<td><strong>Search Console</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+<td>Dados de busca orgânica</td>
+</tr>
+<tr>
+<td><strong>Looker Studio</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+<td>Painéis</td>
+</tr>
+<tr>
+<td><strong>Firebase</strong></td>
+<td style="text-align: center;">✅ Nativo</td>
+<td>Analytics de aplicativos móveis</td>
+</tr>
+<tr>
+<td><strong>Salesforce, HubSpot, Shopify</strong></td>
+<td style="text-align: center;">✅</td>
+<td>Integrações de terceiros amplas</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota C07 (Integrações): 5/5</strong> — o ecossistema mais amplo do mercado.</p>
+<hr />
+<h2 id="8-infraestrutura">8. Infraestrutura<a class="headerlink" href="#8-infraestrutura" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Banco utilizado</strong></td>
+<td>❌ Não divulgado (infraestrutura proprietária do Google)</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade</strong></td>
+<td>✅ Global, sem esforço do cliente</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td>Gerenciado</td>
+</tr>
+<tr>
+<td><strong>Alta disponibilidade</strong></td>
+<td>✅ Gerenciada; sem SLA no tier gratuito</td>
+</tr>
+<tr>
+<td><strong>Cluster</strong></td>
+<td>➖ Não aplicável</td>
+</tr>
+<tr>
+<td><strong>Backup</strong></td>
+<td>➖ Responsabilidade do fornecedor; o cliente não tem acesso</td>
+</tr>
+<tr>
+<td><strong>Disaster Recovery</strong></td>
+<td>➖ Responsabilidade do fornecedor</td>
+</tr>
+<tr>
+<td><strong>Controle do cliente</strong></td>
+<td>❌ Nenhum</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-segurança">9. Segurança<a class="headerlink" href="#9-segurança" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LGPD</strong></td>
+<td>⚠️ <strong>Problemática</strong> — transferência internacional; consentimento obrigatório; retenção limitada; controle nulo</td>
+</tr>
+<tr>
+<td><strong>GDPR</strong></td>
+<td>⚠️ <strong>Contestada</strong> — decisões desfavoráveis de quatro autoridades europeias em 2022; mitigada pelo DPF em 2023</td>
+</tr>
+<tr>
+<td><strong>ISO 27001</strong></td>
+<td>✅ Infraestrutura Google certificada</td>
+</tr>
+<tr>
+<td><strong>SOC 2 / SOC 3</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Controle de acesso</strong></td>
+<td>✅ RBAC por conta, propriedade e stream</td>
+</tr>
+<tr>
+<td><strong>MFA</strong></td>
+<td>✅ Via conta Google</td>
+</tr>
+<tr>
+<td><strong>Auditoria</strong></td>
+<td>⚠️ Histórico de alterações limitado; não exportável para SIEM</td>
+</tr>
+<tr>
+<td><strong>Logs</strong></td>
+<td>⚠️ Não disponíveis ao cliente</td>
+</tr>
+<tr>
+<td><strong>Criptografia em trânsito</strong></td>
+<td>✅ TLS</td>
+</tr>
+<tr>
+<td><strong>Criptografia em repouso</strong></td>
+<td>✅ Gerenciada pelo Google</td>
+</tr>
+<tr>
+<td><strong>Retenção de dados</strong></td>
+<td>⚠️ Máximo 14 meses; definida pelo fornecedor</td>
+</tr>
+<tr>
+<td><strong>Nota C09 (Segurança)</strong></td>
+<td><strong>4/5</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta — O risco regulatório em detalhe</strong></p>
+<p><strong>Cadeia de fatos verificáveis:</strong>
+1. O GA4 coleta dado que constitui dado pessoal (identificador de dispositivo, endereço IP processado, comportamento de navegação).
+2. Esse dado é transferido para infraestrutura do Google, incluindo servidores nos Estados Unidos.
+3. O TJUE, em <em>Schrems II</em> (C-311/18, 2020), invalidou o Privacy Shield ao concluir que o regime norte-americano de vigilância não oferecia proteção equivalente.
+4. Em 2022, autoridades de proteção de dados de Áustria, França, Itália e Dinamarca declararam que o uso do Google Analytics por sítios europeus era incompatível com o RGPD.
+5. O EU-US Data Privacy Framework (2023) restabeleceu uma base de adequação <strong>para a União Europeia</strong>.
+6. <strong>A ANPD não reconheceu os Estados Unidos como país de nível adequado de proteção</strong>, nos termos do art. 33, I da LGPD.
+7. A base legal aplicável no Brasil seria, portanto, cláusulas-padrão contratuais ou outro instrumento do art. 33, com avaliação documentada.</p>
+<p><strong>Conclusão:</strong> não há decisão da ANPD declarando o uso ilegal. Há <strong>risco regulatório antecipável e documentado</strong>, cujo desfecho é incerto. Um órgão público que adote hoje ferramenta já questionada sob norma análoga assume esse risco de forma consciente — o que agrava sua responsabilidade em caso de fiscalização futura.</p>
+</blockquote>
+<hr />
+<h2 id="10-governança">10. Governança<a class="headerlink" href="#10-governança" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th style="text-align: center;">Avaliação</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vendor lock-in</strong></td>
+<td style="text-align: center;">🔴 Alto</td>
+<td>Formato não portável; migração exige reimplementação</td>
+</tr>
+<tr>
+<td><strong>Controle dos dados</strong></td>
+<td style="text-align: center;">🔴 Nenhum</td>
+<td>Custódia exclusiva do fornecedor</td>
+</tr>
+<tr>
+<td><strong>Portabilidade</strong></td>
+<td style="text-align: center;">🟠 Parcial</td>
+<td>Apenas via BigQuery configurado previamente</td>
+</tr>
+<tr>
+<td><strong>Transparência</strong></td>
+<td style="text-align: center;">🔴 Nenhuma</td>
+<td>Caixa-preta; algoritmos de amostragem e modelagem não divulgados</td>
+</tr>
+<tr>
+<td><strong>Auditoria</strong></td>
+<td style="text-align: center;">🔴 Documental</td>
+<td>Depende de certificações do fornecedor</td>
+</tr>
+<tr>
+<td><strong>Soberania dos dados</strong></td>
+<td style="text-align: center;">🔴 Nenhuma</td>
+<td>Sem controle de localização</td>
+</tr>
+<tr>
+<td><strong>Continuidade sem o fornecedor</strong></td>
+<td style="text-align: center;">❌ Impossível</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Custo de saída</strong></td>
+<td style="text-align: center;">🔴 ~R$ 200 k</td>
+<td>Reimplantação + perda de histórico</td>
+</tr>
+<tr>
+<td><strong>Nota C02 (Controle)</strong></td>
+<td style="text-align: center;"><strong>1/5</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Nota C04 (Independência)</strong></td>
+<td style="text-align: center;"><strong>1/5</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-performance">11. Performance<a class="headerlink" href="#11-performance" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volume suportado</strong></td>
+<td>Ilimitado (com amostragem acima de limiar)</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade horizontal</strong></td>
+<td>✅ Gerenciada</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade vertical</strong></td>
+<td>➖ Não aplicável</td>
+</tr>
+<tr>
+<td><strong>Latência de coleta</strong></td>
+<td>Baixa (rede global do Google)</td>
+</tr>
+<tr>
+<td><strong>Latência de relatório</strong></td>
+<td>🟢 Rápida em relatórios padrão; variável em explorações</td>
+</tr>
+<tr>
+<td><strong>Frescor dos dados</strong></td>
+<td>⚠️ 24–48 h para relatórios completos; tempo real em janela de 30 min</td>
+</tr>
+<tr>
+<td><strong>Tamanho do script (gzip)</strong></td>
+<td>~50 KB+ (gtag.js)</td>
+</tr>
+<tr>
+<td><strong>Impacto no LCP</strong></td>
+<td>🟠 Médio — script mais pesado que alternativas privacy-first</td>
+</tr>
+<tr>
+<td><strong>Amostragem</strong></td>
+<td>⚠️ <strong>Sim</strong></td>
+</tr>
+<tr>
+<td><strong>Nota C08 (Escalabilidade)</strong></td>
+<td><strong>5/5</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-custos">12. Custos<a class="headerlink" href="#12-custos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">5 anos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licenciamento (tier gratuito)</td>
+<td style="text-align: right;">R$ 0</td>
+</tr>
+<tr>
+<td>Infraestrutura</td>
+<td style="text-align: right;">R$ 0</td>
+</tr>
+<tr>
+<td>Implantação</td>
+<td style="text-align: right;">R$ 30.000</td>
+</tr>
+<tr>
+<td><strong>Consent Management Platform</strong></td>
+<td style="text-align: right;">R$ 100.000</td>
+</tr>
+<tr>
+<td><strong>Conformidade jurídica (RIPD, análise de transferência)</strong></td>
+<td style="text-align: right;">R$ 60.000</td>
+</tr>
+<tr>
+<td>BigQuery (armazenamento e consulta)</td>
+<td style="text-align: right;">R$ 40.000</td>
+</tr>
+<tr>
+<td>Equipe / operação</td>
+<td style="text-align: right;">R$ 150.000</td>
+</tr>
+<tr>
+<td><strong>Custo estimado de saída</strong></td>
+<td style="text-align: right;">R$ 200.000</td>
+</tr>
+<tr>
+<td><strong>TCO 5 anos</strong></td>
+<td style="text-align: right;"><strong>≈ R$ 580.000</strong></td>
+</tr>
+<tr>
+<td><strong>Nota C03 (TCO)</strong></td>
+<td style="text-align: right;"><strong>4/5</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — Onde está o custo do "gratuito"</strong>
+A licença custa zero. O TCO não. Os custos reais são:</p>
+<ol>
+<li><strong>CMP obrigatória</strong> — o consentimento é base legal necessária, e gerenciá-lo exige ferramenta;</li>
+<li><strong>Conformidade jurídica</strong> — RIPD, análise de transferência internacional, revisão contratual;</li>
+<li><strong>BigQuery</strong> — a exportação é gratuita, mas armazenamento e consulta são cobrados;</li>
+<li><strong>Custo de saída</strong> — precedente concretizado de migração forçada;</li>
+<li><strong>Custo não monetizável</strong> — perda de 20 % a 50 % dos eventos por consentimento negado, degradando a utilidade analítica.</li>
+</ol>
+<p>Ainda assim, o TCO monetário direto é competitivo. É por isso que a nota C03 é <strong>4</strong> — a deficiência do GA4 não está no custo, e sim na soberania.</p>
+</blockquote>
+<hr />
+<h2 id="13-pontos-fortes">13. Pontos fortes<a class="headerlink" href="#13-pontos-fortes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Ponto forte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Custo de licença zero</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ecossistema de integração mais amplo do mercado</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Exportação nativa para BigQuery, inclusive no tier gratuito</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Escalabilidade ilimitada sem esforço</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Maior oferta de profissionais e material no Brasil</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Modelo de dados baseado em eventos, moderno e flexível</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Machine learning e métricas preditivas nativas</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Documentação extensa, atualizada e em português</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Integração nativa com Looker Studio, Ads e Search Console</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Nenhum esforço operacional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="14-pontos-fracos">14. Pontos fracos<a class="headerlink" href="#14-pontos-fracos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Ponto fraco</th>
+<th style="text-align: center;">Mitigável?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Controle nulo sobre os dados</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Transferência internacional para jurisdição sem adequação da ANPD</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Precedente regulatório desfavorável sob norma análoga</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Retenção máxima de 14 meses definida pelo fornecedor</strong></td>
+<td style="text-align: center;">⚠️ Apenas via BigQuery</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Amostragem em análises acima de limiar</strong></td>
+<td style="text-align: center;">⚠️ Apenas via GA360 ou BigQuery</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Precedente concretizado de descontinuidade de versão</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Exige consentimento e CMP</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Auditoria impossível — caixa-preta</strong></td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Perda de 20–50 % dos eventos por consentimento negado</strong></td>
+<td style="text-align: center;">⚠️ Consent mode e modelagem</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Sem heatmap nem session recording</strong></td>
+<td style="text-align: center;">⚠️ Ferramenta complementar</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Limites de cardinalidade agrupam valores em "(other)"</strong></td>
+<td style="text-align: center;">⚠️ Modelagem de dimensões</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Sem SLA nem suporte no tier gratuito</strong></td>
+<td style="text-align: center;">⚠️ Apenas com GA360</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Curva de aprendizado do modelo GA4</strong></td>
+<td style="text-align: center;">✅ Capacitação</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-quando-utilizar">15. Quando utilizar<a class="headerlink" href="#15-quando-utilizar" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Use o GA4 quando:</strong></p>
+<ul>
+<li>A organização for <strong>privada</strong> e não tiver requisito de soberania de dados;</li>
+<li>A <strong>integração com Google Ads</strong> for central ao negócio;</li>
+<li>A organização já operar em <strong>Google Cloud e BigQuery</strong>;</li>
+<li>O <strong>custo de licença zero</strong> for restrição dominante e a conformidade for administrável por CMP;</li>
+<li>Não houver equipe de infraestrutura nem orçamento para alternativa;</li>
+<li>Analytics de <strong>aplicativo móvel</strong> for requisito (integração com Firebase);</li>
+<li>O uso for <strong>complementar</strong>, em propriedade específica com autorização do Encarregado.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="16-quando-evitar">16. Quando evitar<a class="headerlink" href="#16-quando-evitar" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>🚨 Evite o GA4 quando:</strong></p>
+<ul>
+<li>A organização for <strong>órgão público brasileiro</strong> com dever de soberania sobre dados de cidadãos — <strong>caso deste estudo</strong>;</li>
+<li>For necessário operar <strong>sem consentimento</strong> com base legal simples;</li>
+<li>For exigido <strong>dado exato sem amostragem</strong> para prestação de contas ou transparência ativa;</li>
+<li>A <strong>série histórica de longo prazo</strong> (&gt; 14 meses) for requisito e não houver BigQuery configurado;</li>
+<li>A <strong>auditabilidade verificável</strong> for requisito de conformidade ou de controle externo;</li>
+<li>Houver tratamento de <strong>dado pessoal sensível</strong> (saúde, assistência social, biometria);</li>
+<li>O <strong>ciclo de vida do sistema for longo</strong> e a independência de fornecedor tiver valor;</li>
+<li>A organização não puder assumir <strong>risco regulatório antecipável e documentado</strong>.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="17-notas-do-avaliador">17. Notas do avaliador<a class="headerlink" href="#17-notas-do-avaliador" title="Permanent link">&para;</a></h2>
+<h3 id="171-notas-atribuídas">17.1 Notas atribuídas<a class="headerlink" href="#171-notas-atribuídas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th style="text-align: right;">Peso</th>
+<th style="text-align: center;">Nota</th>
+<th style="text-align: right;">Pontos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C01 — LGPD</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr>
+<td>C02 — Controle dos dados</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>C03 — TCO</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr>
+<td>C04 — Independência tecnológica</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>C05 — Recursos analíticos</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr>
+<td>C06 — APIs</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr>
+<td>C07 — Integrações</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C08 — Escalabilidade</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C09 — Segurança</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr>
+<td>C10 — Operação</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>C11 — Comunidade</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>C12 — Documentação</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>120</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"><strong>410 / 600 (68,3 %)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="172-observação-final">17.2 Observação final<a class="headerlink" href="#172-observação-final" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>📌 Observação — O GA4 não perde por ser tecnicamente inferior</strong></p>
+<p>O GA4 obtém <strong>nota 5 em quatro critérios</strong> (Integrações, Escalabilidade, Operação, Comunidade e Documentação — cinco, na verdade) e nota 4 em outros quatro. É, sob vários aspectos, uma plataforma tecnicamente excelente.</p>
+<p>Sua posição no ranking decorre exclusivamente das notas <strong>1 e 2 nos dois critérios de maior peso</strong>: C02 (Controle dos dados, nota 1) e C01 (LGPD, nota 2). Somente nesses dois critérios, perde <strong>105 pontos</strong> para o Matomo On-Premise — mais que a diferença total de 95 pontos entre as duas plataformas.</p>
+<p>Isso não é distorção da ponderação. É exatamente o que a ponderação foi construída para capturar: <strong>para um órgão público, soberania e conformidade não são compensáveis por conveniência de integração</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="referências">Referências<a class="headerlink" href="#referências" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Central de Ajuda: <code>https://support.google.com/analytics/</code></li>
+<li>Documentação de desenvolvedor: <code>https://developers.google.com/analytics</code></li>
+<li>Data API v1: <code>https://developers.google.com/analytics/devguides/reporting/data/v1</code></li>
+<li>Quotas: <code>https://developers.google.com/analytics/devguides/reporting/data/v1/quotas</code></li>
+<li>Retenção de dados: <code>https://support.google.com/analytics/answer/7667196</code></li>
+<li>Termos de Serviço: <code>https://marketingplatform.google.com/about/analytics/terms/</code></li>
+<li>Lista completa: <a href="../../docs/12-referencias/#8-documentação-oficial--google-analytics-4"><code>../docs/12-referencias.md</code>, seção 8</a></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>← Anterior</th>
+<th>Índice</th>
+<th>Próxima →</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../matomo/">Matomo</a></td>
+<td><a href="../../">Plataformas</a></td>
+<td><a href="../plausible/">Plausible</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

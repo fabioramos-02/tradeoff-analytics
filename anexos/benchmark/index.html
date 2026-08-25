@@ -1,0 +1,2535 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/anexos/benchmark/">
+      
+      
+        <link rel="prev" href="../matriz/">
+      
+      
+        <link rel="next" href="../glossario/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Benchmark - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#anexo--benchmark-de-plataformas" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Benchmark
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-escopo-e-limitações" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Escopo e limitações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Metodologia
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Metodologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-perguntas-do-benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Perguntas do benchmark
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-parâmetros-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Parâmetros de teste
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ferramentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Ferramentas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cenários-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cenários de carga
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Cenários de carga">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-cenário-a--portal-institucional-médio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Cenário A — Portal institucional médio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-cenário-b--portal-transacional-em-época-de-campanha" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Cenário B — Portal transacional em época de campanha
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cenário-c--parque-estadual-consolidado-ano-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Cenário C — Parque estadual consolidado (ano 5)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-métricas-coletadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Métricas coletadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resultados-projetados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Resultados projetados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Resultados projetados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-latência-de-ingestão-cenário-a--portal-médio" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Latência de ingestão (Cenário A — portal médio)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-consumo-de-recursos-no-servidor-cenário-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Consumo de recursos no servidor (Cenário A)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-cenário-b--pico-de-15-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Cenário B — pico de 15× (Matomo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-latência-de-dashboard-matomo-on-premise-sob-cenário-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Latência de dashboard (Matomo On-Premise sob Cenário A)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-impacto-no-navegador-medido" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Impacto no navegador (medido)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ferramentas-recomendadas-para-reprodução" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Ferramentas recomendadas para reprodução
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Ferramentas recomendadas para reprodução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-script-k6-de-ingestão" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Script k6 de ingestão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-lighthouse-via-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Lighthouse via CI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-explain-em-mariadb-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 EXPLAIN em MariaDB (Matomo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-system-query-log-em-clickhouse-plausibleposthog" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 System query log em ClickHouse (Plausible/PostHog)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-referências-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Referências externas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Referências externas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-fornecedores--dados-primários" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Fornecedores — dados primários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-independentes--dados-secundários-declarados-como-tal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Independentes — dados secundários (declarados como tal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-precedentes-de-casos-institucionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Precedentes de casos institucionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-escopo-e-limitações" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Escopo e limitações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Metodologia
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Metodologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-perguntas-do-benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Perguntas do benchmark
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-parâmetros-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Parâmetros de teste
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ferramentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Ferramentas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cenários-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cenários de carga
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Cenários de carga">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-cenário-a--portal-institucional-médio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Cenário A — Portal institucional médio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-cenário-b--portal-transacional-em-época-de-campanha" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Cenário B — Portal transacional em época de campanha
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cenário-c--parque-estadual-consolidado-ano-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Cenário C — Parque estadual consolidado (ano 5)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-métricas-coletadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Métricas coletadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resultados-projetados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Resultados projetados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Resultados projetados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-latência-de-ingestão-cenário-a--portal-médio" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Latência de ingestão (Cenário A — portal médio)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-consumo-de-recursos-no-servidor-cenário-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Consumo de recursos no servidor (Cenário A)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-cenário-b--pico-de-15-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Cenário B — pico de 15× (Matomo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-latência-de-dashboard-matomo-on-premise-sob-cenário-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Latência de dashboard (Matomo On-Premise sob Cenário A)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-impacto-no-navegador-medido" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Impacto no navegador (medido)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ferramentas-recomendadas-para-reprodução" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Ferramentas recomendadas para reprodução
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Ferramentas recomendadas para reprodução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-script-k6-de-ingestão" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Script k6 de ingestão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-lighthouse-via-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Lighthouse via CI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-explain-em-mariadb-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 EXPLAIN em MariaDB (Matomo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-system-query-log-em-clickhouse-plausibleposthog" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 System query log em ClickHouse (Plausible/PostHog)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-referências-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Referências externas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Referências externas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-fornecedores--dados-primários" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Fornecedores — dados primários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-independentes--dados-secundários-declarados-como-tal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Independentes — dados secundários (declarados como tal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-precedentes-de-casos-institucionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Precedentes de casos institucionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="anexo--benchmark-de-plataformas">Anexo — Benchmark de plataformas<a class="headerlink" href="#anexo--benchmark-de-plataformas" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Anexo estrutural</strong> · Metodologia + cenários de carga + resultados projetados
+<a href="../../">← Voltar ao índice</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-escopo-e-limitações">1. Escopo e limitações</a></li>
+<li><a href="#2-metodologia">2. Metodologia</a></li>
+<li><a href="#3-cenários-de-carga">3. Cenários de carga</a></li>
+<li><a href="#4-métricas-coletadas">4. Métricas coletadas</a></li>
+<li><a href="#5-resultados-projetados">5. Resultados projetados</a></li>
+<li><a href="#6-impacto-no-navegador-medido">6. Impacto no navegador (medido)</a></li>
+<li><a href="#7-ferramentas-recomendadas-para-reprodução">7. Ferramentas recomendadas para reprodução</a></li>
+<li><a href="#8-referências-externas">8. Referências externas</a></li>
+</ul>
+<hr />
+<h2 id="1-escopo-e-limitações">1. Escopo e limitações<a class="headerlink" href="#1-escopo-e-limitações" title="Permanent link">&para;</a></h2>
+<p>Este anexo consolida:</p>
+<ul>
+<li><strong>Benchmarks públicos declarados pelos fornecedores</strong> (dados primários).</li>
+<li><strong>Benchmarks independentes reproduzíveis</strong> publicados por terceiros neutros (dados secundários — declarados como tal).</li>
+<li><strong>Projeções fundamentadas</strong> feitas pela equipe de arquitetura, com base em desempenho de plataformas equivalentes já operadas pela SETDIG e nos requisitos declarados na documentação oficial de cada plataforma.</li>
+</ul>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — projeções não são medições</strong>
+Nenhum número marcado com <code>[proj.]</code> neste documento foi medido em laboratório com o parque real da SETDIG. São estimativas fundamentadas destinadas a <strong>orientar dimensionamento inicial</strong>. Antes de deploy produtivo, todo dimensionamento deve ser revalidado por teste real na infraestrutura de destino.</p>
+</blockquote>
+<p>Não substitui prova-de-conceito. Para decisão contratual definitiva, recomenda-se rodar PoC de 30 dias em ambiente pré-produção com tráfego real, conforme descrito em <a href="../../docs/10-roadmap/"><code>docs/10-roadmap.md</code></a>.</p>
+<hr />
+<h2 id="2-metodologia">2. Metodologia<a class="headerlink" href="#2-metodologia" title="Permanent link">&para;</a></h2>
+<h3 id="21-perguntas-do-benchmark">2.1 Perguntas do benchmark<a class="headerlink" href="#21-perguntas-do-benchmark" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Qual a <strong>latência de ingestão</strong> de cada plataforma para o volume esperado?</li>
+<li>Qual o <strong>impacto no navegador</strong> (LCP, CLS, tamanho do beacon)?</li>
+<li>Qual o <strong>consumo de recursos</strong> no servidor sob carga sustentada?</li>
+<li>Qual o <strong>volume máximo</strong> que uma instância padrão suporta antes de degradar?</li>
+<li>Qual o <strong>tempo até primeira visualização</strong> de dashboard (arquivamento / processamento)?</li>
+</ol>
+<h3 id="22-parâmetros-de-teste">2.2 Parâmetros de teste<a class="headerlink" href="#22-parâmetros-de-teste" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ambiente de referência</td>
+<td>Kubernetes 1.29, nós c6i.xlarge (4 vCPU, 8 GB RAM)</td>
+</tr>
+<tr>
+<td>Ingestão simulada</td>
+<td>k6 gerando 500 req/s por 60 minutos</td>
+</tr>
+<tr>
+<td>Payload por evento</td>
+<td>~500 bytes JSON</td>
+</tr>
+<tr>
+<td>Duração de coleta</td>
+<td>24 h por cenário</td>
+</tr>
+<tr>
+<td>Volume alvo</td>
+<td>50 M eventos/dia (estresse), 5 M eventos/dia (baseline)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-ferramentas">2.3 Ferramentas<a class="headerlink" href="#23-ferramentas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Ingestão sintética:</strong> <a href="https://k6.io/">k6</a> (open-source).</li>
+<li><strong>Impacto no navegador:</strong> <a href="https://www.webpagetest.org/">WebPageTest</a> + Lighthouse.</li>
+<li><strong>Observabilidade:</strong> Prometheus + Grafana durante o teste.</li>
+<li><strong>Análise de queries no banco:</strong> <code>EXPLAIN ANALYZE</code> (MySQL/MariaDB), <code>system.query_log</code> (ClickHouse).</li>
+</ul>
+<hr />
+<h2 id="3-cenários-de-carga">3. Cenários de carga<a class="headerlink" href="#3-cenários-de-carga" title="Permanent link">&para;</a></h2>
+<h3 id="31-cenário-a--portal-institucional-médio">3.1 Cenário A — Portal institucional médio<a class="headerlink" href="#31-cenário-a--portal-institucional-médio" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tráfego médio</td>
+<td>500 mil pv/mês</td>
+</tr>
+<tr>
+<td>Pico diário</td>
+<td>~3× média</td>
+</tr>
+<tr>
+<td>Duração dos picos</td>
+<td>4 h por dia</td>
+</tr>
+<tr>
+<td>Distribuição por site</td>
+<td>1 site principal + 5 secundários</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-cenário-b--portal-transacional-em-época-de-campanha">3.2 Cenário B — Portal transacional em época de campanha<a class="headerlink" href="#32-cenário-b--portal-transacional-em-época-de-campanha" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tráfego médio</td>
+<td>2 M pv/mês</td>
+</tr>
+<tr>
+<td>Pico diário (dia de matrícula/vestibular)</td>
+<td>~15× média</td>
+</tr>
+<tr>
+<td>Duração do pico</td>
+<td>2 h</td>
+</tr>
+<tr>
+<td>Distribuição</td>
+<td>1 site principal + fluxo transacional intenso</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-cenário-c--parque-estadual-consolidado-ano-5">3.3 Cenário C — Parque estadual consolidado (ano 5)<a class="headerlink" href="#33-cenário-c--parque-estadual-consolidado-ano-5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portais</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Tráfego agregado</td>
+<td>60 M ações/mês</td>
+</tr>
+<tr>
+<td>Eventos ingeridos por dia</td>
+<td>2 M (média) / 20 M (pico)</td>
+</tr>
+<tr>
+<td>Retenção bruta</td>
+<td>6 meses</td>
+</tr>
+<tr>
+<td>Retenção agregada</td>
+<td>24 meses</td>
+</tr>
+<tr>
+<td>Volume total 5 anos</td>
+<td>~5 bilhões de linhas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-métricas-coletadas">4. Métricas coletadas<a class="headerlink" href="#4-métricas-coletadas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Definição</th>
+<th style="text-align: center;">Meta aceitável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latência de ingestão p50</td>
+<td>Mediana do tempo entre evento no cliente e persistência</td>
+<td style="text-align: center;">&lt; 500 ms</td>
+</tr>
+<tr>
+<td>Latência de ingestão p99</td>
+<td>99º percentil</td>
+<td style="text-align: center;">&lt; 3 s</td>
+</tr>
+<tr>
+<td>Taxa de erro de ingestão</td>
+<td>5xx / total</td>
+<td style="text-align: center;">&lt; 0,1 %</td>
+</tr>
+<tr>
+<td>CPU do banco (sustentado)</td>
+<td>Média em 24 h</td>
+<td style="text-align: center;">&lt; 60 %</td>
+</tr>
+<tr>
+<td>Latência de query de dashboard (p95)</td>
+<td>Consulta padrão de resumo mensal</td>
+<td style="text-align: center;">&lt; 2 s</td>
+</tr>
+<tr>
+<td>Latência de arquivamento (Matomo)</td>
+<td>Duração da rotina completa</td>
+<td style="text-align: center;">&lt; 15 min</td>
+</tr>
+<tr>
+<td>Tamanho do beacon (gzip)</td>
+<td>Peso do JS carregado no navegador</td>
+<td style="text-align: center;">&lt; 30 KB</td>
+</tr>
+<tr>
+<td>Impacto em LCP</td>
+<td>Delta de LCP com e sem tag</td>
+<td style="text-align: center;">&lt; 100 ms</td>
+</tr>
+<tr>
+<td>Consumo de disco (bruto por milhão de eventos)</td>
+<td>GB</td>
+<td style="text-align: center;">Variável por plataforma</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-resultados-projetados">5. Resultados projetados<a class="headerlink" href="#5-resultados-projetados" title="Permanent link">&para;</a></h2>
+<h3 id="51-latência-de-ingestão-cenário-a--portal-médio">5.1 Latência de ingestão (Cenário A — portal médio)<a class="headerlink" href="#51-latência-de-ingestão-cenário-a--portal-médio" title="Permanent link">&para;</a></h3>
+<p>Valores marcados com <code>[proj.]</code> são projeções da equipe de arquitetura.</p>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">p50 [proj.]</th>
+<th style="text-align: center;">p99 [proj.]</th>
+<th style="text-align: center;">Taxa de erro esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo On-Premise</td>
+<td style="text-align: center;">~120 ms</td>
+<td style="text-align: center;">~800 ms</td>
+<td style="text-align: center;">&lt; 0,1 %</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">~40 ms</td>
+<td style="text-align: center;">~200 ms</td>
+<td style="text-align: center;">&lt; 0,05 %</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">~60 ms</td>
+<td style="text-align: center;">~400 ms</td>
+<td style="text-align: center;">&lt; 0,1 %</td>
+</tr>
+<tr>
+<td>PostHog OSS (com Kafka)</td>
+<td style="text-align: center;">~30 ms</td>
+<td style="text-align: center;">~180 ms</td>
+<td style="text-align: center;">&lt; 0,05 %</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">~200 ms</td>
+<td style="text-align: center;">~1500 ms</td>
+<td style="text-align: center;">&lt; 0,5 %</td>
+</tr>
+</tbody>
+</table>
+<p>Fonte para SaaS (GA4, Adobe, Clarity, Cloudflare, Simple, PostHog Cloud, Umami Cloud): latência dominada por RTT internacional (~150–300 ms). Sem controle do cliente.</p>
+<h3 id="52-consumo-de-recursos-no-servidor-cenário-a">5.2 Consumo de recursos no servidor (Cenário A)<a class="headerlink" href="#52-consumo-de-recursos-no-servidor-cenário-a" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">CPU pico (app)</th>
+<th style="text-align: center;">RAM pico (app)</th>
+<th style="text-align: center;">CPU pico (banco)</th>
+<th style="text-align: center;">Disco/mês</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo On-Premise</td>
+<td style="text-align: center;">~40 %</td>
+<td style="text-align: center;">~2 GB</td>
+<td style="text-align: center;">~30 % (MariaDB)</td>
+<td style="text-align: center;">~15 GB</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">~15 %</td>
+<td style="text-align: center;">~1 GB</td>
+<td style="text-align: center;">~20 % (ClickHouse)</td>
+<td style="text-align: center;">~5 GB</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">~10 %</td>
+<td style="text-align: center;">~500 MB</td>
+<td style="text-align: center;">~15 % (PG)</td>
+<td style="text-align: center;">~8 GB</td>
+</tr>
+<tr>
+<td>PostHog OSS</td>
+<td style="text-align: center;">~30 % agregado</td>
+<td style="text-align: center;">~4 GB agregado</td>
+<td style="text-align: center;">~35 % (CH)</td>
+<td style="text-align: center;">~25 GB (com session replay: ~150 GB)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-cenário-b--pico-de-15-matomo">5.3 Cenário B — pico de 15× (Matomo)<a class="headerlink" href="#53-cenário-b--pico-de-15-matomo" title="Permanent link">&para;</a></h3>
+<p>Sob pico de 2 h com 15× a média, o comportamento esperado do Matomo On-Premise:</p>
+<table>
+<thead>
+<tr>
+<th>Momento</th>
+<th>Comportamento esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T+0 a T+30 min</td>
+<td>Ingestão absorve tráfego; CPU app sobe a ~80 %; banco a ~60 %</td>
+</tr>
+<tr>
+<td>T+30 min a T+2 h</td>
+<td>Consumo estabiliza; sem perda; dashboards em tempo real ficam ~30 s atrasados</td>
+</tr>
+<tr>
+<td>T+2 h a T+3 h</td>
+<td>Tráfego volta ao normal; <code>archive.php</code> demanda +50 % de tempo por 24 h</td>
+</tr>
+<tr>
+<td>T+3 h a T+27 h</td>
+<td>Backlog de arquivamento é processado; dashboards recuperam pontualidade</td>
+</tr>
+</tbody>
+</table>
+<p>Mitigação recomendada: dimensionar o job de archive para 2× a capacidade normal, ou executar em nó dedicado com maior CPU.</p>
+<h3 id="54-latência-de-dashboard-matomo-on-premise-sob-cenário-a">5.4 Latência de dashboard (Matomo On-Premise sob Cenário A)<a class="headerlink" href="#54-latência-de-dashboard-matomo-on-premise-sob-cenário-a" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo de dashboard</th>
+<th style="text-align: center;">Latência p95 esperada [proj.]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visão diária padrão (últimos 30 dias)</td>
+<td style="text-align: center;">&lt; 1 s</td>
+</tr>
+<tr>
+<td>Visão mensal padrão (12 meses)</td>
+<td style="text-align: center;">&lt; 2 s</td>
+</tr>
+<tr>
+<td>Segmento ad-hoc sobre dado bruto</td>
+<td style="text-align: center;">3–15 s (depende do segmento)</td>
+</tr>
+<tr>
+<td>Funil de conversão (com plugin)</td>
+<td style="text-align: center;">2–5 s</td>
+</tr>
+<tr>
+<td>Heatmap (com plugin)</td>
+<td style="text-align: center;">3–8 s</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-impacto-no-navegador-medido">6. Impacto no navegador (medido)<a class="headerlink" href="#6-impacto-no-navegador-medido" title="Permanent link">&para;</a></h2>
+<p>Valores baseados em documentação oficial dos fornecedores + medições públicas independentes.</p>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Tamanho gzip</th>
+<th style="text-align: center;">LCP delta (p95)</th>
+<th style="text-align: center;">CLS delta</th>
+<th style="text-align: center;">Latência do beacon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloudflare beacon</td>
+<td style="text-align: center;">7 KB</td>
+<td style="text-align: center;">+5 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Baixa (edge)</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td style="text-align: center;">1 KB</td>
+<td style="text-align: center;">+8 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Baixa (rede local se auto-hospedado)</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">3 KB</td>
+<td style="text-align: center;">+10 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Baixa</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">2 KB</td>
+<td style="text-align: center;">+12 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Baixa (rede local se auto-hospedado)</td>
+</tr>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">22 KB</td>
+<td style="text-align: center;">+40 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Baixa (rede local se auto-hospedado)</td>
+</tr>
+<tr>
+<td>Matomo Tag Manager</td>
+<td style="text-align: center;">45 KB</td>
+<td style="text-align: center;">+80 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Baixa</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">35 KB</td>
+<td style="text-align: center;">+80 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Média (internacional)</td>
+</tr>
+<tr>
+<td>GA4 (gtag)</td>
+<td style="text-align: center;">45 KB</td>
+<td style="text-align: center;">+120 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Média (internacional)</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">55 KB</td>
+<td style="text-align: center;">+150 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Média</td>
+</tr>
+<tr>
+<td>Adobe Web SDK</td>
+<td style="text-align: center;">60+ KB</td>
+<td style="text-align: center;">+200 ms</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Média-alta</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — impacto se agrava em stack completa</strong>
+Muitos portais carregam múltiplas tags simultaneamente (GA4 + Clarity + Cloudflare + Consent Manager). A soma dos beacons frequentemente excede 200 KB, degradando LCP em 300–500 ms. Consolidar em uma única plataforma primária reduz esse peso significativamente.</p>
+</blockquote>
+<hr />
+<h2 id="7-ferramentas-recomendadas-para-reprodução">7. Ferramentas recomendadas para reprodução<a class="headerlink" href="#7-ferramentas-recomendadas-para-reprodução" title="Permanent link">&para;</a></h2>
+<h3 id="71-script-k6-de-ingestão">7.1 Script k6 de ingestão<a class="headerlink" href="#71-script-k6-de-ingestão" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// k6 run --vus 100 --duration 60m ingest.js</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'k6/http'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">check</span><span class="p">,</span><span class="w"> </span><span class="nx">sleep</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'k6'</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">vus</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s1">'60m'</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">__ENV</span><span class="p">.</span><span class="nx">HOST</span><span class="p">;</span><span class="w">               </span><span class="c1">// ex: 'https://matomo.exemplo.gov.br'</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">SITE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">__ENV</span><span class="p">.</span><span class="nx">SITE_ID</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'1'</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">HOST</span><span class="si">}</span><span class="sb">/matomo.php?idsite=</span><span class="si">${</span><span class="nx">SITE</span><span class="si">}</span><span class="sb">&amp;rec=1&amp;url=https%3A%2F%2Fexemplo.gov.br%2Fpage</span><span class="si">${</span><span class="nx">__ITER</span><span class="si">}</span><span class="sb">&amp;action_name=Home`</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">check</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">'status 200/204'</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">204</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="72-lighthouse-via-ci">7.2 Lighthouse via CI<a class="headerlink" href="#72-lighthouse-via-ci" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Instala CLI</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>lighthouse
+
+<span class="c1"># Executa auditoria contra portal com e sem tag</span>
+lighthouse<span class="w"> </span>https://portal.exemplo.gov.br<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--preset<span class="o">=</span>desktop<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="o">=</span>json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-path<span class="o">=</span>./lighthouse-report.json
+</code></pre></div>
+<h3 id="73-explain-em-mariadb-matomo">7.3 EXPLAIN em MariaDB (Matomo)<a class="headerlink" href="#73-explain-em-mariadb-matomo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">idvisit</span><span class="p">,</span><span class="w"> </span><span class="n">visit_last_action_time</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">matomo_log_visit</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">idsite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">visit_last_action_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'2026-07-01'</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">visit_last_action_time</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">'2026-08-01'</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="74-system-query-log-em-clickhouse-plausibleposthog">7.4 System query log em ClickHouse (Plausible/PostHog)<a class="headerlink" href="#74-system-query-log-em-clickhouse-plausibleposthog" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="w">  </span><span class="n">query_start_time</span><span class="p">,</span>
+<span class="w">  </span><span class="n">query_duration_ms</span><span class="p">,</span>
+<span class="w">  </span><span class="n">read_rows</span><span class="p">,</span>
+<span class="w">  </span><span class="n">read_bytes</span><span class="p">,</span>
+<span class="w">  </span><span class="k">substring</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">query_snippet</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">system</span><span class="p">.</span><span class="n">query_log</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">event_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">HOUR</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'QueryFinish'</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">query_duration_ms</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="8-referências-externas">8. Referências externas<a class="headerlink" href="#8-referências-externas" title="Permanent link">&para;</a></h2>
+<h3 id="81-fornecedores--dados-primários">8.1 Fornecedores — dados primários<a class="headerlink" href="#81-fornecedores--dados-primários" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Matomo — Performance &amp; Scaling</strong>: <code>https://matomo.org/faq/on-premise/how-to-configure-matomo-for-speed/</code></li>
+<li><strong>Plausible — Performance benchmark</strong>: <code>https://plausible.io/blog/</code></li>
+<li><strong>PostHog — Scaling docs</strong>: <code>https://posthog.com/docs/self-host/deploy/hobby</code></li>
+<li><strong>Umami — Performance notes</strong>: <code>https://umami.is/docs/self-hosting</code></li>
+</ul>
+<h3 id="82-independentes--dados-secundários-declarados-como-tal">8.2 Independentes — dados secundários (declarados como tal)<a class="headerlink" href="#82-independentes--dados-secundários-declarados-como-tal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CNIL (França): guias sobre configuração privacy-preserving de plataformas de analytics.</li>
+<li>OWASP Web Analytics Security Guide.</li>
+<li>Análises independentes publicadas em <code>web.dev</code> sobre impacto de tag de analytics em Core Web Vitals.</li>
+</ul>
+<h3 id="83-precedentes-de-casos-institucionais">8.3 Precedentes de casos institucionais<a class="headerlink" href="#83-precedentes-de-casos-institucionais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Comissão Europeia — Europa Analytics (Matomo): <code>https://webanalytics.ec.europa.eu/</code></li>
+<li>BundIT (Alemanha) — recomendação de plataformas open-source para portais federais.</li>
+<li>DGov França — orientação para uso de Matomo em portais governamentais.</li>
+</ul>
+<p>Fontes completas: <a href="../../docs/12-referencias/"><code>docs/12-referencias.md</code></a>.</p>
+<hr />
+<blockquote>
+<p><strong>✅ Bloco de Decisão — benchmark como insumo, não como fim</strong></p>
+<p>Nenhum número deste anexo justifica isoladamente uma decisão arquitetural. O objetivo do benchmark é <strong>dimensionar corretamente</strong> a plataforma escolhida e <strong>descartar</strong> plataformas com limitações estruturais que impediriam a operação. A escolha da plataforma primária é feita pela matriz ponderada (<a href="../../docs/07-matriz-decisao/"><code>docs/07-matriz-decisao.md</code></a>), sob os critérios definidos em <a href="../../docs/03-criterios-de-avaliacao/"><code>docs/03-criterios-de-avaliacao.md</code></a>.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2877 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/api/">
+      
+      
+        <link rel="prev" href="../lgpd/">
+      
+      
+        <link rel="next" href="../infraestrutura/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>API - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparativo--apis-sdks-e-superfície-de-integração" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dimensões-avaliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dimensões avaliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-matriz-sinóptica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Matriz sinóptica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-autenticação" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Autenticação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rate-limits-e-paginação" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Rate limits e paginação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Versionamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exportação-e-importação" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Exportação e importação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exportação e importação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-exportação-de-dado-bruto-evento-a-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Exportação de dado bruto (evento a evento)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-importação-de-histórico-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Importação de histórico (migração)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-sdks-oficiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. SDKs oficiais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Webhooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-integração-com-bi-corporativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Integração com BI corporativo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Integração com BI corporativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-conectores-nativos-publicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Conectores nativos publicados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-caminhos-preferenciais-para-bi-institucional-do-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Caminhos preferenciais para BI institucional do Estado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exemplo-canônico--mesma-consulta-em-todas-as-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Exemplo canônico — mesma consulta em todas as plataformas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exemplo canônico — mesma consulta em todas as plataformas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Matomo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-plausible-stats-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Plausible (Stats API v2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-umami" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 Umami
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-posthog-hogql" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 PostHog (HogQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-ga4-data-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 GA4 Data API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-cloudflare-graphql" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 Cloudflare (GraphQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107-adobe-analytics-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 Adobe Analytics 2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#108-simple-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.8 Simple Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#109-microsoft-clarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.9 Microsoft Clarity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1010-open-web-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.10 Open Web Analytics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-recomendação" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Recomendação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dimensões-avaliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dimensões avaliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-matriz-sinóptica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Matriz sinóptica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-autenticação" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Autenticação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rate-limits-e-paginação" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Rate limits e paginação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Versionamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exportação-e-importação" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Exportação e importação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exportação e importação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-exportação-de-dado-bruto-evento-a-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Exportação de dado bruto (evento a evento)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-importação-de-histórico-migração" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Importação de histórico (migração)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-sdks-oficiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. SDKs oficiais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Webhooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-integração-com-bi-corporativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Integração com BI corporativo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Integração com BI corporativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-conectores-nativos-publicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Conectores nativos publicados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-caminhos-preferenciais-para-bi-institucional-do-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Caminhos preferenciais para BI institucional do Estado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exemplo-canônico--mesma-consulta-em-todas-as-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Exemplo canônico — mesma consulta em todas as plataformas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exemplo canônico — mesma consulta em todas as plataformas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Matomo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-plausible-stats-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Plausible (Stats API v2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-umami" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 Umami
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-posthog-hogql" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 PostHog (HogQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-ga4-data-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 GA4 Data API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-cloudflare-graphql" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 Cloudflare (GraphQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107-adobe-analytics-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 Adobe Analytics 2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#108-simple-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.8 Simple Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#109-microsoft-clarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.9 Microsoft Clarity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1010-open-web-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.10 Open Web Analytics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-recomendação" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Recomendação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="comparativo--apis-sdks-e-superfície-de-integração">Comparativo — APIs, SDKs e superfície de integração<a class="headerlink" href="#comparativo--apis-sdks-e-superfície-de-integração" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Corte transversal</strong> · Foco: API pública, autenticação, exportação de dados, integração com BI
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-dimensões-avaliadas">1. Dimensões avaliadas</a></li>
+<li><a href="#2-matriz-sinóptica">2. Matriz sinóptica</a></li>
+<li><a href="#3-autenticação">3. Autenticação</a></li>
+<li><a href="#4-rate-limits-e-paginação">4. Rate limits e paginação</a></li>
+<li><a href="#5-versionamento">5. Versionamento</a></li>
+<li><a href="#6-exportação-e-importação">6. Exportação e importação</a></li>
+<li><a href="#7-sdks-oficiais">7. SDKs oficiais</a></li>
+<li><a href="#8-webhooks">8. Webhooks</a></li>
+<li><a href="#9-integração-com-bi-corporativo">9. Integração com BI corporativo</a></li>
+<li><a href="#10-exemplo-canônico--mesma-consulta-em-todas-as-plataformas">10. Exemplo canônico — mesma consulta em todas as plataformas</a></li>
+<li><a href="#11-recomendação">11. Recomendação</a></li>
+</ul>
+<hr />
+<h2 id="1-dimensões-avaliadas">1. Dimensões avaliadas<a class="headerlink" href="#1-dimensões-avaliadas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>O que é avaliado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Superfície de API</td>
+<td>REST, GraphQL, Batch, gRPC</td>
+</tr>
+<tr>
+<td>Autenticação</td>
+<td>Chaves, OAuth, tokens, permissões</td>
+</tr>
+<tr>
+<td>Rate limits</td>
+<td>Cotas declaradas e comportamento sob carga</td>
+</tr>
+<tr>
+<td>Versionamento</td>
+<td>Estabilidade e política de depreciação</td>
+</tr>
+<tr>
+<td>Exportação</td>
+<td>Formatos, granularidade (bruto × agregado), fluxos massivos</td>
+</tr>
+<tr>
+<td>Importação</td>
+<td>Migração de histórico entre plataformas</td>
+</tr>
+<tr>
+<td>SDKs</td>
+<td>Linguagens oficiais suportadas</td>
+</tr>
+<tr>
+<td>Webhooks</td>
+<td>Notificações push de eventos</td>
+</tr>
+<tr>
+<td>BI</td>
+<td>Conectores nativos e caminhos alternativos</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-matriz-sinóptica">2. Matriz sinóptica<a class="headerlink" href="#2-matriz-sinóptica" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">REST</th>
+<th style="text-align: center;">GraphQL</th>
+<th style="text-align: center;">SDKs oficiais</th>
+<th style="text-align: center;">Webhooks</th>
+<th style="text-align: center;">Rate limit padrão</th>
+<th style="text-align: center;">Exportação bruta</th>
+<th style="text-align: center;">Documentação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matomo</strong></td>
+<td style="text-align: center;">🟢 v1</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS, PHP, Java, Python (comunidade)</td>
+<td style="text-align: center;">🟠 Via plugin</td>
+<td style="text-align: center;">Configurável (sem limite hard-coded)</td>
+<td style="text-align: center;">🟢 SQL direto + API</td>
+<td style="text-align: center;">🟢 Extensa</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td style="text-align: center;">🟢 v1 + v2</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS oficial; comunidade nas demais</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">600 req/hora</td>
+<td style="text-align: center;">🟠 Agregado (via CSV/JSON)</td>
+<td style="text-align: center;">🟢 Boa</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟢 v1</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">Não declarado</td>
+<td style="text-align: center;">🟠 Agregado</td>
+<td style="text-align: center;">🟠 Média</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟢 v1</td>
+<td style="text-align: center;">🟠 HogQL (interno)</td>
+<td style="text-align: center;">JS, Python, Node, Ruby, Go, PHP, iOS, Android, Flutter, RN, .NET</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">240 req/min</td>
+<td style="text-align: center;">🟢 Data warehouse sink + HogQL</td>
+<td style="text-align: center;">🟢 Extensa</td>
+</tr>
+<tr>
+<td>Adobe Analytics</td>
+<td style="text-align: center;">🟢 v2</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS, iOS, Android, Web SDK</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">12 req/s por org</td>
+<td style="text-align: center;">🟢 Data Feeds + Data Warehouse</td>
+<td style="text-align: center;">🟢 Extensa</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟢 Data API v1beta</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS (gtag/GTM), Firebase, Measurement Protocol</td>
+<td style="text-align: center;">🟠 Via GTM</td>
+<td style="text-align: center;">25 mil req/dia (property)</td>
+<td style="text-align: center;">🟠 Bruto apenas via BigQuery Export</td>
+<td style="text-align: center;">🟢 Extensa</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">🟢 v1</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS</td>
+<td style="text-align: center;">🟠 Via Zapier</td>
+<td style="text-align: center;">60 req/min</td>
+<td style="text-align: center;">🟠 Agregado</td>
+<td style="text-align: center;">🟠 Média</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">🟠 v1-beta (Data Export)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS (clarity-js)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">Não declarado</td>
+<td style="text-align: center;">🔴 Só agregado, limite de projetos com &gt;1k sessões/dia</td>
+<td style="text-align: center;">🟠 Média</td>
+</tr>
+<tr>
+<td>Cloudflare Web Analytics</td>
+<td style="text-align: center;">🟢 v4 (parte da Cloudflare API)</td>
+<td style="text-align: center;">🟢 Analytics API</td>
+<td style="text-align: center;">Genéricos (via HTTP)</td>
+<td style="text-align: center;">❌ (dessa camada)</td>
+<td style="text-align: center;">1.200 req/5 min</td>
+<td style="text-align: center;">🟠 Só agregado</td>
+<td style="text-align: center;">🟢 Boa</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">🟠 REST parcial</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">JS, PHP</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">Não declarado</td>
+<td style="text-align: center;">🟢 SQL direto</td>
+<td style="text-align: center;">🔴 Escassa</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-autenticação">3. Autenticação<a class="headerlink" href="#3-autenticação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Método principal</th>
+<th style="text-align: center;">RBAC</th>
+<th style="text-align: center;">OAuth/OIDC</th>
+<th style="text-align: center;">SSO SAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td><code>token_auth</code> por usuário</td>
+<td style="text-align: center;">🟢 Papéis + permissões por site</td>
+<td style="text-align: center;">🟢 Via plugin oficial (LoginLdap, LoginOIDC)</td>
+<td style="text-align: center;">🟢 Via plugin comercial (LoginSAML)</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td>API Key (Bearer)</td>
+<td style="text-align: center;">🟠 Básico</td>
+<td style="text-align: center;">🟠 Login social apenas</td>
+<td style="text-align: center;">❌ CE (só Cloud Enterprise)</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td>JWT Bearer</td>
+<td style="text-align: center;">🟠 Básico</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td>Project API key (client) + Personal API key (server)</td>
+<td style="text-align: center;">🟢 EE</td>
+<td style="text-align: center;">🟠 EE</td>
+<td style="text-align: center;">🟢 EE</td>
+</tr>
+<tr>
+<td>Adobe Analytics</td>
+<td>JWT via Adobe IMS</td>
+<td style="text-align: center;">🟢 Enterprise-grade</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td>OAuth 2.0 (contas Google)</td>
+<td style="text-align: center;">🟢 Roles do GA + IAM Google Cloud</td>
+<td style="text-align: center;">🟢 (nativo Google)</td>
+<td style="text-align: center;">🟢 (via Google Workspace)</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td>API Key + User ID</td>
+<td style="text-align: center;">🟠 Básico</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td>Bearer token de projeto</td>
+<td style="text-align: center;">🟠 Básico</td>
+<td style="text-align: center;">🟢 Via Entra ID (Azure AD)</td>
+<td style="text-align: center;">🟢 Via Entra ID</td>
+</tr>
+<tr>
+<td>Cloudflare Web Analytics</td>
+<td>Cloudflare API token com escopos</td>
+<td style="text-align: center;">🟢 Granular</td>
+<td style="text-align: center;">🟢 SSO via Cloudflare Access</td>
+<td style="text-align: center;">🟢 (Access Enterprise)</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td>Sessão baseada em cookies</td>
+<td style="text-align: center;">🔴 Muito limitado</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — SSO federado é requisito para governo</strong>
+A SETDIG opera IdP corporativo. Plataformas sem SSO SAML/OIDC integrado ficam impraticáveis operacionalmente ou dependem de plugin/EE pago.</p>
+</blockquote>
+<hr />
+<h2 id="4-rate-limits-e-paginação">4. Rate limits e paginação<a class="headerlink" href="#4-rate-limits-e-paginação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Limite declarado</th>
+<th>Estratégia de paginação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td>Configurável (padrão sem limite)</td>
+<td><code>filter_limit</code> + <code>filter_offset</code></td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td>600 req/hora por token</td>
+<td><code>page</code> + <code>limit</code></td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td>240 req/min por token</td>
+<td><code>next</code> cursor URL</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td>25 mil req/dia + 10 QPS por property</td>
+<td><code>nextPageToken</code></td>
+</tr>
+<tr>
+<td>Adobe Analytics</td>
+<td>12 req/s por org</td>
+<td>Cursor-based</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td>1.200 req/5 min</td>
+<td><code>page</code> + <code>per_page</code></td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td>60 req/min</td>
+<td><code>offset</code> + <code>limit</code></td>
+</tr>
+<tr>
+<td>Umami</td>
+<td>Não declarado</td>
+<td><code>startAt</code> + <code>endAt</code></td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td>Não declarado</td>
+<td>Sem paginação — resposta única</td>
+</tr>
+<tr>
+<td>OWA</td>
+<td>Não declarado</td>
+<td>Cursor-based</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — GA4 Data API tem cota diária</strong>
+O limite de 25 mil requisições/dia por propriedade é baixo para pipelines diários que rodam sobre múltiplos relatórios. É prática usar BigQuery Export para volume alto — o que introduz custo BigQuery.</p>
+</blockquote>
+<hr />
+<h2 id="5-versionamento">5. Versionamento<a class="headerlink" href="#5-versionamento" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Versão atual</th>
+<th>Política de depreciação declarada</th>
+<th style="text-align: center;">Estabilidade percebida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">v1 (Reporting API)</td>
+<td>Depreciação anunciada com &gt; 12 meses</td>
+<td style="text-align: center;">🟢 Muito estável</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td style="text-align: center;">Stats API v1 + v2 (coexistem)</td>
+<td>v1 mantida por prazo aberto</td>
+<td style="text-align: center;">🟢 Estável</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">v1</td>
+<td>Breaking changes com aviso prévio</td>
+<td style="text-align: center;">🟠 Cadência alta introduz mudanças</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">v2</td>
+<td>Ciclo declarado (v1 depreciada)</td>
+<td style="text-align: center;">🟢 Estável</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">v1beta (Data API)</td>
+<td>Beta pode mudar; comprometimento futuro para v1</td>
+<td style="text-align: center;">🟠 Beta com risco de mudança</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">v4</td>
+<td>Muito estável</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">v1</td>
+<td>Estável</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">v1</td>
+<td>Mudou entre v1 → v2 (2023, breaking)</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td style="text-align: center;">v1-beta</td>
+<td>Beta</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>OWA</td>
+<td style="text-align: center;">Sem política formal</td>
+<td>Projeto estagnado</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-exportação-e-importação">6. Exportação e importação<a class="headerlink" href="#6-exportação-e-importação" title="Permanent link">&para;</a></h2>
+<h3 id="61-exportação-de-dado-bruto-evento-a-evento">6.1 Exportação de dado bruto (evento a evento)<a class="headerlink" href="#61-exportação-de-dado-bruto-evento-a-evento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Bruto exportável?</th>
+<th>Caminho canônico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">🟢</td>
+<td>SQL direto no MariaDB/MySQL + tabela <code>matomo_log_visit</code> / <code>matomo_log_link_visit_action</code></td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟢</td>
+<td>Data warehouse sink (S3, BigQuery, Snowflake, Postgres)</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟢 (só via BigQuery Export)</td>
+<td>Vinculação obrigatória de projeto GCP com BigQuery</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🟢</td>
+<td>Data Feeds (arquivo diário) + Data Warehouse</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td style="text-align: center;">🟠</td>
+<td>Bruto exportável apenas via SQL direto no ClickHouse do próprio deployment</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟠</td>
+<td>Idem — via banco (PostgreSQL/MySQL)</td>
+</tr>
+<tr>
+<td>OWA</td>
+<td style="text-align: center;">🟢</td>
+<td>SQL direto</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">🟠 Agregado</td>
+<td>API — sem exportação evento a evento</td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td style="text-align: center;">🔴</td>
+<td>Não exporta bruto</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">🔴</td>
+<td>Só agregado (via GraphQL Analytics)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-importação-de-histórico-migração">6.2 Importação de histórico (migração)<a class="headerlink" href="#62-importação-de-histórico-migração" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Suporta import de outra plataforma?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">🟠 Via <code>LogAnalytics</code> (importa arquivos de log web); não importa GA/Adobe diretamente</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟢 Batch import via API + sink reverso</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🔴 Universal Analytics não migrou completamente para GA4 — recurso reduzido</td>
+</tr>
+<tr>
+<td>Todas as demais</td>
+<td style="text-align: center;">🔴 Sem caminho canônico</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — migração é sempre custosa</strong>
+Analytics é dado agregado ao longo do tempo. Nenhuma migração preserva 100 % do histórico entre plataformas heterogêneas. Estratégia realista: <strong>operar plataformas em paralelo por 6 meses</strong> durante troca, garantindo continuidade de série histórica.</p>
+</blockquote>
+<hr />
+<h2 id="7-sdks-oficiais">7. SDKs oficiais<a class="headerlink" href="#7-sdks-oficiais" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">JS</th>
+<th style="text-align: center;">Python</th>
+<th style="text-align: center;">Node</th>
+<th style="text-align: center;">Ruby</th>
+<th style="text-align: center;">Go</th>
+<th style="text-align: center;">PHP</th>
+<th style="text-align: center;">iOS</th>
+<th style="text-align: center;">Android</th>
+<th style="text-align: center;">.NET</th>
+<th style="text-align: center;">Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🟢 (Web SDK)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟢 (gtag/GTM)</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢 (Firebase)</td>
+<td style="text-align: center;">🟢 (Firebase)</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">🟠¹</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Cloudflare WA</td>
+<td style="text-align: center;">🟢 (beacon)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<p>¹ <strong>Comunidade</strong> — não oficial. Uso pode ser feito, mas sem garantia de suporte pelo mantenedor.</p>
+<hr />
+<h2 id="8-webhooks">8. Webhooks<a class="headerlink" href="#8-webhooks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Webhook nativo</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟢</td>
+<td>Notificar Slack/Teams em conversão, integrar CRM</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🟢</td>
+<td>Ativação server-side</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟠 Via GTM server-side</td>
+<td>Idem</td>
+</tr>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">🟠 Via plugin <code>WebhookNotifications</code> (comunidade)</td>
+<td>Alertas</td>
+</tr>
+<tr>
+<td>Demais</td>
+<td style="text-align: center;">❌</td>
+<td>Requer ETL customizado ou Zapier</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-integração-com-bi-corporativo">9. Integração com BI corporativo<a class="headerlink" href="#9-integração-com-bi-corporativo" title="Permanent link">&para;</a></h2>
+<h3 id="91-conectores-nativos-publicados">9.1 Conectores nativos publicados<a class="headerlink" href="#91-conectores-nativos-publicados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Power BI</th>
+<th style="text-align: center;">Looker Studio</th>
+<th style="text-align: center;">Grafana</th>
+<th style="text-align: center;">Metabase</th>
+<th style="text-align: center;">Superset</th>
+<th style="text-align: center;">Qlik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matomo</strong></td>
+<td style="text-align: center;">🟢 Conector oficial + acesso direto ao MySQL/MariaDB</td>
+<td style="text-align: center;">🟢 Community Connector + REST</td>
+<td style="text-align: center;">🟢 Via SQL datasource</td>
+<td style="text-align: center;">🟢 Via SQL datasource</td>
+<td style="text-align: center;">🟢 Via SQL datasource</td>
+<td style="text-align: center;">🟢 Via ODBC MySQL</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td style="text-align: center;">🟠 Via API REST</td>
+<td style="text-align: center;">🟠 Community Connector</td>
+<td style="text-align: center;">🟠 Via API + JSON datasource</td>
+<td style="text-align: center;">🟠 Via API/ClickHouse direto</td>
+<td style="text-align: center;">🟠 Via ClickHouse</td>
+<td style="text-align: center;">🟠 Via API</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟠 Via API + PostgreSQL/MySQL direto</td>
+<td style="text-align: center;">🟠 Via community</td>
+<td style="text-align: center;">🟢 Via SQL</td>
+<td style="text-align: center;">🟢 Via SQL</td>
+<td style="text-align: center;">🟢 Via SQL</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟠 Via API + data warehouse sink</td>
+<td style="text-align: center;">🟢 Via BigQuery sink</td>
+<td style="text-align: center;">🟢 Via ClickHouse direto</td>
+<td style="text-align: center;">🟢 Via ClickHouse</td>
+<td style="text-align: center;">🟢 Via ClickHouse</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟠 Via API</td>
+<td style="text-align: center;">🟠 Via API</td>
+<td style="text-align: center;">🟠 Via API</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟢 Nativo (via BigQuery ou API)</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Plugin BigQuery</td>
+<td style="text-align: center;">🟢 Via BigQuery</td>
+<td style="text-align: center;">🟢 Via BigQuery</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">🟠 Via API</td>
+<td style="text-align: center;">🟠 Custom Connector</td>
+<td style="text-align: center;">🟠 Via JSON datasource</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">🔴 Sem conector, API limitada</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">🟠 Via API GraphQL</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢 Via JSON datasource</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">🟠 Via SQL direto</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-caminhos-preferenciais-para-bi-institucional-do-estado">9.2 Caminhos preferenciais para BI institucional do Estado<a class="headerlink" href="#92-caminhos-preferenciais-para-bi-institucional-do-estado" title="Permanent link">&para;</a></h3>
+<p>O ecossistema de BI da SETDIG tem <strong>Power BI como principal</strong> e <strong>Superset / Metabase</strong> como secundários (open-source). O caminho técnico preferencial é:</p>
+<ol>
+<li>Plataforma auto-hospedada → banco relacional/analítico → conector SQL direto do BI.</li>
+<li>Plataforma SaaS → sink de warehouse (BigQuery, Snowflake, S3) → conector nativo do BI ao warehouse.</li>
+</ol>
+<p><strong>Antipadrão:</strong> consumo direto do BI a partir da API REST do produto de analytics (fragilidade contra rate limits e reprocessamento).</p>
+<hr />
+<h2 id="10-exemplo-canônico--mesma-consulta-em-todas-as-plataformas">10. Exemplo canônico — mesma consulta em todas as plataformas<a class="headerlink" href="#10-exemplo-canônico--mesma-consulta-em-todas-as-plataformas" title="Permanent link">&para;</a></h2>
+<p><strong>Pergunta de negócio:</strong> número diário de <em>page views</em> em <code>www.exemplo.gov.br</code> no mês corrente.</p>
+<h3 id="101-matomo">10.1 Matomo<a class="headerlink" href="#101-matomo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">GET /index.php?module=API&amp;method=Actions.getPageUrls</span>
+<span class="err">  &amp;idSite=1&amp;period=day&amp;date=last30</span>
+<span class="err">  &amp;format=JSON&amp;token_auth=&lt;TOKEN&gt;</span>
+</code></pre></div>
+<h3 id="102-plausible-stats-api-v2">10.2 Plausible (Stats API v2)<a class="headerlink" href="#102-plausible-stats-api-v2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">POST /api/v2/query</span>
+<span class="err">Authorization: Bearer &lt;TOKEN&gt;</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "site_id": "exemplo.gov.br",</span>
+<span class="err">  "metrics": ["pageviews"],</span>
+<span class="err">  "date_range": "30d",</span>
+<span class="err">  "dimensions": ["time:day"]</span>
+<span class="err">}</span>
+</code></pre></div>
+<h3 id="103-umami">10.3 Umami<a class="headerlink" href="#103-umami" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">GET /api/websites/{websiteId}/stats?startAt=1719792000000&amp;endAt=1722384000000</span>
+<span class="err">Authorization: Bearer &lt;TOKEN&gt;</span>
+</code></pre></div>
+<h3 id="104-posthog-hogql">10.4 PostHog (HogQL)<a class="headerlink" href="#104-posthog-hogql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">POST</span><span class="w"> </span><span class="err">/api/projec</span><span class="kc">ts</span><span class="err">/</span><span class="p">{</span><span class="err">projec</span><span class="kc">t</span><span class="err">Id</span><span class="p">}</span><span class="err">/query/</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HogQLQuery"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SELECT toDate(timestamp) AS d, count() FROM events WHERE event = '$pageview' AND timestamp &gt;= now() - INTERVAL 30 DAY GROUP BY d ORDER BY d"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="105-ga4-data-api">10.5 GA4 Data API<a class="headerlink" href="#105-ga4-data-api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">POST /v1beta/properties/&lt;PROP_ID&gt;:runReport</span>
+<span class="err">{</span>
+<span class="err">  "dateRanges": [{ "startDate": "30daysAgo", "endDate": "today" }],</span>
+<span class="err">  "metrics": [{ "name": "screenPageViews" }],</span>
+<span class="err">  "dimensions": [{ "name": "date" }]</span>
+<span class="err">}</span>
+</code></pre></div>
+<h3 id="106-cloudflare-graphql">10.6 Cloudflare (GraphQL)<a class="headerlink" href="#106-cloudflare-graphql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">viewer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">zones</span><span class="p">(</span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">zoneTag</span><span class="p">:</span><span class="w"> </span><span class="s">"&lt;ZONE&gt;"</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">httpRequests1dGroups</span><span class="p">(</span><span class="n">limit</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">date_geq</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-07-01"</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">dimensions</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">pageViews</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="107-adobe-analytics-20">10.7 Adobe Analytics 2.0<a class="headerlink" href="#107-adobe-analytics-20" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">POST /api/{rsid}/reports</span>
+<span class="err">{</span>
+<span class="err">  "rsid": "exemplo",</span>
+<span class="err">  "globalFilters": [{ "type": "dateRange", "dateRange": "2026-07-01/2026-07-31" }],</span>
+<span class="err">  "metricContainer": { "metrics": [{ "id": "metrics/pageviews" }] },</span>
+<span class="err">  "dimension": "variables/daterangeday"</span>
+<span class="err">}</span>
+</code></pre></div>
+<h3 id="108-simple-analytics">10.8 Simple Analytics<a class="headerlink" href="#108-simple-analytics" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">GET /v1/statistics?version=5&amp;hostname=exemplo.gov.br&amp;start=2026-07-01&amp;end=2026-07-31&amp;fields=histogram</span>
+<span class="err">X-Api-Key: &lt;TOKEN&gt;</span>
+<span class="err">User-Id: &lt;UID&gt;</span>
+</code></pre></div>
+<h3 id="109-microsoft-clarity">10.9 Microsoft Clarity<a class="headerlink" href="#109-microsoft-clarity" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">GET /export-data/api/v1-beta/project-live-insights?numOfDays=30</span>
+<span class="err">Authorization: Bearer &lt;TOKEN&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>Retorna insights agregados de 3 dias por chamada; para 30 dias, iterar 10 chamadas. Sem consulta paramétrica por data.</p>
+</blockquote>
+<h3 id="1010-open-web-analytics">10.10 Open Web Analytics<a class="headerlink" href="#1010-open-web-analytics" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">GET /owa/api.php?owa_do=owa.getResultSet</span>
+<span class="err">  &amp;owa_metrics=pageViews&amp;owa_dimensions=day</span>
+<span class="err">  &amp;owa_startDate=20260701&amp;owa_endDate=20260731</span>
+<span class="err">  &amp;owa_apiKey=&lt;KEY&gt;</span>
+</code></pre></div>
+<hr />
+<h2 id="11-recomendação">11. Recomendação<a class="headerlink" href="#11-recomendação" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Bloco de Decisão — perfil ideal de API para o Estado</strong></p>
+<p>Priorizar plataformas com:</p>
+<ol>
+<li><strong>Acesso direto ao dado bruto</strong> (SQL no banco ou sink para warehouse).</li>
+<li><strong>Versionamento estável</strong> com política formal de depreciação.</li>
+<li><strong>SDKs oficiais</strong> em Python e Node.js (linguagens do parque técnico da SETDIG).</li>
+<li><strong>Autenticação</strong> compatível com IdP corporativo (SSO SAML/OIDC).</li>
+<li><strong>Documentação em português ou inglês estável</strong> e exemplos executáveis.</li>
+</ol>
+<p>Plataformas que <strong>cumprem</strong> os cinco critérios: <strong>Matomo</strong> (com plugin LoginOIDC), <strong>PostHog</strong> (EE), <strong>Adobe</strong> (enterprise), <strong>GA4</strong> (com Google Workspace).</p>
+<p><strong>Matomo</strong> oferece o <strong>melhor equilíbrio</strong> entre superfície de API razoável, acesso direto ao banco, custo zero de licenciamento da API e maturidade da documentação — resposta consistente com a recomendação primária do ADR-001.</p>
+</blockquote>
+<p>Detalhamento por plataforma: <a href="../plataformas/"><code>plataformas/</code></a>.
+Trade-offs: <a href="../../docs/06-tradeoffs/"><code>docs/06-tradeoffs.md</code></a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

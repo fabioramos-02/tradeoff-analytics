@@ -1,0 +1,3497 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/08-adr/">
+      
+      
+        <link rel="prev" href="../07-matriz-decisao/">
+      
+      
+        <link rel="next" href="../09-recomendacao/">
+      
+      
+      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>ADR - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#08--adr-001-plataforma-de-web-analytics-do-governo-do-estado-de-ms" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ADR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciclo-de-vida-deste-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclo de vida deste ADR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-direcionadores-da-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Direcionadores da decisão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Direcionadores da decisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-restrições-rígidas-não-ponderáveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Restrições rígidas (não ponderáveis)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alternativas-consideradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Alternativas consideradas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Alternativas consideradas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-alternativas-de-primeira-ordem" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Alternativas de primeira ordem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-motivo-de-descarte-de-cada-alternativa-não-selecionada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Motivo de descarte de cada alternativa não selecionada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-alternativa-não-fazer-nada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Alternativa "não fazer nada"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trade-offs-da-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Trade-offs da decisão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Decisão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Decisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-arquitetura-alvo-resumida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Arquitetura-alvo resumida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Justificativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Justificativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#j1--resultado-quantitativo-da-avaliação-multicritério" class="md-nav__link">
+    <span class="md-ellipsis">
+      J1 — Resultado quantitativo da avaliação multicritério
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j2--robustez-à-variação-de-pesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      J2 — Robustez à variação de pesos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j3--soberania-verificável-não-declarada" class="md-nav__link">
+    <span class="md-ellipsis">
+      J3 — Soberania verificável, não declarada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      J4 — Base legal com precedente de autoridade de proteção de dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j5--precedente-institucional-em-administração-pública" class="md-nav__link">
+    <span class="md-ellipsis">
+      J5 — Precedente institucional em administração pública
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      J6 — Única cobertura funcional adequada entre as opções soberanas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j7--economicidade-demonstrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      J7 — Economicidade demonstrada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j8--ausência-de-deficiência-crítica-não-mitigável" class="md-nav__link">
+    <span class="md-ellipsis">
+      J8 — Ausência de deficiência crítica não mitigável
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j9--continuidade-garantida-por-licença" class="md-nav__link">
+    <span class="md-ellipsis">
+      J9 — Continuidade garantida por licença
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j10--aderência-aos-princípios-legais-aplicáveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      J10 — Aderência aos princípios legais aplicáveis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consequências" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Consequências
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consequências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-consequências-positivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Consequências positivas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-consequências-negativas-assumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Consequências negativas assumidas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-consequências-neutras" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Consequências neutras
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-riscos-assumidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Riscos assumidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-condições-de-invalidação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Condições de invalidação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-plano-de-revisão-futura" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Plano de revisão futura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Plano de revisão futura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-revisão-ordinária" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Revisão ordinária
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-gatilhos-de-revisão-antecipada" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Gatilhos de revisão antecipada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-indicadores-de-acompanhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Indicadores de acompanhamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-registro-de-aprovação" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Registro de aprovação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Registro de aprovação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-registro-de-ressalvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Registro de ressalvas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-histórico-de-versões-do-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.2 Histórico de versões do ADR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciclo-de-vida-deste-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclo de vida deste ADR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-direcionadores-da-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Direcionadores da decisão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Direcionadores da decisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-restrições-rígidas-não-ponderáveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Restrições rígidas (não ponderáveis)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alternativas-consideradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Alternativas consideradas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Alternativas consideradas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-alternativas-de-primeira-ordem" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Alternativas de primeira ordem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-motivo-de-descarte-de-cada-alternativa-não-selecionada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Motivo de descarte de cada alternativa não selecionada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-alternativa-não-fazer-nada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Alternativa "não fazer nada"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trade-offs-da-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Trade-offs da decisão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Decisão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Decisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-arquitetura-alvo-resumida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Arquitetura-alvo resumida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Justificativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Justificativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#j1--resultado-quantitativo-da-avaliação-multicritério" class="md-nav__link">
+    <span class="md-ellipsis">
+      J1 — Resultado quantitativo da avaliação multicritério
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j2--robustez-à-variação-de-pesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      J2 — Robustez à variação de pesos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j3--soberania-verificável-não-declarada" class="md-nav__link">
+    <span class="md-ellipsis">
+      J3 — Soberania verificável, não declarada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      J4 — Base legal com precedente de autoridade de proteção de dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j5--precedente-institucional-em-administração-pública" class="md-nav__link">
+    <span class="md-ellipsis">
+      J5 — Precedente institucional em administração pública
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      J6 — Única cobertura funcional adequada entre as opções soberanas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j7--economicidade-demonstrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      J7 — Economicidade demonstrada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j8--ausência-de-deficiência-crítica-não-mitigável" class="md-nav__link">
+    <span class="md-ellipsis">
+      J8 — Ausência de deficiência crítica não mitigável
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j9--continuidade-garantida-por-licença" class="md-nav__link">
+    <span class="md-ellipsis">
+      J9 — Continuidade garantida por licença
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j10--aderência-aos-princípios-legais-aplicáveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      J10 — Aderência aos princípios legais aplicáveis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consequências" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Consequências
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consequências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-consequências-positivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Consequências positivas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-consequências-negativas-assumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Consequências negativas assumidas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-consequências-neutras" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Consequências neutras
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-riscos-assumidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Riscos assumidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-condições-de-invalidação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Condições de invalidação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-plano-de-revisão-futura" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Plano de revisão futura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Plano de revisão futura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-revisão-ordinária" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Revisão ordinária
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-gatilhos-de-revisão-antecipada" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Gatilhos de revisão antecipada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-indicadores-de-acompanhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Indicadores de acompanhamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-registro-de-aprovação" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Registro de aprovação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Registro de aprovação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-registro-de-ressalvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Registro de ressalvas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-histórico-de-versões-do-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.2 Histórico de versões do ADR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="08--adr-001-plataforma-de-web-analytics-do-governo-do-estado-de-ms">08 — ADR-001: Plataforma de Web Analytics do Governo do Estado de MS<a class="headerlink" href="#08--adr-001-plataforma-de-web-analytics-do-governo-do-estado-de-ms" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Formato:</strong> Michael Nygard / MADR 4.0
+<strong>Anterior:</strong> <a href="../07-matriz-decisao/">07 — Matriz de decisão</a> · <strong>Próximo:</strong> <a href="../09-recomendacao/">09 — Recomendação</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#metadados">Metadados</a></li>
+<li><a href="#1-contexto">1. Contexto</a></li>
+<li><a href="#2-problema">2. Problema</a></li>
+<li><a href="#3-direcionadores-da-decisão">3. Direcionadores da decisão</a></li>
+<li><a href="#4-alternativas-consideradas">4. Alternativas consideradas</a></li>
+<li><a href="#5-trade-offs-da-decisão">5. Trade-offs da decisão</a></li>
+<li><a href="#6-decisão">6. Decisão</a></li>
+<li><a href="#7-justificativa">7. Justificativa</a></li>
+<li><a href="#8-consequências">8. Consequências</a></li>
+<li><a href="#9-riscos-assumidos">9. Riscos assumidos</a></li>
+<li><a href="#10-condições-de-invalidação">10. Condições de invalidação</a></li>
+<li><a href="#11-plano-de-revisão-futura">11. Plano de revisão futura</a></li>
+<li><a href="#12-registro-de-aprovação">12. Registro de aprovação</a></li>
+</ul>
+<hr />
+<h2 id="metadados">Metadados<a class="headerlink" href="#metadados" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identificador</strong></td>
+<td>ADR-001</td>
+</tr>
+<tr>
+<td><strong>Título</strong></td>
+<td>Plataforma padrão de Web Analytics para portais e serviços digitais do Governo do Estado de MS</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>🟡 <strong>Proposto</strong></td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td>2026-07-29</td>
+</tr>
+<tr>
+<td><strong>Autor</strong></td>
+<td>Arquitetura de Soluções — SETDIG</td>
+</tr>
+<tr>
+<td><strong>Decisores</strong></td>
+<td>Secretário Executivo SETDIG · Superintendente SGD · Superintendente STI · Encarregado de Dados · Segurança da Informação</td>
+</tr>
+<tr>
+<td><strong>Consultados</strong></td>
+<td>Comunicação Social · Órgãos setoriais · Equipe de BI</td>
+</tr>
+<tr>
+<td><strong>Informados</strong></td>
+<td>Órgãos da Administração Direta e Indireta estadual</td>
+</tr>
+<tr>
+<td><strong>Substitui</strong></td>
+<td>Nenhum (primeira formalização)</td>
+</tr>
+<tr>
+<td><strong>Substituído por</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Escopo de aplicação</strong></td>
+<td>Portais institucionais, serviços digitais e aplicações web do Poder Executivo estadual</td>
+</tr>
+<tr>
+<td><strong>Prazo de revisão</strong></td>
+<td>24 meses (julho/2028), ou antecipado por gatilho da seção 11</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ciclo-de-vida-deste-adr">Ciclo de vida deste ADR<a class="headerlink" href="#ciclo-de-vida-deste-adr" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>stateDiagram-v2
+    direction LR
+    [*] --&gt; Proposto: Emissão (2026-07-29)
+    Proposto --&gt; Aceito: Homologação do Comitê
+    Proposto --&gt; Rejeitado: Não homologado
+    Aceito --&gt; Depreciado: ADR-002 o substitui
+    Aceito --&gt; Aceito: Revisão bienal confirma
+    Rejeitado --&gt; [*]
+    Depreciado --&gt; [*]</code></pre>
+<hr />
+<h2 id="1-contexto">1. Contexto<a class="headerlink" href="#1-contexto" title="Permanent link">&para;</a></h2>
+<p>O Governo do Estado de Mato Grosso do Sul opera o <strong>Matomo</strong> como plataforma de Web Analytics dos portais institucionais e serviços digitais estaduais. Essa adoção ocorreu sem processo formal de Arquitetura de Soluções: não existem benchmark documentado, análise comparativa estruturada, ADR registrado nem estudo de trade-offs.</p>
+<p>O contexto completo está em <a href="../01-contexto/"><code>01-contexto.md</code></a>. Elementos essenciais:</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plataforma em produção</td>
+<td>Matomo, modalidade On-Premise</td>
+</tr>
+<tr>
+<td>Volume estimado (cenário de referência)</td>
+<td>~12 M page views/mês, ~80 propriedades, ~1,5 M visitantes únicos/mês</td>
+</tr>
+<tr>
+<td>Perfil de carga</td>
+<td>Fortemente <em>bursty</em> — picos de 10× a 50× em eventos institucionais</td>
+</tr>
+<tr>
+<td>Lacunas técnicas identificadas</td>
+<td>7 lacunas (L1 a L7): ingestão síncrona, retenção não formalizada, ausência de HA, ausência de DR testado, ausência de camada de BI, ausência de federação de identidade, ausência de padrão de anonimização</td>
+</tr>
+<tr>
+<td>Restrição orçamentária e de pessoal</td>
+<td>Sem previsão de ampliação do quadro da STI (restrição R5)</td>
+</tr>
+<tr>
+<td>Marco legal aplicável</td>
+<td>LGPD (Lei 13.709/2018), Lei do Governo Digital (14.129/2021), Lei de Licitações (14.133/2021), Lei 6.035/2022 (MS)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-problema">2. Problema<a class="headerlink" href="#2-problema" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>🚨 Declaração do problema</strong></p>
+<p><strong>Não existe decisão arquitetural formalizada, fundamentada e auditável</strong> sobre qual plataforma de Web Analytics deve ser o padrão do Governo do Estado de Mato Grosso do Sul, nem arquitetura de referência que assegure conformidade com a LGPD, soberania sobre os dados e integração com a plataforma de BI do Estado.</p>
+</blockquote>
+<p>Consequências do problema não resolvido:</p>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Consequência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Controle externo</strong></td>
+<td>A escolha não é defensável perante TCE-MS ou CGE — não há demonstração de economicidade nem de aderência técnica</td>
+</tr>
+<tr>
+<td><strong>Regulatória</strong></td>
+<td>Ausência de base legal documentada, de política de retenção formalizada e de registro de operações de tratamento (art. 37 da LGPD)</td>
+</tr>
+<tr>
+<td><strong>Operacional</strong></td>
+<td>Ausência de arquitetura de referência gera implantações divergentes entre órgãos, com níveis de conformidade heterogêneos</td>
+</tr>
+<tr>
+<td><strong>Estratégica</strong></td>
+<td>Impossibilidade de planejar evolução, orçamento plurianual ou eventual migração</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-direcionadores-da-decisão">3. Direcionadores da decisão<a class="headerlink" href="#3-direcionadores-da-decisão" title="Permanent link">&para;</a></h2>
+<p>Derivados de <a href="../01-contexto/#10-direcionadores-arquiteturais"><code>01-contexto.md</code>, seção 10</a> e ponderados em <a href="../03-criterios-de-avaliacao/"><code>03-criterios-de-avaliacao.md</code></a>.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Direcionador</th>
+<th style="text-align: center;">Criticidade</th>
+<th style="text-align: right;">Peso na matriz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Soberania de dados</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Conformidade LGPD</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>Economicidade (TCO 5 anos)</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>Independência tecnológica</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>Capacidade analítica</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>Integração com BI</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">20 (APIs + Integrações)</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>Elasticidade sob pico</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Segurança (transversal)</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>Sustentabilidade operacional</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Sustentabilidade do produto</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">10 (Comunidade + Documentação)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-restrições-rígidas-não-ponderáveis">3.1 Restrições rígidas (não ponderáveis)<a class="headerlink" href="#31-restrições-rígidas-não-ponderáveis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Restrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Dado pessoal de cidadão tratado por órgão público estadual sujeita-se à LGPD</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Transferência internacional exige base legal do art. 33 da LGPD, documentada</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Contratação de solução paga exige processo licitatório ou hipótese de dispensa/inexigibilidade</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Não há previsão de ampliação do quadro da STI</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Veto absoluto do Encarregado de Dados e da Segurança da Informação sobre plataformas não conformes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-alternativas-consideradas">4. Alternativas consideradas<a class="headerlink" href="#4-alternativas-consideradas" title="Permanent link">&para;</a></h2>
+<p>Foram avaliadas <strong>13 alternativas</strong> (10 plataformas obrigatórias + 3 modalidades/plataformas adicionais). Análise completa em <a href="../05-comparativo-detalhado/"><code>05-comparativo-detalhado.md</code></a>, <a href="../06-tradeoffs/"><code>06-tradeoffs.md</code></a> e <a href="../07-matriz-decisao/"><code>07-matriz-decisao.md</code></a>.</p>
+<h3 id="41-alternativas-de-primeira-ordem">4.1 Alternativas de primeira ordem<a class="headerlink" href="#41-alternativas-de-primeira-ordem" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Alternativa</th>
+<th style="text-align: right;">Pontuação</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A1</strong></td>
+<td><strong>Matomo On-Premise</strong></td>
+<td style="text-align: right;"><strong>520/600 (86,7 %)</strong></td>
+<td>✅ <strong>Selecionada</strong></td>
+</tr>
+<tr>
+<td><strong>A2</strong></td>
+<td>Plausible Community Edition</td>
+<td style="text-align: right;">485/600 (80,8 %)</td>
+<td>🟡 Selecionada como complemento</td>
+</tr>
+<tr>
+<td><strong>A3</strong></td>
+<td>Piwik PRO (Private Cloud / On-Premises)</td>
+<td style="text-align: right;">465/600 (77,5 %)</td>
+<td>🟡 Contingência formal</td>
+</tr>
+<tr>
+<td><strong>A4</strong></td>
+<td>Matomo Cloud</td>
+<td style="text-align: right;">465/600 (77,5 %)</td>
+<td>🟡 Contingência formal</td>
+</tr>
+<tr>
+<td><strong>A5</strong></td>
+<td>PostHog auto-hospedado</td>
+<td style="text-align: right;">455/600 (75,8 %)</td>
+<td>❌ Não selecionada</td>
+</tr>
+<tr>
+<td><strong>A6</strong></td>
+<td>Umami</td>
+<td style="text-align: right;">445/600 (74,2 %)</td>
+<td>❌ Não selecionada</td>
+</tr>
+<tr>
+<td><strong>A7</strong></td>
+<td>PostHog Cloud EU</td>
+<td style="text-align: right;">425/600 (70,8 %)</td>
+<td>❌ Não selecionada</td>
+</tr>
+<tr>
+<td><strong>A8</strong></td>
+<td>Google Analytics 4</td>
+<td style="text-align: right;">410/600 (68,3 %)</td>
+<td>❌ Não selecionada</td>
+</tr>
+<tr>
+<td><strong>A9</strong></td>
+<td>Adobe Analytics</td>
+<td style="text-align: right;">405/600 (67,5 %)</td>
+<td>❌ Não selecionada</td>
+</tr>
+<tr>
+<td><strong>A10</strong></td>
+<td>Microsoft Clarity</td>
+<td style="text-align: right;">355/600 (59,2 %)</td>
+<td>⚠️ Complemento condicionado</td>
+</tr>
+<tr>
+<td><strong>A11</strong></td>
+<td>Simple Analytics</td>
+<td style="text-align: right;">355/600 (59,2 %)</td>
+<td>❌ Não selecionada</td>
+</tr>
+<tr>
+<td><strong>A12</strong></td>
+<td>Cloudflare Web Analytics</td>
+<td style="text-align: right;">345/600 (57,5 %)</td>
+<td>⚠️ Complemento opcional</td>
+</tr>
+<tr>
+<td><strong>A13</strong></td>
+<td>Open Web Analytics</td>
+<td style="text-align: right;">330/600 (55,0 %)</td>
+<td>❌ <strong>Eliminada por segurança</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-motivo-de-descarte-de-cada-alternativa-não-selecionada">4.2 Motivo de descarte de cada alternativa não selecionada<a class="headerlink" href="#42-motivo-de-descarte-de-cada-alternativa-não-selecionada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Alternativa</th>
+<th>Motivo objetivo do descarte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A5 — Umami</strong></td>
+<td>Falha no requisito <strong>RF-27</strong> (funil de conversão), que é <em>Must have</em>, e no <strong>RN-02</strong> (análise de gargalos em jornadas de serviço). Cobertura funcional de nota 2. Melhor TCO do estudo, insuficiente para compensar</td>
+</tr>
+<tr>
+<td><strong>A6 — PostHog auto-hospedado</strong></td>
+<td>Operação de 6 componentes de infraestrutura distribuída <strong>sem suporte do fornecedor</strong> (descontinuado em 2023) é incompatível com a restrição <strong>R5</strong>. Nota 1 em C10 (Operação). TCO 2,5× superior ao selecionado</td>
+</tr>
+<tr>
+<td><strong>A7 — PostHog Cloud EU</strong></td>
+<td><strong>Dominado</strong> pelo Matomo Cloud na análise de Pareto (superior em C01, C02, C03 e C04; inferior em nenhum). Custo por evento gera exposição orçamentária severa sob picos de 30×</td>
+</tr>
+<tr>
+<td><strong>A8 — Google Analytics 4</strong></td>
+<td>Nota 1 em C02 (Controle) e 2 em C01 (LGPD). Transferência internacional para jurisdição sem decisão de adequação da ANPD; uso questionado por quatro autoridades europeias sob norma análoga; retenção máxima de 14 meses definida unilateralmente; <strong>precedente concretizado de descontinuidade de versão com perda de histórico</strong> (Universal Analytics, 2023)</td>
+</tr>
+<tr>
+<td><strong>A9 — Adobe Analytics</strong></td>
+<td>TCO estimado entre R$ 4,5 M e R$ 7 M em 5 anos — 19× a 30× superior ao selecionado em regime marginal (~R$ 235 k), para atender ao mesmo conjunto de requisitos prioritários. Desproporção incompatível com o princípio da economicidade (art. 5º da Lei 14.133/2021). Lock-in máximo do estudo</td>
+</tr>
+<tr>
+<td><strong>A11 — Simple Analytics</strong></td>
+<td><strong>Dominado</strong> pelo Plausible CE em 8 critérios. Não agrega capacidade sobre a alternativa complementar já selecionada, com custo recorrente adicional</td>
+</tr>
+<tr>
+<td><strong>A13 — Open Web Analytics</strong></td>
+<td><strong>Eliminado na triagem (critério E6)</strong>: CVE-2022-24637 (execução remota de código) e cadência de correções incompatível com o cenário QA-05. <strong>Dominado estritamente</strong> pelo Matomo On-Premise — superior em 9 critérios, inferior em nenhum</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-alternativa-não-fazer-nada">4.3 Alternativa "não fazer nada"<a class="headerlink" href="#43-alternativa-não-fazer-nada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Descrição</strong></td>
+<td>Manter o Matomo em operação sem formalizar decisão nem executar plano de adequação arquitetural</td>
+</tr>
+<tr>
+<td><strong>Custo aparente</strong></td>
+<td>Zero</td>
+</tr>
+<tr>
+<td><strong>Custo real</strong></td>
+<td>Persistência das 7 lacunas técnicas (L1–L7); exposição regulatória continuada; indefensabilidade perante controle externo; risco de perda de eventos em pico (lacuna L1)</td>
+</tr>
+<tr>
+<td><strong>Veredito</strong></td>
+<td>❌ <strong>Rejeitada.</strong> Não endereça o problema declarado na seção 2. A ausência de formalização é precisamente o problema, não uma alternativa a ele</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-trade-offs-da-decisão">5. Trade-offs da decisão<a class="headerlink" href="#5-trade-offs-da-decisão" title="Permanent link">&para;</a></h2>
+<p>A decisão selecionada implica trocas explícitas. Registrá-las é requisito do método ATAM e condição de honestidade arquitetural.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>O que se ganha</th>
+<th>O que se abre mão</th>
+<th>Justificativa da troca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong></td>
+<td>Soberania integral sobre o dado bruto</td>
+<td>Esforço operacional de ~0,3 FTE permanente</td>
+<td>As competências exigidas (Linux, MySQL, PHP, cron, observabilidade) são <strong>genéricas de infraestrutura</strong>, já presentes ou desenvolvíveis na STI — não são conhecimento específico de produto</td>
+</tr>
+<tr>
+<td><strong>T2</strong></td>
+<td>Base legal simplificada (dispensa de consentimento)</td>
+<td>Precisão na identificação de visitante recorrente</td>
+<td>Métrica de recorrência tem baixo valor decisório para portal público; a simplificação da base legal tem alto valor de mitigação de risco</td>
+</tr>
+<tr>
+<td><strong>T3</strong></td>
+<td>Independência de fornecedor (GPL v3)</td>
+<td>SLA contratual de disponibilidade</td>
+<td>Disponibilidade de plataforma de analytics é requisito de 99,5 %, não de missão crítica; a indisponibilidade não degrada os portais (requisito RNF-14)</td>
+</tr>
+<tr>
+<td><strong>T4</strong></td>
+<td>Ausência de custo de licença por volume</td>
+<td>Ausência de suporte incluído</td>
+<td>Suporte comercial pode ser contratado separadamente se necessário, sem alterar a arquitetura</td>
+</tr>
+<tr>
+<td><strong>T5</strong></td>
+<td>Ausência de amostragem estatística</td>
+<td>Desempenho analítico inferior ao de bancos colunares</td>
+<td>No volume avaliado (12 M page views/mês) a diferença não é material; o dado exato tem valor específico para prestação de contas</td>
+</tr>
+<tr>
+<td><strong>T6</strong></td>
+<td>Cobertura funcional ampla</td>
+<td>Custo de plugins premium (~R$ 12 k/ano)</td>
+<td>Alternativa sem esses recursos (Plausible, Umami) falharia em requisitos <em>Must have</em></td>
+</tr>
+<tr>
+<td><strong>T7</strong></td>
+<td>Auditoria verificável (código + banco + rede)</td>
+<td>Ausência de certificação ISO 27001 do produto</td>
+<td>Certificação de terceiro é substituível por controles próprios; auditoria verificável não é substituível por certificação documental</td>
+</tr>
+<tr>
+<td><strong>T8</strong></td>
+<td>Custo previsível e insensível a pico</td>
+<td>Necessidade de dimensionar infraestrutura para o pico</td>
+<td>Mitigado por desacoplamento com fila, que permite dimensionar o banco para a vazão média</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — Trade-off não resolvido</strong>
+O <strong>TP-06</strong> (banco relacional × colunar) permanece como limitação estrutural aceita. O Matomo continuará inferior a arquiteturas ClickHouse em consulta analítica ad-hoc sobre grande volume. A decisão assume esse custo por avaliar que, no volume atual e projetado, ele não é material — e estabelece <strong>gatilho de reavaliação em crescimento de 5×</strong> (seção 11).</p>
+</blockquote>
+<hr />
+<h2 id="6-decisão">6. Decisão<a class="headerlink" href="#6-decisão" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ DECISÃO ADR-001</strong></p>
+<p><strong>6.1 — Plataforma padrão</strong>
+Adotar o <strong>Matomo, na modalidade On-Premise (auto-hospedada em infraestrutura do Estado)</strong>, como plataforma padrão de Web Analytics do Governo do Estado de Mato Grosso do Sul, para portais institucionais, serviços digitais e aplicações web do Poder Executivo estadual.</p>
+<p><strong>6.2 — Condicionante de adequação arquitetural</strong>
+A decisão é <strong>condicionada à execução do plano de adequação</strong> definido em <a href="../10-roadmap/"><code>10-roadmap.md</code></a>, que endereça as sete lacunas técnicas identificadas (L1–L7). A manutenção da plataforma sem execução desse plano <strong>não é a decisão tomada</strong> — é a continuidade do problema.</p>
+<p><strong>6.3 — Plataforma complementar aprovada</strong>
+Aprovar o <strong>Plausible Community Edition</strong> como camada leve e opcional para portais de conteúdo de alto volume e baixa criticidade analítica, quando o requisito for exclusivamente métrica agregada com custo operacional mínimo. Uso facultativo, mediante justificativa do órgão demandante.</p>
+<p><strong>6.4 — Complementos condicionados</strong>
+- <strong>Microsoft Clarity</strong>: uso admitido <strong>exclusivamente</strong> em portais institucionais e de conteúdo, <strong>vedado</strong> em serviços transacionais que tratem dado pessoal, mediante RIPD específico, mascaramento agressivo por padrão e prazo definido de substituição pelo plugin <em>Heatmaps &amp; Session Recording</em> do Matomo.
+- <strong>Cloudflare Web Analytics</strong>: uso facultativo como métrica de borda complementar em domínios já servidos pela CDN, sem custo adicional e sem substituir a plataforma padrão.</p>
+<p><strong>6.5 — Plataformas vedadas como padrão</strong>
+- <strong>Google Analytics 4</strong>: vedado como plataforma padrão em portais e serviços do Estado, em razão da transferência internacional para jurisdição sem decisão de adequação da ANPD e do controle nulo sobre os dados. Uso residual em propriedades específicas requer autorização expressa do Encarregado de Dados, com RIPD e CMP.
+- <strong>Open Web Analytics</strong>: vedado integralmente, por falha em critério eliminatório de segurança.</p>
+<p><strong>6.6 — Alternativas de contingência formalmente registradas</strong>
+Caso o <em>gate</em> de validação da premissa <strong>P2</strong> (capacidade técnica interna sustentável), previsto na Onda 1 do roadmap, resulte negativo, ficam formalmente registradas como alternativas, nesta ordem de preferência:
+1. <strong>Matomo Cloud</strong> (preserva o produto, a cobertura funcional e o caminho de retorno ao On-Premise);
+2. <strong>Piwik PRO Private Cloud</strong> (preserva a conformidade forte, com dependência contratual).</p>
+<p>A ativação de qualquer contingência exige <strong>novo ADR (ADR-002)</strong>, não bastando decisão operacional.</p>
+</blockquote>
+<h3 id="61-arquitetura-alvo-resumida">6.1 Arquitetura-alvo resumida<a class="headerlink" href="#61-arquitetura-alvo-resumida" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph EXT["🌐 Externo"]
+        CID["👤 Cidadão"]
+    end
+
+    subgraph BORDA["Camada de Borda"]
+        WAF["WAF / Reverse Proxy&lt;br/&gt;TLS 1.3"]
+    end
+
+    subgraph APP["Camada de Aplicação — Infraestrutura do Estado"]
+        direction LR
+        T1["Matomo&lt;br/&gt;Tracking node 1"]
+        T2["Matomo&lt;br/&gt;Tracking node 2"]
+        UI["Matomo&lt;br/&gt;Interface de relatórios"]
+        ARC["Matomo&lt;br/&gt;Host de arquivamento&lt;br/&gt;(cron dedicado)"]
+    end
+
+    subgraph DADOS["Camada de Dados"]
+        REDIS[("Redis&lt;br/&gt;QueuedTracking")]
+        DBP[("MySQL/MariaDB&lt;br/&gt;Primário")]
+        DBR[("MySQL/MariaDB&lt;br/&gt;Réplica de leitura")]
+    end
+
+    subgraph CONSUMO["Camada de Consumo"]
+        BI["BI corporativo&lt;br/&gt;Superset / Power BI"]
+        API["Reporting API&lt;br/&gt;consumidores externos"]
+    end
+
+    CID --&gt; WAF
+    WAF --&gt; T1 &amp; T2
+    WAF --&gt; UI
+    T1 &amp; T2 --&gt; REDIS
+    REDIS --&gt; ARC
+    ARC --&gt; DBP
+    UI --&gt; DBP
+    DBP -.-&gt;|"replicação"| DBR
+    DBR --&gt; BI
+    UI --&gt; API
+
+    style REDIS fill:#fff3cd,stroke:#f59e0b
+    style DBP fill:#d1ecf1,stroke:#0ea5e9
+    style DBR fill:#d1ecf1,stroke:#0ea5e9
+    style ARC fill:#e0e7ff,stroke:#6366f1</code></pre>
+<p>Detalhamento da arquitetura-alvo: <a href="../09-recomendacao/"><code>09-recomendacao.md</code></a>.</p>
+<hr />
+<h2 id="7-justificativa">7. Justificativa<a class="headerlink" href="#7-justificativa" title="Permanent link">&para;</a></h2>
+<p>A justificativa é integralmente derivada de evidência documentada neste repositório. Nenhuma afirmação abaixo é opinativa.</p>
+<h3 id="j1--resultado-quantitativo-da-avaliação-multicritério">J1 — Resultado quantitativo da avaliação multicritério<a class="headerlink" href="#j1--resultado-quantitativo-da-avaliação-multicritério" title="Permanent link">&para;</a></h3>
+<p>O Matomo On-Premise obteve <strong>520 de 600 pontos (86,7 %)</strong> na faixa "Recomendada" (≥ 80 %), com vantagem de 35 pontos sobre o 2º colocado (Plausible CE, 485/600 = 80,8 %, também na faixa "Recomendada") e 110 pontos sobre o GA4.</p>
+<p><strong>Evidência:</strong> <a href="../07-matriz-decisao/#2-matriz-consolidada"><code>07-matriz-decisao.md</code>, seções 2 e 3</a>.</p>
+<h3 id="j2--robustez-à-variação-de-pesos">J2 — Robustez à variação de pesos<a class="headerlink" href="#j2--robustez-à-variação-de-pesos" title="Permanent link">&para;</a></h3>
+<p>Sob regime de custo marginal SETDIG (fundamento em P1/P2/R4), lidera exclusivamente em 3 cenários + empate técnico em 1 cenário = <strong>4 de 5 cenários</strong> — critério formal de robustez <strong>atingido</strong>. Único cenário sem liderança ("Operação enxuta") é vencido pelo próprio Matomo em outra modalidade (Cloud).</p>
+<p><strong>Evidência:</strong> <a href="../07-matriz-decisao/#5-análise-de-sensibilidade"><code>07-matriz-decisao.md</code>, seção 5</a>.</p>
+<h3 id="j3--soberania-verificável-não-declarada">J3 — Soberania verificável, não declarada<a class="headerlink" href="#j3--soberania-verificável-não-declarada" title="Permanent link">&para;</a></h3>
+<p>É a única categoria de solução em que o Estado pode <strong>provar</strong> — e não apenas declarar — o que ocorre com os dados: o código é inspecionável (GPL v3), o banco é consultável por SQL, o tráfego de rede da instância é capturável e a exclusão física de registros é verificável por consulta.</p>
+<p>Em soluções SaaS, a auditoria é documental — depende de relatórios de certificação do fornecedor. Para dado de cidadão sob custódia de órgão público, auditoria verificável é qualitativamente superior a auditoria documental.</p>
+<p><strong>Evidência:</strong> <a href="../06-tradeoffs/#310-facilidade-de-auditoria"><code>06-tradeoffs.md</code>, seção 3.10</a>; <a href="../../comparativos/governanca/"><code>../comparativos/governanca.md</code></a>.</p>
+<h3 id="j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados">J4 — Base legal com precedente de autoridade de proteção de dados<a class="headerlink" href="#j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados" title="Permanent link">&para;</a></h3>
+<p>A CNIL (autoridade francesa de proteção de dados) publicou orientação reconhecendo configuração específica do Matomo — sem cookie de identificação persistente, com IP anonimizado, sem cruzamento com outros tratamentos e sem compartilhamento — como <strong>isenta de consentimento prévio</strong>.</p>
+<p>É a <strong>única plataforma da matriz com precedente favorável de autoridade de proteção de dados</strong>. Embora não vinculante no Brasil, constitui configuração técnica auditada por autoridade regulatória, aplicável por analogia na fundamentação da base legal perante a ANPD.</p>
+<p><strong>Evidência:</strong> <a href="../04-mercado/#71-casos-documentados"><code>04-mercado.md</code>, seção 7.1</a>; <a href="../../comparativos/lgpd/"><code>../comparativos/lgpd.md</code></a>; <a href="../12-referencias/"><code>12-referencias.md</code></a>.</p>
+<h3 id="j5--precedente-institucional-em-administração-pública">J5 — Precedente institucional em administração pública<a class="headerlink" href="#j5--precedente-institucional-em-administração-pública" title="Permanent link">&para;</a></h3>
+<p>O <strong>Europa Analytics</strong>, serviço oficial de analytics dos sítios da Comissão Europeia, opera sobre Matomo. A adoção por administração pública supranacional, submetida ao RGPD e a controle externo, demonstra adequação estrutural ao caso de uso governamental.</p>
+<p><strong>Evidência:</strong> <a href="../04-mercado/#7-adoção-no-setor-público"><code>04-mercado.md</code>, seção 7</a>.</p>
+<h3 id="j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas">J6 — Única cobertura funcional adequada entre as opções soberanas<a class="headerlink" href="#j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas" title="Permanent link">&para;</a></h3>
+<p>É a única plataforma auto-hospedada que cobre simultaneamente os requisitos <em>Must have</em> de funil de conversão (RF-27), metas (RF-26), segmentação (RF-28), jornada (RF-36) e dimensões customizadas (RF-05), além de heatmaps, session recording, form analytics e A/B testing.</p>
+<p>As alternativas soberanas de melhor TCO (Plausible: nota 3; Umami: nota 2) <strong>falham em requisitos obrigatórios</strong> — o que as elimina como plataforma padrão, independentemente do custo.</p>
+<p><strong>Evidência:</strong> <a href="../05-comparativo-detalhado/#6-funcionalidades-analíticas"><code>05-comparativo-detalhado.md</code>, seção 6</a>; <a href="../07-matriz-decisao/#4-justificativa-nota-a-nota"><code>07-matriz-decisao.md</code>, seção 4</a>.</p>
+<h3 id="j7--economicidade-demonstrada">J7 — Economicidade demonstrada<a class="headerlink" href="#j7--economicidade-demonstrada" title="Permanent link">&para;</a></h3>
+<p>TCO estimado em regime marginal SETDIG (fundamento em P1/P2/R4): <strong>~R$ 235 mil em 5 anos</strong> (Matomo OP + plugins essenciais), contra ~R$ 1,32 M (Piwik PRO), ~R$ 955 k (PostHog auto-hospedado) e R$ 4,44 M+ (Adobe Analytics), para atender ao mesmo conjunto de requisitos prioritários.</p>
+<p>O custo é <strong>insensível a volume</strong>: um pico de 30× de tráfego não gera aumento de custo de licença, ao contrário de todas as alternativas SaaS por evento ou por page view.</p>
+<p><strong>Evidência:</strong> <a href="../../comparativos/custo/"><code>../comparativos/custo.md</code></a>; <a href="../05-comparativo-detalhado/#13-custos"><code>05-comparativo-detalhado.md</code>, seção 13</a>.</p>
+<h3 id="j8--ausência-de-deficiência-crítica-não-mitigável">J8 — Ausência de deficiência crítica não mitigável<a class="headerlink" href="#j8--ausência-de-deficiência-crítica-não-mitigável" title="Permanent link">&para;</a></h3>
+<p>Todas as alternativas de pontuação próxima apresentam ao menos uma posição desfavorável <strong>não mitigável por arquitetura</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Alternativa</th>
+<th>Deficiência não mitigável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Analytics 4</td>
+<td>Soberania — não há configuração que elimine a custódia de terceiro</td>
+</tr>
+<tr>
+<td>PostHog auto-hospedado</td>
+<td>Operação — não há configuração que elimine 6 componentes sem suporte</td>
+</tr>
+<tr>
+<td>Adobe Analytics</td>
+<td>Custo — não há configuração que reduza o TCO à faixa aceitável</td>
+</tr>
+<tr>
+<td>Plausible CE / Umami</td>
+<td>Escopo funcional — não há configuração que adicione funil ou jornada</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td>Segurança — não há configuração que supra a ausência de manutenção</td>
+</tr>
+</tbody>
+</table>
+<p>A única deficiência relevante do Matomo On-Premise — o gargalo de arquivamento — <strong>é mitigável por arquitetura</strong> (fila com Redis, host de arquivamento dedicado, paralelização, réplica de leitura, restrição de segmentos pré-processados).</p>
+<p><strong>Evidência:</strong> <a href="../06-tradeoffs/#15-síntese-comparativa-dos-trade-offs"><code>06-tradeoffs.md</code>, seção 15</a>.</p>
+<h3 id="j9--continuidade-garantida-por-licença">J9 — Continuidade garantida por licença<a class="headerlink" href="#j9--continuidade-garantida-por-licença" title="Permanent link">&para;</a></h3>
+<p>A licença <strong>GPL v3</strong> assegura direito perpétuo de uso, modificação e operação sobre a versão obtida, com código auditável e possibilidade de fork. O cenário de qualidade <strong>QA-06</strong> (descontinuidade do fornecedor) é atendido plenamente: o Estado mantém operação indefinidamente sem o fornecedor.</p>
+<p>Esse atributo é estruturalmente indisponível em qualquer alternativa proprietária, e é diretamente relevante ao ciclo de vida longo característico de sistema público.</p>
+<p><strong>Evidência:</strong> <a href="../02-requisitos/#qa-06--descontinuidade-do-fornecedor"><code>02-requisitos.md</code>, QA-06</a>; <a href="../04-mercado/#9-análise-de-viabilidade-de-fornecedor"><code>04-mercado.md</code>, seção 9</a>.</p>
+<h3 id="j10--aderência-aos-princípios-legais-aplicáveis">J10 — Aderência aos princípios legais aplicáveis<a class="headerlink" href="#j10--aderência-aos-princípios-legais-aplicáveis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Princípio / norma</th>
+<th>Aderência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LGPD, art. 6º (necessidade, finalidade, segurança)</td>
+<td>Coleta minimizada configurável; dado sob custódia própria</td>
+</tr>
+<tr>
+<td>LGPD, arts. 33–36 (transferência internacional)</td>
+<td><strong>Não aplicável</strong> — não há transferência</td>
+</tr>
+<tr>
+<td>LGPD, art. 37 (registro de operações)</td>
+<td>Viabilizado por acesso direto ao schema e à configuração</td>
+</tr>
+<tr>
+<td>LGPD, art. 46 (segurança)</td>
+<td>Controles sob gestão direta do Estado</td>
+</tr>
+<tr>
+<td>Lei 14.129/2021 (Governo Digital) — interoperabilidade e dados abertos</td>
+<td>API aberta; acesso SQL; exportação em formatos abertos</td>
+</tr>
+<tr>
+<td>Lei 14.129/2021, art. 16 (software público)</td>
+<td>Solução de código aberto, compartilhável com outros entes</td>
+</tr>
+<tr>
+<td>Lei 14.133/2021, art. 5º (economicidade)</td>
+<td>Menor TCO entre alternativas de cobertura funcional equivalente</td>
+</tr>
+<tr>
+<td>CF/88, art. 37 (eficiência) e art. 70 (economicidade)</td>
+<td>Demonstrada por análise comparativa documentada</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-consequências">8. Consequências<a class="headerlink" href="#8-consequências" title="Permanent link">&para;</a></h2>
+<h3 id="81-consequências-positivas">8.1 Consequências positivas<a class="headerlink" href="#81-consequências-positivas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Consequência</th>
+<th>Prazo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C+1</td>
+<td>Decisão arquitetural formalizada, auditável e defensável perante órgão de controle</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+2</td>
+<td>Soberania sobre o dado de navegação de cidadão preservada e verificável</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+3</td>
+<td>Base legal documentada, com dispensa de consentimento em configuração conforme</td>
+<td>Onda 1</td>
+</tr>
+<tr>
+<td>C+4</td>
+<td>Política de retenção formalizada e aplicada automaticamente</td>
+<td>Onda 1</td>
+</tr>
+<tr>
+<td>C+5</td>
+<td>Eliminação do risco de perda de eventos em pico (lacuna L1)</td>
+<td>Onda 2</td>
+</tr>
+<tr>
+<td>C+6</td>
+<td>Capacidade de análise de funil dos serviços digitais prioritários (RN-02)</td>
+<td>Onda 3</td>
+</tr>
+<tr>
+<td>C+7</td>
+<td>Integração padronizada com o BI corporativo (RN-04)</td>
+<td>Onda 3</td>
+</tr>
+<tr>
+<td>C+8</td>
+<td>Padronização entre órgãos, com provisionamento em ≤ 1 dia útil (RN-07)</td>
+<td>Onda 4</td>
+</tr>
+<tr>
+<td>C+9</td>
+<td>Custo previsível e insensível a variação de volume</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+10</td>
+<td>Artefato reutilizável por outros entes federativos (transparência ativa)</td>
+<td>Após homologação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-consequências-negativas-assumidas">8.2 Consequências negativas assumidas<a class="headerlink" href="#82-consequências-negativas-assumidas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Consequência</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C−1</td>
+<td>Esforço operacional permanente de ~0,3 FTE recai sobre a STI</td>
+<td>Automação (IaC), runbooks documentados, capacitação dupla</td>
+</tr>
+<tr>
+<td>C−2</td>
+<td>Responsabilidade integral pela postura de segurança da plataforma</td>
+<td>WAF, hardening, gestão de patches ≤ 72 h, interface administrativa restrita a rede interna/VPN</td>
+</tr>
+<tr>
+<td>C−3</td>
+<td>Responsabilidade integral pela disponibilidade e pelo DR</td>
+<td>Réplica, backup verificado semanalmente, teste de restauração trimestral</td>
+</tr>
+<tr>
+<td>C−4</td>
+<td>Desempenho analítico inferior ao de arquiteturas colunares</td>
+<td>Réplica de leitura dedicada ao BI; particionamento; gatilho de reavaliação em 5× de crescimento</td>
+</tr>
+<tr>
+<td>C−5</td>
+<td>Custo recorrente de plugins premium (~R$ 12 k/ano)</td>
+<td>Aquisição em licença perpétua com atualizações anuais; renovação avaliada anualmente</td>
+</tr>
+<tr>
+<td>C−6</td>
+<td>Ausência de certificação ISO 27001/SOC 2 do produto</td>
+<td>Controles compensatórios sob gestão do Estado; auditoria verificável como substituto qualitativamente superior</td>
+</tr>
+<tr>
+<td>C−7</td>
+<td>Escassez de profissionais com experiência específica no mercado brasileiro</td>
+<td>Competências exigidas são genéricas de infraestrutura; capacitação de 80–120 h prevista na Onda 1</td>
+</tr>
+<tr>
+<td>C−8</td>
+<td>Necessidade de janela de manutenção para atualizações de versão maior</td>
+<td>Ambiente de homologação; procedimento reversível documentado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-consequências-neutras">8.3 Consequências neutras<a class="headerlink" href="#83-consequências-neutras" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Consequência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C~1</td>
+<td>A decisão confirma a plataforma já em uso — não haverá custo nem risco de migração de plataforma</td>
+</tr>
+<tr>
+<td>C~2</td>
+<td>O esforço concentra-se em <strong>adequação arquitetural</strong>, não em substituição tecnológica</td>
+</tr>
+<tr>
+<td>C~3</td>
+<td>O conhecimento já existente na equipe é preservado e ampliado</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — Por que a confirmação do status quo não invalida o estudo</strong>
+Uma preocupação metodológica legítima é que um estudo que conclui pela manutenção do que já existe possa ter sido conduzido para justificar a decisão pré-existente.</p>
+<p>Três elementos objetivos afastam essa leitura:
+1. <strong>O Matomo foi avaliado sem peso de status quo.</strong> Nenhum critério da matriz atribui valor à plataforma já estar em uso. A pontuação de 520 decorre exclusivamente de atributos do produto.
+2. <strong>O estudo não confirma a operação vigente — ele a reprova.</strong> Sete lacunas técnicas foram identificadas, e a decisão é <strong>condicionada</strong> à correção de todas elas. Manter o Matomo como está <strong>não é a decisão tomada</strong>.
+3. <strong>A robustez foi declarada em regime de custo marginal com transparência sobre a modalidade.</strong> O estudo registra explicitamente o empate no cenário "Capacidade analítica" (Piwik PRO) e a inversão no cenário "Operação enxuta" (Matomo Cloud, mesmo produto). Alternativas de contingência estão formalmente registradas.</p>
+</blockquote>
+<hr />
+<h2 id="9-riscos-assumidos">9. Riscos assumidos<a class="headerlink" href="#9-riscos-assumidos" title="Permanent link">&para;</a></h2>
+<p>Registro sumário. Registro completo com probabilidade, impacto, resposta e responsável em <a href="../11-riscos/"><code>11-riscos.md</code></a>.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risco</th>
+<th style="text-align: center;">Prob.</th>
+<th style="text-align: center;">Impacto</th>
+<th>Resposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td>Arquivamento não conclui na janela, gerando relatórios desatualizados</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Mitigar — host dedicado, paralelização, monitoramento com alerta</td>
+</tr>
+<tr>
+<td>R-02</td>
+<td>Perda de eventos em pico por ingestão síncrona</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td>Mitigar — QueuedTracking + Redis (obrigatório, Onda 2)</td>
+</tr>
+<tr>
+<td>R-03</td>
+<td>Vulnerabilidade crítica explorada na instância</td>
+<td style="text-align: center;">🟡 Baixa</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td>Mitigar — WAF, patch ≤ 72 h, admin restrito a rede interna</td>
+</tr>
+<tr>
+<td>R-04</td>
+<td>Escassez de competência interna para operar a plataforma</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Mitigar — capacitação; Aceitar residual com contingência A4/A3</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>Crescimento além do previsto degrada o MySQL</td>
+<td style="text-align: center;">🟡 Baixa</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Monitorar — gatilho de reavaliação em 5×</td>
+</tr>
+<tr>
+<td>R-06</td>
+<td>Concentração de conhecimento em uma única pessoa</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Mitigar — runbook, IaC, dupla capacitação</td>
+</tr>
+<tr>
+<td>R-07</td>
+<td>Postura de segurança inferior à de SaaS certificado</td>
+<td style="text-align: center;">🟡 Baixa</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Mitigar — controles compensatórios e auditoria periódica</td>
+</tr>
+<tr>
+<td>R-08</td>
+<td>Manifestação da ANPD alterando o entendimento sobre analytics</td>
+<td style="text-align: center;">🟡 Baixa</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td>Monitorar — revisão antecipada do ADR</td>
+</tr>
+<tr>
+<td>R-09</td>
+<td>Descontinuidade ou mudança de estratégia da InnoCraft</td>
+<td style="text-align: center;">🟢 Muito baixa</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td>Aceitar — GPL v3 garante continuidade</td>
+</tr>
+<tr>
+<td>R-10</td>
+<td>Aumento de preço dos plugins premium</td>
+<td style="text-align: center;">🟡 Baixa</td>
+<td style="text-align: center;">🟢 Baixo</td>
+<td>Aceitar — licença perpétua sobre a versão adquirida</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-condições-de-invalidação">10. Condições de invalidação<a class="headerlink" href="#10-condições-de-invalidação" title="Permanent link">&para;</a></h2>
+<p>Esta decisão deve ser reaberta se qualquer das premissas abaixo for demonstrada falsa.</p>
+<table>
+<thead>
+<tr>
+<th>Premissa</th>
+<th>Condição de invalidação</th>
+<th>Alternativa aplicável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1</strong> — Infraestrutura própria disponível</td>
+<td>Indisponibilidade de infraestrutura para hospedar aplicação web + banco com HA</td>
+<td>A4 (Matomo Cloud) ou A3 (Piwik PRO)</td>
+</tr>
+<tr>
+<td><strong>P2</strong> — Capacidade técnica interna</td>
+<td><em>Gate</em> da Onda 1 conclui que a STI não sustenta a operação</td>
+<td>A4 (Matomo Cloud), depois A3</td>
+</tr>
+<tr>
+<td><strong>P3</strong> — Preferência por soberania sobre conveniência</td>
+<td>Decisão institucional invertendo a prioridade</td>
+<td>A4 ou A8, com RIPD</td>
+</tr>
+<tr>
+<td><strong>P6</strong> — Perfil de volume mantido</td>
+<td>Crescimento superior a 5× a linha de base</td>
+<td>Reavaliação de arquitetura de dados (ClickHouse, PostHog, Piwik PRO)</td>
+</tr>
+<tr>
+<td><strong>P7</strong> — Certificação de terceiro não exigida</td>
+<td>Exigência normativa de ISO 27001 do fornecedor</td>
+<td>A3 (Piwik PRO) ou A4</td>
+</tr>
+<tr>
+<td><strong>P8</strong> — Software livre juridicamente aceitável</td>
+<td>Parecer jurídico contrário à adoção de software livre</td>
+<td>A3 (Piwik PRO)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-plano-de-revisão-futura">11. Plano de revisão futura<a class="headerlink" href="#11-plano-de-revisão-futura" title="Permanent link">&para;</a></h2>
+<h3 id="111-revisão-ordinária">11.1 Revisão ordinária<a class="headerlink" href="#111-revisão-ordinária" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Periodicidade</strong></td>
+<td>24 meses</td>
+</tr>
+<tr>
+<td><strong>Próxima revisão</strong></td>
+<td>Julho de 2028</td>
+</tr>
+<tr>
+<td><strong>Responsável</strong></td>
+<td>Arquitetura de Soluções — SETDIG</td>
+</tr>
+<tr>
+<td><strong>Participantes obrigatórios</strong></td>
+<td>SGD, STI, Encarregado de Dados, Segurança da Informação</td>
+</tr>
+<tr>
+<td><strong>Escopo mínimo</strong></td>
+<td>Reexecução da matriz de decisão com dados atualizados de mercado; verificação dos indicadores da seção 11.3; reavaliação das premissas P1–P8</td>
+</tr>
+<tr>
+<td><strong>Produto</strong></td>
+<td>Confirmação do ADR-001, ou emissão do ADR-002 substituindo-o</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112-gatilhos-de-revisão-antecipada">11.2 Gatilhos de revisão antecipada<a class="headerlink" href="#112-gatilhos-de-revisão-antecipada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Gatilho</th>
+<th>Prazo de reação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td>Manifestação da ANPD sobre uso de analytics de terceiros no setor público</td>
+<td>60 dias</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Alteração de licenciamento do Matomo para regime restritivo</td>
+<td>90 dias</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>Descontinuidade ou aquisição da InnoCraft por terceiro</td>
+<td>90 dias</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>Crescimento de volume superior a 5× a linha de base do benchmark</td>
+<td>120 dias</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>Vulnerabilidade crítica no Matomo sem correção em prazo superior a 30 dias</td>
+<td>30 dias</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>Nova exigência normativa federal ou estadual sobre soberania de dados</td>
+<td>60 dias</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>Falha na execução do plano de adequação (<a href="../10-roadmap/"><code>10-roadmap.md</code></a>) por mais de 2 ondas consecutivas</td>
+<td>60 dias</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>Resultado negativo no <em>gate</em> de validação da premissa P2</td>
+<td>Imediato</td>
+</tr>
+</tbody>
+</table>
+<h3 id="113-indicadores-de-acompanhamento">11.3 Indicadores de acompanhamento<a class="headerlink" href="#113-indicadores-de-acompanhamento" title="Permanent link">&para;</a></h3>
+<p>Métricas que devem ser coletadas continuamente e apresentadas na revisão.</p>
+<table>
+<thead>
+<tr>
+<th>Indicador</th>
+<th>Meta</th>
+<th>Fonte</th>
+<th>Periodicidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disponibilidade do endpoint de coleta</td>
+<td>≥ 99,5 %</td>
+<td>Monitoramento sintético</td>
+<td>Mensal</td>
+</tr>
+<tr>
+<td>Taxa de perda de eventos</td>
+<td>≤ 1 %</td>
+<td>Profundidade e descarte da fila</td>
+<td>Mensal</td>
+</tr>
+<tr>
+<td>Latência do endpoint de coleta (p95)</td>
+<td>≤ 200 ms</td>
+<td>APM / logs de acesso</td>
+<td>Mensal</td>
+</tr>
+<tr>
+<td>Conclusão do arquivamento na janela</td>
+<td>100 %</td>
+<td>Log do cron</td>
+<td>Diária</td>
+</tr>
+<tr>
+<td>Aderência à política de retenção</td>
+<td>100 %</td>
+<td>Consulta SQL de auditoria</td>
+<td>Trimestral</td>
+</tr>
+<tr>
+<td>Portais migrados para o padrão</td>
+<td>≥ 80 %</td>
+<td>Inventário de propriedades</td>
+<td>Semestral</td>
+</tr>
+<tr>
+<td>Serviços digitais prioritários com funil configurado</td>
+<td>≥ 20</td>
+<td>Configuração da plataforma</td>
+<td>Semestral</td>
+</tr>
+<tr>
+<td>Tempo de provisionamento de nova propriedade</td>
+<td>≤ 1 dia útil</td>
+<td>Registro de chamados</td>
+<td>Trimestral</td>
+</tr>
+<tr>
+<td>Esforço operacional efetivo</td>
+<td>≤ 0,3 FTE</td>
+<td>Apontamento de horas</td>
+<td>Semestral</td>
+</tr>
+<tr>
+<td>TCO acumulado × TCO projetado</td>
+<td>Desvio ≤ 15 %</td>
+<td>Execução orçamentária</td>
+<td>Anual</td>
+</tr>
+<tr>
+<td>Vulnerabilidades críticas corrigidas em ≤ 72 h</td>
+<td>100 %</td>
+<td>Registro de patches</td>
+<td>Trimestral</td>
+</tr>
+<tr>
+<td>Teste de restauração de backup bem-sucedido</td>
+<td>100 %</td>
+<td>Relatório de teste</td>
+<td>Trimestral</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Bloco de Risco — Indicadores como gatilho</strong>
+O descumprimento sustentado de qualquer indicador por <strong>dois períodos consecutivos</strong> deve acionar análise de causa-raiz. O descumprimento dos indicadores de disponibilidade, perda de eventos ou aderência à retenção por <strong>três períodos consecutivos</strong> constitui gatilho de revisão antecipada, equiparado ao gatilho G7.</p>
+</blockquote>
+<hr />
+<h2 id="12-registro-de-aprovação">12. Registro de aprovação<a class="headerlink" href="#12-registro-de-aprovação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Nome</th>
+<th>Manifestação</th>
+<th>Data</th>
+<th>Assinatura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arquiteto de Soluções (autor)</td>
+<td></td>
+<td>Proposto</td>
+<td>2026-07-29</td>
+<td></td>
+</tr>
+<tr>
+<td>Superintendente — SGD</td>
+<td></td>
+<td>☐ De acordo ☐ Com ressalvas ☐ Contrário</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Superintendente — STI</td>
+<td></td>
+<td>☐ De acordo ☐ Com ressalvas ☐ Contrário</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Encarregado de Dados (DPO)</td>
+<td></td>
+<td>☐ De acordo ☐ Com ressalvas ☐ Contrário</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Segurança da Informação</td>
+<td></td>
+<td>☐ De acordo ☐ Com ressalvas ☐ Contrário</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Secretário Executivo — SETDIG</td>
+<td></td>
+<td>☐ Homologado ☐ Não homologado</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="121-registro-de-ressalvas">12.1 Registro de ressalvas<a class="headerlink" href="#121-registro-de-ressalvas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Origem</th>
+<th>Ressalva</th>
+<th>Encaminhamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="122-histórico-de-versões-do-adr">12.2 Histórico de versões do ADR<a class="headerlink" href="#122-histórico-de-versões-do-adr" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Alteração</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-07-29</td>
+<td>Emissão inicial</td>
+<td>Arquitetura de Soluções — SETDIG</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⬅️ Anterior</th>
+<th>➡️ Próximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../07-matriz-decisao/">07 — Matriz de decisão</a></td>
+<td><a href="../09-recomendacao/">09 — Recomendação</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

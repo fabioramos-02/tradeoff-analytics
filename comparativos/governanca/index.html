@@ -1,0 +1,2860 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/governanca/">
+      
+      
+        <link rel="prev" href="../escalabilidade/">
+      
+      
+        <link rel="next" href="../matomo-vs-posthog/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Governança - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparativo--governança-soberania-e-vendor-lock-in" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Governança
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dimensões-de-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dimensões de governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-matriz-sinóptica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Matriz sinóptica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vendor-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Vendor lock-in
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Vendor lock-in">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vetores-de-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Vetores de lock-in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-escala-de-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Escala de lock-in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-critérios-objetivos-para-baixo-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Critérios objetivos para "baixo lock-in"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-controle-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Controle dos dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Controle dos dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-definição" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Definição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-regra-prática" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Regra prática
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Portabilidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Portabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tipos-de-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Tipos de portabilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-matriz-de-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Matriz de portabilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-regra-prática" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Regra prática
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-transparência" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Transparência
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Transparência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-definição" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Definição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-por-que-importa-para-o-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Por que importa para o Estado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-auditabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Auditabilidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Auditabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-dois-níveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Dois níveis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-matriz" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Matriz
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-soberania-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Soberania de dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Soberania de dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-definição" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Definição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-regime-aplicável-por-jurisdição" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Regime aplicável por jurisdição
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alinhamento-com-princípios-de-governo-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Alinhamento com princípios de Governo Digital
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Alinhamento com princípios de Governo Digital">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-princípios-aplicáveis-lei-141292021--egd" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Princípios aplicáveis (Lei 14.129/2021 + EGD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-matriz-de-alinhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Matriz de alinhamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-recomendação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Recomendação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dimensões-de-governança" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dimensões de governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-matriz-sinóptica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Matriz sinóptica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vendor-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Vendor lock-in
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Vendor lock-in">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vetores-de-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Vetores de lock-in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-escala-de-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Escala de lock-in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-critérios-objetivos-para-baixo-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Critérios objetivos para "baixo lock-in"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-controle-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Controle dos dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Controle dos dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-definição" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Definição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-regra-prática" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Regra prática
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Portabilidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Portabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tipos-de-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Tipos de portabilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-matriz-de-portabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Matriz de portabilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-regra-prática" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Regra prática
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-transparência" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Transparência
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Transparência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-definição" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Definição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-por-que-importa-para-o-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Por que importa para o Estado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-auditabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Auditabilidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Auditabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-dois-níveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Dois níveis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-matriz" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Matriz
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-soberania-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Soberania de dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Soberania de dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-definição" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Definição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-regime-aplicável-por-jurisdição" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Regime aplicável por jurisdição
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alinhamento-com-princípios-de-governo-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Alinhamento com princípios de Governo Digital
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Alinhamento com princípios de Governo Digital">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-princípios-aplicáveis-lei-141292021--egd" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Princípios aplicáveis (Lei 14.129/2021 + EGD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-matriz-de-alinhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Matriz de alinhamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-recomendação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Recomendação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="comparativo--governança-soberania-e-vendor-lock-in">Comparativo — Governança, soberania e vendor lock-in<a class="headerlink" href="#comparativo--governança-soberania-e-vendor-lock-in" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Corte transversal</strong> · Foco: controle dos dados, portabilidade, transparência, auditoria, soberania
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-dimensões-de-governança">1. Dimensões de governança</a></li>
+<li><a href="#2-matriz-sinóptica">2. Matriz sinóptica</a></li>
+<li><a href="#3-vendor-lock-in">3. Vendor lock-in</a></li>
+<li><a href="#4-controle-dos-dados">4. Controle dos dados</a></li>
+<li><a href="#5-portabilidade">5. Portabilidade</a></li>
+<li><a href="#6-transparência">6. Transparência</a></li>
+<li><a href="#7-auditabilidade">7. Auditabilidade</a></li>
+<li><a href="#8-soberania-de-dados">8. Soberania de dados</a></li>
+<li><a href="#9-alinhamento-com-princípios-de-governo-digital">9. Alinhamento com princípios de Governo Digital</a></li>
+<li><a href="#10-recomendação">10. Recomendação</a></li>
+</ul>
+<hr />
+<h2 id="1-dimensões-de-governança">1. Dimensões de governança<a class="headerlink" href="#1-dimensões-de-governança" title="Permanent link">&para;</a></h2>
+<p>Governança aqui é entendida na perspectiva do <strong>controlador</strong> (Estado) — não do fornecedor. Sete dimensões:</p>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Pergunta que responde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vendor lock-in</td>
+<td>Se eu quiser sair, quanto custa?</td>
+</tr>
+<tr>
+<td>Controle dos dados</td>
+<td>Quem está com meu dado neste momento?</td>
+</tr>
+<tr>
+<td>Portabilidade</td>
+<td>Consigo levar meu dado embora?</td>
+</tr>
+<tr>
+<td>Transparência</td>
+<td>Consigo auditar o que o produto faz?</td>
+</tr>
+<tr>
+<td>Auditabilidade</td>
+<td>Consigo provar depois quem acessou o quê?</td>
+</tr>
+<tr>
+<td>Soberania</td>
+<td>Sob qual jurisdição meu dado está?</td>
+</tr>
+<tr>
+<td>Governo Digital</td>
+<td>Está alinhado aos princípios da EGD e Lei 14.129/2021?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-matriz-sinóptica">2. Matriz sinóptica<a class="headerlink" href="#2-matriz-sinóptica" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Modalidade</th>
+<th style="text-align: center;">Lock-in</th>
+<th style="text-align: center;">Controle</th>
+<th style="text-align: center;">Portabilidade</th>
+<th style="text-align: center;">Transparência</th>
+<th style="text-align: center;">Auditabilidade</th>
+<th style="text-align: center;">Soberania</th>
+<th style="text-align: center;">Score global</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matomo</strong></td>
+<td>On-Premise</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td>Matomo</td>
+<td>Cloud UE</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td>Auto-hospedado</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td>Plausible</td>
+<td>Cloud</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td>Auto-hospedado</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td>OSS auto-hospedado</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠 (EE fechada)</td>
+<td style="text-align: center;">🟠 (EE)</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td>Cloud EU</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td><strong>GA4</strong></td>
+<td>SaaS</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠 (BigQuery)</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢 (Google Workspace)</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">★</td>
+</tr>
+<tr>
+<td>Adobe Analytics</td>
+<td>SaaS enterprise</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠 (contratual)</td>
+<td style="text-align: center;">★★</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td>SaaS</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠 (UE)</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td><strong>Microsoft Clarity</strong></td>
+<td>SaaS</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠 (só biblioteca é MIT)</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">★</td>
+</tr>
+<tr>
+<td>Cloudflare Web Analytics</td>
+<td>SaaS</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢 (Cloudflare Enterprise)</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">★</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td>Auto-hospedado</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">★★★ (mas projeto estagnado)</td>
+</tr>
+</tbody>
+</table>
+<p>Legenda: 🟢 forte / 🟠 aceitável / 🔴 fraco.</p>
+<hr />
+<h2 id="3-vendor-lock-in">3. Vendor lock-in<a class="headerlink" href="#3-vendor-lock-in" title="Permanent link">&para;</a></h2>
+<h3 id="31-vetores-de-lock-in">3.1 Vetores de lock-in<a class="headerlink" href="#31-vetores-de-lock-in" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Vetor</th>
+<th>Descrição</th>
+<th>Plataformas afetadas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Licença proprietária</strong></td>
+<td>Código fechado, não replicável</td>
+<td>GA4, Adobe, Clarity, Simple, Cloudflare</td>
+</tr>
+<tr>
+<td><strong>Formato de dado proprietário</strong></td>
+<td>Dado bruto não exportável em formato aberto</td>
+<td>Clarity (sessões), Cloudflare (edge logs), Adobe (parcialmente)</td>
+</tr>
+<tr>
+<td><strong>Dependência de sub-serviços</strong></td>
+<td>Requer outros produtos do mesmo fornecedor para valor pleno</td>
+<td>GA4 (Google Marketing Suite), Adobe (Experience Cloud), Cloudflare (CDN)</td>
+</tr>
+<tr>
+<td><strong>Custo de saída</strong></td>
+<td>Migração de histórico + reeducação de equipe + retreinamento de dashboards</td>
+<td>Todas — mas mais grave em GA4 e Adobe</td>
+</tr>
+<tr>
+<td><strong>Contratual</strong></td>
+<td>SLA, minímos, multa por rescisão</td>
+<td>Adobe, GA4 360, PostHog Cloud Enterprise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-escala-de-lock-in">3.2 Escala de lock-in<a class="headerlink" href="#32-escala-de-lock-in" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Baixo ←─────────────────────────────────────────────────────→ Alto
+  │                                                              │
+Matomo OP  Plausible CE  Umami  PostHog OSS  Cloudflare  Clarity  GA4  Adobe
+</code></pre></div>
+<h3 id="33-critérios-objetivos-para-baixo-lock-in">3.3 Critérios objetivos para "baixo lock-in"<a class="headerlink" href="#33-critérios-objetivos-para-baixo-lock-in" title="Permanent link">&para;</a></h3>
+<p>Um produto tem lock-in objetivamente baixo quando:</p>
+<ol>
+<li>Licença <strong>copyleft ou permissiva</strong> (GPL, AGPL, MIT, Apache).</li>
+<li>Formato de armazenamento <strong>auditável</strong> (banco SQL padrão ou schema publicado).</li>
+<li>Existência de <strong>fork ativo</strong> ou possibilidade prática de fork.</li>
+<li><strong>Ausência</strong> de dependência de sub-serviços proprietários do fornecedor.</li>
+<li><strong>Exportação completa</strong> do dado bruto em formato aberto.</li>
+</ol>
+<p><strong>Matomo On-Premise</strong> cumpre os 5 critérios. <strong>Plausible CE</strong> cumpre 4 (a exportação é agregada por API — o dado bruto está no ClickHouse do próprio deployment, portanto o item 5 é cumprido <em>de facto</em> mesmo sem exportação nominal).</p>
+<hr />
+<h2 id="4-controle-dos-dados">4. Controle dos dados<a class="headerlink" href="#4-controle-dos-dados" title="Permanent link">&para;</a></h2>
+<h3 id="41-definição">4.1 Definição<a class="headerlink" href="#41-definição" title="Permanent link">&para;</a></h3>
+<p><em>Quem tem acesso administrativo ao dado neste exato momento.</em></p>
+<table>
+<thead>
+<tr>
+<th>Modalidade</th>
+<th>Quem controla</th>
+<th style="text-align: center;">Nível</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-Premise em infra estatal</td>
+<td>Estado exclusivamente</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Cloud UE de fornecedor europeu (Matomo, Plausible, Simple)</td>
+<td>Fornecedor tem acesso técnico + Estado tem acesso contratual</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Cloud EU de fornecedor americano (PostHog, Cloudflare)</td>
+<td>Fornecedor americano tem acesso, sob CLOUD Act</td>
+<td style="text-align: center;">🟠→🔴</td>
+</tr>
+<tr>
+<td>SaaS estrangeiro sem residência garantida (Clarity, Cloudflare)</td>
+<td>Fornecedor exclusivamente</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-regra-prática">4.2 Regra prática<a class="headerlink" href="#42-regra-prática" title="Permanent link">&para;</a></h3>
+<p>Controle de dado é <strong>binário e transitivo</strong>: se o fornecedor tem acesso, o Estado <strong>não tem controle exclusivo</strong>. DPAs e cláusulas contratuais mitigam risco, mas não substituem custódia técnica.</p>
+<hr />
+<h2 id="5-portabilidade">5. Portabilidade<a class="headerlink" href="#5-portabilidade" title="Permanent link">&para;</a></h2>
+<h3 id="51-tipos-de-portabilidade">5.1 Tipos de portabilidade<a class="headerlink" href="#51-tipos-de-portabilidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dado bruto</td>
+<td>Exportar cada evento individual</td>
+</tr>
+<tr>
+<td>Agregados históricos</td>
+<td>Exportar séries diárias/mensais</td>
+</tr>
+<tr>
+<td>Configuração</td>
+<td>Exportar sites, metas, funis, segmentos</td>
+</tr>
+<tr>
+<td>Dashboards</td>
+<td>Recriar visualizações em outra plataforma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-matriz-de-portabilidade">5.2 Matriz de portabilidade<a class="headerlink" href="#52-matriz-de-portabilidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Bruto</th>
+<th style="text-align: center;">Agregados</th>
+<th style="text-align: center;">Configuração</th>
+<th style="text-align: center;">Dashboards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">🟢 (SQL direto)</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🟠 Recriar</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">🟠 (SQL ClickHouse)</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🟠 Manual</td>
+<td style="text-align: center;">🟠 Recriar</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟠 (SQL)</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🟠 Manual</td>
+<td style="text-align: center;">🟠 Recriar</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟢 (warehouse sink)</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🟠 Parcial</td>
+<td style="text-align: center;">🟠 Recriar</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟠 (BigQuery Export)</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🟢 (Data Feeds)</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">🟠 (agregado)</td>
+<td style="text-align: center;">🟢 API</td>
+<td style="text-align: center;">🟠 Manual</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠 (limitado)</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢 GraphQL</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">🟢 (SQL)</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-regra-prática">5.3 Regra prática<a class="headerlink" href="#53-regra-prática" title="Permanent link">&para;</a></h3>
+<p><strong>Nenhuma migração é indolor.</strong> Portabilidade é uma escala: quanto mais estruturado o dado exportado (formato aberto, schema documentado), mais viável a saída.</p>
+<hr />
+<h2 id="6-transparência">6. Transparência<a class="headerlink" href="#6-transparência" title="Permanent link">&para;</a></h2>
+<h3 id="61-definição">6.1 Definição<a class="headerlink" href="#61-definição" title="Permanent link">&para;</a></h3>
+<p>Capacidade de <strong>auditar o comportamento do produto</strong> — o que ele coleta, como processa, para onde envia.</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Descrição</th>
+<th>Plataformas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total</td>
+<td>Código-fonte inteiro público e auditável</td>
+<td>Matomo, Plausible CE, Umami, OWA</td>
+</tr>
+<tr>
+<td>Parcial</td>
+<td>Núcleo público, complementos fechados</td>
+<td>PostHog (OSS + EE), Clarity (só clarity-js MIT)</td>
+</tr>
+<tr>
+<td>Nula</td>
+<td>Serviço totalmente proprietário</td>
+<td>GA4, Adobe, Cloudflare Web Analytics, Simple Analytics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-por-que-importa-para-o-estado">6.2 Por que importa para o Estado<a class="headerlink" href="#62-por-que-importa-para-o-estado" title="Permanent link">&para;</a></h3>
+<p>Sem transparência, o controlador não consegue <strong>provar em auditoria</strong> o que exatamente o produto fez com o dado. Em cenário de incidente ou investigação da ANPD, isso pode tornar a defesa impraticável.</p>
+<hr />
+<h2 id="7-auditabilidade">7. Auditabilidade<a class="headerlink" href="#7-auditabilidade" title="Permanent link">&para;</a></h2>
+<h3 id="71-dois-níveis">7.1 Dois níveis<a class="headerlink" href="#71-dois-níveis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Do que se trata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Código</strong></td>
+<td>Consigo auditar o que o software faz internamente?</td>
+</tr>
+<tr>
+<td><strong>Operação</strong></td>
+<td>Consigo provar depois quem fez o quê no dashboard/API?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-matriz">7.2 Matriz<a class="headerlink" href="#72-matriz" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Auditoria de código</th>
+<th style="text-align: center;">Trilha de acesso administrativo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo</td>
+<td style="text-align: center;">🟢 (100% GPL)</td>
+<td style="text-align: center;">🟢 Plugin <code>ActivityLog</code> (comunidade)</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">🟢 (100% AGPL)</td>
+<td style="text-align: center;">🟠 Básico</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟢 (100% MIT)</td>
+<td style="text-align: center;">🟠 Básico</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td style="text-align: center;">🟠 (core MIT + EE proprietária)</td>
+<td style="text-align: center;">🟢 (EE)</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢 (Google Workspace audit logs)</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">🔴 (só biblioteca)</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢 (Enterprise SIEM export)</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">🟢 (GPL)</td>
+<td style="text-align: center;">🔴 Rudimentar</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-soberania-de-dados">8. Soberania de dados<a class="headerlink" href="#8-soberania-de-dados" title="Permanent link">&para;</a></h2>
+<h3 id="81-definição">8.1 Definição<a class="headerlink" href="#81-definição" title="Permanent link">&para;</a></h3>
+<p>Sob <strong>qual sistema jurídico</strong> o dado está sujeito a requisição legal? Independente da residência técnica, a jurisdição do <strong>operador</strong> é relevante.</p>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Residência técnica</th>
+<th style="text-align: center;">Jurisdição do operador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo On-Premise</td>
+<td style="text-align: center;">Brasil</td>
+<td style="text-align: center;">Brasil</td>
+</tr>
+<tr>
+<td>Matomo Cloud</td>
+<td style="text-align: center;">Alemanha</td>
+<td style="text-align: center;">Nova Zelândia (InnoCraft — mantenedor comercial do Matomo)</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">Brasil</td>
+<td style="text-align: center;">Brasil</td>
+</tr>
+<tr>
+<td>Plausible Cloud</td>
+<td style="text-align: center;">Alemanha</td>
+<td style="text-align: center;">Estônia (UE)</td>
+</tr>
+<tr>
+<td>Umami OP</td>
+<td style="text-align: center;">Brasil</td>
+<td style="text-align: center;">Brasil</td>
+</tr>
+<tr>
+<td>Umami Cloud</td>
+<td style="text-align: center;">EUA</td>
+<td style="text-align: center;">EUA</td>
+</tr>
+<tr>
+<td>PostHog OP</td>
+<td style="text-align: center;">Brasil</td>
+<td style="text-align: center;">Brasil</td>
+</tr>
+<tr>
+<td>PostHog Cloud EU</td>
+<td style="text-align: center;">Alemanha</td>
+<td style="text-align: center;">EUA (empresa)</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">Múltiplas</td>
+<td style="text-align: center;">EUA</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">Múltiplas</td>
+<td style="text-align: center;">EUA</td>
+</tr>
+<tr>
+<td>Simple Analytics</td>
+<td style="text-align: center;">Amsterdam</td>
+<td style="text-align: center;">Países Baixos</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td style="text-align: center;">Global</td>
+<td style="text-align: center;">EUA</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">Global</td>
+<td style="text-align: center;">EUA</td>
+</tr>
+<tr>
+<td>Open Web Analytics</td>
+<td style="text-align: center;">Brasil</td>
+<td style="text-align: center;">Brasil</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-regime-aplicável-por-jurisdição">8.2 Regime aplicável por jurisdição<a class="headerlink" href="#82-regime-aplicável-por-jurisdição" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Jurisdição</th>
+<th>Regime primário</th>
+<th>Impacto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brasil</td>
+<td>LGPD + Marco Civil</td>
+<td>Controle pleno pelo Estado brasileiro</td>
+</tr>
+<tr>
+<td>UE</td>
+<td>GDPR</td>
+<td>Regime rígido; mecanismos de transferência exigidos</td>
+</tr>
+<tr>
+<td>EUA</td>
+<td>CLOUD Act + FISA 702</td>
+<td>Requisição extraterritorial possível</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta — jurisdição não é residência</strong>
+Cloud EU de empresa americana <strong>não</strong> neutraliza o CLOUD Act. Somente empresa constituída em jurisdição <em>sem</em> extraterritorialidade equivalente (por exemplo, empresa europeia ou hospedagem em infraestrutura estatal brasileira) elimina esse vetor.</p>
+</blockquote>
+<hr />
+<h2 id="9-alinhamento-com-princípios-de-governo-digital">9. Alinhamento com princípios de Governo Digital<a class="headerlink" href="#9-alinhamento-com-princípios-de-governo-digital" title="Permanent link">&para;</a></h2>
+<h3 id="91-princípios-aplicáveis-lei-141292021--egd">9.1 Princípios aplicáveis (Lei 14.129/2021 + EGD)<a class="headerlink" href="#91-princípios-aplicáveis-lei-141292021--egd" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Princípio</th>
+<th>Aplicação em analytics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interoperabilidade</td>
+<td>APIs abertas; formatos padrão</td>
+</tr>
+<tr>
+<td>Transparência ativa</td>
+<td>Publicação de painel público de audiência</td>
+</tr>
+<tr>
+<td>Proteção de dado pessoal</td>
+<td>LGPD-first</td>
+</tr>
+<tr>
+<td>Compartilhamento de dados</td>
+<td>Dado bruto acessível ao ecossistema de BI do Estado</td>
+</tr>
+<tr>
+<td>Custo justificável</td>
+<td>Estimativa fundamentada de TCO</td>
+</tr>
+<tr>
+<td>Otimização de infraestrutura</td>
+<td>Reuso do parque Kubernetes SETDIG</td>
+</tr>
+<tr>
+<td>Segurança</td>
+<td>Auditabilidade, criptografia, controle de acesso</td>
+</tr>
+<tr>
+<td>Uso preferencial de software público / open-source</td>
+<td>Diretriz federal (IN SGD/ME nº 1/2019)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-matriz-de-alinhamento">9.2 Matriz de alinhamento<a class="headerlink" href="#92-matriz-de-alinhamento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">Interop</th>
+<th style="text-align: center;">Transp.</th>
+<th style="text-align: center;">LGPD</th>
+<th style="text-align: center;">Compart.</th>
+<th style="text-align: center;">Custo</th>
+<th style="text-align: center;">Infra</th>
+<th style="text-align: center;">Segur.</th>
+<th style="text-align: center;">OSS pref.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matomo OP</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td>PostHog OSS</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Adobe</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🔴</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-recomendação">10. Recomendação<a class="headerlink" href="#10-recomendação" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Bloco de Decisão — perfil de governança adequado ao Estado</strong></p>
+<p>Priorizar plataformas que combinem simultaneamente:</p>
+<ol>
+<li><strong>Licença copyleft</strong> (GPL/AGPL) — reduz risco de fechamento posterior.</li>
+<li><strong>Auto-hospedagem em infra estatal</strong> — maximiza controle e soberania.</li>
+<li><strong>Formato de dado auditável</strong> (SQL padrão ou schema publicado).</li>
+<li><strong>Trilha de auditoria</strong> exportável para SIEM corporativo.</li>
+<li><strong>Alinhamento com Lei 14.129/2021 e IN SGD/ME 1/2019</strong> (preferência por software público / open-source).</li>
+</ol>
+<p><strong>Cumprimento simultâneo dos 5:</strong> apenas <strong>Matomo On-Premise</strong> (GPL v3) e <strong>Plausible Community Edition</strong> (AGPL v3).</p>
+<p><strong>Umami</strong> cumpre 4 dos 5 (perde em item 1 pela licença MIT permissiva — risco de fechamento futuro).</p>
+<p>Plataformas com <strong>falha estrutural</strong> na dimensão governança (não recomendadas como primárias): <strong>GA4, Adobe Analytics, Microsoft Clarity, Cloudflare Web Analytics, Simple Analytics</strong>.</p>
+</blockquote>
+<p>Fundamentos legais: <a href="../lgpd/"><code>comparativos/lgpd.md</code></a>.
+Decisão registrada: <a href="../../docs/08-adr/"><code>docs/08-adr.md</code></a>.
+Riscos residuais: <a href="../../docs/11-riscos/"><code>docs/11-riscos.md</code></a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

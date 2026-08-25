@@ -1,0 +1,3446 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/02-requisitos/">
+      
+      
+        <link rel="prev" href="../01-contexto/">
+      
+      
+        <link rel="next" href="../03-criterios-de-avaliacao/">
+      
+      
+      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Requisitos - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#02--requisitos" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Requisitos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-convenções-de-notação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Convenções de notação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Convenções de notação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-priorização--moscow" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Priorização — MoSCoW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-verificabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Verificabilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-requisitos-legais-e-de-conformidade-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Requisitos legais e de conformidade (RL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-requisitos-funcionais-rf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Requisitos funcionais (RF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Requisitos funcionais (RF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-coleta" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Coleta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-análise-e-relatórios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Análise e relatórios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-administração" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Administração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-requisitos-não-funcionais-rnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Requisitos não funcionais (RNF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Requisitos não funcionais (RNF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Desempenho
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-disponibilidade-e-resiliência" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Disponibilidade e resiliência
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-escalabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Escalabilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Segurança
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-operação-e-manutenibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Operação e manutenibilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-usabilidade-e-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Usabilidade e acessibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-requisitos-de-integração-ri" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Requisitos de integração (RI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-requisitos-de-governança-rg" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Requisitos de governança (RG)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-requisitos-de-negócio-rn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Requisitos de negócio (RN)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-matriz-de-rastreabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Matriz de rastreabilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cenários-de-atributo-de-qualidade-atam" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Cenários de atributo de qualidade (ATAM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Cenários de atributo de qualidade (ATAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qa-01--desempenho-sob-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-01 — Desempenho sob pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-02--solicitação-de-eliminação-por-titular" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-02 — Solicitação de eliminação por titular
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-03--migração-de-plataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-03 — Migração de plataforma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-04--integração-com-bi-corporativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-04 — Integração com BI corporativo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-05--vulnerabilidade-crítica-divulgada" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-05 — Vulnerabilidade crítica divulgada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-06--descontinuidade-do-fornecedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-06 — Descontinuidade do fornecedor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-convenções-de-notação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Convenções de notação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Convenções de notação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-priorização--moscow" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Priorização — MoSCoW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-verificabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Verificabilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-requisitos-legais-e-de-conformidade-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Requisitos legais e de conformidade (RL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-requisitos-funcionais-rf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Requisitos funcionais (RF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Requisitos funcionais (RF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-coleta" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Coleta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-análise-e-relatórios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Análise e relatórios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-administração" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Administração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-requisitos-não-funcionais-rnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Requisitos não funcionais (RNF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Requisitos não funcionais (RNF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Desempenho
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-disponibilidade-e-resiliência" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Disponibilidade e resiliência
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-escalabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Escalabilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-segurança" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Segurança
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-operação-e-manutenibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Operação e manutenibilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-usabilidade-e-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Usabilidade e acessibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-requisitos-de-integração-ri" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Requisitos de integração (RI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-requisitos-de-governança-rg" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Requisitos de governança (RG)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-requisitos-de-negócio-rn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Requisitos de negócio (RN)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-matriz-de-rastreabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Matriz de rastreabilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cenários-de-atributo-de-qualidade-atam" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Cenários de atributo de qualidade (ATAM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Cenários de atributo de qualidade (ATAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qa-01--desempenho-sob-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-01 — Desempenho sob pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-02--solicitação-de-eliminação-por-titular" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-02 — Solicitação de eliminação por titular
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-03--migração-de-plataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-03 — Migração de plataforma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-04--integração-com-bi-corporativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-04 — Integração com BI corporativo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-05--vulnerabilidade-crítica-divulgada" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-05 — Vulnerabilidade crítica divulgada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-06--descontinuidade-do-fornecedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA-06 — Descontinuidade do fornecedor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="02--requisitos">02 — Requisitos<a class="headerlink" href="#02--requisitos" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Fase TOGAF ADM:</strong> B — Business Architecture / Requirements Management
+<strong>Anterior:</strong> <a href="../01-contexto/">01 — Contexto</a> · <strong>Próximo:</strong> <a href="../03-criterios-de-avaliacao/">03 — Critérios de avaliação</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-convenções-de-notação">1. Convenções de notação</a></li>
+<li><a href="#2-requisitos-legais-e-de-conformidade-rl">2. Requisitos legais e de conformidade (RL)</a></li>
+<li><a href="#3-requisitos-funcionais-rf">3. Requisitos funcionais (RF)</a></li>
+<li><a href="#4-requisitos-não-funcionais-rnf">4. Requisitos não funcionais (RNF)</a></li>
+<li><a href="#5-requisitos-de-integração-ri">5. Requisitos de integração (RI)</a></li>
+<li><a href="#6-requisitos-de-governança-rg">6. Requisitos de governança (RG)</a></li>
+<li><a href="#7-requisitos-de-negócio-rn">7. Requisitos de negócio (RN)</a></li>
+<li><a href="#8-matriz-de-rastreabilidade">8. Matriz de rastreabilidade</a></li>
+<li><a href="#9-cenários-de-atributo-de-qualidade-atam">9. Cenários de atributo de qualidade (ATAM)</a></li>
+</ul>
+<hr />
+<h2 id="1-convenções-de-notação">1. Convenções de notação<a class="headerlink" href="#1-convenções-de-notação" title="Permanent link">&para;</a></h2>
+<h3 id="11-priorização--moscow">1.1 Priorização — MoSCoW<a class="headerlink" href="#11-priorização--moscow" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Marcador</th>
+<th>Significado</th>
+<th>Efeito na avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M</strong> — <em>Must have</em></td>
+<td>Obrigatório</td>
+<td><strong>Eliminatório.</strong> Plataforma que não atende é descartada, independentemente da pontuação</td>
+</tr>
+<tr>
+<td><strong>S</strong> — <em>Should have</em></td>
+<td>Importante</td>
+<td>Peso alto na matriz de decisão</td>
+</tr>
+<tr>
+<td><strong>C</strong> — <em>Could have</em></td>
+<td>Desejável</td>
+<td>Peso baixo; funciona como critério de desempate</td>
+</tr>
+<tr>
+<td><strong>W</strong> — <em>Won't have (now)</em></td>
+<td>Fora desta iteração</td>
+<td>Registrado para revisões futuras</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-verificabilidade">1.2 Verificabilidade<a class="headerlink" href="#12-verificabilidade" title="Permanent link">&para;</a></h3>
+<p>Todo requisito possui um <strong>método de verificação</strong> declarado:</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DOC</strong></td>
+<td>Verificação em documentação oficial do fornecedor</td>
+</tr>
+<tr>
+<td><strong>INSP</strong></td>
+<td>Inspeção de código-fonte, licença ou configuração</td>
+</tr>
+<tr>
+<td><strong>TEST</strong></td>
+<td>Teste funcional em ambiente controlado (PoC)</td>
+</tr>
+<tr>
+<td><strong>BENCH</strong></td>
+<td>Medição sob carga (benchmark)</td>
+</tr>
+<tr>
+<td><strong>JUR</strong></td>
+<td>Parecer jurídico ou do Encarregado de Dados</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-requisitos-legais-e-de-conformidade-rl">2. Requisitos legais e de conformidade (RL)<a class="headerlink" href="#2-requisitos-legais-e-de-conformidade-rl" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+<th>Fundamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RL-01</strong></td>
+<td>A plataforma deve permitir que o Estado atue como <strong>controlador</strong> dos dados, com definição inequívoca do papel de eventual operador</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">JUR/DOC</td>
+<td>LGPD art. 5º, VI e VII</td>
+</tr>
+<tr>
+<td><strong>RL-02</strong></td>
+<td>A plataforma deve permitir operação <strong>sem transferência internacional de dados pessoais</strong>, ou, se houver, dispor de base legal do art. 33 documentada e cláusulas contratuais adequadas</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">JUR/DOC</td>
+<td>LGPD arts. 33–36</td>
+</tr>
+<tr>
+<td><strong>RL-03</strong></td>
+<td>A plataforma deve suportar <strong>anonimização de endereço IP</strong> antes da persistência</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 12 (dado anonimizado fora do escopo da lei); princípio da necessidade (art. 6º, III)</td>
+</tr>
+<tr>
+<td><strong>RL-04</strong></td>
+<td>A plataforma deve permitir operação <strong>sem cookies de identificação persistente</strong> ou com cookies estritamente necessários</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 7º; precedente CNIL</td>
+</tr>
+<tr>
+<td><strong>RL-05</strong></td>
+<td>A plataforma deve permitir <strong>definição e aplicação automática de política de retenção</strong>, com exclusão física do dado bruto ao término do prazo</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 15 e 16 (término do tratamento)</td>
+</tr>
+<tr>
+<td><strong>RL-06</strong></td>
+<td>A plataforma deve permitir atender a <strong>requisições de titular</strong> (acesso, correção, eliminação, portabilidade) em prazo legal</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 18</td>
+</tr>
+<tr>
+<td><strong>RL-07</strong></td>
+<td>A plataforma deve fornecer mecanismo de <strong>opt-out</strong> acessível ao titular</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 18, §2º; art. 8º, §5º</td>
+</tr>
+<tr>
+<td><strong>RL-08</strong></td>
+<td>A plataforma deve respeitar sinais de <strong>Do Not Track</strong> e/ou Global Privacy Control quando configurado</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>Boa prática; não vinculante no Brasil</td>
+</tr>
+<tr>
+<td><strong>RL-09</strong></td>
+<td>A plataforma deve manter <strong>registro de operações de tratamento</strong> ou permitir sua construção a partir de sua documentação</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC</td>
+<td>LGPD art. 37</td>
+</tr>
+<tr>
+<td><strong>RL-10</strong></td>
+<td>A plataforma deve produzir <strong>logs de auditoria</strong> de acesso administrativo e alterações de configuração</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 46; boas práticas de segurança</td>
+</tr>
+<tr>
+<td><strong>RL-11</strong></td>
+<td>A plataforma deve permitir <strong>integração com Consent Management Platform</strong> quando o consentimento for a base legal aplicável</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>LGPD art. 8º</td>
+</tr>
+<tr>
+<td><strong>RL-12</strong></td>
+<td>Os dados devem ser <strong>criptografados em trânsito</strong> (TLS 1.2+) e o repouso deve poder ser criptografado</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST/INSP</td>
+<td>LGPD art. 46; boas práticas</td>
+</tr>
+<tr>
+<td><strong>RL-13</strong></td>
+<td>A plataforma não deve realizar <strong>fingerprinting</strong> de dispositivo sem base legal explícita</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP/DOC</td>
+<td>LGPD art. 6º, princípios da finalidade e necessidade</td>
+</tr>
+<tr>
+<td><strong>RL-14</strong></td>
+<td>Dados de uso de portais públicos devem poder ser <strong>publicados em formato aberto</strong> quando não contiverem dado pessoal</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+<td>Lei 12.527/2011; Lei 14.129/2021</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta — Requisitos eliminatórios</strong>
+RL-01, RL-02, RL-03, RL-05, RL-06, RL-07, RL-09 e RL-12 são <strong>Must have</strong>. Uma plataforma que falhe em qualquer um deles está eliminada, independentemente de sua pontuação na matriz. A aplicação desse filtro está registrada em <a href="../07-matriz-decisao/"><code>07-matriz-decisao.md</code></a>, seção "Triagem eliminatória".</p>
+</blockquote>
+<hr />
+<h2 id="3-requisitos-funcionais-rf">3. Requisitos funcionais (RF)<a class="headerlink" href="#3-requisitos-funcionais-rf" title="Permanent link">&para;</a></h2>
+<h3 id="31-coleta">3.1 Coleta<a class="headerlink" href="#31-coleta" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-01</td>
+<td>Rastrear page views com URL, título, referenciador e timestamp</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-02</td>
+<td>Rastrear <strong>eventos customizados</strong> (categoria, ação, nome, valor)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-03</td>
+<td>Rastrear <strong>downloads de arquivos</strong> e cliques em links externos automaticamente</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-04</td>
+<td>Rastrear <strong>buscas internas</strong> do site (termo, resultados, categoria)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-05</td>
+<td>Suportar <strong>dimensões customizadas</strong> em escopo de visita e de ação</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-06</td>
+<td>Suportar <strong>tracking server-side</strong> (API HTTP direta, sem JavaScript)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+</tr>
+<tr>
+<td>RF-07</td>
+<td>Suportar <strong>importação de logs de servidor web</strong> como fonte de dados</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-08</td>
+<td>Detectar e classificar <strong>bots e crawlers</strong>, excluindo-os das métricas</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+</tr>
+<tr>
+<td>RF-09</td>
+<td>Suportar <strong>Single Page Applications</strong> (rastreamento de mudança de rota sem reload)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-10</td>
+<td>Suportar <strong>cross-domain tracking</strong> entre portais do Estado</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-11</td>
+<td>Rastrear <strong>conteúdo de mídia</strong> (vídeo/áudio: play, pause, tempo assistido)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-12</td>
+<td>Permitir <strong>exclusão de IPs internos</strong> (faixas do Estado) das métricas</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-análise-e-relatórios">3.2 Análise e relatórios<a class="headerlink" href="#32-análise-e-relatórios" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-20</td>
+<td>Dashboards configuráveis por usuário</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-21</td>
+<td>Relatórios de audiência: visitantes, visitas, page views, taxa de rejeição, duração</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-22</td>
+<td>Relatórios de aquisição: canais, referenciadores, campanhas (UTM)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-23</td>
+<td>Relatórios de comportamento: páginas mais vistas, entrada, saída, fluxo de navegação</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-24</td>
+<td>Relatórios de tecnologia: dispositivo, navegador, SO, resolução</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-25</td>
+<td>Relatórios geográficos: país, região, cidade</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-26</td>
+<td><strong>Metas (goals)</strong> com atribuição e valor</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-27</td>
+<td><strong>Funis de conversão</strong> multi-etapa com identificação do ponto de abandono</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-28</td>
+<td><strong>Segmentação</strong> de dados por qualquer dimensão, aplicável a todos os relatórios</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-29</td>
+<td><strong>Comparação de períodos</strong> e de segmentos</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-30</td>
+<td><strong>Relatórios em tempo real</strong> (latência &lt; 5 minutos)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-31</td>
+<td><strong>Coortes</strong> e análise de <strong>retenção</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-32</td>
+<td><strong>Mapas de calor</strong> (clique, movimento, rolagem)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-33</td>
+<td><strong>Gravação de sessão</strong> com mascaramento de campos sensíveis</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-34</td>
+<td><strong>Análise de formulários</strong> (abandono por campo, tempo de preenchimento)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-35</td>
+<td><strong>Testes A/B</strong> e teste multivariado</td>
+<td style="text-align: center;"><strong>W</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-36</td>
+<td><strong>Jornada do usuário</strong> / fluxo de usuários entre páginas</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-37</td>
+<td>Relatórios agendados por e-mail</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-38</td>
+<td>Anotações de eventos institucionais na linha do tempo dos gráficos</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-administração">3.3 Administração<a class="headerlink" href="#33-administração" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-40</td>
+<td>Gestão multi-site em instância única, com <strong>segregação de acesso por site/órgão</strong></td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-41</td>
+<td>Perfis de permissão granulares (visualizar, escrever, administrar, superusuário)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-42</td>
+<td>Agregação de métricas de múltiplos sites em visão consolidada (<em>roll-up</em>)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RF-43</td>
+<td>Gestão de usuários com autenticação forte (MFA)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST/DOC</td>
+</tr>
+<tr>
+<td>RF-44</td>
+<td>Interface administrativa em <strong>português do Brasil</strong></td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RF-45</td>
+<td>Gestão de tags integrada (<strong>Tag Manager</strong>)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-requisitos-não-funcionais-rnf">4. Requisitos não funcionais (RNF)<a class="headerlink" href="#4-requisitos-não-funcionais-rnf" title="Permanent link">&para;</a></h2>
+<h3 id="41-desempenho">4.1 Desempenho<a class="headerlink" href="#41-desempenho" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th>Meta</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-01</td>
+<td>Tamanho do script de tracking (gzip)</td>
+<td>≤ 25 KB</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-02</td>
+<td>Impacto no Largest Contentful Paint do portal</td>
+<td>≤ 50 ms</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-03</td>
+<td>Latência do endpoint de tracking (p95)</td>
+<td>≤ 200 ms</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-04</td>
+<td>Vazão de ingestão sustentada</td>
+<td>≥ 500 req/s</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-05</td>
+<td>Vazão de ingestão em pico absorvido (com fila)</td>
+<td>≥ 2.000 req/s</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-06</td>
+<td>Tempo de carga de relatório padrão (30 dias, p95)</td>
+<td>≤ 3 s</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-07</td>
+<td>Tempo de carga de relatório com segmento customizado (p95)</td>
+<td>≤ 10 s</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-08</td>
+<td>O script de tracking deve carregar de forma assíncrona e não bloqueante</td>
+<td><strong>M</strong></td>
+<td style="text-align: center;">INSP</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-disponibilidade-e-resiliência">4.2 Disponibilidade e resiliência<a class="headerlink" href="#42-disponibilidade-e-resiliência" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th>Meta</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-10</td>
+<td>Disponibilidade do endpoint de coleta</td>
+<td>≥ 99,5 % mensal</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-11</td>
+<td>Disponibilidade da interface de relatórios</td>
+<td>≥ 99,0 % mensal</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-12</td>
+<td><strong>RPO</strong> (Recovery Point Objective)</td>
+<td>≤ 24 h</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-13</td>
+<td><strong>RTO</strong> (Recovery Time Objective)</td>
+<td>≤ 8 h</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-14</td>
+<td>Indisponibilidade da plataforma de analytics <strong>não pode degradar</strong> os portais rastreados</td>
+<td><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>RNF-15</td>
+<td>Suporte a arquitetura ativa/passiva ou ativa/ativa</td>
+<td><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>RNF-16</td>
+<td>Perda máxima aceitável de eventos em janela de pico</td>
+<td>≤ 1 %</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-escalabilidade">4.3 Escalabilidade<a class="headerlink" href="#43-escalabilidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-20</td>
+<td>Escalabilidade <strong>horizontal</strong> da camada de coleta</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC/BENCH</td>
+</tr>
+<tr>
+<td>RNF-21</td>
+<td>Escalabilidade <strong>horizontal</strong> da camada de processamento/arquivamento</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-22</td>
+<td>Desacoplamento de ingestão via fila ou buffer</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-23</td>
+<td>Suportar crescimento de 5× no volume sem redesenho arquitetural</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">BENCH</td>
+</tr>
+<tr>
+<td>RNF-24</td>
+<td>Suportar ≥ 150 propriedades em instância única</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-segurança">4.4 Segurança<a class="headerlink" href="#44-segurança" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-30</td>
+<td>TLS 1.2+ obrigatório em todos os endpoints</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-31</td>
+<td>Autenticação multifator para usuários administrativos</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC/TEST</td>
+</tr>
+<tr>
+<td>RNF-32</td>
+<td>Integração com provedor de identidade corporativo via <strong>SAML 2.0 ou OIDC</strong></td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-33</td>
+<td>Controle de acesso baseado em papéis (RBAC)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-34</td>
+<td>Log de auditoria imutável ou exportável para SIEM</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-35</td>
+<td>Processo público e responsivo de divulgação de vulnerabilidades</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-36</td>
+<td>Cadência de correções de segurança compatível com o risco (patch crítico ≤ 15 dias)</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-37</td>
+<td>Compatibilidade com Content Security Policy restritiva</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-38</td>
+<td>Criptografia de dados em repouso (nível de banco ou de disco)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-39</td>
+<td>Ausência de CVE crítica sem correção disponível</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-operação-e-manutenibilidade">4.5 Operação e manutenibilidade<a class="headerlink" href="#45-operação-e-manutenibilidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-40</td>
+<td>Distribuição via <strong>container OCI</strong> oficial</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-41</td>
+<td>Implantação em <strong>Kubernetes</strong> documentada (Helm chart ou manifests)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-42</td>
+<td>Procedimento de atualização documentado e reversível</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-43</td>
+<td>Exposição de métricas operacionais para monitoramento (Prometheus ou equivalente)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-44</td>
+<td>Procedimento de backup e restauração documentado</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-45</td>
+<td>Configuração declarável por arquivo/variável de ambiente (Infrastructure as Code)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RNF-46</td>
+<td>Ciclo de releases previsível com política de versões suportadas (LTS ou equivalente)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="46-usabilidade-e-acessibilidade">4.6 Usabilidade e acessibilidade<a class="headerlink" href="#46-usabilidade-e-acessibilidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-50</td>
+<td>Interface disponível em pt-BR</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-51</td>
+<td>Interface administrativa aderente ao WCAG 2.1 nível AA</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-52</td>
+<td>Curva de aprendizado compatível com usuário não técnico (analista de comunicação)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RNF-53</td>
+<td>Documentação de usuário disponível</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-requisitos-de-integração-ri">5. Requisitos de integração (RI)<a class="headerlink" href="#5-requisitos-de-integração-ri" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RI-01</td>
+<td><strong>API REST</strong> de leitura de relatórios com autenticação por token</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RI-02</td>
+<td>Exportação de dados em <strong>CSV, JSON e XML</strong></td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RI-03</td>
+<td>Exportação <strong>em lote</strong> de dado bruto (não apenas agregado)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-04</td>
+<td>API de <strong>importação</strong> de dados históricos</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-05</td>
+<td>Conector ou método documentado de integração com <strong>Power BI</strong></td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC/TEST</td>
+</tr>
+<tr>
+<td>RI-06</td>
+<td>Integração com <strong>Grafana</strong> (datasource nativo ou via API)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-07</td>
+<td>Integração com <strong>Metabase</strong> e <strong>Apache Superset</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RI-08</td>
+<td>Integração com <strong>Google Looker Studio</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-09</td>
+<td>Integração com <strong>Qlik Sense</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-10</td>
+<td>SDK ou biblioteca oficial/comunitária em <strong>Python</strong> e <strong>Node.js</strong></td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-11</td>
+<td>Suporte a <strong>webhooks</strong> para notificação de eventos</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-12</td>
+<td>Integração com <strong>Google Tag Manager</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-13</td>
+<td><strong>Tag Manager próprio</strong> com versionamento e ambientes</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-14</td>
+<td>Integração com <strong>Consent Management Platform</strong> (IAB TCF ou equivalente)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-15</td>
+<td>Autenticação federada via <strong>OAuth 2.0 / OpenID Connect</strong></td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-16</td>
+<td>Autenticação federada via <strong>SAML 2.0</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-17</td>
+<td>Acesso direto ao banco de dados para ETL (réplica de leitura)</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+<tr>
+<td>RI-18</td>
+<td>Rate limits da API documentados e compatíveis com carga de BI</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RI-19</td>
+<td>Versionamento explícito da API com política de depreciação</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-requisitos-de-governança-rg">6. Requisitos de governança (RG)<a class="headerlink" href="#6-requisitos-de-governança-rg" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th style="text-align: center;">Verificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RG-01</td>
+<td>Código-fonte <strong>auditável</strong> pelo Estado</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+<tr>
+<td>RG-02</td>
+<td>Licença que permita uso, modificação e operação sem custo de licença por volume</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+<tr>
+<td>RG-03</td>
+<td><strong>Portabilidade total</strong> dos dados sem custo adicional e sem formato proprietário fechado</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">TEST</td>
+</tr>
+<tr>
+<td>RG-04</td>
+<td>Ausência de cláusula contratual que restrinja migração ou exportação</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">JUR</td>
+</tr>
+<tr>
+<td>RG-05</td>
+<td>Schema de dados documentado ou inspecionável</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+<tr>
+<td>RG-06</td>
+<td>Roadmap público do produto</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RG-07</td>
+<td>Governança do projeto transparente (para software livre: processo de contribuição, mantenedores identificados)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+<tr>
+<td>RG-08</td>
+<td>Existência de comunidade ativa ou de fornecedor com viabilidade financeira demonstrável</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP/DOC</td>
+</tr>
+<tr>
+<td>RG-09</td>
+<td>Possibilidade de suporte comercial contratável (opcional, não obrigatório)</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">DOC</td>
+</tr>
+<tr>
+<td>RG-10</td>
+<td>Ausência de dependência de serviço em nuvem específico não substituível</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td style="text-align: center;">INSP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-requisitos-de-negócio-rn">7. Requisitos de negócio (RN)<a class="headerlink" href="#7-requisitos-de-negócio-rn" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th style="text-align: center;">Prioridade</th>
+<th>Métrica de sucesso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RN-01</td>
+<td>Habilitar mensuração de adesão a serviços digitais</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td>100 % dos serviços digitais prioritários com meta configurada</td>
+</tr>
+<tr>
+<td>RN-02</td>
+<td>Habilitar identificação de gargalos em jornadas de serviço</td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td>Funil configurado para os 20 serviços de maior volume</td>
+</tr>
+<tr>
+<td>RN-03</td>
+<td>Padronizar analytics entre órgãos estaduais</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td>≥ 80 % dos portais em instância padronizada</td>
+</tr>
+<tr>
+<td>RN-04</td>
+<td>Alimentar painéis corporativos de transformação digital</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td>Pipeline de dados operacional para o BI do Estado</td>
+</tr>
+<tr>
+<td>RN-05</td>
+<td>Reduzir custo por milhão de eventos em relação à linha de base</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td>Custo/M eventos medido e monitorado</td>
+</tr>
+<tr>
+<td>RN-06</td>
+<td>Permitir publicação de estatísticas de uso em portal de transparência</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td>Conjunto de dados abertos publicado</td>
+</tr>
+<tr>
+<td>RN-07</td>
+<td>Tempo de provisionamento de nova propriedade para um órgão</td>
+<td style="text-align: center;"><strong>S</strong></td>
+<td>≤ 1 dia útil</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-matriz-de-rastreabilidade">8. Matriz de rastreabilidade<a class="headerlink" href="#8-matriz-de-rastreabilidade" title="Permanent link">&para;</a></h2>
+<p>Rastreia direcionadores arquiteturais → requisitos → critérios de avaliação.</p>
+<table>
+<thead>
+<tr>
+<th>Direcionador (<a href="../01-contexto/#10-direcionadores-arquiteturais">01</a>)</th>
+<th>Requisitos vinculados</th>
+<th>Critério da matriz (<a href="../03-criterios-de-avaliacao/">03</a>)</th>
+<th style="text-align: right;">Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>D1</strong> — Soberania de dados</td>
+<td>RL-01, RL-02, RG-03, RG-04, RG-10, RI-17</td>
+<td>Controle dos dados</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td><strong>D2</strong> — Conformidade LGPD</td>
+<td>RL-01 a RL-14, RNF-30, RNF-38</td>
+<td>LGPD</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td><strong>D3</strong> — Independência tecnológica</td>
+<td>RG-01, RG-02, RG-05, RG-07, RG-10</td>
+<td>Independência tecnológica</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><strong>D4</strong> — Sustentabilidade operacional</td>
+<td>RNF-40 a RNF-46, RNF-52</td>
+<td>Operação</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><strong>D5</strong> — Capacidade analítica</td>
+<td>RF-01 a RF-45</td>
+<td>Recursos analíticos</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><strong>D6</strong> — Integração com BI</td>
+<td>RI-01 a RI-19</td>
+<td>APIs (10) + Integrações (10)</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td><strong>D7</strong> — Economicidade</td>
+<td>RN-05, RG-02, RG-09</td>
+<td>TCO</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td><strong>D8</strong> — Elasticidade</td>
+<td>RNF-01 a RNF-24</td>
+<td>Escalabilidade</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><strong>Transversal</strong> — Segurança</td>
+<td>RNF-30 a RNF-39, RL-10, RL-12</td>
+<td>Segurança</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><strong>Transversal</strong> — Sustentabilidade do produto</td>
+<td>RG-06, RG-08, RNF-46</td>
+<td>Comunidade (5) + Documentação (5)</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total dos pesos: 120</strong> (máximo teórico da matriz: 120 × 5 = <strong>600 pontos</strong>).</p>
+<hr />
+<h2 id="9-cenários-de-atributo-de-qualidade-atam">9. Cenários de atributo de qualidade (ATAM)<a class="headerlink" href="#9-cenários-de-atributo-de-qualidade-atam" title="Permanent link">&para;</a></h2>
+<p>Cenários no formato canônico do ATAM: <code>&lt;fonte&gt; &lt;estímulo&gt; &lt;artefato&gt; &lt;ambiente&gt; &lt;resposta&gt; &lt;medida da resposta&gt;</code>.</p>
+<h3 id="qa-01--desempenho-sob-pico">QA-01 — Desempenho sob pico<a class="headerlink" href="#qa-01--desempenho-sob-pico" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atributo</strong></td>
+<td>Desempenho / Escalabilidade</td>
+</tr>
+<tr>
+<td><strong>Fonte</strong></td>
+<td>Cidadãos acessando portal após divulgação de resultado de concurso</td>
+</tr>
+<tr>
+<td><strong>Estímulo</strong></td>
+<td>Aumento súbito de 30× no tráfego, sustentado por 45 minutos</td>
+</tr>
+<tr>
+<td><strong>Artefato</strong></td>
+<td>Endpoint de coleta e camada de persistência</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Operação normal, sem aviso prévio</td>
+</tr>
+<tr>
+<td><strong>Resposta</strong></td>
+<td>Todos os eventos são aceitos e enfileirados; nenhum portal é degradado</td>
+</tr>
+<tr>
+<td><strong>Medida</strong></td>
+<td>Perda de eventos ≤ 1 %; latência do endpoint p95 ≤ 200 ms; impacto zero no LCP do portal</td>
+</tr>
+<tr>
+<td><strong>Requisitos</strong></td>
+<td>RNF-03, RNF-05, RNF-14, RNF-16, RNF-22</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Ponto de sensibilidade identificado</strong>
+Este cenário é atendido apenas por arquiteturas com <strong>desacoplamento de ingestão</strong>. Instalações Matomo sem o plugin <code>QueuedTracking</code> gravam de forma síncrona no MySQL e <strong>falham neste cenário</strong>. Trata-se do principal requisito de adequação da arquitetura vigente (<a href="../01-contexto/#53-lacunas-técnicas-da-arquitetura-vigente">01, seção 5.3, lacuna L1</a>).</p>
+</blockquote>
+<h3 id="qa-02--solicitação-de-eliminação-por-titular">QA-02 — Solicitação de eliminação por titular<a class="headerlink" href="#qa-02--solicitação-de-eliminação-por-titular" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atributo</strong></td>
+<td>Conformidade / Manutenibilidade</td>
+</tr>
+<tr>
+<td><strong>Fonte</strong></td>
+<td>Titular de dados exercendo direito do art. 18 da LGPD</td>
+</tr>
+<tr>
+<td><strong>Estímulo</strong></td>
+<td>Solicitação de eliminação dos dados associados ao seu identificador</td>
+</tr>
+<tr>
+<td><strong>Artefato</strong></td>
+<td>Base de dado bruto</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Operação normal</td>
+</tr>
+<tr>
+<td><strong>Resposta</strong></td>
+<td>Dados localizados e eliminados; confirmação registrada em log de auditoria</td>
+</tr>
+<tr>
+<td><strong>Medida</strong></td>
+<td>Atendimento em ≤ 15 dias; comprovação auditável</td>
+</tr>
+<tr>
+<td><strong>Requisitos</strong></td>
+<td>RL-06, RL-09, RL-10</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação</strong>
+Esse cenário revela um <strong>trade-off entre privacidade e capacidade de resposta</strong>: quanto mais anonimizado o dado na coleta, menor o risco regulatório — porém torna-se impossível localizar o dado de um titular específico para eliminá-lo. Paradoxalmente, <strong>a anonimização completa é a resposta ótima</strong>: se não há dado pessoal, o art. 18 não se aplica (LGPD art. 12). Discutido em <a href="../06-tradeoffs/"><code>06-tradeoffs.md</code></a>.</p>
+</blockquote>
+<h3 id="qa-03--migração-de-plataforma">QA-03 — Migração de plataforma<a class="headerlink" href="#qa-03--migração-de-plataforma" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atributo</strong></td>
+<td>Portabilidade / Modificabilidade</td>
+</tr>
+<tr>
+<td><strong>Fonte</strong></td>
+<td>SETDIG, em decorrência de revisão arquitetural futura</td>
+</tr>
+<tr>
+<td><strong>Estímulo</strong></td>
+<td>Decisão de migrar para outra plataforma</td>
+</tr>
+<tr>
+<td><strong>Artefato</strong></td>
+<td>Histórico completo de dados + configuração de sites e metas</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Planejado, com janela definida</td>
+</tr>
+<tr>
+<td><strong>Resposta</strong></td>
+<td>Histórico exportado integralmente em formato aberto e reimportado ou arquivado</td>
+</tr>
+<tr>
+<td><strong>Medida</strong></td>
+<td>100 % do dado agregado exportado; custo de saída ≤ 15 % do TCO anual; janela ≤ 90 dias</td>
+</tr>
+<tr>
+<td><strong>Requisitos</strong></td>
+<td>RG-03, RG-04, RI-02, RI-03, RI-04</td>
+</tr>
+</tbody>
+</table>
+<h3 id="qa-04--integração-com-bi-corporativo">QA-04 — Integração com BI corporativo<a class="headerlink" href="#qa-04--integração-com-bi-corporativo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atributo</strong></td>
+<td>Interoperabilidade</td>
+</tr>
+<tr>
+<td><strong>Fonte</strong></td>
+<td>Equipe de BI do Estado</td>
+</tr>
+<tr>
+<td><strong>Estímulo</strong></td>
+<td>Necessidade de consolidar métricas de 80 portais em painel único, atualizado diariamente</td>
+</tr>
+<tr>
+<td><strong>Artefato</strong></td>
+<td>API de relatórios / réplica de banco</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Janela noturna de ETL</td>
+</tr>
+<tr>
+<td><strong>Resposta</strong></td>
+<td>Extração completa concluída sem impactar coleta nem relatórios</td>
+</tr>
+<tr>
+<td><strong>Medida</strong></td>
+<td>Janela de extração ≤ 2 h; zero degradação da coleta; sem estouro de rate limit</td>
+</tr>
+<tr>
+<td><strong>Requisitos</strong></td>
+<td>RI-01, RI-05, RI-17, RI-18</td>
+</tr>
+</tbody>
+</table>
+<h3 id="qa-05--vulnerabilidade-crítica-divulgada">QA-05 — Vulnerabilidade crítica divulgada<a class="headerlink" href="#qa-05--vulnerabilidade-crítica-divulgada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atributo</strong></td>
+<td>Segurança</td>
+</tr>
+<tr>
+<td><strong>Fonte</strong></td>
+<td>Pesquisador de segurança / CVE publicado</td>
+</tr>
+<tr>
+<td><strong>Estímulo</strong></td>
+<td>Divulgação de vulnerabilidade crítica com RCE na plataforma</td>
+</tr>
+<tr>
+<td><strong>Artefato</strong></td>
+<td>Instância de produção</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Operação normal</td>
+</tr>
+<tr>
+<td><strong>Resposta</strong></td>
+<td>Correção disponibilizada pelo fornecedor e aplicada pela STI</td>
+</tr>
+<tr>
+<td><strong>Medida</strong></td>
+<td>Correção do fornecedor ≤ 15 dias; aplicação pela STI ≤ 72 h após disponibilização</td>
+</tr>
+<tr>
+<td><strong>Requisitos</strong></td>
+<td>RNF-35, RNF-36, RNF-39</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Alerta</strong>
+Este cenário é o principal fator de eliminação do <strong>Open Web Analytics</strong>, cujo histórico de manutenção e o CVE de execução remota de código documentado indicam incapacidade estrutural de atender à medida de resposta. Detalhado em <a href="../../plataformas/open-web-analytics/"><code>../plataformas/open-web-analytics.md</code></a>.</p>
+</blockquote>
+<h3 id="qa-06--descontinuidade-do-fornecedor">QA-06 — Descontinuidade do fornecedor<a class="headerlink" href="#qa-06--descontinuidade-do-fornecedor" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atributo</strong></td>
+<td>Disponibilidade / Governança</td>
+</tr>
+<tr>
+<td><strong>Fonte</strong></td>
+<td>Fornecedor da plataforma</td>
+</tr>
+<tr>
+<td><strong>Estímulo</strong></td>
+<td>Encerramento do produto, aquisição por terceiro ou mudança de licenciamento restritiva</td>
+</tr>
+<tr>
+<td><strong>Artefato</strong></td>
+<td>Plataforma inteira</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Aviso de 6 a 12 meses (cenário otimista) ou imediato (cenário pessimista)</td>
+</tr>
+<tr>
+<td><strong>Resposta</strong></td>
+<td>Estado mantém operação com a versão existente e executa plano de migração</td>
+</tr>
+<tr>
+<td><strong>Medida</strong></td>
+<td>Continuidade operacional ≥ 12 meses sem o fornecedor; dados preservados integralmente</td>
+</tr>
+<tr>
+<td><strong>Requisitos</strong></td>
+<td>RG-01, RG-02, RG-03, RG-08, RG-10</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>✅ Bloco de Decisão — Resposta arquitetural ao QA-06</strong>
+Apenas plataformas <strong>auto-hospedado com licença livre</strong> atendem plenamente a este cenário: o Estado continua operando o software indefinidamente mesmo sem o fornecedor. Plataformas SaaS proprietárias apresentam resposta estruturalmente inferior — a continuidade depende integralmente do fornecedor. Este é o fundamento técnico do peso 10 atribuído ao critério "Independência tecnológica".</p>
+</blockquote>
+<hr />
+<h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⬅️ Anterior</th>
+<th>➡️ Próximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../01-contexto/">01 — Contexto</a></td>
+<td><a href="../03-criterios-de-avaliacao/">03 — Critérios de avaliação</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2926 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/matomo-vs-posthog/">
+      
+      
+        <link rel="prev" href="../governanca/">
+      
+      
+        <link rel="next" href="../migracao-matomo-posthog/">
+      
+      
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Matomo × PostHog - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparativo-bilateral--matomo-on-premise--posthog-auto-hospedado" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Matomo × PostHog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../custo/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo detalhado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trade-offs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/10-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/11-riscos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/12-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/google-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Analytics 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/open-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/adobe-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adobe Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/simple-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/microsoft-clarity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Clarity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/cloudflare-web-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudflare Web Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custo (TCO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lgpd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infraestrutura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../escalabilidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escalabilidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governanca/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governança
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto-e-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto e escopo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resposta-direta--posthog-cloud--posthog-oss-auto-hospedado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resposta direta — PostHog Cloud ≠ PostHog OSS auto-hospedado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Resposta direta — PostHog Cloud ≠ PostHog OSS auto-hospedado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-o-que-você-tem-no-oss" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 O que você tem no OSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-o-que-você-não-tem-sem-ee-paga" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 O que você NÃO tem sem EE paga
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-o-que-você-não-tem-em-modo-nenhum-auto-hospedado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 O que você NÃO tem em modo nenhum auto-hospedado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comparativo-funcional-lado-a-lado" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Comparativo funcional lado a lado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comparativo funcional lado a lado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-a-pergunta-certa-não-é-quem-tem-mais-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 A pergunta certa não é "quem tem mais features"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparativo-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Comparativo operacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comparativo operacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-stack-de-dependências" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Stack de dependências
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-modalidade-de-implantação-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Modalidade de implantação recomendada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-esforço-de-operação-intrínseco-regra-c10" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Esforço de operação intrínseco (regra C10)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-comparativo-de-custo-regime-marginal-setdig" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Comparativo de custo (regime marginal SETDIG)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Comparativo de custo (regime marginal SETDIG)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-por-que-o-posthog-oss-tem-abatimento-parcial-não-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Por que o PostHog OSS tem abatimento parcial, não total
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-sensibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Sensibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-segurança-lgpd-e-soberania" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Segurança, LGPD e soberania
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-escalabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Escalabilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-apis-sdks-e-integrações" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. APIs, SDKs e integrações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-governança-e-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Governança e lock-in
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-matriz-resumo--quem-vence-em-cada-critério" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Matriz-resumo — quem vence em cada critério
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-quando-escolher-qual" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Quando escolher qual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Quando escolher qual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-escolha-matomo-on-premise-quando" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Escolha Matomo On-Premise quando
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-escolha-posthog-oss-quando" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Escolha PostHog OSS quando
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-escolha-posthog-cloud-não-auto-hospedado-quando" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Escolha PostHog Cloud (não auto-hospedado) quando
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-recomendação-circunstanciada" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Recomendação circunstanciada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Recomendação circunstanciada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-cenário-híbrido-teórico-não-recomendado-neste-momento" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Cenário híbrido teórico (não recomendado neste momento)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-antipadrão-a-evitar--extrapolar-experiência-de-cloud-para-oss" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Antipadrão a evitar — extrapolar experiência de Cloud para OSS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências-cruzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências cruzadas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migracao-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migração Matomo → PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto-e-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto e escopo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resposta-direta--posthog-cloud--posthog-oss-auto-hospedado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resposta direta — PostHog Cloud ≠ PostHog OSS auto-hospedado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Resposta direta — PostHog Cloud ≠ PostHog OSS auto-hospedado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-o-que-você-tem-no-oss" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 O que você tem no OSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-o-que-você-não-tem-sem-ee-paga" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 O que você NÃO tem sem EE paga
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-o-que-você-não-tem-em-modo-nenhum-auto-hospedado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 O que você NÃO tem em modo nenhum auto-hospedado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comparativo-funcional-lado-a-lado" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Comparativo funcional lado a lado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comparativo funcional lado a lado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-a-pergunta-certa-não-é-quem-tem-mais-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 A pergunta certa não é "quem tem mais features"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparativo-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Comparativo operacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comparativo operacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-stack-de-dependências" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Stack de dependências
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-modalidade-de-implantação-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Modalidade de implantação recomendada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-esforço-de-operação-intrínseco-regra-c10" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Esforço de operação intrínseco (regra C10)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-comparativo-de-custo-regime-marginal-setdig" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Comparativo de custo (regime marginal SETDIG)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Comparativo de custo (regime marginal SETDIG)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-por-que-o-posthog-oss-tem-abatimento-parcial-não-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Por que o PostHog OSS tem abatimento parcial, não total
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-sensibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Sensibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-segurança-lgpd-e-soberania" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Segurança, LGPD e soberania
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-escalabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Escalabilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-apis-sdks-e-integrações" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. APIs, SDKs e integrações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-governança-e-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Governança e lock-in
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-matriz-resumo--quem-vence-em-cada-critério" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Matriz-resumo — quem vence em cada critério
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-quando-escolher-qual" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Quando escolher qual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Quando escolher qual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-escolha-matomo-on-premise-quando" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Escolha Matomo On-Premise quando
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-escolha-posthog-oss-quando" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Escolha PostHog OSS quando
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-escolha-posthog-cloud-não-auto-hospedado-quando" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Escolha PostHog Cloud (não auto-hospedado) quando
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-recomendação-circunstanciada" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Recomendação circunstanciada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Recomendação circunstanciada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-cenário-híbrido-teórico-não-recomendado-neste-momento" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Cenário híbrido teórico (não recomendado neste momento)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-antipadrão-a-evitar--extrapolar-experiência-de-cloud-para-oss" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Antipadrão a evitar — extrapolar experiência de Cloud para OSS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referências-cruzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências cruzadas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="comparativo-bilateral--matomo-on-premise--posthog-auto-hospedado">Comparativo bilateral — Matomo On-Premise × PostHog auto-hospedado<a class="headerlink" href="#comparativo-bilateral--matomo-on-premise--posthog-auto-hospedado" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Corte transversal</strong> · Duelo direto entre os dois candidatos auto-hospedados de maior pontuação
+<strong>Motivação:</strong> dirimir viés de "usei PostHog Cloud, quero adotar auto-hospedado"
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a> · <a href="../../plataformas/matomo/">Matomo</a> · <a href="../../plataformas/posthog/">PostHog</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-contexto-e-escopo">1. Contexto e escopo</a></li>
+<li><a href="#2-resposta-direta--posthog-cloud--posthog-oss-auto-hospedado">2. Resposta direta — PostHog Cloud ≠ PostHog OSS auto-hospedado</a></li>
+<li><a href="#3-comparativo-funcional-lado-a-lado">3. Comparativo funcional lado a lado</a></li>
+<li><a href="#4-comparativo-operacional">4. Comparativo operacional</a></li>
+<li><a href="#5-comparativo-de-custo-regime-marginal-setdig">5. Comparativo de custo (regime marginal SETDIG)</a></li>
+<li><a href="#6-segurança-lgpd-e-soberania">6. Segurança, LGPD e soberania</a></li>
+<li><a href="#7-escalabilidade">7. Escalabilidade</a></li>
+<li><a href="#8-apis-sdks-e-integrações">8. APIs, SDKs e integrações</a></li>
+<li><a href="#9-governança-e-lock-in">9. Governança e lock-in</a></li>
+<li><a href="#10-matriz-resumo--quem-vence-em-cada-critério">10. Matriz-resumo — quem vence em cada critério</a></li>
+<li><a href="#11-quando-escolher-qual">11. Quando escolher qual</a></li>
+<li><a href="#12-recomendação-circunstanciada">12. Recomendação circunstanciada</a></li>
+<li><a href="#13-antipadrão-a-evitar--extrapolar-experiência-de-cloud-para-oss">13. Antipadrão a evitar — extrapolar experiência de Cloud para OSS</a></li>
+</ul>
+<hr />
+<h2 id="1-contexto-e-escopo">1. Contexto e escopo<a class="headerlink" href="#1-contexto-e-escopo" title="Permanent link">&para;</a></h2>
+<p>Este documento responde a uma pergunta específica: <strong>"O PostHog é atraente na modalidade Cloud. Se auto-hospedado, mantém o mesmo valor entregue?"</strong></p>
+<p>Escopo:</p>
+<ul>
+<li>Comparação <strong>bilateral</strong> — Matomo On-Premise × PostHog <strong>OSS auto-hospedado</strong>.</li>
+<li>Regime de custo: <strong>marginal SETDIG</strong> (P1/P2/R4). Ver <a href="../custo/#14-regime-de-custo--marginal-para-o-estado"><code>custo.md §1.4</code></a>.</li>
+<li>Modalidade PostHog Cloud entra apenas como <strong>referência</strong> para evidenciar a diferença OSS × Cloud.</li>
+<li>Não é revisão do ADR — o resultado da matriz permanece: <strong>Matomo OP recomendado, PostHog não selecionado</strong>. Este documento <strong>fundamenta o "não"</strong> de forma detalhada.</li>
+</ul>
+<hr />
+<h2 id="2-resposta-direta--posthog-cloud--posthog-oss-auto-hospedado">2. Resposta direta — PostHog Cloud ≠ PostHog OSS auto-hospedado<a class="headerlink" href="#2-resposta-direta--posthog-cloud--posthog-oss-auto-hospedado" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>🚨 Alerta — a experiência da Cloud não se replica integralmente no OSS</strong></p>
+<p><strong>Não.</strong> PostHog auto-hospedado <strong>não entrega a mesma experiência</strong> da modalidade Cloud. Três razões objetivas:</p>
+<ol>
+<li><strong>Recursos Enterprise (EE) são pagos e separados.</strong> SSO SAML, RBAC granular, políticas de retenção configuráveis e auditoria completa <strong>não estão no core MIT</strong>. Requerem licença EE comercial — mesmo em deployment auto-hospedado. Fonte: <a href="../../plataformas/posthog/#2-licenciamento"><code>plataformas/posthog.md §2</code></a>.</li>
+<li><strong>Docker Compose é oficialmente desencorajado em produção.</strong> A própria PostHog declara: <em>"the hobby deploy is for evaluation only; for production, use Kubernetes with our Helm chart"</em>. Isso muda o custo operacional real. Fonte: <a href="../../plataformas/posthog/#3-hospedagem"><code>plataformas/posthog.md §3</code></a>.</li>
+<li><strong>Divergência crescente entre Cloud e OSS.</strong> Recursos novos aparecem primeiro (e às vezes exclusivamente) na Cloud. A comunidade e a documentação concentram-se na Cloud; o <em>self-hosting</em> recebe menos atenção do fornecedor. Fonte: <a href="../../docs/07-matriz-decisao/#46-posthog-auto-hospedado--455-pontos"><code>docs/07-matriz-decisao.md §4.6</code></a> — C04 justificativa.</li>
+</ol>
+</blockquote>
+<h3 id="21-o-que-você-tem-no-oss">2.1 O que você tem no OSS<a class="headerlink" href="#21-o-que-você-tem-no-oss" title="Permanent link">&para;</a></h3>
+<p>Core em MIT, integralmente funcional em modo auto-hospedado:</p>
+<ul>
+<li>Product analytics (eventos, funis, cohorts, retenção, jornada)</li>
+<li>Session replay</li>
+<li>Feature flags e experimentos (A/B testing)</li>
+<li>Surveys</li>
+<li>Data warehouse sync</li>
+<li>HogQL (SQL sobre ClickHouse)</li>
+<li>LLM observability</li>
+<li>SDKs em todas as linguagens principais</li>
+<li>Ingestão pelo mesmo <code>posthog-js</code> da Cloud</li>
+</ul>
+<h3 id="22-o-que-você-não-tem-sem-ee-paga">2.2 O que você NÃO tem sem EE paga<a class="headerlink" href="#22-o-que-você-não-tem-sem-ee-paga" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>SSO SAML</strong> (SETDIG exige por norma corporativa) → requer EE</li>
+<li><strong>RBAC granular</strong> por projeto/dashboard/feature → requer EE</li>
+<li><strong>Políticas de retenção configuráveis</strong> por evento → requer EE</li>
+<li><strong>Auditoria completa</strong> com trilha exportável → requer EE</li>
+<li><strong>Custom event ingestion</strong> avançada → parcialmente EE</li>
+</ul>
+<h3 id="23-o-que-você-não-tem-em-modo-nenhum-auto-hospedado">2.3 O que você NÃO tem em modo nenhum auto-hospedado<a class="headerlink" href="#23-o-que-você-não-tem-em-modo-nenhum-auto-hospedado" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Suporte comercial</strong> ao stack auto-hospedado (o fornecedor prioriza Cloud)</li>
+<li><strong>SLA financeiro</strong></li>
+<li><strong>Managed upgrades</strong> — cada release major requer intervenção manual em Kafka/ClickHouse</li>
+<li><strong>Managed backups</strong> com restore-drill contratual</li>
+<li><strong>Managed scaling</strong> — expansão de ClickHouse é operação manual</li>
+</ul>
+<hr />
+<h2 id="3-comparativo-funcional-lado-a-lado">3. Comparativo funcional lado a lado<a class="headerlink" href="#3-comparativo-funcional-lado-a-lado" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th style="text-align: center;">Matomo OP + plugins</th>
+<th style="text-align: center;">PostHog OSS (core MIT)</th>
+<th style="text-align: center;">PostHog Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Analytics de audiência (page views, sessões, visitantes)</strong></td>
+<td style="text-align: center;">🟢 Nativo, primeira classe</td>
+<td style="text-align: center;">🟠 Via eventos <code>$pageview</code></td>
+<td style="text-align: center;">🟠 Via eventos <code>$pageview</code></td>
+</tr>
+<tr>
+<td><strong>Funis de conversão</strong></td>
+<td style="text-align: center;">🟢 Plugin <em>Funnels</em> (pago)</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Cohorts</strong></td>
+<td style="text-align: center;">🟠 Segmentação</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Retenção</strong></td>
+<td style="text-align: center;">🟠 Limitada</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>User journey / paths</strong></td>
+<td style="text-align: center;">🟢 <em>Users Flow</em> nativo</td>
+<td style="text-align: center;">🟢 Path analysis</td>
+<td style="text-align: center;">🟢 Path analysis</td>
+</tr>
+<tr>
+<td><strong>Heatmaps</strong></td>
+<td style="text-align: center;">🟢 Plugin <em>Heatmaps &amp; Session Recording</em> (pago)</td>
+<td style="text-align: center;">🟢 Nativo (via session replay)</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Session recording</strong></td>
+<td style="text-align: center;">🟢 Mesmo plugin (pago)</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>A/B testing / experimentation</strong></td>
+<td style="text-align: center;">🟠 Plugin <em>A/B Testing</em> (pago)</td>
+<td style="text-align: center;">🟢 Nativo com significância estatística</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Feature flags</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Surveys in-app</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Form analytics</strong></td>
+<td style="text-align: center;">🟢 Plugin <em>Form Analytics</em> (pago)</td>
+<td style="text-align: center;">🟠 Via eventos customizados</td>
+<td style="text-align: center;">🟠 Via eventos customizados</td>
+</tr>
+<tr>
+<td><strong>Tag Manager próprio</strong></td>
+<td style="text-align: center;">🟢 <em>Matomo Tag Manager</em> nativo</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Real time</strong></td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td><strong>LLM observability</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>HogQL (SQL analítico)</strong></td>
+<td style="text-align: center;">🟠 SQL direto no MariaDB</td>
+<td style="text-align: center;">🟢 SQL colunar ClickHouse</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Data warehouse sync</strong></td>
+<td style="text-align: center;">🟠 Manual via export</td>
+<td style="text-align: center;">🟢 Nativo (S3, BigQuery, Snowflake)</td>
+<td style="text-align: center;">🟢 Nativo</td>
+</tr>
+<tr>
+<td><strong>Consent Manager próprio</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Painel público de estatísticas</strong></td>
+<td style="text-align: center;">🟢 Nativo (widget)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>SSO SAML</strong></td>
+<td style="text-align: center;">🟠 Plugin comercial</td>
+<td style="text-align: center;">❌ (só na EE paga)</td>
+<td style="text-align: center;">🟢 (EE incluída)</td>
+</tr>
+<tr>
+<td><strong>RBAC granular</strong></td>
+<td style="text-align: center;">🟢 Nativo (por site + por permissão)</td>
+<td style="text-align: center;">❌ (só na EE paga)</td>
+<td style="text-align: center;">🟢 (EE incluída)</td>
+</tr>
+<tr>
+<td><strong>Auditoria exportável para SIEM</strong></td>
+<td style="text-align: center;">🟠 Plugin comunidade</td>
+<td style="text-align: center;">❌ (só na EE paga)</td>
+<td style="text-align: center;">🟢 (EE incluída)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leitura:</strong> funcionalmente, o PostHog OSS <strong>ganha</strong> em product analytics (funis, cohorts, retenção, replay, feature flags, surveys, LLM obs) e <strong>perde</strong> em governança corporativa (SSO, RBAC, auditoria). O Matomo entrega cobertura ampla, mas empurra recursos avançados para plugins pagos.</p>
+<h3 id="31-a-pergunta-certa-não-é-quem-tem-mais-features">3.1 A pergunta certa não é "quem tem mais features"<a class="headerlink" href="#31-a-pergunta-certa-não-é-quem-tem-mais-features" title="Permanent link">&para;</a></h3>
+<p><strong>A pergunta certa é: quais features você realmente vai usar?</strong></p>
+<ul>
+<li>Portais <strong>institucionais e de conteúdo</strong> (grande parte do parque estadual): audiência, campanhas, tempo de permanência, origem do tráfego, funis simples de serviço. Matomo é purpose-built pra isso.</li>
+<li>Serviços digitais <strong>transacionais complexos</strong> (raros no parque): feature flags, A/B testing com significância, cohorts de comportamento, retenção de longo prazo. PostHog é purpose-built pra isso.</li>
+</ul>
+<p>Adotar PostHog para o primeiro caso é <strong>matar mosquito com bazuca</strong>: paga complexidade de plataforma que não converte em valor operacional.</p>
+<hr />
+<h2 id="4-comparativo-operacional">4. Comparativo operacional<a class="headerlink" href="#4-comparativo-operacional" title="Permanent link">&para;</a></h2>
+<h3 id="41-stack-de-dependências">4.1 Stack de dependências<a class="headerlink" href="#41-stack-de-dependências" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linguagem principal</td>
+<td style="text-align: center;">PHP 8+</td>
+<td style="text-align: center;">Python (Django) + Rust (plugin-server)</td>
+</tr>
+<tr>
+<td>Servidor web</td>
+<td style="text-align: center;">Nginx / Apache</td>
+<td style="text-align: center;">Ingress + múltiplos serviços</td>
+</tr>
+<tr>
+<td>Banco relacional (metadados)</td>
+<td style="text-align: center;">— (tudo no MySQL)</td>
+<td style="text-align: center;">PostgreSQL 15+</td>
+</tr>
+<tr>
+<td>Banco analítico</td>
+<td style="text-align: center;">MySQL 8 / MariaDB 10.5+</td>
+<td style="text-align: center;"><strong>ClickHouse</strong> (obrigatório)</td>
+</tr>
+<tr>
+<td>Cache</td>
+<td style="text-align: center;">Redis (opcional)</td>
+<td style="text-align: center;">Redis (obrigatório)</td>
+</tr>
+<tr>
+<td>Streaming / fila</td>
+<td style="text-align: center;">Redis + QueuedTracking (plugin)</td>
+<td style="text-align: center;"><strong>Kafka + Zookeeper</strong> (obrigatório)</td>
+</tr>
+<tr>
+<td>Object storage</td>
+<td style="text-align: center;">Opcional (só para exports)</td>
+<td style="text-align: center;"><strong>MinIO / S3</strong> (session replay)</td>
+</tr>
+<tr>
+<td>Job scheduler</td>
+<td style="text-align: center;">Cron (<code>console core:archive</code>)</td>
+<td style="text-align: center;">Múltiplos workers + Celery</td>
+</tr>
+<tr>
+<td><strong>Total de componentes obrigatórios</strong></td>
+<td style="text-align: center;"><strong>2</strong> (PHP + MySQL)</td>
+<td style="text-align: center;"><strong>6</strong> (Django + PG + CH + Kafka + Redis + MinIO)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-modalidade-de-implantação-recomendada">4.2 Modalidade de implantação recomendada<a class="headerlink" href="#42-modalidade-de-implantação-recomendada" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Modalidade</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker Compose</td>
+<td style="text-align: center;">🟢 Produção viável</td>
+<td style="text-align: center;">🚨 <strong>Desencorajado oficialmente</strong> para produção</td>
+</tr>
+<tr>
+<td>Docker + orquestração manual</td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟠</td>
+</tr>
+<tr>
+<td>Kubernetes + Helm</td>
+<td style="text-align: center;">🟢 (chart comunidade)</td>
+<td style="text-align: center;">🟢 <strong>Único caminho produtivo suportado</strong></td>
+</tr>
+<tr>
+<td>Cluster dedicado</td>
+<td style="text-align: center;">🟠 Só em volume muito alto</td>
+<td style="text-align: center;">🟢 Recomendado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-esforço-de-operação-intrínseco-regra-c10">4.3 Esforço de operação intrínseco (regra C10)<a class="headerlink" href="#43-esforço-de-operação-intrínseco-regra-c10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Matomo OP</th>
+<th>PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Setup inicial</td>
+<td>8–24 h</td>
+<td>40–120 h</td>
+</tr>
+<tr>
+<td>Curva de aprendizado técnico</td>
+<td>2–3 semanas (Linux + PHP + MySQL)</td>
+<td>4–8 semanas (Kubernetes + ClickHouse + Kafka)</td>
+</tr>
+<tr>
+<td>FTE intrínseco em regime permanente</td>
+<td>~0,3 FTE</td>
+<td><strong>~0,8 FTE</strong></td>
+</tr>
+<tr>
+<td>Complexidade de backup</td>
+<td>🟢 Baixa (dump MySQL)</td>
+<td>🔴 Alta (coordenar dump PG + snapshot CH + backup MinIO)</td>
+</tr>
+<tr>
+<td>Complexidade de DR</td>
+<td>🟢 Baixa</td>
+<td>🔴 Alta (replicação cross-region do ClickHouse)</td>
+</tr>
+<tr>
+<td>Cadência de upgrades majors</td>
+<td>Semestral</td>
+<td>Trimestral (releases mais frequentes)</td>
+</tr>
+<tr>
+<td>Suporte comercial disponível</td>
+<td>🟢 InnoCraft (contratos)</td>
+<td>🔴 <strong>Não</strong> para auto-hospedado</td>
+</tr>
+<tr>
+<td><strong>Nota C10 no estudo</strong></td>
+<td><strong>3</strong></td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Consequência direta:</strong> PostHog OSS demanda equipe <strong>especializada</strong> em ClickHouse + Kafka + Kubernetes. Isso viola a Restrição R5 (sem ampliação de quadro STI) mesmo em regime de custo marginal.</p>
+<hr />
+<h2 id="5-comparativo-de-custo-regime-marginal-setdig">5. Comparativo de custo (regime marginal SETDIG)<a class="headerlink" href="#5-comparativo-de-custo-regime-marginal-setdig" title="Permanent link">&para;</a></h2>
+<p>Detalhamento em <a href="../custo/#41-matomo-on-premise-núcleo-sem-plugins-pagos"><code>custo.md §4.1</code></a> e <a href="../custo/#45-posthog-auto-hospedado-oss--ee-mínima"><code>custo.md §4.5</code></a>.</p>
+<table>
+<thead>
+<tr>
+<th>Rubrica (5 anos)</th>
+<th style="text-align: right;">Matomo OP + plugins</th>
+<th style="text-align: right;">PostHog OSS + EE mínima</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licenciamento</td>
+<td style="text-align: right;">R$ 60.000 (plugins Marketplace)</td>
+<td style="text-align: right;"><strong>R$ 300.000</strong> (EE para SSO+RBAC)</td>
+</tr>
+<tr>
+<td>Infra marginal</td>
+<td style="text-align: right;">R$ 30.000 (dentro do parque K8s+DBaaS SETDIG)</td>
+<td style="text-align: right;"><strong>R$ 300.000</strong> (Kafka+CH+MinIO fora do padrão)</td>
+</tr>
+<tr>
+<td>Equipe marginal</td>
+<td style="text-align: right;">R$ 75.000 (~0,1 FTE)</td>
+<td style="text-align: right;"><strong>R$ 240.000</strong> (~0,4 FTE)</td>
+</tr>
+<tr>
+<td>Implantação (snippet)</td>
+<td style="text-align: right;">R$ 10.000</td>
+<td style="text-align: right;">R$ 15.000</td>
+</tr>
+<tr>
+<td>Adequação LGPD</td>
+<td style="text-align: right;">R$ 30.000</td>
+<td style="text-align: right;">R$ 40.000</td>
+</tr>
+<tr>
+<td>Riscos operacionais</td>
+<td style="text-align: right;">R$ 30.000</td>
+<td style="text-align: right;">R$ 60.000</td>
+</tr>
+<tr>
+<td><strong>TCO 5 anos (marginal)</strong></td>
+<td style="text-align: right;"><strong>R$ 235.000</strong></td>
+<td style="text-align: right;"><strong>R$ 955.000</strong></td>
+</tr>
+<tr>
+<td><strong>Razão de custo</strong></td>
+<td style="text-align: right;"><strong>1,0×</strong></td>
+<td style="text-align: right;"><strong>≈ 4,1× o Matomo</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-por-que-o-posthog-oss-tem-abatimento-parcial-não-total">5.1 Por que o PostHog OSS tem abatimento parcial, não total<a class="headerlink" href="#51-por-que-o-posthog-oss-tem-abatimento-parcial-não-total" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Kafka:</strong> o parque SETDIG não opera Kafka gerenciado hoje. Provisionar Kafka em produção com HA é custo real de infra.</li>
+<li><strong>ClickHouse dedicado:</strong> SETDIG tem ClickHouse para outros projetos, mas mesclar cargas heterogêneas é operacionalmente arriscado. Instância dedicada é o cenário realista.</li>
+<li><strong>MinIO / S3 para session replay:</strong> volume grande (~150 GB/mês com replay ativo em 100k sessões). O parque cobre object storage, mas o volume marginal é significativo.</li>
+<li><strong>Curva de expertise ClickHouse + Kafka:</strong> o time SETDIG tem baseline MySQL/PostgreSQL. Adquirir competência em ClickHouse operacional é custo real de capacitação.</li>
+</ul>
+<h3 id="52-sensibilidade">5.2 Sensibilidade<a class="headerlink" href="#52-sensibilidade" title="Permanent link">&para;</a></h3>
+<p>Se o Estado já operasse Kafka + ClickHouse gerenciados como serviço interno padrão (não é o caso), o TCO marginal do PostHog cairia para ~R$ 600 k — ainda 2,5× o Matomo.</p>
+<hr />
+<h2 id="6-segurança-lgpd-e-soberania">6. Segurança, LGPD e soberania<a class="headerlink" href="#6-segurança-lgpd-e-soberania" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Auto-hospedado no Estado</strong></td>
+<td style="text-align: center;">🟢 Sim</td>
+<td style="text-align: center;">🟢 Sim</td>
+</tr>
+<tr>
+<td><strong>Sem transferência internacional</strong></td>
+<td style="text-align: center;">🟢</td>
+<td style="text-align: center;">🟢</td>
+</tr>
+<tr>
+<td><strong>Base legal viável sem consentimento</strong></td>
+<td style="text-align: center;">🟢 Precedente CNIL para configuração cookieless</td>
+<td style="text-align: center;">🟠 Produto é orientado a identificação — padrão de fábrica não é privacy-first</td>
+</tr>
+<tr>
+<td><strong>MFA nativo</strong></td>
+<td style="text-align: center;">🟢 TOTP nativo</td>
+<td style="text-align: center;">🟠 Básico</td>
+</tr>
+<tr>
+<td><strong>SSO SAML</strong></td>
+<td style="text-align: center;">🟠 Plugin comercial</td>
+<td style="text-align: center;">🔴 <strong>Só na EE paga</strong></td>
+</tr>
+<tr>
+<td><strong>RBAC granular</strong></td>
+<td style="text-align: center;">🟢 Nativo</td>
+<td style="text-align: center;">🔴 <strong>Só na EE paga</strong></td>
+</tr>
+<tr>
+<td><strong>Auditoria exportável</strong></td>
+<td style="text-align: center;">🟠 Plugin comunidade</td>
+<td style="text-align: center;">🔴 <strong>Só na EE paga</strong></td>
+</tr>
+<tr>
+<td><strong>Retenção configurável</strong></td>
+<td style="text-align: center;">🟢 Configuração nativa</td>
+<td style="text-align: center;">🟢 (mais granular na EE)</td>
+</tr>
+<tr>
+<td><strong>Anonimização de IP</strong></td>
+<td style="text-align: center;">🟢 <code>anonymize_ip=full</code> nativo</td>
+<td style="text-align: center;">🟠 Requer trabalho ativo</td>
+</tr>
+<tr>
+<td><strong>Session replay com dado sensível</strong></td>
+<td style="text-align: center;">🟠 Plugin, configuração explícita</td>
+<td style="text-align: center;">🟠 Ativo por padrão; requer mascaramento manual</td>
+</tr>
+<tr>
+<td><strong>DPIA — esforço</strong></td>
+<td style="text-align: center;">🟢 Baixo (cookieless)</td>
+<td style="text-align: center;">🟠 Médio (product analytics gera identificação)</td>
+</tr>
+<tr>
+<td><strong>Precedente favorável de DPA europeia</strong></td>
+<td style="text-align: center;">🟢 Sim (CNIL)</td>
+<td style="text-align: center;">❌ Não</td>
+</tr>
+<tr>
+<td><strong>Nota C09 (Segurança) no estudo</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Nas dimensões LGPD críticas do Estado, <strong>Matomo tem vantagem estrutural</strong>: precedente formal + configuração default privacy-first + SSO viável sem custo adicional de EE.</p>
+<hr />
+<h2 id="7-escalabilidade">7. Escalabilidade<a class="headerlink" href="#7-escalabilidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banco (modelo)</td>
+<td style="text-align: center;">MySQL/MariaDB — row-based</td>
+<td style="text-align: center;">ClickHouse — colunar OLAP</td>
+</tr>
+<tr>
+<td>Volume comprovado</td>
+<td style="text-align: center;">&gt; 1 bilhão de ações/mês (Comissão Europeia)</td>
+<td style="text-align: center;">&gt; 10 bilhões de eventos/mês (cases do fornecedor)</td>
+</tr>
+<tr>
+<td>Volume projetado do Estado no ano 5</td>
+<td style="text-align: center;">~60 M ações/mês</td>
+<td style="text-align: center;">Mesmo</td>
+</tr>
+<tr>
+<td>Gargalo estrutural</td>
+<td style="text-align: center;">Arquivamento (<code>archive.php</code>) sob alto volume</td>
+<td style="text-align: center;">Complexidade Kafka + ClickHouse</td>
+</tr>
+<tr>
+<td>Escala horizontal</td>
+<td style="text-align: center;">🟠 Requer construção (réplicas, LB, sessão externalizada)</td>
+<td style="text-align: center;">🟢 Nativa em K8s</td>
+</tr>
+<tr>
+<td>Nota C08 no estudo</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão de escala:</strong> para o envelope do parque estadual (~60 M ações/mês no ano 5), <strong>ambos escalam com folga</strong>. Diferença material só apareceria acima de ~500 M eventos/mês — cenário federal, não estadual.</p>
+<p><strong>Escalar não é o critério de escolha entre os dois.</strong> Ambos cabem no problema. A escolha é ditada por custo, operação e cobertura funcional apropriada ao caso de uso governamental.</p>
+<hr />
+<h2 id="8-apis-sdks-e-integrações">8. APIs, SDKs e integrações<a class="headerlink" href="#8-apis-sdks-e-integrações" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REST API</td>
+<td style="text-align: center;">🟢 Reporting API estável</td>
+<td style="text-align: center;">🟢 v1 estável</td>
+</tr>
+<tr>
+<td>GraphQL</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟠 HogQL (SQL, não GraphQL formal)</td>
+</tr>
+<tr>
+<td>SDKs oficiais</td>
+<td style="text-align: center;">JS, PHP, iOS, Android, Java</td>
+<td style="text-align: center;">JS, Python, Node, Ruby, Go, PHP, iOS, Android, Flutter, RN, .NET</td>
+</tr>
+<tr>
+<td>Webhooks</td>
+<td style="text-align: center;">🟠 Via plugin</td>
+<td style="text-align: center;">🟢 Nativos</td>
+</tr>
+<tr>
+<td>Acesso SQL direto ao dado bruto</td>
+<td style="text-align: center;">🟢 MariaDB (padrão do mercado)</td>
+<td style="text-align: center;">🟢 ClickHouse via HogQL</td>
+</tr>
+<tr>
+<td>Rate limits</td>
+<td style="text-align: center;">Configuráveis (sem hard limit)</td>
+<td style="text-align: center;">240 req/min por token</td>
+</tr>
+<tr>
+<td>Documentação API</td>
+<td style="text-align: center;">🟢 Extensa</td>
+<td style="text-align: center;">🟢 Extensa</td>
+</tr>
+<tr>
+<td><strong>Conectores nativos de BI</strong></td>
+<td style="text-align: center;">🟢 Conector oficial Power BI + acesso direto MySQL</td>
+<td style="text-align: center;">🟠 Warehouse sink (S3/BQ/Snowflake) + acesso direto ClickHouse</td>
+</tr>
+<tr>
+<td><strong>Nota C06 (APIs) no estudo</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td><strong>Nota C07 (Integrações) no estudo</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Empate técnico em API superficial.</strong> Vantagem funcional do PostHog em SDKs modernos (mais linguagens oficiais). Vantagem do Matomo em conectores nativos de BI e familiaridade MySQL do time SETDIG.</p>
+<hr />
+<h2 id="9-governança-e-lock-in">9. Governança e lock-in<a class="headerlink" href="#9-governança-e-lock-in" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licença do core</td>
+<td style="text-align: center;"><strong>GPL v3</strong> (copyleft forte)</td>
+<td style="text-align: center;"><strong>MIT</strong> (permissiva) + <strong>EE proprietária</strong></td>
+</tr>
+<tr>
+<td>Fork viável</td>
+<td style="text-align: center;">🟢 Sim, código integralmente aberto</td>
+<td style="text-align: center;">🟠 Fork do core possível; EE fechada</td>
+</tr>
+<tr>
+<td>Governança</td>
+<td style="text-align: center;">InnoCraft (mantenedor comercial único)</td>
+<td style="text-align: center;">PostHog Inc. (mantenedor comercial único)</td>
+</tr>
+<tr>
+<td>Fornecedor concentrado em qual modalidade?</td>
+<td style="text-align: center;">Equilibrado (Cloud + On-Prem tratados)</td>
+<td style="text-align: center;"><strong>Concentrado na Cloud</strong>; auto-hospedado deprioriazado</td>
+</tr>
+<tr>
+<td>Adoção institucional pública</td>
+<td style="text-align: center;">🟢 Comissão Europeia (Europa Analytics)</td>
+<td style="text-align: center;">⚠️ Muito escassa — produto focado em SaaS/startup</td>
+</tr>
+<tr>
+<td>Portabilidade de dado</td>
+<td style="text-align: center;">🟢 SQL direto MariaDB</td>
+<td style="text-align: center;">🟢 Warehouse sink</td>
+</tr>
+<tr>
+<td>Custo estimado de saída</td>
+<td style="text-align: center;">R$ 20 k</td>
+<td style="text-align: center;">R$ 60 k (mais componentes, mais integrações)</td>
+</tr>
+<tr>
+<td><strong>Nota C02 (Controle dos dados)</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td><strong>Nota C04 (Independência tecnológica)</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diferença crítica em C04:</strong> GPL v3 vs MIT+EE. A licença MIT permite (e o histórico do mercado mostra) que versões futuras se tornem proprietárias. GPL v3 impede juridicamente esse movimento.</p>
+<p>Precedente relevante: Elastic, Redis, MongoDB e outros fizeram exatamente esse movimento de MIT/Apache → licenças proprietárias nos últimos anos. <strong>PostHog está exposta ao mesmo vetor</strong>; Matomo não.</p>
+<hr />
+<h2 id="10-matriz-resumo--quem-vence-em-cada-critério">10. Matriz-resumo — quem vence em cada critério<a class="headerlink" href="#10-matriz-resumo--quem-vence-em-cada-critério" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th style="text-align: center;">Peso</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog OSS</th>
+<th>Vencedor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C01 — LGPD</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td>🟢 Matomo (+15)</td>
+</tr>
+<tr>
+<td>C02 — Controle dos dados</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td>C03 — TCO (marginal)</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td>🟢 Matomo (+30)</td>
+</tr>
+<tr>
+<td>C04 — Independência tecnológica</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td>🟢 Matomo (+20)</td>
+</tr>
+<tr>
+<td>C05 — Recursos analíticos</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td>🔵 PostHog (−10)</td>
+</tr>
+<tr>
+<td>C06 — APIs</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td>C07 — Integrações</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td>C08 — Escalabilidade</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td>C09 — Segurança</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td>C10 — Operação</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td>🟢 Matomo (+10)</td>
+</tr>
+<tr>
+<td>C11 — Comunidade</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td>C12 — Documentação</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td>Empate</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;"><strong>520</strong></td>
+<td style="text-align: center;"><strong>455</strong></td>
+<td>🟢 <strong>Matomo (+65)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leitura:</strong> o PostHog OSS vence isoladamente em <strong>um único critério</strong> (C05, cobertura funcional avançada), com margem de 10 pontos. O Matomo vence em <strong>quatro critérios</strong> — três deles de peso máximo (15) — com saldo líquido de +65 pontos.</p>
+<p>Cobertura funcional superior do PostHog <strong>é real</strong>, mas seu peso (10) é insuficiente para compensar as perdas em C01, C03, C04 e C10.</p>
+<hr />
+<h2 id="11-quando-escolher-qual">11. Quando escolher qual<a class="headerlink" href="#11-quando-escolher-qual" title="Permanent link">&para;</a></h2>
+<h3 id="111-escolha-matomo-on-premise-quando">11.1 Escolha Matomo On-Premise quando<a class="headerlink" href="#111-escolha-matomo-on-premise-quando" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Portais <strong>institucionais e de conteúdo</strong> (news, transparência, notícias, editais).</li>
+<li>Requisito primário é <strong>analytics de audiência</strong> (page views, origem, tempo, geolocalização).</li>
+<li>SSO federado com IdP corporativo é <strong>obrigatório</strong> e você não quer pagar EE de PostHog.</li>
+<li>Equipe SETDIG opera baseline MySQL/PostgreSQL (é o caso).</li>
+<li>Precisa de <strong>precedente jurídico favorável</strong> de DPA europeia para isenção de consentimento.</li>
+<li>Preferência por <strong>licença copyleft</strong> (GPL v3) para eliminar risco de fechamento futuro.</li>
+<li>Necessidade de <strong>Tag Manager nativo</strong> e painel público de estatísticas.</li>
+</ul>
+<h3 id="112-escolha-posthog-oss-quando">11.2 Escolha PostHog OSS quando<a class="headerlink" href="#112-escolha-posthog-oss-quando" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Você opera <strong>produto SaaS interno</strong> (app do cidadão, superapp) com forte necessidade de <em>product analytics</em>.</li>
+<li><strong>Feature flags corporativos</strong> são requisito real (não só desejável).</li>
+<li><strong>Experimentação A/B com significância estatística</strong> é parte do processo de release.</li>
+<li><strong>LLM observability</strong> é necessária (produto com IA generativa).</li>
+<li>Equipe já opera <strong>Kubernetes + ClickHouse + Kafka</strong> como padrão de plataforma.</li>
+<li>Você tem <strong>orçamento e mandato</strong> para pagar EE (SSO SAML + RBAC + auditoria).</li>
+<li>Aceita <strong>risco de deprecação futura</strong> do modelo self-hosted pelo fornecedor.</li>
+</ul>
+<h3 id="113-escolha-posthog-cloud-não-auto-hospedado-quando">11.3 Escolha PostHog Cloud (não auto-hospedado) quando<a class="headerlink" href="#113-escolha-posthog-cloud-não-auto-hospedado-quando" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Startup ou empresa privada (não órgão público brasileiro tratando dado do cidadão).</li>
+<li>Aceita transferência internacional para EUA ou UE.</li>
+<li>Aceita jurisdição do operador nos EUA (CLOUD Act).</li>
+<li>Valoriza <strong>operação zero</strong> acima de soberania.</li>
+</ul>
+<p><strong>Nenhum desses cenários corresponde ao caso central da SETDIG.</strong></p>
+<hr />
+<h2 id="12-recomendação-circunstanciada">12. Recomendação circunstanciada<a class="headerlink" href="#12-recomendação-circunstanciada" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Bloco de Decisão — resposta ao viés declarado</strong></p>
+<p>A boa impressão da modalidade Cloud do PostHog é técnica e legítima. É um produto excelente para o que ele se propõe a fazer.</p>
+<p><strong>Mas a modalidade Cloud não é opção para o Estado</strong> (soberania, CLOUD Act, custo em dólar por evento), e a modalidade <strong>OSS auto-hospedada não replica a experiência da Cloud</strong>:</p>
+<ul>
+<li>Perde SSO SAML, RBAC granular e auditoria (recuperáveis com EE paga: R$ 300k / 5 anos).</li>
+<li>Perde suporte comercial oficial ao stack self-hosted.</li>
+<li>Ganha stack de 6 componentes (Kafka + ClickHouse + PG + Redis + MinIO + Django) contra 2 do Matomo (PHP + MySQL).</li>
+<li>Requer 0,4 FTE marginal contra 0,1 FTE marginal do Matomo.</li>
+</ul>
+<p><strong>TCO 4,1× superior ao Matomo On-Premise</strong> em regime marginal SETDIG, para <strong>entregar valor incremental</strong> (feature flags, experimentation, LLM obs) <strong>que não é requisito prioritário</strong> do parque de portais estaduais.</p>
+<p><strong>Recomendação:</strong> manter o Matomo On-Premise como plataforma primária (ADR-001). Reservar o PostHog para <strong>estudo específico futuro</strong> se e quando o Estado desenvolver <strong>produto digital transacional complexo</strong> que justifique product analytics de SaaS moderno — cenário em que o PostHog seria naturalmente o candidato mais forte.</p>
+</blockquote>
+<h3 id="121-cenário-híbrido-teórico-não-recomendado-neste-momento">12.1 Cenário híbrido teórico (não recomendado neste momento)<a class="headerlink" href="#121-cenário-híbrido-teórico-não-recomendado-neste-momento" title="Permanent link">&para;</a></h3>
+<p><strong>Poderia</strong> existir arquitetura híbrida: Matomo On-Premise para portais institucionais + PostHog OSS para um serviço digital transacional específico (ex.: superapp cidadão). Não é recomendado agora porque:</p>
+<ol>
+<li>Adiciona plataforma sem caso de uso concreto justificando o custo operacional adicional.</li>
+<li>Duplica esforço de capacitação e operação.</li>
+<li>O Plausible CE (recomendação RC-1 já aprovada) já cobre a camada complementar prevista.</li>
+</ol>
+<p>O híbrido volta a ser considerado se o Estado formalizar iniciativa de superapp com requisitos de product analytics.</p>
+<hr />
+<h2 id="13-antipadrão-a-evitar--extrapolar-experiência-de-cloud-para-oss">13. Antipadrão a evitar — extrapolar experiência de Cloud para OSS<a class="headerlink" href="#13-antipadrão-a-evitar--extrapolar-experiência-de-cloud-para-oss" title="Permanent link">&para;</a></h2>
+<p><strong>Este é um padrão comum e enviesado:</strong> experimentar a modalidade gerenciada de um produto SaaS, ficar impressionado com a experiência, e assumir que a versão auto-hospedada entrega o mesmo.</p>
+<p>Casos análogos documentados na indústria (todos para referência, sem inclusão como fonte primária):</p>
+<table>
+<thead>
+<tr>
+<th>Produto</th>
+<th>Cloud gerenciada</th>
+<th>OSS auto-hospedada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitLab</td>
+<td>Toda funcionalidade</td>
+<td>Enterprise Edition paga para features corporativas</td>
+</tr>
+<tr>
+<td>Elastic</td>
+<td>Managed service completo</td>
+<td>Stack complexo; Elastic License restringe uso</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>Atlas com todas as features</td>
+<td>Server Community sem features Enterprise</td>
+</tr>
+<tr>
+<td>Confluent (Kafka)</td>
+<td>Managed com Schema Registry, ksqlDB</td>
+<td>Apache Kafka puro + operação manual</td>
+</tr>
+<tr>
+<td>PostHog</td>
+<td>Todos os módulos ativos + EE incluída</td>
+<td>Core MIT + EE paga separada</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Padrão comum:</strong> a experiência da Cloud embute (a) todas as features EE, (b) operação zero do fornecedor, (c) upgrades transparentes, (d) SLA financeiro. O OSS entrega o <strong>motor</strong>, não o <strong>carro completo</strong>.</p>
+<p><strong>Regra prática:</strong> ao avaliar produto open-core para produção institucional, testar a <strong>modalidade auto-hospedada real</strong> (com o esforço operacional que ela demanda), não a Cloud. Do contrário, o TCO estimado subestima em 2× a 5× o custo verdadeiro.</p>
+<hr />
+<h2 id="referências-cruzadas">Referências cruzadas<a class="headerlink" href="#referências-cruzadas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ficha completa Matomo: <a href="../../plataformas/matomo/"><code>../plataformas/matomo.md</code></a></li>
+<li>Ficha completa PostHog: <a href="../../plataformas/posthog/"><code>../plataformas/posthog.md</code></a></li>
+<li>Justificativa nota-a-nota: <a href="../../docs/07-matriz-decisao/#41-matomo-on-premise--520-pontos"><code>../docs/07-matriz-decisao.md §4.1 e §4.6</code></a></li>
+<li>Trade-offs Matomo: <a href="../../docs/06-tradeoffs/#3-matomo-on-premise"><code>../docs/06-tradeoffs.md §3</code></a></li>
+<li>Custo comparado: <a href="../custo/#31-tco-consolidado--5-anos-portal-médio-regime-marginal"><code>custo.md §3.1</code></a></li>
+<li>Infraestrutura por plataforma: <a href="../infraestrutura/"><code>infraestrutura.md</code></a></li>
+<li>ADR-001: <a href="../../docs/08-adr/"><code>../docs/08-adr.md</code></a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
