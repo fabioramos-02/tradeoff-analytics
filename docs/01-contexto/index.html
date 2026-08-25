@@ -385,6 +385,8 @@
       
         
       
+        
+      
     
     
       
@@ -847,7 +849,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz de decisão (revisão 2026)
   </span>
   
 
@@ -868,7 +870,28 @@
         
   
   <span class="md-ellipsis">
-    ADR
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
   </span>
   
 
@@ -1317,7 +1340,7 @@
         
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1443,7 +1466,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog
+    Matomo × PostHog (complementaridade)
   </span>
   
 
@@ -1460,11 +1483,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migração Matomo → PostHog
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -1893,6 +1916,10 @@
 <blockquote>
 <p><strong>Fase TOGAF ADM:</strong> A — Architecture Vision
 <strong>Documento anterior:</strong> <a href="../../">README</a> · <strong>Próximo:</strong> <a href="../02-requisitos/">02 — Requisitos</a></p>
+<p><strong>📌 Atualização — Revisão 2026 (ADR-002)</strong>
+Dois elementos deste contexto foram atualizados em agosto/2026:
+1. <strong>Entrada do portal Xvia</strong> (superapp cidadão) como novo consumidor de analytics — perfil de uso identificado, transacional, com necessidade de product analytics. Cenário de referência de volume permanece o mesmo para o parque; o Xvia é modelado à parte em <a href="../../anexos/benchmark/"><code>../anexos/benchmark.md</code></a>.
+2. <strong>Premissa on-premise consolidada</strong> — P1/P2/R4 continuam válidas e passam a ter consequência direta na matriz: <a href="../08-adr-002/">ADR-002</a> rebaixa TCO (C03) a critério informativo. Custo marginal absorvido pela infra do Estado deixa de filtrar decisões arquiteturais.</p>
 </blockquote>
 <hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>

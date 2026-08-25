@@ -25,6 +25,10 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/coexistencia-matomo-posthog/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/custo/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
@@ -46,10 +50,6 @@
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/matomo-vs-posthog/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/migracao-matomo-posthog/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
@@ -78,6 +78,10 @@
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/07-matriz-decisao/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/08-adr-002/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>

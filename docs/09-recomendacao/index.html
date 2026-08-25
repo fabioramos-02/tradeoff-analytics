@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/09-recomendacao/">
       
       
-        <link rel="prev" href="../08-adr/">
+        <link rel="prev" href="../08-adr-002/">
       
       
         <link rel="next" href="../10-roadmap/">
@@ -385,6 +385,8 @@
       
         
       
+        
+      
     
     
       
@@ -558,7 +560,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz de decisão (revisão 2026)
   </span>
   
 
@@ -579,7 +581,28 @@
         
   
   <span class="md-ellipsis">
-    ADR
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
   </span>
   
 
@@ -661,9 +684,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-recomendações-complementares" class="md-nav__link">
+  <a href="#11-recomendação-para-o-parque-existente-eds--sites-gov-ms" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Recomendações complementares
+      1.1 Recomendação para o parque existente (EDS + sites gov MS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-recomendação-para-o-novo-portal-xvia-superapp-cidadão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Recomendação para o novo portal Xvia (superapp cidadão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-recomendações-complementares" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Recomendações complementares
     </span>
   </a>
   
@@ -1500,7 +1541,7 @@
         
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1626,7 +1667,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog
+    Matomo × PostHog (complementaridade)
   </span>
   
 
@@ -1643,11 +1684,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migração Matomo → PostHog
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -1828,9 +1869,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-recomendações-complementares" class="md-nav__link">
+  <a href="#11-recomendação-para-o-parque-existente-eds--sites-gov-ms" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Recomendações complementares
+      1.1 Recomendação para o parque existente (EDS + sites gov MS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-recomendação-para-o-novo-portal-xvia-superapp-cidadão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Recomendação para o novo portal Xvia (superapp cidadão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-recomendações-complementares" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Recomendações complementares
     </span>
   </a>
   
@@ -2257,7 +2316,9 @@
 
 <h1 id="09--recomendação-técnica">09 — Recomendação Técnica<a class="headerlink" href="#09--recomendação-técnica" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Anterior:</strong> <a href="../08-adr/">08 — ADR</a> · <strong>Próximo:</strong> <a href="../10-roadmap/">10 — Roadmap</a></p>
+<p><strong>Anterior:</strong> <a href="../08-adr/">08 — ADR-001</a> · <a href="../08-adr-002/">08 — ADR-002 (vigente)</a> · <strong>Próximo:</strong> <a href="../10-roadmap/">10 — Roadmap</a></p>
+<p><strong>📌 Nota metodológica — Revisão 2026</strong>
+Este documento reflete a decisão vigente registrada no <a href="../08-adr-002/">ADR-002</a>, que separa a recomendação em <strong>dois perfis</strong>: parque existente (§1.1) e novo portal Xvia (§1.2). A recomendação para o parque <strong>confirma</strong> a linha do ADR-001 sob pesos revisados; a recomendação para o Xvia é nova. Fundamentos técnicos e aderências normativas (§2–§7) permanecem válidos para ambos os perfis; nuances específicas do Xvia estão no §8 (estratégia de camadas).</p>
 </blockquote>
 <hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
@@ -2276,50 +2337,71 @@
 </ul>
 <hr />
 <h2 id="1-recomendação">1. Recomendação<a class="headerlink" href="#1-recomendação" title="Permanent link">&para;</a></h2>
+<h3 id="11-recomendação-para-o-parque-existente-eds--sites-gov-ms">1.1 Recomendação para o parque existente (EDS + sites gov MS)<a class="headerlink" href="#11-recomendação-para-o-parque-existente-eds--sites-gov-ms" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><strong>✅ RECOMENDAÇÃO PRINCIPAL</strong></p>
-<p><strong>Manter o Matomo, na modalidade On-Premise, como plataforma padrão de Web Analytics do Governo do Estado de Mato Grosso do Sul</strong>, condicionado à execução integral do plano de adequação arquitetural definido em <a href="../10-roadmap/"><code>10-roadmap.md</code></a>.</p>
-<p><strong>Fundamento quantitativo:</strong> 520 de 600 pontos (86,7 %) na matriz de decisão ponderada — resultado na faixa "Recomendada", com vantagem de 35 pontos sobre o segundo colocado (Plausible CE, também na faixa "Recomendada" com 485/600).</p>
-<p><strong>Fundamento qualitativo:</strong> é a única plataforma avaliada que combina soberania verificável sobre os dados, cobertura funcional suficiente para os requisitos obrigatórios, independência tecnológica assegurada por licença copyleft e TCO na menor faixa entre as opções de cobertura funcional equivalente — <strong>sem apresentar deficiência crítica não mitigável por arquitetura</strong>.</p>
+<p><strong>✅ RECOMENDAÇÃO PRINCIPAL — PARQUE</strong></p>
+<p><strong>Manter o Matomo, na modalidade On-Premise, como plataforma padrão única de Web Analytics do parque existente do Governo do Estado de MS</strong> — portais institucionais, sites gov e serviços digitais de conteúdo. Condicionada à execução integral do plano de adequação arquitetural definido em <a href="../10-roadmap/"><code>10-roadmap.md</code></a> (Ondas 1–4).</p>
+<p><strong>Fundamento quantitativo:</strong> 500 de 600 pontos (83,3 %) na matriz revisada 2026 — faixa "Recomendada". Vantagem de 1 ponto sobre Piwik PRO (499), desempatada por C02 (Controle=5 vs 4). Ver <a href="../07-matriz-decisao/#32-desempate--1º-lugar-revisão-2026"><code>07-matriz-decisao.md §3.2</code></a>.</p>
+<p><strong>Fundamento qualitativo:</strong> combina soberania verificável sobre os dados, cobertura funcional suficiente para os requisitos obrigatórios do parque e independência tecnológica assegurada por licença copyleft — sem apresentar deficiência crítica não mitigável por arquitetura.</p>
 </blockquote>
-<h3 id="11-recomendações-complementares">1.1 Recomendações complementares<a class="headerlink" href="#11-recomendações-complementares" title="Permanent link">&para;</a></h3>
+<h3 id="12-recomendação-para-o-novo-portal-xvia-superapp-cidadão">1.2 Recomendação para o novo portal Xvia (superapp cidadão)<a class="headerlink" href="#12-recomendação-para-o-novo-portal-xvia-superapp-cidadão" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ RECOMENDAÇÃO PRINCIPAL — XVIA</strong></p>
+<p><strong>Adotar arquitetura híbrida: Matomo On-Premise + PostHog auto-hospedado em paralelo no portal Xvia</strong>, com segmentação clara de responsabilidade entre as duas plataformas:</p>
+<ul>
+<li><strong>Matomo:</strong> audiência agregada, campanhas, SEO, métricas de conteúdo, base legal cookieless simplificada.</li>
+<li><strong>PostHog:</strong> jornada identificada de usuário autenticado, funil de serviços transacionais, feature flags e experimentação, session replay <strong>consentido</strong> e mascarado.</li>
+</ul>
+<p>Ambos rodam sob custódia do Estado, sem transferência internacional.</p>
+<p><strong>Fundamento quantitativo:</strong> PostHog auto-hospedado alcança 464/600 (77,3 %) sob pesos revisados — 4ª posição do ranking, e <strong>a maior pontuação entre plataformas soberanas de product analytics</strong> avaliadas.</p>
+<p><strong>Fundamento qualitativo:</strong> o perfil analítico do Xvia (jornada identificada, funil transacional, experimentação estruturada, session replay em serviços críticos) não é o domínio do Matomo. Reforçar o Matomo com plugins cobre parcialmente a lacuna — não a fecha. PostHog cobre.</p>
+<p><strong>Aceitação explícita de overhead:</strong> ~+55 KB gzip e +50–200 ms no LCP do Xvia em conexão 3G, monitorado por G9 do <a href="../08-adr-002/#112-gatilhos-de-revisão-antecipada">ADR-002</a> (gatilho de reavaliação se LCP &gt; 75 ms sustentado por 2 meses).</p>
+</blockquote>
+<h3 id="13-recomendações-complementares">1.3 Recomendações complementares<a class="headerlink" href="#13-recomendações-complementares" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>#</th>
 <th>Recomendação</th>
+<th>Escopo</th>
 <th>Natureza</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>RC-1</strong></td>
-<td>Adotar <strong>Plausible Community Edition</strong> como camada leve opcional para portais de conteúdo de alto volume e baixa criticidade analítica</td>
+<td>Adotar <strong>Plausible Community Edition</strong> como camada leve opcional para portais de conteúdo de altíssimo volume e baixa criticidade analítica</td>
+<td>Parque</td>
 <td>Facultativa, mediante justificativa</td>
 </tr>
 <tr>
 <td><strong>RC-2</strong></td>
-<td>Substituir o <strong>Microsoft Clarity</strong> pelo plugin <em>Heatmaps &amp; Session Recording</em> do Matomo, eliminando a transferência internacional de dados de sessão</td>
+<td>Substituir o <strong>Microsoft Clarity</strong> pelo plugin <em>Heatmaps &amp; Session Recording</em> do Matomo (no parque) e por session replay do PostHog (no Xvia, com consentimento)</td>
+<td>Ambos</td>
 <td>Obrigatória, com prazo</td>
 </tr>
 <tr>
 <td><strong>RC-3</strong></td>
 <td>Usar <strong>Cloudflare Web Analytics</strong> como métrica de borda complementar em domínios já servidos pela CDN</td>
+<td>Parque</td>
 <td>Facultativa, sem custo</td>
 </tr>
 <tr>
 <td><strong>RC-4</strong></td>
-<td>Vedar o <strong>Google Analytics 4</strong> como plataforma padrão; uso residual apenas com autorização expressa do Encarregado de Dados</td>
+<td>Vedar o <strong>Google Analytics 4</strong> como plataforma padrão em qualquer contexto</td>
+<td>Ambos</td>
 <td>Obrigatória</td>
 </tr>
 <tr>
 <td><strong>RC-5</strong></td>
 <td>Vedar integralmente o <strong>Open Web Analytics</strong> por falha em critério eliminatório de segurança</td>
+<td>Ambos</td>
 <td>Obrigatória</td>
 </tr>
 <tr>
 <td><strong>RC-6</strong></td>
-<td>Registrar <strong>Matomo Cloud</strong> e <strong>Piwik PRO</strong> como alternativas de contingência formais, ativáveis apenas por novo ADR</td>
+<td>Registrar contingências formais ativáveis apenas por novo ADR: <strong>Matomo Cloud</strong> e <strong>Piwik PRO</strong> para o parque; <strong>PostHog Cloud EU</strong> para o Xvia</td>
+<td>Ambos</td>
 <td>Formal</td>
 </tr>
 </tbody>
@@ -3401,6 +3483,13 @@ As tabelas <code>matomo_log_*</code> compõem o schema interno do produto e pode
 <td><strong>Matomo</strong> (instância principal, propriedade segregada)</td>
 <td>Eventos e metas de uso</td>
 <td>Mensuração de adoção interna</td>
+</tr>
+<tr>
+<td><strong>F — Superapp cidadão (Xvia)</strong></td>
+<td>Portal Xvia</td>
+<td><strong>Matomo + PostHog auto-hospedado</strong> em paralelo</td>
+<td>Matomo: audiência anônima cookieless. PostHog: usuário identificado, funil transacional, feature flags, session replay consentido</td>
+<td>Perfil de product analytics — ver <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a></td>
 </tr>
 </tbody>
 </table>

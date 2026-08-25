@@ -12,13 +12,13 @@
         <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
       
       
-        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/matomo-vs-posthog/">
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/coexistencia-matomo-posthog/">
       
       
-        <link rel="prev" href="../governanca/">
+        <link rel="prev" href="../matomo-vs-posthog/">
       
       
-        <link rel="next" href="../coexistencia-matomo-posthog/">
+        <link rel="next" href="../../anexos/matriz/">
       
       
       <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Matomo × PostHog (complementaridade) - Estudo de Plataformas de Web Analytics — SETDIG</title>
+        <title>Coexistência Matomo + PostHog no Xvia - Estudo de Plataformas de Web Analytics — SETDIG</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#comparativo--matomo--posthog-complementaridade-não-competição" class="md-skip">
+        <a href="#comparativo--coexistência-matomo--posthog-no-portal-xvia" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Matomo × PostHog (complementaridade)
+              Coexistência Matomo + PostHog no Xvia
             
           </span>
         </div>
@@ -1170,6 +1170,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog (complementaridade)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1186,7 +1207,7 @@
           
   
   <span class="md-ellipsis">
-    Matomo × PostHog (complementaridade)
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -1197,7 +1218,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog (complementaridade)
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -1228,46 +1249,100 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-contexto" class="md-nav__link">
+  <a href="#1-escopo" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Contexto
+      1. Escopo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-papéis-complementares" class="md-nav__link">
+  <a href="#2-arquitetura-de-instrumentação" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Papéis complementares
+      2. Arquitetura de instrumentação
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Papéis complementares">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-segmentação-de-eventos-por-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Segmentação de eventos por SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-política-de-retenção-coordenada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Política de retenção coordenada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-consentimento-e-session-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Consentimento e session replay
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reconciliação-e-governança-de-divergência" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Reconciliação e governança de divergência
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-impacto-de-desempenho-no-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Impacto de desempenho no navegador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-plano-de-deprecação-caso-o-gate-falhe" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Plano de deprecação caso o gate falhe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Plano de deprecação caso o gate falhe">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-matomo--web-analytics-tradicional" class="md-nav__link">
+  <a href="#81-cenário-a--ajuste-de-configuração" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 Matomo — web analytics tradicional
+      8.1 Cenário A — Ajuste de configuração
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-posthog--product-analytics" class="md-nav__link">
+  <a href="#82-cenário-b--migração-para-posthog-cloud-eu" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 PostHog — product analytics
+      8.2 Cenário B — Migração para PostHog Cloud EU
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-resumo-dos-papéis" class="md-nav__link">
+  <a href="#83-cenário-c--reversão-a-matomo-puro-no-xvia" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3 Resumo dos papéis
+      8.3 Cenário C — Reversão a Matomo puro no Xvia
     </span>
   </a>
   
@@ -1279,45 +1354,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-sobreposição-funcional" class="md-nav__link">
+  <a href="#9-o-que-este-documento-não-cobre" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Sobreposição funcional
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-modelo-de-coexistência-no-xvia" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Modelo de coexistência no Xvia
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-governança-de-dado-duplicado" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Governança de dado duplicado
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-matriz-de-decisão--qual-dado-responder-onde" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Matriz de decisão — qual dado responder onde
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-o-que-este-comparativo-não-responde" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. O que este comparativo NÃO responde
+      9. O que este documento NÃO cobre
     </span>
   </a>
   
@@ -1336,27 +1375,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../coexistencia-matomo-posthog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Coexistência Matomo + PostHog no Xvia
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1523,46 +1541,100 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-contexto" class="md-nav__link">
+  <a href="#1-escopo" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Contexto
+      1. Escopo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-papéis-complementares" class="md-nav__link">
+  <a href="#2-arquitetura-de-instrumentação" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Papéis complementares
+      2. Arquitetura de instrumentação
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Papéis complementares">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-segmentação-de-eventos-por-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Segmentação de eventos por SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-política-de-retenção-coordenada" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Política de retenção coordenada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-consentimento-e-session-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Consentimento e session replay
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reconciliação-e-governança-de-divergência" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Reconciliação e governança de divergência
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-impacto-de-desempenho-no-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Impacto de desempenho no navegador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-plano-de-deprecação-caso-o-gate-falhe" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Plano de deprecação caso o gate falhe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Plano de deprecação caso o gate falhe">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-matomo--web-analytics-tradicional" class="md-nav__link">
+  <a href="#81-cenário-a--ajuste-de-configuração" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 Matomo — web analytics tradicional
+      8.1 Cenário A — Ajuste de configuração
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-posthog--product-analytics" class="md-nav__link">
+  <a href="#82-cenário-b--migração-para-posthog-cloud-eu" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 PostHog — product analytics
+      8.2 Cenário B — Migração para PostHog Cloud EU
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-resumo-dos-papéis" class="md-nav__link">
+  <a href="#83-cenário-c--reversão-a-matomo-puro-no-xvia" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3 Resumo dos papéis
+      8.3 Cenário C — Reversão a Matomo puro no Xvia
     </span>
   </a>
   
@@ -1574,45 +1646,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-sobreposição-funcional" class="md-nav__link">
+  <a href="#9-o-que-este-documento-não-cobre" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Sobreposição funcional
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-modelo-de-coexistência-no-xvia" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Modelo de coexistência no Xvia
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-governança-de-dado-duplicado" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Governança de dado duplicado
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-matriz-de-decisão--qual-dado-responder-onde" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Matriz de decisão — qual dado responder onde
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-o-que-este-comparativo-não-responde" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. O que este comparativo NÃO responde
+      9. O que este documento NÃO cobre
     </span>
   </a>
   
@@ -1642,266 +1678,340 @@
                   
 
 
-<h1 id="comparativo--matomo--posthog-complementaridade-não-competição">Comparativo — Matomo × PostHog: complementaridade, não competição<a class="headerlink" href="#comparativo--matomo--posthog-complementaridade-não-competição" title="Permanent link">&para;</a></h1>
+<h1 id="comparativo--coexistência-matomo--posthog-no-portal-xvia">Comparativo — Coexistência Matomo + PostHog no portal Xvia<a class="headerlink" href="#comparativo--coexistência-matomo--posthog-no-portal-xvia" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Corte transversal</strong> · Reposicionamento pós-<a href="../../docs/08-adr-002/">ADR-002</a>: as duas plataformas atendem eixos distintos e são adotadas em coexistência no portal Xvia.
-<a href="../../">← Voltar ao índice</a> · <a href="../../docs/08-adr-002/">ADR-002</a> · <a href="../coexistencia-matomo-posthog/">Coexistência no Xvia</a> · <a href="../../plataformas/matomo/">Matomo</a> · <a href="../../plataformas/posthog/">PostHog</a></p>
-<p><strong>📌 Nota metodológica — Revisão 2026</strong>
-Versão anterior deste documento tratava Matomo e PostHog como <strong>candidatos concorrentes</strong> a plataforma padrão do Estado, dirimindo viés de "PostHog Cloud → OSS auto-hospedado". Aquela leitura foi útil para o <a href="../../docs/08-adr/">ADR-001</a>, mas o <a href="../../docs/08-adr-002/">ADR-002</a> reposiciona a análise: as duas ferramentas cobrem <strong>domínios distintos</strong> (web analytics tradicional × product analytics) e são adotadas <strong>em coexistência no portal Xvia</strong>. O comparativo é reescrito neste novo enquadramento. A análise histórica de custo (Matomo R$ 235 k vs PostHog R$ 955 k) permanece registrada em <a href="../custo/"><code>custo.md</code></a> como informativa.</p>
+<p><strong>Corte transversal</strong> · Modelo operacional da coexistência formalizada pelo <a href="../../docs/08-adr-002/#6-decisão">ADR-002 §6.2</a>
+<a href="../../">← Voltar ao índice</a> · <a href="../matomo-vs-posthog/">Complementaridade Matomo × PostHog</a> · <a href="../../docs/08-adr-002/">ADR-002</a></p>
+<p><strong>📌 Nota metodológica — Documento renomeado e reescrito na revisão 2026</strong>
+Este arquivo substitui <code>migracao-matomo-posthog.md</code>, que analisava o custo hipotético de <strong>substituir</strong> Matomo por PostHog em todo o parque. O <a href="../../docs/08-adr-002/">ADR-002</a> rejeita substituição e formaliza <strong>coexistência restrita ao portal Xvia</strong>. O escopo do documento muda: de análise de risco de migração para modelo operacional de coexistência.</p>
 </blockquote>
 <hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#1-contexto">1. Contexto</a></li>
-<li><a href="#2-papéis-complementares">2. Papéis complementares</a></li>
-<li><a href="#3-sobreposição-funcional">3. Sobreposição funcional</a></li>
-<li><a href="#4-modelo-de-coexistência-no-xvia">4. Modelo de coexistência no Xvia</a></li>
-<li><a href="#5-governança-de-dado-duplicado">5. Governança de dado duplicado</a></li>
-<li><a href="#6-matriz-de-decisão--qual-dado-responder-onde">6. Matriz de decisão — qual dado responder onde</a></li>
-<li><a href="#7-o-que-este-comparativo-não-responde">7. O que este comparativo NÃO responde</a></li>
+<li><a href="#1-escopo">1. Escopo</a></li>
+<li><a href="#2-arquitetura-de-instrumentação">2. Arquitetura de instrumentação</a></li>
+<li><a href="#3-segmentação-de-eventos-por-sdk">3. Segmentação de eventos por SDK</a></li>
+<li><a href="#4-política-de-retenção-coordenada">4. Política de retenção coordenada</a></li>
+<li><a href="#5-consentimento-e-session-replay">5. Consentimento e session replay</a></li>
+<li><a href="#6-reconciliação-e-governança-de-divergência">6. Reconciliação e governança de divergência</a></li>
+<li><a href="#7-impacto-de-desempenho-no-navegador">7. Impacto de desempenho no navegador</a></li>
+<li><a href="#8-plano-de-deprecação-caso-o-gate-falhe">8. Plano de deprecação caso o gate falhe</a></li>
+<li><a href="#9-o-que-este-documento-não-cobre">9. O que este documento NÃO cobre</a></li>
 </ul>
 <hr />
-<h2 id="1-contexto">1. Contexto<a class="headerlink" href="#1-contexto" title="Permanent link">&para;</a></h2>
-<p>O parque de sites do Governo do Estado de MS adota <strong>Matomo On-Premise</strong> como plataforma padrão desde o ADR-001, confirmado no ADR-002 sob pesos revisados (500/600, 83,3 %, líder). O novo portal Xvia — superapp cidadão — adiciona um perfil de uso que Matomo cobre parcialmente: jornada de usuário autenticado, funil de serviços transacionais, feature flags, experimentação estruturada e session replay consentido em serviços de alta complexidade.</p>
-<p>Esse perfil é o núcleo do domínio de <strong>product analytics</strong>, no qual o PostHog é referência de mercado. O ADR-002 §6.2 formaliza a adoção do PostHog auto-hospedado como camada complementar do Xvia — não como substituto do Matomo.</p>
-<p><strong>Este documento explica por que as duas plataformas convivem, o que cada uma responde, e como coordenar a operação de ambas sem duplicação de esforço ou de dado.</strong></p>
+<h2 id="1-escopo">1. Escopo<a class="headerlink" href="#1-escopo" title="Permanent link">&para;</a></h2>
+<p>A coexistência descrita aqui aplica-se <strong>exclusivamente ao portal Xvia</strong> (superapp cidadão do Governo de MS). Portais institucionais, sites gov e serviços digitais de conteúdo do parque existente permanecem em <strong>Matomo puro</strong>, conforme <a href="../../docs/08-adr-002/#6-decisão">ADR-002 §6.1</a>. O uso do PostHog fora do Xvia exige justificativa específica e novo ADR.</p>
+<p><strong>Duração:</strong> coexistência com <strong>gate de reavaliação em 12 meses</strong> — critérios de sucesso definidos em <a href="../../docs/10-roadmap/#7bis4-critérios-de-sucesso-para-o-gate-de-12-meses"><code>../docs/10-roadmap.md §7bis.4</code></a>. Falha no gate aciona G12 do ADR-002 e reavaliação em 60 dias com três cenários possíveis: (a) ajuste de configuração, (b) migração para PostHog Cloud EU, (c) reversão a Matomo puro no Xvia.</p>
 <hr />
-<h2 id="2-papéis-complementares">2. Papéis complementares<a class="headerlink" href="#2-papéis-complementares" title="Permanent link">&para;</a></h2>
-<h3 id="21-matomo--web-analytics-tradicional">2.1 Matomo — web analytics tradicional<a class="headerlink" href="#21-matomo--web-analytics-tradicional" title="Permanent link">&para;</a></h3>
-<p><strong>O que faz melhor:</strong></p>
+<h2 id="2-arquitetura-de-instrumentação">2. Arquitetura de instrumentação<a class="headerlink" href="#2-arquitetura-de-instrumentação" title="Permanent link">&para;</a></h2>
+<p>Ambos os SDKs coexistem no bootstrap do portal Xvia, sob custódia integral do Estado (sem transferência internacional).</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph BROWSER["Navegador do cidadão Xvia"]
+        BOOT["Bootstrap Xvia&lt;br/&gt;(async/defer para ambos)"]
+        MTM_JS["matomo.js&lt;br/&gt;~22 KB gzip"]
+        PH_JS["posthog.js&lt;br/&gt;~55 KB gzip"]
+    end
+
+    subgraph INFRA_MS["Infraestrutura on-premise do Estado"]
+        MTM_INST["Matomo On-Premise&lt;br/&gt;(instância Xvia)"]
+        PH_INST["PostHog auto-hospedado&lt;br/&gt;(Django + Kafka + ClickHouse)"]
+        DB_MTM[("MariaDB")]
+        CH[("ClickHouse")]
+    end
+
+    BOOT --&gt; MTM_JS
+    BOOT --&gt; PH_JS
+    MTM_JS --&gt;|"page views, campanhas, referenciadores"| MTM_INST --&gt; DB_MTM
+    PH_JS --&gt;|"eventos identificados, funis, feature flags"| PH_INST --&gt; CH
+
+    style MTM_JS fill:#d1ecf1,stroke:#0ea5e9
+    style PH_JS fill:#fff3cd,stroke:#f59e0b</code></pre>
+<p><strong>Regras técnicas obrigatórias:</strong></p>
 <ul>
-<li>Audiência agregada e anônima (page views, visitantes únicos, sessões, referenciadores, campanhas UTM).</li>
-<li>Métricas de conteúdo (páginas mais vistas, tempo médio, taxa de rejeição por página).</li>
-<li>SEO e canais de aquisição (busca orgânica, redes sociais, tráfego direto).</li>
-<li>Base legal cookieless simplificada, com precedente CNIL — dispensa consentimento em configuração conforme.</li>
-<li>Roll-up multi-site (agregação de dezenas de portais em uma visão consolidada).</li>
-<li>Tag Manager nativo, independente do GTM do Google.</li>
+<li>Ambos os SDKs carregados com <code>defer</code> (não bloqueiam parse do HTML).</li>
+<li><code>posthog.js</code> inicializado com <code>disable_session_recording: true</code> como padrão; ativado por serviço via config remota do PostHog após consentimento explícito.</li>
+<li>Endpoints de coleta expostos em subdomínios do Estado (ex.: <code>analytics.xvia.ms.gov.br</code>, <code>product.xvia.ms.gov.br</code>), nunca em domínios de terceiros.</li>
+<li>Autohospedagem sem transferência internacional — validado no DPIA (Onda 5.1).</li>
 </ul>
-<p><strong>Público-alvo:</strong> SGD, equipes de comunicação, gestores de portal, órgãos setoriais que precisam mensurar alcance.</p>
-<h3 id="22-posthog--product-analytics">2.2 PostHog — product analytics<a class="headerlink" href="#22-posthog--product-analytics" title="Permanent link">&para;</a></h3>
-<p><strong>O que faz melhor:</strong></p>
-<ul>
-<li>Jornada identificada de usuário autenticado (funil por etapa, tempo entre eventos, onde abandona).</li>
-<li>Coortes de usuários (comportamento comparado entre segmentos identificados).</li>
-<li>Retenção (usuários que voltam após N dias).</li>
-<li>Feature flags e experimentação (A/B testing estruturado, rollout gradual).</li>
-<li>Session replay consentido em serviços de alta complexidade (com mascaramento agressivo por padrão).</li>
-<li>HogQL — consulta SQL direta sobre ClickHouse para análise ad-hoc rápida.</li>
-<li>SDKs modernos (JavaScript, Python, Node, Go, iOS, Android, React Native).</li>
-</ul>
-<p><strong>Público-alvo:</strong> time do produto Xvia, engenharia de serviços digitais, DPO (para RIPD do session replay), gestores de serviços transacionais.</p>
-<h3 id="23-resumo-dos-papéis">2.3 Resumo dos papéis<a class="headerlink" href="#23-resumo-dos-papéis" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="3-segmentação-de-eventos-por-sdk">3. Segmentação de eventos por SDK<a class="headerlink" href="#3-segmentação-de-eventos-por-sdk" title="Permanent link">&para;</a></h2>
+<p>Regra geral: <strong>cada capability é instrumentada em uma única ferramenta</strong>. Duplicação só onde a análise em ambas agrega valor demonstrável.</p>
 <table>
 <thead>
 <tr>
-<th>Pergunta que se quer responder</th>
-<th>Ferramenta</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>"Quantas pessoas visitaram o portal Xvia este mês?"</td>
-<td>Matomo</td>
-</tr>
-<tr>
-<td>"De onde vem o tráfego do Xvia?"</td>
-<td>Matomo</td>
-</tr>
-<tr>
-<td>"Quais páginas do Xvia têm maior tempo médio?"</td>
-<td>Matomo</td>
-</tr>
-<tr>
-<td>"Qual serviço tem a maior taxa de conversão no Xvia?"</td>
-<td>PostHog</td>
-</tr>
-<tr>
-<td>"Onde o cidadão abandona o pedido de segunda-via?"</td>
-<td>PostHog</td>
-</tr>
-<tr>
-<td>"A nova versão do formulário aumentou conclusão?"</td>
-<td>PostHog (feature flag + experimentação)</td>
-</tr>
-<tr>
-<td>"Este cidadão voltou ao Xvia após 30 dias?"</td>
-<td>PostHog (retenção identificada)</td>
-</tr>
-<tr>
-<td>"Grave a sessão deste serviço crítico para diagnóstico"</td>
-<td>PostHog (com consentimento e mascaramento)</td>
-</tr>
-<tr>
-<td>"Qual é o dado consolidado de audiência dos 80 portais?"</td>
-<td>Matomo (roll-up)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="3-sobreposição-funcional">3. Sobreposição funcional<a class="headerlink" href="#3-sobreposição-funcional" title="Permanent link">&para;</a></h2>
-<p>Nem tudo é papel exclusivo — há sobreposição em algumas capacidades. Nesses casos, a regra é <strong>"quem responde é quem tem a fonte primária do evento":</strong></p>
-<table>
-<thead>
-<tr>
-<th>Capacidade</th>
+<th>Categoria de evento</th>
 <th style="text-align: center;">Matomo</th>
 <th style="text-align: center;">PostHog</th>
-<th>Regra no Xvia</th>
+<th>Racional</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Page views</td>
+<td>Page view (anônimo)</td>
 <td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td>Matomo é fonte oficial de audiência</td>
+</tr>
+<tr>
+<td>Sessão anônima</td>
 <td style="text-align: center;">✅</td>
-<td><strong>Matomo</strong> — mais barato e é o número oficial de audiência</td>
+<td style="text-align: center;">❌</td>
+<td>Matomo</td>
 </tr>
 <tr>
-<td>Sessões</td>
+<td>Campanhas UTM</td>
 <td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td>Matomo (roll-up multi-site)</td>
+</tr>
+<tr>
+<td>Referenciadores e busca orgânica</td>
 <td style="text-align: center;">✅</td>
-<td><strong>Matomo</strong></td>
+<td style="text-align: center;">❌</td>
+<td>Matomo</td>
 </tr>
 <tr>
-<td>Eventos customizados</td>
-<td style="text-align: center;">✅ (plugin)</td>
-<td style="text-align: center;">✅ (nativo)</td>
-<td><strong>PostHog</strong> — SDK mais rico, HogQL, integração com feature flags</td>
-</tr>
-<tr>
-<td>Metas / conversões</td>
+<td>Evento de conversão anônima</td>
 <td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td>Matomo (meta)</td>
+</tr>
+<tr>
+<td>Login de cidadão (<code>user_signed_in</code>)</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">✅</td>
-<td><strong>Ambos</strong>, sem duplicação: Matomo para metas de audiência; PostHog para conversões identificadas</td>
+<td>PostHog (identificação)</td>
 </tr>
 <tr>
-<td>Funis</td>
-<td style="text-align: center;">✅ (plugin pago)</td>
-<td style="text-align: center;">✅ (nativo)</td>
-<td><strong>PostHog</strong> para funis identificados; <strong>Matomo</strong> para funis anônimos de conteúdo</td>
-</tr>
-<tr>
-<td>Heatmaps</td>
-<td style="text-align: center;">✅ (plugin pago)</td>
-<td style="text-align: center;">⚠️ (via session replay)</td>
-<td><strong>Matomo</strong> — mais barato e não exige consentimento adicional</td>
-</tr>
-<tr>
-<td>Session recording</td>
-<td style="text-align: center;">✅ (plugin pago)</td>
-<td style="text-align: center;">✅ (nativo)</td>
-<td><strong>PostHog no Xvia</strong> (consentido + mascarado); <strong>vedado no parque</strong> por padrão</td>
-</tr>
-<tr>
-<td>A/B testing</td>
-<td style="text-align: center;">✅ (plugin pago)</td>
-<td style="text-align: center;">✅ (nativo)</td>
-<td><strong>PostHog</strong> — feature flags integradas</td>
-</tr>
-<tr>
-<td>Coortes / retenção</td>
-<td style="text-align: center;">⚠️ (limitada)</td>
+<td>Início de fluxo transacional (<code>service_started</code>)</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">✅</td>
-<td><strong>PostHog</strong></td>
+<td>PostHog (funil identificado)</td>
 </tr>
 <tr>
-<td>Retenção anônima</td>
+<td>Etapa de fluxo (<code>step_completed</code>)</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">✅</td>
-<td style="text-align: center;">⚠️</td>
-<td><strong>Matomo</strong></td>
+<td>PostHog</td>
+</tr>
+<tr>
+<td>Conclusão de serviço (<code>service_completed</code>)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>PostHog (funil de conversão)</td>
+</tr>
+<tr>
+<td>Abandono explícito (<code>service_abandoned</code>)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>PostHog</td>
+</tr>
+<tr>
+<td>Feature flag exposta (<code>$feature_flag_called</code>)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>PostHog (nativo)</td>
+</tr>
+<tr>
+<td>Evento de experimento (<code>$experiment_started</code>)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>PostHog (nativo)</td>
+</tr>
+<tr>
+<td>Erro de UI</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>PostHog (correlação com session replay)</td>
+</tr>
+<tr>
+<td>Clique em CTA</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td>PostHog (SDK mais rico)</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Página de configuração da segmentação:</strong> deve viver em repositório versionado dentro do time Xvia, revisada trimestralmente pelo comitê de governança.</p>
 <hr />
-<h2 id="4-modelo-de-coexistência-no-xvia">4. Modelo de coexistência no Xvia<a class="headerlink" href="#4-modelo-de-coexistência-no-xvia" title="Permanent link">&para;</a></h2>
-<p>Detalhamento operacional em <a href="../coexistencia-matomo-posthog/"><code>coexistencia-matomo-posthog.md</code></a>. Resumo:</p>
-<ol>
-<li><strong>Ambos os SDKs carregados em paralelo</strong> no bootstrap do portal Xvia — carregamento async/defer para minimizar impacto no LCP.</li>
-<li><strong>Segmentação de eventos por SDK</strong> — cada capability de tracking é instrumentada em uma única ferramenta (evita eventos duplicados e reconciliação impossível).</li>
-<li><strong>Política de retenção coordenada</strong> — mesma janela de retenção (12 meses de dado bruto, 60 meses de agregados) em ambos os produtos, para não gerar viés temporal.</li>
-<li><strong>Consent Manager único</strong> — coleta de consentimento centralizada; PostHog session replay só ativa após opt-in explícito por serviço.</li>
-<li><strong>Reconciliação mensal</strong> — SGD compara métricas equivalentes (page views, sessões) entre as duas plataformas; divergência ≤ 15 % é aceita, &gt; 15 % aciona análise.</li>
-</ol>
-<hr />
-<h2 id="5-governança-de-dado-duplicado">5. Governança de dado duplicado<a class="headerlink" href="#5-governança-de-dado-duplicado" title="Permanent link">&para;</a></h2>
-<p>O maior risco de operar 2 ferramentas em paralelo é a <strong>duplicidade descontrolada</strong>. Estratégia:</p>
+<h2 id="4-política-de-retenção-coordenada">4. Política de retenção coordenada<a class="headerlink" href="#4-política-de-retenção-coordenada" title="Permanent link">&para;</a></h2>
+<p>Retenção <strong>idêntica em ambas as plataformas</strong> para evitar consulta em ferramenta com janela temporal divergente.</p>
 <table>
 <thead>
 <tr>
-<th>Regra</th>
-<th>Detalhe</th>
+<th>Camada</th>
+<th>Retenção</th>
+<th>Aplicação em Matomo</th>
+<th>Aplicação em PostHog</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Fonte primária declarada por métrica</strong></td>
-<td>Documento de segmentação define qual ferramenta é fonte oficial para cada métrica; a outra é auxiliar</td>
+<td>Dado bruto</td>
+<td>12 meses</td>
+<td><code>delete_logs_older_than=365</code> + cron</td>
+<td><code>event_retention_days: 365</code> na config + TTL ClickHouse</td>
 </tr>
 <tr>
-<td><strong>Sem replicação cega</strong></td>
-<td>Não replicar todos os eventos em ambas as ferramentas — a duplicação só existe onde a análise em ambas agrega valor</td>
+<td>Agregados</td>
+<td>60 meses</td>
+<td>Arquivos de arquivamento retidos por 60 meses</td>
+<td>Materialized views + TTL 60 meses</td>
 </tr>
 <tr>
-<td><strong>Retenção sincronizada</strong></td>
-<td>Mesma janela em ambas para evitar consulta em plataforma com dado mais antigo ou mais recente que a outra</td>
+<td>Session replays</td>
+<td>30 dias</td>
+<td>N/A (não usado no Xvia)</td>
+<td><code>session_recording_retention_days: 30</code></td>
 </tr>
 <tr>
-<td><strong>DPIA único integrado</strong></td>
-<td>Um DPIA que cobre a coexistência, não dois RIPD separados</td>
+<td>IP anonimizado</td>
+<td>Sempre (4 bytes)</td>
+<td><code>anonymize_ip=true</code></td>
+<td><code>ip_anonymize: last_octet</code></td>
 </tr>
 <tr>
-<td><strong>Dashboards consolidados no BI corporativo</strong></td>
-<td>Cards do dashboard executivo marcam a fonte (Matomo / PostHog) e a data da última atualização</td>
-</tr>
-<tr>
-<td><strong>Governança operacional</strong></td>
-<td>Comitê de analytics (Onda 4 do roadmap) inclui representantes do time Xvia; reuniões trimestrais revisam divergências e ajustes de segmentação</td>
+<td>Consentimento revogado</td>
+<td>Purga em ≤ 30 dias</td>
+<td>API de direitos do titular + rotina mensal</td>
+<td>API de direitos do titular + rotina mensal</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Rotina de auditoria trimestral:</strong> DPO valida por amostragem que a retenção efetiva corresponde à configurada.</p>
 <hr />
-<h2 id="6-matriz-de-decisão--qual-dado-responder-onde">6. Matriz de decisão — qual dado responder onde<a class="headerlink" href="#6-matriz-de-decisão--qual-dado-responder-onde" title="Permanent link">&para;</a></h2>
-<p>Referência rápida para times do Xvia decidirem em qual ferramenta instrumentar uma nova capability:</p>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
-│ O evento é sobre usuário autenticado?                   │
-│                                                          │
-│  SIM  →  PostHog (funil identificado, cohort, retenção) │
-│  NÃO  →  Continua abaixo                                │
-└─────────────────────────────────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────────────────┐
-│ O evento vai ser usado em feature flag ou experimento?  │
-│                                                          │
-│  SIM  →  PostHog (integração nativa)                    │
-│  NÃO  →  Continua abaixo                                │
-└─────────────────────────────────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────────────────┐
-│ O evento é agregação de audiência (page view, sessão,   │
-│ referenciador, campanha)?                               │
-│                                                          │
-│  SIM  →  Matomo (fonte oficial de audiência)            │
-│  NÃO  →  Continua abaixo                                │
-└─────────────────────────────────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────────────────┐
-│ É evento customizado de negócio (clique em CTA, download, │
-│ scroll profundo)?                                       │
-│                                                          │
-│  SIM  →  PostHog (SDK mais rico + HogQL)                │
-│  NÃO  →  Consultar Arquitetura antes de instrumentar    │
-└─────────────────────────────────────────────────────────┘
-</code></pre></div>
+<h2 id="5-consentimento-e-session-replay">5. Consentimento e session replay<a class="headerlink" href="#5-consentimento-e-session-replay" title="Permanent link">&para;</a></h2>
+<p>Session replay é o único componente da coexistência com <strong>risco crítico</strong> de captura acidental de dado sensível (<a href="../../docs/11-riscos/">R-11</a>). Regras rígidas:</p>
+<ol>
+<li><strong>Desabilitado por padrão.</strong> <code>disable_session_recording: true</code> no init do <code>posthog.js</code>.</li>
+<li><strong>Ativado apenas após opt-in explícito</strong>, coletado por Consent Manager único (compartilhado entre Matomo e PostHog).</li>
+<li><strong>Mascaramento agressivo por padrão</strong>:</li>
+<li>Todos os inputs: <code>data-ph-no-capture</code> ou máscara automática.</li>
+<li>Campos sensíveis (CPF, senha, dado de saúde, valor financeiro): máscara <code>***</code>.</li>
+<li>Regex de segurança rejeita padrões de CPF/CNPJ/CEP em campos texto.</li>
+<li><strong>Ativação por serviço</strong>, não por padrão. Cada serviço que quiser ativar replay requer:</li>
+<li>Aprovação do DPO com DPIA específico do serviço.</li>
+<li>Homologação da configuração pelo time de segurança.</li>
+<li>Justificativa formal do valor incremental (ex.: "diagnóstico de fluxo de agendamento onde 15 % abandonam sem completar").</li>
+<li><strong>Retenção curta</strong> — 30 dias, não os 12 meses do evento bruto.</li>
+<li><strong>Auditoria mensal</strong> — amostragem aleatória de replays revisada pelo time de segurança para caçar captura acidental.</li>
+</ol>
+<p><strong>Bloqueio operacional:</strong> ativação em qualquer serviço sem os 6 requisitos acima é considerada incidente de conformidade e aciona R-11.</p>
 <hr />
-<h2 id="7-o-que-este-comparativo-não-responde">7. O que este comparativo NÃO responde<a class="headerlink" href="#7-o-que-este-comparativo-não-responde" title="Permanent link">&para;</a></h2>
+<h2 id="6-reconciliação-e-governança-de-divergência">6. Reconciliação e governança de divergência<a class="headerlink" href="#6-reconciliação-e-governança-de-divergência" title="Permanent link">&para;</a></h2>
+<p>Métricas equivalentes divergirão — é o comportamento esperado, não a exceção. Causas:</p>
 <ul>
-<li><strong>Custo comparativo entre as duas ferramentas.</strong> Não é mais critério de decisão. Referência histórica em <a href="../custo/"><code>custo.md</code></a>.</li>
-<li><strong>Escolha entre Matomo Cloud e PostHog Cloud EU.</strong> Ambos são contingências formais registradas no <a href="../../docs/08-adr-002/#6-decisão">ADR-002 §6.6</a>, acionadas em caso de invalidação da premissa P2.</li>
-<li><strong>Comparação de operação isolada de cada uma.</strong> Coberta nas fichas individuais <a href="../../plataformas/matomo/"><code>../plataformas/matomo.md</code></a> e <a href="../../plataformas/posthog/"><code>../plataformas/posthog.md</code></a>.</li>
-<li><strong>Justificativa do overhead de LCP no Xvia.</strong> Coberta no <a href="../../docs/08-adr-002/#5-trade-offs-da-decisão">ADR-002 §5.T1</a> e no risco R-17 de <a href="../../docs/11-riscos/"><code>../docs/11-riscos.md</code></a>.</li>
+<li>Diferenças de sampling e de definição de sessão (padrão de 30 min vs 30 min inatividade).</li>
+<li>Bloqueadores de rastreamento diferentes (uBlock bloqueia domínios diferentes).</li>
+<li>Timing de disparo dos scripts (um pode disparar antes do outro em conexão lenta).</li>
+<li>Filtros de bot diferentes.</li>
+</ul>
+<p><strong>Regra de convivência:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Divergência mensal (métrica equivalente)</th>
+<th>Situação</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≤ 15 %</td>
+<td>Esperada</td>
+<td>Nenhuma — dashboard consolidado marca a fonte</td>
+</tr>
+<tr>
+<td>15–25 %</td>
+<td>Alerta</td>
+<td>Análise de causa em 30 dias</td>
+</tr>
+<tr>
+<td>&gt; 25 % ou sustentada &gt; 15 % por 3 meses</td>
+<td>Incidente de governança</td>
+<td>Aciona <a href="../../docs/08-adr-002/#112-gatilhos-de-revisão-antecipada">G10 do ADR-002</a> — reavaliação em 90 dias</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reconciliação mensal:</strong> SGD + BI comparam page views, sessões e conversões em ambas as plataformas. Relatório publicado no dashboard executivo do Xvia com fonte e delta em cada card.</p>
+<hr />
+<h2 id="7-impacto-de-desempenho-no-navegador">7. Impacto de desempenho no navegador<a class="headerlink" href="#7-impacto-de-desempenho-no-navegador" title="Permanent link">&para;</a></h2>
+<p>Aceite consciente registrado no <a href="../../docs/08-adr-002/#5-trade-offs-da-decisão">ADR-002 §5.T1</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th style="text-align: center;">Matomo sozinho</th>
+<th style="text-align: center;">PostHog sozinho</th>
+<th style="text-align: center;"><strong>Ambos em paralelo</strong></th>
+<th style="text-align: center;">Alvo Xvia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JS transferido (gzip)</td>
+<td style="text-align: center;">22 KB</td>
+<td style="text-align: center;">55 KB</td>
+<td style="text-align: center;"><strong>~77 KB</strong></td>
+<td style="text-align: center;">≤ 100 KB</td>
+</tr>
+<tr>
+<td>Requisições no first paint</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1–2</td>
+<td style="text-align: center;"><strong>2–3</strong></td>
+<td style="text-align: center;">≤ 4</td>
+</tr>
+<tr>
+<td>Impacto no LCP (3G simulado, p75)</td>
+<td style="text-align: center;">&lt; 50 ms</td>
+<td style="text-align: center;">50–200 ms</td>
+<td style="text-align: center;"><strong>~100–250 ms</strong></td>
+<td style="text-align: center;">≤ 75 ms</td>
+</tr>
+<tr>
+<td>Impacto no LCP (4G+, p75)</td>
+<td style="text-align: center;">Desprezível</td>
+<td style="text-align: center;">20–50 ms</td>
+<td style="text-align: center;"><strong>~30–80 ms</strong></td>
+<td style="text-align: center;">≤ 75 ms</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mitigações obrigatórias:</strong></p>
+<ul>
+<li>Ambos com <code>defer</code>.</li>
+<li>Autohost dos JS no domínio do Estado (elimina resolução DNS de terceiro).</li>
+<li>Segmentação de eventos rigorosa — só rastrear o que tem valor decisório.</li>
+<li>Monitoramento contínuo de LCP p75 3G via Lighthouse CI (Onda 5.10).</li>
+</ul>
+<p><strong>Gatilho de reavaliação:</strong> LCP &gt; 75 ms sustentado por 2 meses aciona <a href="../../docs/08-adr-002/#112-gatilhos-de-revisão-antecipada">G9 do ADR-002</a>. Contingências (§8) preveem PostHog Cloud EU com CDN de borda ou reversão a Matomo puro no Xvia.</p>
+<hr />
+<h2 id="8-plano-de-deprecação-caso-o-gate-falhe">8. Plano de deprecação caso o gate falhe<a class="headerlink" href="#8-plano-de-deprecação-caso-o-gate-falhe" title="Permanent link">&para;</a></h2>
+<p>Falha em qualquer critério do <a href="../../docs/10-roadmap/#7bis4-critérios-de-sucesso-para-o-gate-de-12-meses">gate de 12 meses</a> aciona reavaliação em 60 dias. Três cenários pré-definidos:</p>
+<h3 id="81-cenário-a--ajuste-de-configuração">8.1 Cenário A — Ajuste de configuração<a class="headerlink" href="#81-cenário-a--ajuste-de-configuração" title="Permanent link">&para;</a></h3>
+<p><strong>Quando:</strong> LCP marginal, divergência marginal, mas capacidade funcional está sendo usada com valor.
+<strong>Ação:</strong> ajustes técnicos (segmentação mais rigorosa, retirada de session replay de serviços marginais, revisão de eventos duplicados).
+<strong>Impacto:</strong> baixo. Coexistência mantida com escopo reduzido.</p>
+<h3 id="82-cenário-b--migração-para-posthog-cloud-eu">8.2 Cenário B — Migração para PostHog Cloud EU<a class="headerlink" href="#82-cenário-b--migração-para-posthog-cloud-eu" title="Permanent link">&para;</a></h3>
+<p><strong>Quando:</strong> operação do stack auto-hospedado excede capacidade da STI, mas capacidade funcional é essencial.
+<strong>Ação:</strong> provisionar PostHog Cloud EU; migrar configuração; encerrar stack auto-hospedado.
+<strong>Impacto:</strong> DPIA novo (transferência para UE, sob art. 33 da LGPD); custo recorrente em moeda estrangeira; perda de acesso SQL direto.
+<strong>Base legal:</strong> exige aprovação formal do DPO e RIPD específico.</p>
+<h3 id="83-cenário-c--reversão-a-matomo-puro-no-xvia">8.3 Cenário C — Reversão a Matomo puro no Xvia<a class="headerlink" href="#83-cenário-c--reversão-a-matomo-puro-no-xvia" title="Permanent link">&para;</a></h3>
+<p><strong>Quando:</strong> capacidade funcional do PostHog não foi usada (feature flags vazias, funis não configurados, replays não capturados).
+<strong>Ação:</strong> remover <code>posthog.js</code> do bootstrap; encerrar stack; migrar necessidades residuais (funis) para plugins do Matomo; documentar aprendizado.
+<strong>Impacto:</strong> perda de dado histórico do PostHog (exportação recomendada antes do desligamento); cobertura reduzida de product analytics, aceita.
+<strong>Custo evitado:</strong> operação recorrente do stack PostHog.</p>
+<p><strong>Escolha do cenário:</strong> decisão colegiada do comitê de governança + Arquitetura + DPO, com base em relatório do gate.</p>
+<hr />
+<h2 id="9-o-que-este-documento-não-cobre">9. O que este documento NÃO cobre<a class="headerlink" href="#9-o-que-este-documento-não-cobre" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Análise comparativa das duas ferramentas.</strong> Ver <a href="../matomo-vs-posthog/"><code>matomo-vs-posthog.md</code></a>.</li>
+<li><strong>Custo comparativo.</strong> Não é mais critério de decisão — referência histórica em <a href="../custo/"><code>custo.md</code></a>.</li>
+<li><strong>Configuração detalhada de Matomo.</strong> Ver <a href="../../plataformas/matomo/"><code>../plataformas/matomo.md</code></a>.</li>
+<li><strong>Configuração detalhada de PostHog.</strong> Ver <a href="../../plataformas/posthog/"><code>../plataformas/posthog.md</code></a>.</li>
+<li><strong>Coexistência fora do Xvia.</strong> Vedada por padrão — exige novo ADR.</li>
 </ul>
 <hr />
 <h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
@@ -1915,23 +2025,19 @@ Versão anterior deste documento tratava Matomo e PostHog como <strong>candidato
 <tbody>
 <tr>
 <td><a href="../../docs/08-adr-002/">ADR-002</a></td>
-<td>Decisão formal da coexistência no Xvia</td>
+<td>Decisão formal</td>
 </tr>
 <tr>
-<td><a href="../coexistencia-matomo-posthog/">Coexistência Matomo + PostHog no Xvia</a></td>
-<td>Detalhamento operacional</td>
+<td><a href="../matomo-vs-posthog/">Complementaridade Matomo × PostHog</a></td>
+<td>Comparativo das duas ferramentas</td>
 </tr>
 <tr>
-<td><a href="../../plataformas/matomo/">Matomo</a></td>
-<td>Ficha técnica</td>
+<td><a href="../../docs/10-roadmap/#7bis-onda-5--portal-xvia-posthog-complementar">Onda 5 do roadmap</a></td>
+<td>Plano de execução</td>
 </tr>
 <tr>
-<td><a href="../../plataformas/posthog/">PostHog</a></td>
-<td>Ficha técnica</td>
-</tr>
-<tr>
-<td><a href="../custo/">Custo (informativo)</a></td>
-<td>Referência histórica</td>
+<td><a href="../../docs/11-riscos/">R-11, R-17, R-18, R-19, R-20</a></td>
+<td>Riscos associados</td>
 </tr>
 </tbody>
 </table>

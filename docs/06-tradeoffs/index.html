@@ -385,6 +385,8 @@
       
         
       
+        
+      
     
     
       
@@ -646,6 +648,15 @@
   <a href="#tp-06--banco-relacional--colunar" class="md-nav__link">
     <span class="md-ellipsis">
       TP-06 — Banco relacional × colunar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-11--coexistência-de-2-plataformas-no-portal-xvia" class="md-nav__link">
+    <span class="md-ellipsis">
+      TP-11 — Coexistência de 2 plataformas no portal Xvia
     </span>
   </a>
   
@@ -1198,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz de decisão (revisão 2026)
   </span>
   
 
@@ -1219,7 +1230,28 @@
         
   
   <span class="md-ellipsis">
-    ADR
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
   </span>
   
 
@@ -1668,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1794,7 +1826,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog
+    Matomo × PostHog (complementaridade)
   </span>
   
 
@@ -1811,11 +1843,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migração Matomo → PostHog
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -2044,6 +2076,15 @@
   <a href="#tp-06--banco-relacional--colunar" class="md-nav__link">
     <span class="md-ellipsis">
       TP-06 — Banco relacional × colunar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-11--coexistência-de-2-plataformas-no-portal-xvia" class="md-nav__link">
+    <span class="md-ellipsis">
+      TP-11 — Coexistência de 2 plataformas no portal Xvia
     </span>
   </a>
   
@@ -2827,6 +2868,51 @@ Para <strong>portais institucionais e de conteúdo</strong>: coleta mínima (coo
 <p><strong>📌 Observação — Por que isso importa para a decisão</strong>
 Este é o trade-off técnico mais consequente entre Matomo e as alternativas modernas. O Matomo paga o preço do MySQL com o <strong>processo de arquivamento</strong>; as plataformas ClickHouse pagam o preço com <strong>complexidade operacional adicional</strong>.</p>
 <p>Para o volume do cenário de referência (12 M page views/mês), <strong>ambas as abordagens funcionam</strong>. A diferença se torna material apenas acima de ~50 M eventos/mês. Isso reduz o peso prático desse trade-off para o caso de uso avaliado — e é o motivo de o Matomo receber nota 3 (e não 2) em C08 (Escalabilidade).</p>
+</blockquote>
+<hr />
+<h3 id="tp-11--coexistência-de-2-plataformas-no-portal-xvia">TP-11 — Coexistência de 2 plataformas no portal Xvia<a class="headerlink" href="#tp-11--coexistência-de-2-plataformas-no-portal-xvia" title="Permanent link">&para;</a></h3>
+<p>Introduzido pela revisão 2026 (<a href="../08-adr-002/">ADR-002</a>). Aplica-se <strong>exclusivamente ao portal Xvia</strong>, não ao parque existente.</p>
+<table>
+<thead>
+<tr>
+<th>Rodar Matomo + PostHog em paralelo no Xvia (opção escolhida)</th>
+<th>Rodar apenas Matomo estendido com plugins (alternativa)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Product analytics maduro (funil identificado, feature flags, HogQL, session replay consentido)</td>
+<td>❌ Cobertura parcial de product analytics (60–70 %)</td>
+</tr>
+<tr>
+<td>✅ Ferramenta certa para cada eixo — web analytics no Matomo, product analytics no PostHog</td>
+<td>✅ Uma única plataforma para operar</td>
+</tr>
+<tr>
+<td>✅ Habilita experimentação estruturada (A/B testing) e cohort analysis identificada</td>
+<td>⚠️ A/B testing existe como plugin, cohort é limitado</td>
+</tr>
+<tr>
+<td>❌ Overhead no navegador — ~+55 KB gzip, +50–200 ms no LCP em 3G</td>
+<td>✅ 1 script apenas</td>
+</tr>
+<tr>
+<td>❌ Operação de 2 stacks pela STI (Matomo + PostHog)</td>
+<td>✅ Um único stack a operar</td>
+</tr>
+<tr>
+<td>❌ Governança de dado duplicado — política de retenção coordenada, "qual métrica vem de onde"</td>
+<td>✅ Fonte única de verdade</td>
+</tr>
+<tr>
+<td>⚠️ DPIA específico para session replay</td>
+<td>✅ DPIA já existente do Matomo</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Observação — Por que isso é aceito no Xvia e não no parque</strong>
+O usuário do portal Xvia chega com intenção específica de serviço (superapp cidadão, jornada identificada). Nesse contexto, a taxa de abandono por LCP é qualitativamente menor que em portal de conteúdo — e o valor do product analytics é qualitativamente maior. Em portais institucionais e sites gov, ambos os fatores se invertem, o que sustenta a manutenção do Matomo puro no parque. A decisão explícita no ADR-002 §6.1–§6.2 registra esse contraste.</p>
 </blockquote>
 <hr />
 <h2 id="2-modelo-de-análise-por-plataforma">2. Modelo de análise por plataforma<a class="headerlink" href="#2-modelo-de-análise-por-plataforma" title="Permanent link">&para;</a></h2>

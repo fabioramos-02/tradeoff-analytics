@@ -383,6 +383,8 @@
       
         
       
+        
+      
     
     
       
@@ -553,7 +555,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz de decisão (revisão 2026)
   </span>
   
 
@@ -574,7 +576,28 @@
         
   
   <span class="md-ellipsis">
-    ADR
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
   </span>
   
 
@@ -1023,7 +1046,7 @@
         
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1149,7 +1172,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog
+    Matomo × PostHog (complementaridade)
   </span>
   
 
@@ -1166,11 +1189,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comparativos/migracao-matomo-posthog/" class="md-nav__link">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migração Matomo → PostHog
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -1405,6 +1428,15 @@
   <a href="#33-cenário-c--parque-estadual-consolidado-ano-5" class="md-nav__link">
     <span class="md-ellipsis">
       3.3 Cenário C — Parque estadual consolidado (ano 5)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-cenário-d--portal-xvia-superapp-cidadão--introduzido-pela-revisão-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Cenário D — Portal Xvia (superapp cidadão) — introduzido pela revisão 2026
     </span>
   </a>
   
@@ -1732,6 +1764,15 @@
   <a href="#33-cenário-c--parque-estadual-consolidado-ano-5" class="md-nav__link">
     <span class="md-ellipsis">
       3.3 Cenário C — Parque estadual consolidado (ano 5)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-cenário-d--portal-xvia-superapp-cidadão--introduzido-pela-revisão-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Cenário D — Portal Xvia (superapp cidadão) — introduzido pela revisão 2026
     </span>
   </a>
   
@@ -2088,6 +2129,91 @@ Nenhum número marcado com <code>[proj.]</code> neste documento foi medido em la
 </tr>
 </tbody>
 </table>
+<h3 id="34-cenário-d--portal-xvia-superapp-cidadão--introduzido-pela-revisão-2026">3.4 Cenário D — Portal Xvia (superapp cidadão) — introduzido pela revisão 2026<a class="headerlink" href="#34-cenário-d--portal-xvia-superapp-cidadão--introduzido-pela-revisão-2026" title="Permanent link">&para;</a></h3>
+<p>Cenário formalizado com o <a href="../../docs/08-adr-002/">ADR-002</a> para dimensionar a coexistência Matomo + PostHog no portal Xvia.</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Ano 1</th>
+<th>Ano 3 (projeção)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portais rastreados</td>
+<td>1 (Xvia)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Usuários únicos autenticados/mês</td>
+<td>300 k</td>
+<td>1,2 M</td>
+</tr>
+<tr>
+<td>Sessões/mês</td>
+<td>900 k</td>
+<td>4 M</td>
+</tr>
+<tr>
+<td>Page views/mês</td>
+<td>5 M</td>
+<td>20 M</td>
+</tr>
+<tr>
+<td><strong>Eventos identificados PostHog/mês</strong></td>
+<td><strong>8 M</strong></td>
+<td><strong>35 M</strong></td>
+</tr>
+<tr>
+<td>Fluxos transacionais instrumentados</td>
+<td>5</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Feature flags ativas</td>
+<td>3</td>
+<td>10+</td>
+</tr>
+<tr>
+<td>Session replays capturados/mês (com consentimento)</td>
+<td>~5 k</td>
+<td>~20 k</td>
+</tr>
+<tr>
+<td>Retenção Matomo (bruto)</td>
+<td>12 meses</td>
+<td>12 meses</td>
+</tr>
+<tr>
+<td>Retenção PostHog (eventos)</td>
+<td>12 meses</td>
+<td>12 meses</td>
+</tr>
+<tr>
+<td>Retenção PostHog (session replay)</td>
+<td>30 dias</td>
+<td>30 dias</td>
+</tr>
+<tr>
+<td><strong>LCP alvo p75 (3G)</strong></td>
+<td><strong>≤ 75 ms</strong></td>
+<td><strong>≤ 75 ms</strong></td>
+</tr>
+<tr>
+<td>LCP alvo p75 (4G+)</td>
+<td>≤ 50 ms</td>
+<td>≤ 50 ms</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perfil de tráfego:</strong> distribuído durante o horário comercial, com picos em janelas de campanha (declaração anual, matrícula escolar, calendário fiscal). Picos esperados de 5×–15× — inferiores ao pico do parque institucional (30×) devido à autenticação prévia limitar tráfego não intencional.</p>
+<p><strong>Requisitos de infra específicos do Xvia:</strong></p>
+<ul>
+<li><strong>Matomo Xvia:</strong> instância dedicada, isolada da instância consolidada do parque (segregação de dado autenticado). Stack: 2 nós de coleta, 1 UI, 1 host de arquivamento, MariaDB primário + réplica, Redis.</li>
+<li><strong>PostHog Xvia:</strong> stack completo em Kubernetes — Django, PostgreSQL, ClickHouse (16+ GB RAM, SSD NVMe), Kafka + Zookeeper, Redis, MinIO. Dimensionamento inicial: 8 nós K8s.</li>
+<li><strong>Monitoramento LCP:</strong> Lighthouse CI executado 4× ao dia em 3G simulado; alertas se p75 &gt; 75 ms por 3 dias consecutivos.</li>
+</ul>
 <hr />
 <h2 id="4-métricas-coletadas">4. Métricas coletadas<a class="headerlink" href="#4-métricas-coletadas" title="Permanent link">&para;</a></h2>
 <table>

@@ -26,7 +26,7 @@
     
     
       
-        <title>Custo (TCO) - Estudo de Plataformas de Web Analytics — SETDIG</title>
+        <title>Custo (informativo) - Estudo de Plataformas de Web Analytics — SETDIG</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#comparativo--custo-tco-em-5-anos" class="md-skip">
+        <a href="#comparativo--custo-tco-em-5-anos--informativo" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Custo (TCO)
+              Custo (informativo)
             
           </span>
         </div>
@@ -383,6 +383,8 @@
       
         
       
+        
+      
     
     
       
@@ -553,7 +555,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz de decisão (revisão 2026)
   </span>
   
 
@@ -574,7 +576,28 @@
         
   
   <span class="md-ellipsis">
-    ADR
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/08-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
   </span>
   
 
@@ -1037,7 +1060,7 @@
           
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1048,7 +1071,7 @@
         
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1536,7 +1559,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog
+    Matomo × PostHog (complementaridade)
   </span>
   
 
@@ -1553,11 +1576,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../migracao-matomo-posthog/" class="md-nav__link">
+      <a href="../coexistencia-matomo-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migração Matomo → PostHog
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -2075,11 +2098,19 @@
                   
 
 
-<h1 id="comparativo--custo-tco-em-5-anos">Comparativo — Custo (TCO em 5 anos)<a class="headerlink" href="#comparativo--custo-tco-em-5-anos" title="Permanent link">&para;</a></h1>
+<h1 id="comparativo--custo-tco-em-5-anos--informativo">Comparativo — Custo (TCO em 5 anos) — INFORMATIVO<a class="headerlink" href="#comparativo--custo-tco-em-5-anos--informativo" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Corte transversal</strong> · Base: portal médio, ~500 mil <em>page views</em>/mês, ~50 propriedades/sites
 <strong>Regime de custo:</strong> <strong>marginal para o Estado</strong> — ver §1.4
-<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a></p>
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a> · <a href="../../docs/08-adr-002/">ADR-002</a></p>
+<p><strong>📌 Nota metodológica — Custo passou a ser critério informativo (revisão 2026)</strong>
+A partir do <a href="../../docs/08-adr-002/">ADR-002</a>, o critério C03 (TCO) foi rebaixado a <strong>peso 0</strong> na matriz de decisão. Este comparativo permanece publicado e mantido atualizado, mas com finalidade <strong>estritamente informativa</strong>:</p>
+<ul>
+<li>Serve como referência de <strong>dimensionamento de infraestrutura</strong> on-premise.</li>
+<li>Serve como base para <strong>prestação de contas</strong> ao TCE-MS e à CGE-MS, demonstrando economicidade das decisões arquiteturais.</li>
+<li>Reproduz o cenário de sensibilidade <strong>"Custo pleno (referência histórica)"</strong> definido em <a href="../../docs/03-criterios-de-avaliacao/#44-pesos-alternativos-testados"><code>../docs/03-criterios-de-avaliacao.md §4.4</code></a>, permitindo auditoria da revisão.</li>
+</ul>
+<p><strong>O que este documento NÃO faz mais:</strong> não é insumo para ranquear plataformas nem para eliminar alternativas. Sob a premissa on-premise consolidada (P1/P2/R4), o custo marginal é absorvido pela infra do Estado; ferramentas que atendem melhor o caso de uso (funcional, técnico, LGPD) devem prevalecer, mesmo com TCO superior. Ver justificativa em <a href="../../docs/03-criterios-de-avaliacao/#43-justificativa-da-atribuição-de-pesos"><code>../docs/03-criterios-de-avaliacao.md §4.3</code></a>.</p>
 </blockquote>
 <hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>

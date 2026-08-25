@@ -12,13 +12,13 @@
         <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
       
       
-        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/08-adr/">
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/08-adr-002/">
       
       
-        <link rel="prev" href="../07-matriz-decisao/">
+        <link rel="prev" href="../08-adr/">
       
       
-        <link rel="next" href="../08-adr-002/">
+        <link rel="next" href="../09-recomendacao/">
       
       
       <link rel="icon" href="../assets/img/brasao-ms.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>ADR-001 (depreciado) - Estudo de Plataformas de Web Analytics — SETDIG</title>
+        <title>ADR-002 (vigente) - Estudo de Plataformas de Web Analytics — SETDIG</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#08--adr-001-plataforma-de-web-analytics-do-governo-do-estado-de-ms" class="md-skip">
+        <a href="#08--adr-002-matomo-padrão-do-parque--posthog-complementar-no-portal-xvia" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ADR-001 (depreciado)
+              ADR-002 (vigente)
             
           </span>
         </div>
@@ -574,6 +574,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -590,7 +611,7 @@
           
   
   <span class="md-ellipsis">
-    ADR-001 (depreciado)
+    ADR-002 (vigente)
   </span>
   
 
@@ -601,7 +622,7 @@
         
   
   <span class="md-ellipsis">
-    ADR-001 (depreciado)
+    ADR-002 (vigente)
   </span>
   
 
@@ -662,6 +683,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Contexto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-rebaixamento-do-tco-como-critério-de-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Rebaixamento do TCO como critério de decisão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-entrada-do-portal-xvia-superapp-cidadão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Entrada do portal Xvia (superapp cidadão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ranking-revisado-sob-os-novos-pesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Ranking revisado sob os novos pesos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-o-que-permanece-do-adr-001" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 O que permanece do ADR-001
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -684,9 +747,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-restrições-rígidas-não-ponderáveis" class="md-nav__link">
+  <a href="#31-restrições-rígidas-inalteradas-em-relação-ao-adr-001" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Restrições rígidas (não ponderáveis)
+      3.1 Restrições rígidas (inalteradas em relação ao ADR-001)
     </span>
   </a>
   
@@ -708,27 +771,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-alternativas-de-primeira-ordem" class="md-nav__link">
+  <a href="#41-motivo-do-descarte-de-cada-arranjo-alternativo" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1 Alternativas de primeira ordem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-motivo-de-descarte-de-cada-alternativa-não-selecionada" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Motivo de descarte de cada alternativa não selecionada
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-alternativa-não-fazer-nada" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 Alternativa "não fazer nada"
+      4.1 Motivo do descarte de cada arranjo alternativo
     </span>
   </a>
   
@@ -783,90 +828,63 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#j1--resultado-quantitativo-da-avaliação-multicritério" class="md-nav__link">
+  <a href="#j1--resultado-quantitativo-sob-pesos-revisados" class="md-nav__link">
     <span class="md-ellipsis">
-      J1 — Resultado quantitativo da avaliação multicritério
+      J1 — Resultado quantitativo sob pesos revisados
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j2--robustez-à-variação-de-pesos" class="md-nav__link">
+  <a href="#j2--perfil-do-xvia-difere-estruturalmente-dos-portais-institucionais" class="md-nav__link">
     <span class="md-ellipsis">
-      J2 — Robustez à variação de pesos
+      J2 — Perfil do Xvia difere estruturalmente dos portais institucionais
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j3--soberania-verificável-não-declarada" class="md-nav__link">
+  <a href="#j3--overhead-de-lcp-no-xvia-é-aceitável-para-o-perfil-de-uso" class="md-nav__link">
     <span class="md-ellipsis">
-      J3 — Soberania verificável, não declarada
+      J3 — Overhead de LCP no Xvia é aceitável para o perfil de uso
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados" class="md-nav__link">
+  <a href="#j4--posthog-auto-hospedado-preserva-soberania" class="md-nav__link">
     <span class="md-ellipsis">
-      J4 — Base legal com precedente de autoridade de proteção de dados
+      J4 — PostHog auto-hospedado preserva soberania
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j5--precedente-institucional-em-administração-pública" class="md-nav__link">
+  <a href="#j5--ranking-revisado-remove-o-filtro-implícito-do-tco" class="md-nav__link">
     <span class="md-ellipsis">
-      J5 — Precedente institucional em administração pública
+      J5 — Ranking revisado remove o filtro implícito do TCO
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas" class="md-nav__link">
+  <a href="#j6--continuidade-do-parque-preservada" class="md-nav__link">
     <span class="md-ellipsis">
-      J6 — Única cobertura funcional adequada entre as opções soberanas
+      J6 — Continuidade do parque preservada
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j7--economicidade-demonstrada" class="md-nav__link">
+  <a href="#j7--aderência-aos-princípios-legais-aplicáveis" class="md-nav__link">
     <span class="md-ellipsis">
-      J7 — Economicidade demonstrada
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#j8--ausência-de-deficiência-crítica-não-mitigável" class="md-nav__link">
-    <span class="md-ellipsis">
-      J8 — Ausência de deficiência crítica não mitigável
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#j9--continuidade-garantida-por-licença" class="md-nav__link">
-    <span class="md-ellipsis">
-      J9 — Continuidade garantida por licença
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#j10--aderência-aos-princípios-legais-aplicáveis" class="md-nav__link">
-    <span class="md-ellipsis">
-      J10 — Aderência aos princípios legais aplicáveis
+      J7 — Aderência aos princípios legais aplicáveis
     </span>
   </a>
   
@@ -1025,27 +1043,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-adr-002/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ADR-002 (vigente)
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1838,6 +1835,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Contexto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-rebaixamento-do-tco-como-critério-de-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Rebaixamento do TCO como critério de decisão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-entrada-do-portal-xvia-superapp-cidadão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Entrada do portal Xvia (superapp cidadão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ranking-revisado-sob-os-novos-pesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Ranking revisado sob os novos pesos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-o-que-permanece-do-adr-001" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 O que permanece do ADR-001
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1860,9 +1899,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-restrições-rígidas-não-ponderáveis" class="md-nav__link">
+  <a href="#31-restrições-rígidas-inalteradas-em-relação-ao-adr-001" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Restrições rígidas (não ponderáveis)
+      3.1 Restrições rígidas (inalteradas em relação ao ADR-001)
     </span>
   </a>
   
@@ -1884,27 +1923,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-alternativas-de-primeira-ordem" class="md-nav__link">
+  <a href="#41-motivo-do-descarte-de-cada-arranjo-alternativo" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1 Alternativas de primeira ordem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-motivo-de-descarte-de-cada-alternativa-não-selecionada" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Motivo de descarte de cada alternativa não selecionada
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-alternativa-não-fazer-nada" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 Alternativa "não fazer nada"
+      4.1 Motivo do descarte de cada arranjo alternativo
     </span>
   </a>
   
@@ -1959,90 +1980,63 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#j1--resultado-quantitativo-da-avaliação-multicritério" class="md-nav__link">
+  <a href="#j1--resultado-quantitativo-sob-pesos-revisados" class="md-nav__link">
     <span class="md-ellipsis">
-      J1 — Resultado quantitativo da avaliação multicritério
+      J1 — Resultado quantitativo sob pesos revisados
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j2--robustez-à-variação-de-pesos" class="md-nav__link">
+  <a href="#j2--perfil-do-xvia-difere-estruturalmente-dos-portais-institucionais" class="md-nav__link">
     <span class="md-ellipsis">
-      J2 — Robustez à variação de pesos
+      J2 — Perfil do Xvia difere estruturalmente dos portais institucionais
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j3--soberania-verificável-não-declarada" class="md-nav__link">
+  <a href="#j3--overhead-de-lcp-no-xvia-é-aceitável-para-o-perfil-de-uso" class="md-nav__link">
     <span class="md-ellipsis">
-      J3 — Soberania verificável, não declarada
+      J3 — Overhead de LCP no Xvia é aceitável para o perfil de uso
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados" class="md-nav__link">
+  <a href="#j4--posthog-auto-hospedado-preserva-soberania" class="md-nav__link">
     <span class="md-ellipsis">
-      J4 — Base legal com precedente de autoridade de proteção de dados
+      J4 — PostHog auto-hospedado preserva soberania
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j5--precedente-institucional-em-administração-pública" class="md-nav__link">
+  <a href="#j5--ranking-revisado-remove-o-filtro-implícito-do-tco" class="md-nav__link">
     <span class="md-ellipsis">
-      J5 — Precedente institucional em administração pública
+      J5 — Ranking revisado remove o filtro implícito do TCO
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas" class="md-nav__link">
+  <a href="#j6--continuidade-do-parque-preservada" class="md-nav__link">
     <span class="md-ellipsis">
-      J6 — Única cobertura funcional adequada entre as opções soberanas
+      J6 — Continuidade do parque preservada
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#j7--economicidade-demonstrada" class="md-nav__link">
+  <a href="#j7--aderência-aos-princípios-legais-aplicáveis" class="md-nav__link">
     <span class="md-ellipsis">
-      J7 — Economicidade demonstrada
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#j8--ausência-de-deficiência-crítica-não-mitigável" class="md-nav__link">
-    <span class="md-ellipsis">
-      J8 — Ausência de deficiência crítica não mitigável
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#j9--continuidade-garantida-por-licença" class="md-nav__link">
-    <span class="md-ellipsis">
-      J9 — Continuidade garantida por licença
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#j10--aderência-aos-princípios-legais-aplicáveis" class="md-nav__link">
-    <span class="md-ellipsis">
-      J10 — Aderência aos princípios legais aplicáveis
+      J7 — Aderência aos princípios legais aplicáveis
     </span>
   </a>
   
@@ -2212,13 +2206,11 @@
                   
 
 
-<h1 id="08--adr-001-plataforma-de-web-analytics-do-governo-do-estado-de-ms">08 — ADR-001: Plataforma de Web Analytics do Governo do Estado de MS<a class="headerlink" href="#08--adr-001-plataforma-de-web-analytics-do-governo-do-estado-de-ms" title="Permanent link">&para;</a></h1>
+<h1 id="08--adr-002-matomo-padrão-do-parque--posthog-complementar-no-portal-xvia">08 — ADR-002: Matomo padrão do parque + PostHog complementar no portal Xvia<a class="headerlink" href="#08--adr-002-matomo-padrão-do-parque--posthog-complementar-no-portal-xvia" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Formato:</strong> Michael Nygard / MADR 4.0
-<strong>Anterior:</strong> <a href="../07-matriz-decisao/">07 — Matriz de decisão</a> · <strong>Próximo:</strong> <a href="../08-adr-002/">08 — ADR-002 (vigente)</a> · <a href="../09-recomendacao/">09 — Recomendação</a></p>
-<p><strong>🚨 Alerta — ADR depreciado</strong>
-Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></strong> em agosto/2026. Conteúdo preservado integralmente como histórico e para rastreabilidade das decisões. Não deve ser usado como base para novas implantações. Consulte o ADR-002 para a decisão vigente.</p>
-<p><strong>Motivo da substituição:</strong> revisão de premissa quanto ao peso do TCO na matriz (rebaixado a peso 0 — critério informativo) e formalização do PostHog auto-hospedado como camada complementar de product analytics no portal Xvia.</p>
+<strong>Substitui:</strong> <a href="../08-adr/">ADR-001</a>
+<strong>Anterior:</strong> <a href="../07-matriz-decisao/">07 — Matriz de decisão</a> · <strong>Próximo:</strong> <a href="../09-recomendacao/">09 — Recomendação</a></p>
 </blockquote>
 <hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
@@ -2249,19 +2241,19 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 <tbody>
 <tr>
 <td><strong>Identificador</strong></td>
-<td>ADR-001</td>
+<td>ADR-002</td>
 </tr>
 <tr>
 <td><strong>Título</strong></td>
-<td>Plataforma padrão de Web Analytics para portais e serviços digitais do Governo do Estado de MS</td>
+<td>Matomo On-Premise como plataforma padrão do parque + PostHog auto-hospedado como camada complementar no portal Xvia</td>
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>🔴 <strong>Depreciado</strong></td>
+<td>🟡 <strong>Proposto</strong></td>
 </tr>
 <tr>
 <td><strong>Data</strong></td>
-<td>2026-07-29</td>
+<td>2026-08-25</td>
 </tr>
 <tr>
 <td><strong>Autor</strong></td>
@@ -2269,7 +2261,7 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 </tr>
 <tr>
 <td><strong>Decisores</strong></td>
-<td>Secretário Executivo SETDIG · Superintendente SGD · Superintendente STI · Encarregado de Dados · Segurança da Informação</td>
+<td>Secretário Executivo SETDIG · Superintendente SGD · Superintendente STI · Encarregado de Dados · Segurança da Informação · Time do portal Xvia</td>
 </tr>
 <tr>
 <td><strong>Consultados</strong></td>
@@ -2281,113 +2273,119 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 </tr>
 <tr>
 <td><strong>Substitui</strong></td>
-<td>Nenhum (primeira formalização)</td>
+<td><a href="../08-adr/">ADR-001</a></td>
 </tr>
 <tr>
 <td><strong>Substituído por</strong></td>
-<td><a href="../08-adr-002/">ADR-002</a> — 2026-08</td>
+<td>—</td>
 </tr>
 <tr>
 <td><strong>Escopo de aplicação</strong></td>
-<td>Portais institucionais, serviços digitais e aplicações web do Poder Executivo estadual</td>
+<td>Portais institucionais e serviços digitais do Poder Executivo estadual (parque existente) + novo portal Xvia (superapp cidadão)</td>
 </tr>
 <tr>
 <td><strong>Prazo de revisão</strong></td>
-<td>24 meses (julho/2028), ou antecipado por gatilho da seção 11</td>
+<td>24 meses (agosto/2028), ou antecipado por gatilho da seção 11</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ciclo-de-vida-deste-adr">Ciclo de vida deste ADR<a class="headerlink" href="#ciclo-de-vida-deste-adr" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>stateDiagram-v2
     direction LR
-    [*] --&gt; Proposto: Emissão (2026-07-29)
+    ADR001["ADR-001 (Depreciado)"] --&gt; [*]
+    [*] --&gt; Proposto: Emissão (2026-08-25)
     Proposto --&gt; Aceito: Homologação do Comitê
     Proposto --&gt; Rejeitado: Não homologado
-    Aceito --&gt; Depreciado: ADR-002 o substitui
+    Aceito --&gt; Depreciado: ADR-003 o substitui
     Aceito --&gt; Aceito: Revisão bienal confirma
     Rejeitado --&gt; [*]
     Depreciado --&gt; [*]</code></pre>
 <hr />
 <h2 id="1-contexto">1. Contexto<a class="headerlink" href="#1-contexto" title="Permanent link">&para;</a></h2>
-<p>O Governo do Estado de Mato Grosso do Sul opera o <strong>Matomo</strong> como plataforma de Web Analytics dos portais institucionais e serviços digitais estaduais. Essa adoção ocorreu sem processo formal de Arquitetura de Soluções: não existem benchmark documentado, análise comparativa estruturada, ADR registrado nem estudo de trade-offs.</p>
-<p>O contexto completo está em <a href="../01-contexto/"><code>01-contexto.md</code></a>. Elementos essenciais:</p>
+<p>Este ADR <strong>substitui o <a href="../08-adr/">ADR-001</a></strong> em consequência de duas mudanças de premissa institucional formalizadas em agosto/2026:</p>
+<h3 id="11-rebaixamento-do-tco-como-critério-de-decisão">1.1 Rebaixamento do TCO como critério de decisão<a class="headerlink" href="#11-rebaixamento-do-tco-como-critério-de-decisão" title="Permanent link">&para;</a></h3>
+<p>A premissa on-premise (P1/P2/R4) sempre esteve registrada no estudo — o Estado hospeda a solução em infraestrutura própria e absorve custo marginal via contratos já vigentes. No ADR-001, essa premissa produzia o <strong>regime de custo marginal</strong> aplicado ao critério C03 (TCO), mas o peso do critério permanecia 15 (12,5 % da matriz), o mais alto do estudo junto de LGPD e Controle. Esse peso funcionava como filtro implícito contra plataformas de stack mais rico (notadamente PostHog auto-hospedado, com TCO 4× superior ao Matomo).</p>
+<p>Com o parque de infraestrutura consolidado e a premissa on-premise confirmada como direcionador estrutural do Estado, a manutenção de peso 15 para TCO passou a produzir distorção decisória: penalizava plataformas cujo custo marginal já é absorvido, sem que essa penalização se traduza em economia real de recursos.</p>
+<p><strong>Consequência:</strong> o peso de C03 é rebaixado a <strong>0 (critério informativo)</strong> e os 15 pontos são redistribuídos entre critérios técnicos e funcionais que passam a dominar a escolha em ambiente on-premise. Detalhes em <a href="../03-criterios-de-avaliacao/#43-justificativa-da-atribuição-de-pesos"><code>03-criterios-de-avaliacao.md §4.3</code></a>. O comparativo <a href="../../comparativos/custo/"><code>../comparativos/custo.md</code></a> permanece publicado como referência de dimensionamento e prestação de contas ao TCE-MS.</p>
+<h3 id="12-entrada-do-portal-xvia-superapp-cidadão">1.2 Entrada do portal Xvia (superapp cidadão)<a class="headerlink" href="#12-entrada-do-portal-xvia-superapp-cidadão" title="Permanent link">&para;</a></h3>
+<p>O Governo do Estado de MS lançará o portal Xvia como superapp cidadão — porta única para serviços digitais transacionais. O perfil analítico do Xvia difere estruturalmente dos portais institucionais atuais: fluxos de jornada identificada, necessidade de experimentação (feature flags), análise de coortes e retenção sobre usuários autenticados, e valor específico para session replay em serviços de alta complexidade (com consentimento).</p>
+<p>Esse perfil é o núcleo do domínio de <strong>product analytics</strong>, no qual o PostHog é referência de mercado. Matomo cobre web analytics tradicional com excelência, mas não é o produto adequado para o eixo de product analytics do Xvia.</p>
+<h3 id="13-ranking-revisado-sob-os-novos-pesos">1.3 Ranking revisado sob os novos pesos<a class="headerlink" href="#13-ranking-revisado-sob-os-novos-pesos" title="Permanent link">&para;</a></h3>
+<p>Sob os pesos revisados (ver <a href="../07-matriz-decisao/#22-pontuação-ponderada-peso--nota"><code>07-matriz-decisao.md §2.2</code></a>), o ranking é:</p>
 <table>
 <thead>
 <tr>
-<th>Elemento</th>
-<th>Situação</th>
+<th style="text-align: right;">#</th>
+<th>Plataforma</th>
+<th style="text-align: right;">Score revisado</th>
+<th style="text-align: right;">Score ADR-001</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Plataforma em produção</td>
-<td>Matomo, modalidade On-Premise</td>
+<td style="text-align: right;">🥇 1</td>
+<td>Matomo On-Premise</td>
+<td style="text-align: right;"><strong>500</strong> (83,3 %)</td>
+<td style="text-align: right;">520 (86,7 %)</td>
 </tr>
 <tr>
-<td>Volume estimado (cenário de referência)</td>
-<td>~12 M page views/mês, ~80 propriedades, ~1,5 M visitantes únicos/mês</td>
+<td style="text-align: right;">🥈 2</td>
+<td>Piwik PRO</td>
+<td style="text-align: right;"><strong>499</strong> (83,2 %)</td>
+<td style="text-align: right;">465 (77,5 %)</td>
 </tr>
 <tr>
-<td>Perfil de carga</td>
-<td>Fortemente <em>bursty</em> — picos de 10× a 50× em eventos institucionais</td>
+<td style="text-align: right;">🥉 3</td>
+<td>Matomo Cloud</td>
+<td style="text-align: right;"><strong>485</strong> (80,8 %)</td>
+<td style="text-align: right;">465 (77,5 %)</td>
 </tr>
 <tr>
-<td>Lacunas técnicas identificadas</td>
-<td>7 lacunas (L1 a L7): ingestão síncrona, retenção não formalizada, ausência de HA, ausência de DR testado, ausência de camada de BI, ausência de federação de identidade, ausência de padrão de anonimização</td>
+<td style="text-align: right;">4</td>
+<td>PostHog auto-hospedado</td>
+<td style="text-align: right;"><strong>464</strong> (77,3 %)</td>
+<td style="text-align: right;">455 (75,8 %)</td>
 </tr>
 <tr>
-<td>Restrição orçamentária e de pessoal</td>
-<td>Sem previsão de ampliação do quadro da STI (restrição R5)</td>
+<td style="text-align: right;">5</td>
+<td>Plausible CE</td>
+<td style="text-align: right;"><strong>460</strong> (76,7 %)</td>
+<td style="text-align: right;">485 (80,8 %)</td>
 </tr>
 <tr>
-<td>Marco legal aplicável</td>
-<td>LGPD (Lei 13.709/2018), Lei do Governo Digital (14.129/2021), Lei de Licitações (14.133/2021), Lei 6.035/2022 (MS)</td>
+<td style="text-align: right;">6</td>
+<td>Adobe Analytics</td>
+<td style="text-align: right;"><strong>459</strong> (76,5 %)</td>
+<td style="text-align: right;">405 (67,5 %)</td>
 </tr>
 </tbody>
 </table>
+<p>O Matomo On-Premise mantém a liderança global (por 1 ponto sobre Piwik PRO, desempatado por C02). PostHog auto-hospedado sobe para #4, consolidando-se como <strong>a melhor opção soberana de product analytics</strong> disponível — coerente com a decisão de sua adoção no Xvia.</p>
+<h3 id="14-o-que-permanece-do-adr-001">1.4 O que permanece do ADR-001<a class="headerlink" href="#14-o-que-permanece-do-adr-001" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Metodologia (MAUT + ATAM + Gartner + ADR).</strong> Inalterada.</li>
+<li><strong>Notas atribuídas às plataformas.</strong> Preservadas — a mudança é exclusivamente de peso.</li>
+<li><strong>Triagem eliminatória.</strong> OWA continua eliminado por E6; Microsoft Clarity e Cloudflare WA continuam eliminados como plataforma primária.</li>
+<li><strong>7 lacunas técnicas (L1–L7) do parque Matomo.</strong> Continuam pendentes de correção, conforme roadmap.</li>
+<li><strong>Direcionadores institucionais</strong> (soberania, LGPD, independência tecnológica, sustentabilidade operacional). Inalterados.</li>
+</ul>
 <hr />
 <h2 id="2-problema">2. Problema<a class="headerlink" href="#2-problema" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>🚨 Declaração do problema</strong></p>
-<p><strong>Não existe decisão arquitetural formalizada, fundamentada e auditável</strong> sobre qual plataforma de Web Analytics deve ser o padrão do Governo do Estado de Mato Grosso do Sul, nem arquitetura de referência que assegure conformidade com a LGPD, soberania sobre os dados e integração com a plataforma de BI do Estado.</p>
+<p><strong>A decisão registrada no ADR-001 não contempla o portal Xvia</strong>, cujo perfil de uso exige capacidades de product analytics (jornada identificada, feature flags, experimentação, session replay consentido) que não são a força do Matomo. Simultaneamente, o peso de TCO=15 na matriz produz filtro implícito contra qualquer plataforma com stack mais rico — inclusive as que atenderiam ao Xvia — mesmo quando esse custo é marginal para o Estado (premissa P1/P2/R4).</p>
+<p>Consequência prática: sob o ADR-001, a única opção "aprovada" para o Xvia seria estender Matomo puro, o que não atende ao domínio de product analytics. Ou justificar exceção caso-a-caso, o que é frágil em prestação de contas.</p>
 </blockquote>
-<p>Consequências do problema não resolvido:</p>
-<table>
-<thead>
-<tr>
-<th>Dimensão</th>
-<th>Consequência</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Controle externo</strong></td>
-<td>A escolha não é defensável perante TCE-MS ou CGE — não há demonstração de economicidade nem de aderência técnica</td>
-</tr>
-<tr>
-<td><strong>Regulatória</strong></td>
-<td>Ausência de base legal documentada, de política de retenção formalizada e de registro de operações de tratamento (art. 37 da LGPD)</td>
-</tr>
-<tr>
-<td><strong>Operacional</strong></td>
-<td>Ausência de arquitetura de referência gera implantações divergentes entre órgãos, com níveis de conformidade heterogêneos</td>
-</tr>
-<tr>
-<td><strong>Estratégica</strong></td>
-<td>Impossibilidade de planejar evolução, orçamento plurianual ou eventual migração</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="3-direcionadores-da-decisão">3. Direcionadores da decisão<a class="headerlink" href="#3-direcionadores-da-decisão" title="Permanent link">&para;</a></h2>
-<p>Derivados de <a href="../01-contexto/#10-direcionadores-arquiteturais"><code>01-contexto.md</code>, seção 10</a> e ponderados em <a href="../03-criterios-de-avaliacao/"><code>03-criterios-de-avaliacao.md</code></a>.</p>
+<p>Derivados de <a href="../01-contexto/#10-direcionadores-arquiteturais"><code>01-contexto.md §10</code></a>, reponderados na revisão 2026 conforme <a href="../03-criterios-de-avaliacao/"><code>03-criterios-de-avaliacao.md</code></a>.</p>
 <table>
 <thead>
 <tr>
 <th>ID</th>
 <th>Direcionador</th>
 <th style="text-align: center;">Criticidade</th>
-<th style="text-align: right;">Peso na matriz</th>
+<th style="text-align: right;">Peso na matriz (revisado)</th>
 </tr>
 </thead>
 <tbody>
@@ -2404,12 +2402,6 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 <td style="text-align: right;">15</td>
 </tr>
 <tr>
-<td>D7</td>
-<td>Economicidade (TCO 5 anos)</td>
-<td style="text-align: center;">🟠 Alto</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr>
 <td>D3</td>
 <td>Independência tecnológica</td>
 <td style="text-align: center;">🟠 Alto</td>
@@ -2418,42 +2410,48 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 <tr>
 <td>D5</td>
 <td>Capacidade analítica</td>
-<td style="text-align: center;">🟡 Médio</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr>
 <td>D6</td>
 <td>Integração com BI</td>
-<td style="text-align: center;">🟡 Médio</td>
-<td style="text-align: right;">20 (APIs + Integrações)</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">23 (APIs 13 + Integrações 10)</td>
 </tr>
 <tr>
 <td>D8</td>
 <td>Elasticidade sob pico</td>
-<td style="text-align: center;">🟡 Médio</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr>
 <td>—</td>
 <td>Segurança (transversal)</td>
 <td style="text-align: center;">🔴 Crítico</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr>
 <td>D4</td>
 <td>Sustentabilidade operacional</td>
-<td style="text-align: center;">🟠 Alto</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">7</td>
 </tr>
 <tr>
 <td>—</td>
 <td>Sustentabilidade do produto</td>
 <td style="text-align: center;">🟡 Médio</td>
-<td style="text-align: right;">10 (Comunidade + Documentação)</td>
+<td style="text-align: right;">12 (Comunidade 7 + Documentação 5)</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>Economicidade <em>(informativo)</em></td>
+<td style="text-align: center;">🟢 Baixo</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
-<h3 id="31-restrições-rígidas-não-ponderáveis">3.1 Restrições rígidas (não ponderáveis)<a class="headerlink" href="#31-restrições-rígidas-não-ponderáveis" title="Permanent link">&para;</a></h3>
+<h3 id="31-restrições-rígidas-inalteradas-em-relação-ao-adr-001">3.1 Restrições rígidas (inalteradas em relação ao ADR-001)<a class="headerlink" href="#31-restrições-rígidas-inalteradas-em-relação-ao-adr-001" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2486,167 +2484,58 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 </table>
 <hr />
 <h2 id="4-alternativas-consideradas">4. Alternativas consideradas<a class="headerlink" href="#4-alternativas-consideradas" title="Permanent link">&para;</a></h2>
-<p>Foram avaliadas <strong>13 alternativas</strong> (10 plataformas obrigatórias + 3 modalidades/plataformas adicionais). Análise completa em <a href="../05-comparativo-detalhado/"><code>05-comparativo-detalhado.md</code></a>, <a href="../06-tradeoffs/"><code>06-tradeoffs.md</code></a> e <a href="../07-matriz-decisao/"><code>07-matriz-decisao.md</code></a>.</p>
-<h3 id="41-alternativas-de-primeira-ordem">4.1 Alternativas de primeira ordem<a class="headerlink" href="#41-alternativas-de-primeira-ordem" title="Permanent link">&para;</a></h3>
+<p>Além das 13 alternativas do ADR-001 (todas reavaliadas com pesos revisados — ver <a href="../07-matriz-decisao/"><code>07-matriz-decisao.md</code></a>), este ADR considera três <strong>arranjos de arquitetura</strong> distintos:</p>
 <table>
 <thead>
 <tr>
 <th>#</th>
-<th>Alternativa</th>
-<th style="text-align: right;">Pontuação</th>
+<th>Arranjo</th>
+<th>Descrição</th>
 <th>Situação</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>A1</strong></td>
-<td><strong>Matomo On-Premise</strong></td>
-<td style="text-align: right;"><strong>520/600 (86,7 %)</strong></td>
+<td><strong>AR1</strong></td>
+<td><strong>Matomo puro em todo o parque + Xvia</strong></td>
+<td>Manter a arquitetura do ADR-001 sem alteração; Xvia usa Matomo.</td>
+<td>❌ Rejeitada — não cobre product analytics do Xvia</td>
+</tr>
+<tr>
+<td><strong>AR2</strong></td>
+<td><strong>Matomo padrão do parque + PostHog complementar no Xvia</strong></td>
+<td>Matomo continua único em EDS + sites gov; no Xvia, coexistência Matomo + PostHog.</td>
 <td>✅ <strong>Selecionada</strong></td>
 </tr>
 <tr>
-<td><strong>A2</strong></td>
-<td>Plausible Community Edition</td>
-<td style="text-align: right;">485/600 (80,8 %)</td>
-<td>🟡 Selecionada como complemento</td>
+<td><strong>AR3</strong></td>
+<td><strong>Substituição do Matomo por PostHog no Xvia</strong></td>
+<td>Matomo removido do Xvia; PostHog assume web + product analytics.</td>
+<td>❌ Rejeitada — abre mão da conformidade cookieless comprovada do Matomo em ambiente de dado sensível</td>
 </tr>
 <tr>
-<td><strong>A3</strong></td>
-<td>Piwik PRO (Private Cloud / On-Premises)</td>
-<td style="text-align: right;">465/600 (77,5 %)</td>
-<td>🟡 Contingência formal</td>
+<td><strong>AR4</strong></td>
+<td><strong>PostHog + Matomo em todos os portais</strong></td>
+<td>Coexistência ampla, aceitando overhead em todo o parque.</td>
+<td>❌ Rejeitada — custo marginal ampliado sem valor incremental em portais de conteúdo</td>
 </tr>
 <tr>
-<td><strong>A4</strong></td>
-<td>Matomo Cloud</td>
-<td style="text-align: right;">465/600 (77,5 %)</td>
-<td>🟡 Contingência formal</td>
-</tr>
-<tr>
-<td><strong>A5</strong></td>
-<td>PostHog auto-hospedado</td>
-<td style="text-align: right;">455/600 (75,8 %)</td>
-<td>❌ Não selecionada</td>
-</tr>
-<tr>
-<td><strong>A6</strong></td>
-<td>Umami</td>
-<td style="text-align: right;">445/600 (74,2 %)</td>
-<td>❌ Não selecionada</td>
-</tr>
-<tr>
-<td><strong>A7</strong></td>
-<td>PostHog Cloud EU</td>
-<td style="text-align: right;">425/600 (70,8 %)</td>
-<td>❌ Não selecionada</td>
-</tr>
-<tr>
-<td><strong>A8</strong></td>
-<td>Google Analytics 4</td>
-<td style="text-align: right;">410/600 (68,3 %)</td>
-<td>❌ Não selecionada</td>
-</tr>
-<tr>
-<td><strong>A9</strong></td>
-<td>Adobe Analytics</td>
-<td style="text-align: right;">405/600 (67,5 %)</td>
-<td>❌ Não selecionada</td>
-</tr>
-<tr>
-<td><strong>A10</strong></td>
-<td>Microsoft Clarity</td>
-<td style="text-align: right;">355/600 (59,2 %)</td>
-<td>⚠️ Complemento condicionado</td>
-</tr>
-<tr>
-<td><strong>A11</strong></td>
-<td>Simple Analytics</td>
-<td style="text-align: right;">355/600 (59,2 %)</td>
-<td>❌ Não selecionada</td>
-</tr>
-<tr>
-<td><strong>A12</strong></td>
-<td>Cloudflare Web Analytics</td>
-<td style="text-align: right;">345/600 (57,5 %)</td>
-<td>⚠️ Complemento opcional</td>
-</tr>
-<tr>
-<td><strong>A13</strong></td>
-<td>Open Web Analytics</td>
-<td style="text-align: right;">330/600 (55,0 %)</td>
-<td>❌ <strong>Eliminada por segurança</strong></td>
+<td><strong>AR5</strong></td>
+<td><strong>Substituição integral por Piwik PRO</strong></td>
+<td>Trocar Matomo por Piwik PRO em todo o parque.</td>
+<td>❌ Rejeitada — Piwik PRO tem C04 (Independência) = 2; trocar solução de código aberto por proprietária em ativo consolidado é regressão de soberania</td>
 </tr>
 </tbody>
 </table>
-<h3 id="42-motivo-de-descarte-de-cada-alternativa-não-selecionada">4.2 Motivo de descarte de cada alternativa não selecionada<a class="headerlink" href="#42-motivo-de-descarte-de-cada-alternativa-não-selecionada" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Alternativa</th>
-<th>Motivo objetivo do descarte</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>A5 — Umami</strong></td>
-<td>Falha no requisito <strong>RF-27</strong> (funil de conversão), que é <em>Must have</em>, e no <strong>RN-02</strong> (análise de gargalos em jornadas de serviço). Cobertura funcional de nota 2. Melhor TCO do estudo, insuficiente para compensar</td>
-</tr>
-<tr>
-<td><strong>A6 — PostHog auto-hospedado</strong></td>
-<td>Operação de 6 componentes de infraestrutura distribuída <strong>sem suporte do fornecedor</strong> (descontinuado em 2023) é incompatível com a restrição <strong>R5</strong>. Nota 1 em C10 (Operação). TCO 2,5× superior ao selecionado</td>
-</tr>
-<tr>
-<td><strong>A7 — PostHog Cloud EU</strong></td>
-<td><strong>Dominado</strong> pelo Matomo Cloud na análise de Pareto (superior em C01, C02, C03 e C04; inferior em nenhum). Custo por evento gera exposição orçamentária severa sob picos de 30×</td>
-</tr>
-<tr>
-<td><strong>A8 — Google Analytics 4</strong></td>
-<td>Nota 1 em C02 (Controle) e 2 em C01 (LGPD). Transferência internacional para jurisdição sem decisão de adequação da ANPD; uso questionado por quatro autoridades europeias sob norma análoga; retenção máxima de 14 meses definida unilateralmente; <strong>precedente concretizado de descontinuidade de versão com perda de histórico</strong> (Universal Analytics, 2023)</td>
-</tr>
-<tr>
-<td><strong>A9 — Adobe Analytics</strong></td>
-<td>TCO estimado entre R$ 4,5 M e R$ 7 M em 5 anos — 19× a 30× superior ao selecionado em regime marginal (~R$ 235 k), para atender ao mesmo conjunto de requisitos prioritários. Desproporção incompatível com o princípio da economicidade (art. 5º da Lei 14.133/2021). Lock-in máximo do estudo</td>
-</tr>
-<tr>
-<td><strong>A11 — Simple Analytics</strong></td>
-<td><strong>Dominado</strong> pelo Plausible CE em 8 critérios. Não agrega capacidade sobre a alternativa complementar já selecionada, com custo recorrente adicional</td>
-</tr>
-<tr>
-<td><strong>A13 — Open Web Analytics</strong></td>
-<td><strong>Eliminado na triagem (critério E6)</strong>: CVE-2022-24637 (execução remota de código) e cadência de correções incompatível com o cenário QA-05. <strong>Dominado estritamente</strong> pelo Matomo On-Premise — superior em 9 critérios, inferior em nenhum</td>
-</tr>
-</tbody>
-</table>
-<h3 id="43-alternativa-não-fazer-nada">4.3 Alternativa "não fazer nada"<a class="headerlink" href="#43-alternativa-não-fazer-nada" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Aspecto</th>
-<th>Avaliação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Descrição</strong></td>
-<td>Manter o Matomo em operação sem formalizar decisão nem executar plano de adequação arquitetural</td>
-</tr>
-<tr>
-<td><strong>Custo aparente</strong></td>
-<td>Zero</td>
-</tr>
-<tr>
-<td><strong>Custo real</strong></td>
-<td>Persistência das 7 lacunas técnicas (L1–L7); exposição regulatória continuada; indefensabilidade perante controle externo; risco de perda de eventos em pico (lacuna L1)</td>
-</tr>
-<tr>
-<td><strong>Veredito</strong></td>
-<td>❌ <strong>Rejeitada.</strong> Não endereça o problema declarado na seção 2. A ausência de formalização é precisamente o problema, não uma alternativa a ele</td>
-</tr>
-</tbody>
-</table>
+<h3 id="41-motivo-do-descarte-de-cada-arranjo-alternativo">4.1 Motivo do descarte de cada arranjo alternativo<a class="headerlink" href="#41-motivo-do-descarte-de-cada-arranjo-alternativo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AR1 rejeitado:</strong> deixar o Xvia sem product analytics é aceitar cegueira funcional em produto de alto valor institucional. Alternativa "não fazer nada" em relação ao Xvia — rejeitada pela mesma lógica que a alternativa "não fazer nada" foi rejeitada no ADR-001.</li>
+<li><strong>AR3 rejeitado:</strong> Matomo cobre web analytics com precedente CNIL, dispensa de consentimento e ausência de transferência internacional. Substituí-lo por PostHog no Xvia (mesmo auto-hospedado) exigiria reconstruir a base legal de coleta de audiência, sem ganho — a força do PostHog está em product analytics identificado, não em audiência anônima.</li>
+<li><strong>AR4 rejeitado:</strong> aplicar 2 stacks a portais de conteúdo (onde Matomo já cobre 100 % da demanda) implica duplicar operação, orçamento marginal e overhead no navegador sem valor incremental. O ganho do PostHog só se materializa em fluxos identificados e experimentais — que não são o padrão de portais institucionais.</li>
+<li><strong>AR5 rejeitado:</strong> trocar plataforma consolidada com base instalada relevante por proprietária é regressão em independência tecnológica (C04). Piwik PRO permanece como <strong>contingência formal</strong> (§6.6), não como substituição planejada.</li>
+</ul>
 <hr />
 <h2 id="5-trade-offs-da-decisão">5. Trade-offs da decisão<a class="headerlink" href="#5-trade-offs-da-decisão" title="Permanent link">&para;</a></h2>
-<p>A decisão selecionada implica trocas explícitas. Registrá-las é requisito do método ATAM e condição de honestidade arquitetural.</p>
 <table>
 <thead>
 <tr>
@@ -2659,234 +2548,136 @@ Este ADR foi <strong>substituído pelo <a href="../08-adr-002/">ADR-002</a></str
 <tbody>
 <tr>
 <td><strong>T1</strong></td>
-<td>Soberania integral sobre o dado bruto</td>
-<td>Esforço operacional de ~0,3 FTE permanente</td>
-<td>As competências exigidas (Linux, MySQL, PHP, cron, observabilidade) são <strong>genéricas de infraestrutura</strong>, já presentes ou desenvolvíveis na STI — não são conhecimento específico de produto</td>
+<td>Cobertura de product analytics no Xvia (funil identificado, feature flags, session replay, HogQL)</td>
+<td>Overhead no navegador do Xvia — ~+55 KB gzip, +50–200 ms no LCP em conexão 3G</td>
+<td>O portal Xvia é serviço transacional identificado, não portal de conteúdo — usuário chega com intenção específica; degradação marginal de LCP é aceitável em troca da instrumentação de jornada crítica. Requisito RNF-02 (LCP ≤ 50 ms) permanece válido para o resto do parque</td>
 </tr>
 <tr>
 <td><strong>T2</strong></td>
-<td>Base legal simplificada (dispensa de consentimento)</td>
-<td>Precisão na identificação de visitante recorrente</td>
-<td>Métrica de recorrência tem baixo valor decisório para portal público; a simplificação da base legal tem alto valor de mitigação de risco</td>
+<td>Product analytics soberano — PostHog auto-hospedado em infra do Estado</td>
+<td>Operação de 6 componentes distribuídos (Django + PostgreSQL + ClickHouse + Kafka + Redis + MinIO) sem suporte oficial do fornecedor para o modelo</td>
+<td>Mitigado por plano de capacitação da STI (Onda 5 do roadmap) e por reserva orçamentária para contratação de suporte especializado em ClickHouse/Kafka caso o gate operacional falhe</td>
 </tr>
 <tr>
 <td><strong>T3</strong></td>
-<td>Independência de fornecedor (GPL v3)</td>
-<td>SLA contratual de disponibilidade</td>
-<td>Disponibilidade de plataforma de analytics é requisito de 99,5 %, não de missão crítica; a indisponibilidade não degrada os portais (requisito RNF-14)</td>
+<td>Governança de dado distribuída entre 2 plataformas no Xvia (Matomo = audiência, PostHog = produto)</td>
+<td>Complexidade de política de retenção coordenada e de instrumentação segmentada</td>
+<td>Endereçado em <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a> com regras explícitas de "qual evento vai onde" e política de retenção sincronizada</td>
 </tr>
 <tr>
 <td><strong>T4</strong></td>
-<td>Ausência de custo de licença por volume</td>
-<td>Ausência de suporte incluído</td>
-<td>Suporte comercial pode ser contratado separadamente se necessário, sem alterar a arquitetura</td>
+<td>Preservação da recomendação do ADR-001 para o parque existente</td>
+<td>Aceitação explícita de duas arquiteturas de referência distintas no Estado (parque = Matomo puro; Xvia = Matomo + PostHog)</td>
+<td>Registrado como arquitetura híbrida deliberada, não como incoerência arquitetural. Diferenciação é justificada pelo perfil de uso, não por preferência tecnológica</td>
 </tr>
 <tr>
 <td><strong>T5</strong></td>
-<td>Ausência de amostragem estatística</td>
-<td>Desempenho analítico inferior ao de bancos colunares</td>
-<td>No volume avaliado (12 M page views/mês) a diferença não é material; o dado exato tem valor específico para prestação de contas</td>
+<td>Custo deixa de filtrar decisões arquiteturais indiscriminadamente</td>
+<td>Perda do sinal de disciplina orçamentária que o C03=15 fornecia no ADR-001</td>
+<td>Substituído por monitoramento explícito de TCO acumulado × TCO projetado no §11.3 (indicador de acompanhamento), com desvio ≤ 15 % como limiar de alerta</td>
 </tr>
 <tr>
 <td><strong>T6</strong></td>
-<td>Cobertura funcional ampla</td>
-<td>Custo de plugins premium (~R$ 12 k/ano)</td>
-<td>Alternativa sem esses recursos (Plausible, Umami) falharia em requisitos <em>Must have</em></td>
-</tr>
-<tr>
-<td><strong>T7</strong></td>
-<td>Auditoria verificável (código + banco + rede)</td>
-<td>Ausência de certificação ISO 27001 do produto</td>
-<td>Certificação de terceiro é substituível por controles próprios; auditoria verificável não é substituível por certificação documental</td>
-</tr>
-<tr>
-<td><strong>T8</strong></td>
-<td>Custo previsível e insensível a pico</td>
-<td>Necessidade de dimensionar infraestrutura para o pico</td>
-<td>Mitigado por desacoplamento com fila, que permite dimensionar o banco para a vazão média</td>
+<td>Piwik PRO e Matomo Cloud sobem para faixa "Recomendada" no ranking revisado</td>
+<td>Aumento da complexidade de decisão de contingência (agora 2 opções fortes)</td>
+<td>Ordem de preferência explicitada em §6.6, resolvendo ambiguidade antes que se materialize</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>📌 Observação — Trade-off não resolvido</strong>
-O <strong>TP-06</strong> (banco relacional × colunar) permanece como limitação estrutural aceita. O Matomo continuará inferior a arquiteturas ClickHouse em consulta analítica ad-hoc sobre grande volume. A decisão assume esse custo por avaliar que, no volume atual e projetado, ele não é material — e estabelece <strong>gatilho de reavaliação em crescimento de 5×</strong> (seção 11).</p>
+<p><strong>📌 Observação — Trade-off crítico aceito</strong>
+O trade-off <strong>T1 (overhead de LCP no Xvia)</strong> é o mais sensível desta decisão. Ele é aceito em caráter deliberado, mas com gatilho de reavaliação explícito: se o LCP do Xvia exceder 75 ms em conexão 3G sustentado por 2 meses consecutivos, o PostHog no Xvia deve ser reavaliado (ver §11.2, G9). A decisão não pretende que overhead deixe de existir — pretende que ele seja monitorado, quantificado e mitigável.</p>
 </blockquote>
 <hr />
 <h2 id="6-decisão">6. Decisão<a class="headerlink" href="#6-decisão" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><strong>✅ DECISÃO ADR-001</strong></p>
-<p><strong>6.1 — Plataforma padrão</strong>
-Adotar o <strong>Matomo, na modalidade On-Premise (auto-hospedada em infraestrutura do Estado)</strong>, como plataforma padrão de Web Analytics do Governo do Estado de Mato Grosso do Sul, para portais institucionais, serviços digitais e aplicações web do Poder Executivo estadual.</p>
-<p><strong>6.2 — Condicionante de adequação arquitetural</strong>
-A decisão é <strong>condicionada à execução do plano de adequação</strong> definido em <a href="../10-roadmap/"><code>10-roadmap.md</code></a>, que endereça as sete lacunas técnicas identificadas (L1–L7). A manutenção da plataforma sem execução desse plano <strong>não é a decisão tomada</strong> — é a continuidade do problema.</p>
-<p><strong>6.3 — Plataforma complementar aprovada</strong>
-Aprovar o <strong>Plausible Community Edition</strong> como camada leve e opcional para portais de conteúdo de alto volume e baixa criticidade analítica, quando o requisito for exclusivamente métrica agregada com custo operacional mínimo. Uso facultativo, mediante justificativa do órgão demandante.</p>
+<p><strong>✅ DECISÃO ADR-002</strong></p>
+<p><strong>6.1 — Plataforma padrão do parque (EDS + sites gov MS)</strong>
+Adotar o <strong>Matomo, na modalidade On-Premise (auto-hospedada em infraestrutura do Estado)</strong>, como plataforma padrão de Web Analytics do parque existente do Governo do Estado de Mato Grosso do Sul — portais institucionais, sites gov e serviços digitais de conteúdo. Confirmação da recomendação do ADR-001 §6.1 sob os pesos revisados.</p>
+<p><strong>6.2 — Arquitetura do novo portal Xvia (superapp cidadão)</strong>
+Adotar arquitetura <strong>híbrida deliberada</strong> no portal Xvia: <strong>Matomo On-Premise + PostHog auto-hospedado em paralelo</strong>, com segmentação clara de responsabilidade:
+- <strong>Matomo:</strong> audiência agregada, campanhas, SEO, métricas de conteúdo, base legal cookieless simplificada.
+- <strong>PostHog:</strong> jornada identificada de usuário autenticado, funil de serviços transacionais, feature flags e experimentação, session replay <strong>consentido</strong> e mascarado.</p>
+<p>Ambos rodam em stack próprio do Estado, sem transferência internacional.</p>
+<p><strong>6.3 — Plataforma complementar aprovada (opcional)</strong>
+Manter a <strong>Plausible Community Edition</strong> como opção facultativa para portais de conteúdo de altíssimo volume e baixa criticidade analítica, mediante justificativa do órgão demandante. Uso não obrigatório.</p>
 <p><strong>6.4 — Complementos condicionados</strong>
+Inalterados em relação ao ADR-001 §6.4:
 - <strong>Microsoft Clarity</strong>: uso admitido <strong>exclusivamente</strong> em portais institucionais e de conteúdo, <strong>vedado</strong> em serviços transacionais que tratem dado pessoal, mediante RIPD específico, mascaramento agressivo por padrão e prazo definido de substituição pelo plugin <em>Heatmaps &amp; Session Recording</em> do Matomo.
-- <strong>Cloudflare Web Analytics</strong>: uso facultativo como métrica de borda complementar em domínios já servidos pela CDN, sem custo adicional e sem substituir a plataforma padrão.</p>
+- <strong>Cloudflare Web Analytics</strong>: uso facultativo como métrica de borda complementar em domínios já servidos pela CDN.</p>
 <p><strong>6.5 — Plataformas vedadas como padrão</strong>
-- <strong>Google Analytics 4</strong>: vedado como plataforma padrão em portais e serviços do Estado, em razão da transferência internacional para jurisdição sem decisão de adequação da ANPD e do controle nulo sobre os dados. Uso residual em propriedades específicas requer autorização expressa do Encarregado de Dados, com RIPD e CMP.
-- <strong>Open Web Analytics</strong>: vedado integralmente, por falha em critério eliminatório de segurança.</p>
+Inalteradas em relação ao ADR-001 §6.5:
+- <strong>Google Analytics 4</strong>: vedado como plataforma padrão em portais e serviços do Estado.
+- <strong>Open Web Analytics</strong>: vedado integralmente por falha em critério eliminatório de segurança.</p>
 <p><strong>6.6 — Alternativas de contingência formalmente registradas</strong>
-Caso o <em>gate</em> de validação da premissa <strong>P2</strong> (capacidade técnica interna sustentável), previsto na Onda 1 do roadmap, resulte negativo, ficam formalmente registradas como alternativas, nesta ordem de preferência:
-1. <strong>Matomo Cloud</strong> (preserva o produto, a cobertura funcional e o caminho de retorno ao On-Premise);
-2. <strong>Piwik PRO Private Cloud</strong> (preserva a conformidade forte, com dependência contratual).</p>
-<p>A ativação de qualquer contingência exige <strong>novo ADR (ADR-002)</strong>, não bastando decisão operacional.</p>
+Caso o <em>gate</em> de validação da premissa <strong>P2</strong> (capacidade técnica interna sustentável) — previsto tanto para o Matomo do parque quanto para o PostHog do Xvia — resulte negativo, ficam registradas como alternativas, em ordem de preferência:</p>
+<p><strong>Para o parque (contingência do Matomo On-Premise):</strong>
+1. <strong>Matomo Cloud</strong> (agora #3 no ranking revisado, 485 pts — faixa "Recomendada"; preserva produto, cobertura funcional e caminho de retorno ao On-Premise);
+2. <strong>Piwik PRO Private Cloud</strong> (agora #2, 499 pts — preserva conformidade forte, com dependência contratual e menor pontuação em C04).</p>
+<p><strong>Para o Xvia (contingência do PostHog auto-hospedado):</strong>
+1. <strong>PostHog Cloud EU</strong> (com RIPD específico e mitigação da transferência internacional pela região UE — ver §9);
+2. <strong>Extensão do Matomo puro no Xvia</strong> com plugins de funil, heatmap e session recording — cobre 60–70 % do caso de uso, mas sacrifica feature flags e experimentação estruturados.</p>
+<p>A ativação de qualquer contingência exige <strong>novo ADR (ADR-003)</strong>, não bastando decisão operacional.</p>
 </blockquote>
 <h3 id="61-arquitetura-alvo-resumida">6.1 Arquitetura-alvo resumida<a class="headerlink" href="#61-arquitetura-alvo-resumida" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
     subgraph EXT["🌐 Externo"]
         CID["👤 Cidadão"]
+        CID_X["👤 Cidadão autenticado (Xvia)"]
     end
 
-    subgraph BORDA["Camada de Borda"]
-        WAF["WAF / Reverse Proxy&lt;br/&gt;TLS 1.3"]
-    end
-
-    subgraph APP["Camada de Aplicação — Infraestrutura do Estado"]
+    subgraph PARQUE["Parque existente (EDS + sites gov MS)"]
         direction LR
-        T1["Matomo&lt;br/&gt;Tracking node 1"]
-        T2["Matomo&lt;br/&gt;Tracking node 2"]
-        UI["Matomo&lt;br/&gt;Interface de relatórios"]
-        ARC["Matomo&lt;br/&gt;Host de arquivamento&lt;br/&gt;(cron dedicado)"]
+        WAF1["WAF / TLS 1.3"]
+        MTM["Matomo On-Premise&lt;br/&gt;(cookieless, IP anonimizado)"]
     end
 
-    subgraph DADOS["Camada de Dados"]
-        REDIS[("Redis&lt;br/&gt;QueuedTracking")]
-        DBP[("MySQL/MariaDB&lt;br/&gt;Primário")]
-        DBR[("MySQL/MariaDB&lt;br/&gt;Réplica de leitura")]
+    subgraph XVIA["Portal Xvia (novo)"]
+        direction LR
+        WAF2["WAF / TLS 1.3"]
+        MTM_X["Matomo On-Premise&lt;br/&gt;(instância dedicada)"]
+        PH["PostHog auto-hospedado&lt;br/&gt;(Django + Kafka + ClickHouse + Redis + MinIO)"]
+    end
+
+    subgraph DADOS["Camada de Dados (infra do Estado)"]
+        DBP[("MySQL/MariaDB")]
+        CH[("ClickHouse")]
+        KAFKA[("Kafka")]
     end
 
     subgraph CONSUMO["Camada de Consumo"]
         BI["BI corporativo&lt;br/&gt;Superset / Power BI"]
-        API["Reporting API&lt;br/&gt;consumidores externos"]
     end
 
-    CID --&gt; WAF
-    WAF --&gt; T1 &amp; T2
-    WAF --&gt; UI
-    T1 &amp; T2 --&gt; REDIS
-    REDIS --&gt; ARC
-    ARC --&gt; DBP
-    UI --&gt; DBP
-    DBP -.-&gt;|"replicação"| DBR
-    DBR --&gt; BI
-    UI --&gt; API
+    CID --&gt; WAF1 --&gt; MTM --&gt; DBP
+    CID_X --&gt; WAF2
+    WAF2 --&gt; MTM_X --&gt; DBP
+    WAF2 --&gt; PH
+    PH --&gt; KAFKA --&gt; CH
+    DBP --&gt; BI
+    CH --&gt; BI
 
-    style REDIS fill:#fff3cd,stroke:#f59e0b
-    style DBP fill:#d1ecf1,stroke:#0ea5e9
-    style DBR fill:#d1ecf1,stroke:#0ea5e9
-    style ARC fill:#e0e7ff,stroke:#6366f1</code></pre>
-<p>Detalhamento da arquitetura-alvo: <a href="../09-recomendacao/"><code>09-recomendacao.md</code></a>.</p>
+    style MTM fill:#d1ecf1,stroke:#0ea5e9
+    style MTM_X fill:#d1ecf1,stroke:#0ea5e9
+    style PH fill:#fff3cd,stroke:#f59e0b
+    style CH fill:#e0e7ff,stroke:#6366f1</code></pre>
+<p>Detalhamento em <a href="../09-recomendacao/"><code>09-recomendacao.md</code></a> e no <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a>.</p>
 <hr />
 <h2 id="7-justificativa">7. Justificativa<a class="headerlink" href="#7-justificativa" title="Permanent link">&para;</a></h2>
-<p>A justificativa é integralmente derivada de evidência documentada neste repositório. Nenhuma afirmação abaixo é opinativa.</p>
-<h3 id="j1--resultado-quantitativo-da-avaliação-multicritério">J1 — Resultado quantitativo da avaliação multicritério<a class="headerlink" href="#j1--resultado-quantitativo-da-avaliação-multicritério" title="Permanent link">&para;</a></h3>
-<p>O Matomo On-Premise obteve <strong>520 de 600 pontos (86,7 %)</strong> na faixa "Recomendada" (≥ 80 %), com vantagem de 35 pontos sobre o 2º colocado (Plausible CE, 485/600 = 80,8 %, também na faixa "Recomendada") e 110 pontos sobre o GA4.</p>
-<p><strong>Evidência:</strong> <a href="../07-matriz-decisao/#2-matriz-consolidada"><code>07-matriz-decisao.md</code>, seções 2 e 3</a>.</p>
-<h3 id="j2--robustez-à-variação-de-pesos">J2 — Robustez à variação de pesos<a class="headerlink" href="#j2--robustez-à-variação-de-pesos" title="Permanent link">&para;</a></h3>
-<p>Sob regime de custo marginal SETDIG (fundamento em P1/P2/R4), lidera exclusivamente em 3 cenários + empate técnico em 1 cenário = <strong>4 de 5 cenários</strong> — critério formal de robustez <strong>atingido</strong>. Único cenário sem liderança ("Operação enxuta") é vencido pelo próprio Matomo em outra modalidade (Cloud).</p>
-<p><strong>Evidência:</strong> <a href="../07-matriz-decisao/#5-análise-de-sensibilidade"><code>07-matriz-decisao.md</code>, seção 5</a>.</p>
-<h3 id="j3--soberania-verificável-não-declarada">J3 — Soberania verificável, não declarada<a class="headerlink" href="#j3--soberania-verificável-não-declarada" title="Permanent link">&para;</a></h3>
-<p>É a única categoria de solução em que o Estado pode <strong>provar</strong> — e não apenas declarar — o que ocorre com os dados: o código é inspecionável (GPL v3), o banco é consultável por SQL, o tráfego de rede da instância é capturável e a exclusão física de registros é verificável por consulta.</p>
-<p>Em soluções SaaS, a auditoria é documental — depende de relatórios de certificação do fornecedor. Para dado de cidadão sob custódia de órgão público, auditoria verificável é qualitativamente superior a auditoria documental.</p>
-<p><strong>Evidência:</strong> <a href="../06-tradeoffs/#310-facilidade-de-auditoria"><code>06-tradeoffs.md</code>, seção 3.10</a>; <a href="../../comparativos/governanca/"><code>../comparativos/governanca.md</code></a>.</p>
-<h3 id="j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados">J4 — Base legal com precedente de autoridade de proteção de dados<a class="headerlink" href="#j4--base-legal-com-precedente-de-autoridade-de-proteção-de-dados" title="Permanent link">&para;</a></h3>
-<p>A CNIL (autoridade francesa de proteção de dados) publicou orientação reconhecendo configuração específica do Matomo — sem cookie de identificação persistente, com IP anonimizado, sem cruzamento com outros tratamentos e sem compartilhamento — como <strong>isenta de consentimento prévio</strong>.</p>
-<p>É a <strong>única plataforma da matriz com precedente favorável de autoridade de proteção de dados</strong>. Embora não vinculante no Brasil, constitui configuração técnica auditada por autoridade regulatória, aplicável por analogia na fundamentação da base legal perante a ANPD.</p>
-<p><strong>Evidência:</strong> <a href="../04-mercado/#71-casos-documentados"><code>04-mercado.md</code>, seção 7.1</a>; <a href="../../comparativos/lgpd/"><code>../comparativos/lgpd.md</code></a>; <a href="../12-referencias/"><code>12-referencias.md</code></a>.</p>
-<h3 id="j5--precedente-institucional-em-administração-pública">J5 — Precedente institucional em administração pública<a class="headerlink" href="#j5--precedente-institucional-em-administração-pública" title="Permanent link">&para;</a></h3>
-<p>O <strong>Europa Analytics</strong>, serviço oficial de analytics dos sítios da Comissão Europeia, opera sobre Matomo. A adoção por administração pública supranacional, submetida ao RGPD e a controle externo, demonstra adequação estrutural ao caso de uso governamental.</p>
-<p><strong>Evidência:</strong> <a href="../04-mercado/#7-adoção-no-setor-público"><code>04-mercado.md</code>, seção 7</a>.</p>
-<h3 id="j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas">J6 — Única cobertura funcional adequada entre as opções soberanas<a class="headerlink" href="#j6--única-cobertura-funcional-adequada-entre-as-opções-soberanas" title="Permanent link">&para;</a></h3>
-<p>É a única plataforma auto-hospedada que cobre simultaneamente os requisitos <em>Must have</em> de funil de conversão (RF-27), metas (RF-26), segmentação (RF-28), jornada (RF-36) e dimensões customizadas (RF-05), além de heatmaps, session recording, form analytics e A/B testing.</p>
-<p>As alternativas soberanas de melhor TCO (Plausible: nota 3; Umami: nota 2) <strong>falham em requisitos obrigatórios</strong> — o que as elimina como plataforma padrão, independentemente do custo.</p>
-<p><strong>Evidência:</strong> <a href="../05-comparativo-detalhado/#6-funcionalidades-analíticas"><code>05-comparativo-detalhado.md</code>, seção 6</a>; <a href="../07-matriz-decisao/#4-justificativa-nota-a-nota"><code>07-matriz-decisao.md</code>, seção 4</a>.</p>
-<h3 id="j7--economicidade-demonstrada">J7 — Economicidade demonstrada<a class="headerlink" href="#j7--economicidade-demonstrada" title="Permanent link">&para;</a></h3>
-<p>TCO estimado em regime marginal SETDIG (fundamento em P1/P2/R4): <strong>~R$ 235 mil em 5 anos</strong> (Matomo OP + plugins essenciais), contra ~R$ 1,32 M (Piwik PRO), ~R$ 955 k (PostHog auto-hospedado) e R$ 4,44 M+ (Adobe Analytics), para atender ao mesmo conjunto de requisitos prioritários.</p>
-<p>O custo é <strong>insensível a volume</strong>: um pico de 30× de tráfego não gera aumento de custo de licença, ao contrário de todas as alternativas SaaS por evento ou por page view.</p>
-<p><strong>Evidência:</strong> <a href="../../comparativos/custo/"><code>../comparativos/custo.md</code></a>; <a href="../05-comparativo-detalhado/#13-custos"><code>05-comparativo-detalhado.md</code>, seção 13</a>.</p>
-<h3 id="j8--ausência-de-deficiência-crítica-não-mitigável">J8 — Ausência de deficiência crítica não mitigável<a class="headerlink" href="#j8--ausência-de-deficiência-crítica-não-mitigável" title="Permanent link">&para;</a></h3>
-<p>Todas as alternativas de pontuação próxima apresentam ao menos uma posição desfavorável <strong>não mitigável por arquitetura</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Alternativa</th>
-<th>Deficiência não mitigável</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Google Analytics 4</td>
-<td>Soberania — não há configuração que elimine a custódia de terceiro</td>
-</tr>
-<tr>
-<td>PostHog auto-hospedado</td>
-<td>Operação — não há configuração que elimine 6 componentes sem suporte</td>
-</tr>
-<tr>
-<td>Adobe Analytics</td>
-<td>Custo — não há configuração que reduza o TCO à faixa aceitável</td>
-</tr>
-<tr>
-<td>Plausible CE / Umami</td>
-<td>Escopo funcional — não há configuração que adicione funil ou jornada</td>
-</tr>
-<tr>
-<td>Open Web Analytics</td>
-<td>Segurança — não há configuração que supra a ausência de manutenção</td>
-</tr>
-</tbody>
-</table>
-<p>A única deficiência relevante do Matomo On-Premise — o gargalo de arquivamento — <strong>é mitigável por arquitetura</strong> (fila com Redis, host de arquivamento dedicado, paralelização, réplica de leitura, restrição de segmentos pré-processados).</p>
-<p><strong>Evidência:</strong> <a href="../06-tradeoffs/#15-síntese-comparativa-dos-trade-offs"><code>06-tradeoffs.md</code>, seção 15</a>.</p>
-<h3 id="j9--continuidade-garantida-por-licença">J9 — Continuidade garantida por licença<a class="headerlink" href="#j9--continuidade-garantida-por-licença" title="Permanent link">&para;</a></h3>
-<p>A licença <strong>GPL v3</strong> assegura direito perpétuo de uso, modificação e operação sobre a versão obtida, com código auditável e possibilidade de fork. O cenário de qualidade <strong>QA-06</strong> (descontinuidade do fornecedor) é atendido plenamente: o Estado mantém operação indefinidamente sem o fornecedor.</p>
-<p>Esse atributo é estruturalmente indisponível em qualquer alternativa proprietária, e é diretamente relevante ao ciclo de vida longo característico de sistema público.</p>
-<p><strong>Evidência:</strong> <a href="../02-requisitos/#qa-06--descontinuidade-do-fornecedor"><code>02-requisitos.md</code>, QA-06</a>; <a href="../04-mercado/#9-análise-de-viabilidade-de-fornecedor"><code>04-mercado.md</code>, seção 9</a>.</p>
-<h3 id="j10--aderência-aos-princípios-legais-aplicáveis">J10 — Aderência aos princípios legais aplicáveis<a class="headerlink" href="#j10--aderência-aos-princípios-legais-aplicáveis" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Princípio / norma</th>
-<th>Aderência</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LGPD, art. 6º (necessidade, finalidade, segurança)</td>
-<td>Coleta minimizada configurável; dado sob custódia própria</td>
-</tr>
-<tr>
-<td>LGPD, arts. 33–36 (transferência internacional)</td>
-<td><strong>Não aplicável</strong> — não há transferência</td>
-</tr>
-<tr>
-<td>LGPD, art. 37 (registro de operações)</td>
-<td>Viabilizado por acesso direto ao schema e à configuração</td>
-</tr>
-<tr>
-<td>LGPD, art. 46 (segurança)</td>
-<td>Controles sob gestão direta do Estado</td>
-</tr>
-<tr>
-<td>Lei 14.129/2021 (Governo Digital) — interoperabilidade e dados abertos</td>
-<td>API aberta; acesso SQL; exportação em formatos abertos</td>
-</tr>
-<tr>
-<td>Lei 14.129/2021, art. 16 (software público)</td>
-<td>Solução de código aberto, compartilhável com outros entes</td>
-</tr>
-<tr>
-<td>Lei 14.133/2021, art. 5º (economicidade)</td>
-<td>Menor TCO entre alternativas de cobertura funcional equivalente</td>
-</tr>
-<tr>
-<td>CF/88, art. 37 (eficiência) e art. 70 (economicidade)</td>
-<td>Demonstrada por análise comparativa documentada</td>
-</tr>
-</tbody>
-</table>
+<h3 id="j1--resultado-quantitativo-sob-pesos-revisados">J1 — Resultado quantitativo sob pesos revisados<a class="headerlink" href="#j1--resultado-quantitativo-sob-pesos-revisados" title="Permanent link">&para;</a></h3>
+<p>Matomo On-Premise mantém a liderança com <strong>500/600 (83,3 %)</strong> — na faixa "Recomendada". PostHog auto-hospedado sobe para #4 (<strong>464/600, 77,3 %</strong> — "Viável"), consolidando-se como <strong>a opção soberana de product analytics com maior pontuação</strong> do estudo. Evidência: <a href="../07-matriz-decisao/#22-pontuação-ponderada-peso--nota"><code>07-matriz-decisao.md §2.2</code></a>.</p>
+<h3 id="j2--perfil-do-xvia-difere-estruturalmente-dos-portais-institucionais">J2 — Perfil do Xvia difere estruturalmente dos portais institucionais<a class="headerlink" href="#j2--perfil-do-xvia-difere-estruturalmente-dos-portais-institucionais" title="Permanent link">&para;</a></h3>
+<p>O Xvia é superapp cidadão — usuário autenticado, jornada transacional, experimentação, telemetria orientada a produto. Matomo cobre web analytics tradicional com excelência; PostHog cobre product analytics com excelência. O Xvia precisa dos dois eixos, não da soma linear de cada um.</p>
+<h3 id="j3--overhead-de-lcp-no-xvia-é-aceitável-para-o-perfil-de-uso">J3 — Overhead de LCP no Xvia é aceitável para o perfil de uso<a class="headerlink" href="#j3--overhead-de-lcp-no-xvia-é-aceitável-para-o-perfil-de-uso" title="Permanent link">&para;</a></h3>
+<p>Usuário chega ao Xvia com intenção específica de serviço; taxa de abandono por LCP é qualitativamente menor que em portal de conteúdo (onde a alternativa concorrente está a um clique de distância). Ainda assim, o LCP alvo (≤ 75 ms em 3G) fica registrado como métrica-gatilho em §11.</p>
+<h3 id="j4--posthog-auto-hospedado-preserva-soberania">J4 — PostHog auto-hospedado preserva soberania<a class="headerlink" href="#j4--posthog-auto-hospedado-preserva-soberania" title="Permanent link">&para;</a></h3>
+<p>Sob custódia do Estado, sem transferência internacional. Configuração LGPD exige trabalho ativo (mascaramento agressivo por padrão; session replay opt-in) — trabalho equivalente ao já feito para o Matomo. O DPIA específico do session replay é o principal item novo de conformidade, coberto pelo R-11 (§9).</p>
+<h3 id="j5--ranking-revisado-remove-o-filtro-implícito-do-tco">J5 — Ranking revisado remove o filtro implícito do TCO<a class="headerlink" href="#j5--ranking-revisado-remove-o-filtro-implícito-do-tco" title="Permanent link">&para;</a></h3>
+<p>Sob os pesos originais (C03=15), PostHog auto-hospedado ficava em #5 com 455 pontos — cerca de 65 pontos abaixo de Matomo OP. Essa distância era majoritariamente artefato do peso alto de TCO em cenário em que o custo é marginal para o Estado. Sob os pesos revisados, PostHog fica em #4 com 464 pontos — 36 pontos abaixo de Matomo OP. Diferença agora reflete atributos técnicos comparáveis (C10=1 vs C10=3, operação), não penalização financeira.</p>
+<h3 id="j6--continuidade-do-parque-preservada">J6 — Continuidade do parque preservada<a class="headerlink" href="#j6--continuidade-do-parque-preservada" title="Permanent link">&para;</a></h3>
+<p>O ADR-002 <strong>não desloca o Matomo do parque existente</strong>. A base instalada, a competência acumulada da STI e a arquitetura de referência prescrita no ADR-001 seguem valendo. A revisão é aditiva (novo perfil de uso no Xvia), não substitutiva.</p>
+<h3 id="j7--aderência-aos-princípios-legais-aplicáveis">J7 — Aderência aos princípios legais aplicáveis<a class="headerlink" href="#j7--aderência-aos-princípios-legais-aplicáveis" title="Permanent link">&para;</a></h3>
+<p>Idêntica ao ADR-001 §7.J10. A adoção adicional do PostHog auto-hospedado no Xvia amplia o rol de sub-processadores? Não — a operação continua integralmente sob custódia do Estado.</p>
 <hr />
 <h2 id="8-consequências">8. Consequências<a class="headerlink" href="#8-consequências" title="Permanent link">&para;</a></h2>
 <h3 id="81-consequências-positivas">8.1 Consequências positivas<a class="headerlink" href="#81-consequências-positivas" title="Permanent link">&para;</a></h3>
@@ -2901,53 +2692,33 @@ Caso o <em>gate</em> de validação da premissa <strong>P2</strong> (capacidade 
 <tbody>
 <tr>
 <td>C+1</td>
-<td>Decisão arquitetural formalizada, auditável e defensável perante órgão de controle</td>
-<td>Imediato</td>
+<td>Product analytics soberano habilitado para o portal Xvia</td>
+<td>Onda 5</td>
 </tr>
 <tr>
 <td>C+2</td>
-<td>Soberania sobre o dado de navegação de cidadão preservada e verificável</td>
+<td>Continuidade do parque de sites gov MS preservada; sem custo de migração de plataforma</td>
 <td>Imediato</td>
 </tr>
 <tr>
 <td>C+3</td>
-<td>Base legal documentada, com dispensa de consentimento em configuração conforme</td>
-<td>Onda 1</td>
-</tr>
-<tr>
-<td>C+4</td>
-<td>Política de retenção formalizada e aplicada automaticamente</td>
-<td>Onda 1</td>
-</tr>
-<tr>
-<td>C+5</td>
-<td>Eliminação do risco de perda de eventos em pico (lacuna L1)</td>
-<td>Onda 2</td>
-</tr>
-<tr>
-<td>C+6</td>
-<td>Capacidade de análise de funil dos serviços digitais prioritários (RN-02)</td>
-<td>Onda 3</td>
-</tr>
-<tr>
-<td>C+7</td>
-<td>Integração padronizada com o BI corporativo (RN-04)</td>
-<td>Onda 3</td>
-</tr>
-<tr>
-<td>C+8</td>
-<td>Padronização entre órgãos, com provisionamento em ≤ 1 dia útil (RN-07)</td>
-<td>Onda 4</td>
-</tr>
-<tr>
-<td>C+9</td>
-<td>Custo previsível e insensível a variação de volume</td>
+<td>Filtro implícito do C03 removido — decisões arquiteturais passam a se pautar por atributos técnicos e funcionais</td>
 <td>Imediato</td>
 </tr>
 <tr>
-<td>C+10</td>
-<td>Artefato reutilizável por outros entes federativos (transparência ativa)</td>
-<td>Após homologação</td>
+<td>C+4</td>
+<td>Matomo Cloud e Piwik PRO consolidados na faixa "Recomendada" como contingências</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+5</td>
+<td>Base de comparação Matomo × PostHog em produção real durante 12 meses (gate de reavaliação)</td>
+<td>Onda 5 + 12 meses</td>
+</tr>
+<tr>
+<td>C+6</td>
+<td>Capacidade de feature flags e experimentação em serviço digital transacional prioritário</td>
+<td>Onda 5</td>
 </tr>
 </tbody>
 </table>
@@ -2963,43 +2734,28 @@ Caso o <em>gate</em> de validação da premissa <strong>P2</strong> (capacidade 
 <tbody>
 <tr>
 <td>C−1</td>
-<td>Esforço operacional permanente de ~0,3 FTE recai sobre a STI</td>
-<td>Automação (IaC), runbooks documentados, capacitação dupla</td>
+<td>Overhead de LCP no Xvia (~50–200 ms)</td>
+<td>Registrar como métrica-gatilho (G9 §11.2); mitigar por defer/async e por segmentação de eventos (só rastrear o que tem valor); revisar se ultrapassar 75 ms sustentado</td>
 </tr>
 <tr>
 <td>C−2</td>
-<td>Responsabilidade integral pela postura de segurança da plataforma</td>
-<td>WAF, hardening, gestão de patches ≤ 72 h, interface administrativa restrita a rede interna/VPN</td>
+<td>Operação de 2 stacks no Xvia (Matomo + PostHog) recai sobre a STI</td>
+<td>Plano de capacitação específico para ClickHouse e Kafka (Onda 5); reserva orçamentária para contratação de suporte especializado se o gate operacional falhar</td>
 </tr>
 <tr>
 <td>C−3</td>
-<td>Responsabilidade integral pela disponibilidade e pelo DR</td>
-<td>Réplica, backup verificado semanalmente, teste de restauração trimestral</td>
+<td>DPIA adicional para session replay do PostHog</td>
+<td>Trabalho de compliance mapeado; mascaramento agressivo por padrão; opt-in explícito para replay</td>
 </tr>
 <tr>
 <td>C−4</td>
-<td>Desempenho analítico inferior ao de arquiteturas colunares</td>
-<td>Réplica de leitura dedicada ao BI; particionamento; gatilho de reavaliação em 5× de crescimento</td>
+<td>Duas arquiteturas de referência distintas no Estado (parque vs Xvia)</td>
+<td>Documentação explícita em <a href="../09-recomendacao/"><code>09-recomendacao.md</code></a>; regras de "qual dado responder onde" em <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a></td>
 </tr>
 <tr>
 <td>C−5</td>
-<td>Custo recorrente de plugins premium (~R$ 12 k/ano)</td>
-<td>Aquisição em licença perpétua com atualizações anuais; renovação avaliada anualmente</td>
-</tr>
-<tr>
-<td>C−6</td>
-<td>Ausência de certificação ISO 27001/SOC 2 do produto</td>
-<td>Controles compensatórios sob gestão do Estado; auditoria verificável como substituto qualitativamente superior</td>
-</tr>
-<tr>
-<td>C−7</td>
-<td>Escassez de profissionais com experiência específica no mercado brasileiro</td>
-<td>Competências exigidas são genéricas de infraestrutura; capacitação de 80–120 h prevista na Onda 1</td>
-</tr>
-<tr>
-<td>C−8</td>
-<td>Necessidade de janela de manutenção para atualizações de versão maior</td>
-<td>Ambiente de homologação; procedimento reversível documentado</td>
+<td>Custo marginal do PostHog (~R$ 955 k em 5 anos no cenário do ADR-001) deixa de filtrar a decisão</td>
+<td>Custo permanece monitorado no §11.3 como indicador; desvio &gt; 15 % vs projeção aciona análise de causa-raiz</td>
 </tr>
 </tbody>
 </table>
@@ -3014,29 +2770,21 @@ Caso o <em>gate</em> de validação da premissa <strong>P2</strong> (capacidade 
 <tbody>
 <tr>
 <td>C~1</td>
-<td>A decisão confirma a plataforma já em uso — não haverá custo nem risco de migração de plataforma</td>
+<td>Notas atribuídas às plataformas permanecem inalteradas — apenas pesos mudam</td>
 </tr>
 <tr>
 <td>C~2</td>
-<td>O esforço concentra-se em <strong>adequação arquitetural</strong>, não em substituição tecnológica</td>
+<td>Metodologia (MAUT + ATAM + Gartner + ADR) permanece inalterada</td>
 </tr>
 <tr>
 <td>C~3</td>
-<td>O conhecimento já existente na equipe é preservado e ampliado</td>
+<td>Roadmap de correção das 7 lacunas técnicas do Matomo (L1–L7) permanece válido, agora com Onda 5 adicionada para o Xvia</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>📌 Observação — Por que a confirmação do status quo não invalida o estudo</strong>
-Uma preocupação metodológica legítima é que um estudo que conclui pela manutenção do que já existe possa ter sido conduzido para justificar a decisão pré-existente.</p>
-<p>Três elementos objetivos afastam essa leitura:
-1. <strong>O Matomo foi avaliado sem peso de status quo.</strong> Nenhum critério da matriz atribui valor à plataforma já estar em uso. A pontuação de 520 decorre exclusivamente de atributos do produto.
-2. <strong>O estudo não confirma a operação vigente — ele a reprova.</strong> Sete lacunas técnicas foram identificadas, e a decisão é <strong>condicionada</strong> à correção de todas elas. Manter o Matomo como está <strong>não é a decisão tomada</strong>.
-3. <strong>A robustez foi declarada em regime de custo marginal com transparência sobre a modalidade.</strong> O estudo registra explicitamente o empate no cenário "Capacidade analítica" (Piwik PRO) e a inversão no cenário "Operação enxuta" (Matomo Cloud, mesmo produto). Alternativas de contingência estão formalmente registradas.</p>
-</blockquote>
 <hr />
 <h2 id="9-riscos-assumidos">9. Riscos assumidos<a class="headerlink" href="#9-riscos-assumidos" title="Permanent link">&para;</a></h2>
-<p>Registro sumário. Registro completo com probabilidade, impacto, resposta e responsável em <a href="../11-riscos/"><code>11-riscos.md</code></a>.</p>
+<p>Registro sumário. Riscos R-01 a R-10 são preservados do ADR-001 (ver <a href="../11-riscos/"><code>11-riscos.md</code></a>). Riscos novos:</p>
 <table>
 <thead>
 <tr>
@@ -3049,74 +2797,39 @@ Uma preocupação metodológica legítima é que um estudo que conclui pela manu
 </thead>
 <tbody>
 <tr>
-<td>R-01</td>
-<td>Arquivamento não conclui na janela, gerando relatórios desatualizados</td>
-<td style="text-align: center;">🟠 Média</td>
-<td style="text-align: center;">🟠 Alto</td>
-<td>Mitigar — host dedicado, paralelização, monitoramento com alerta</td>
-</tr>
-<tr>
-<td>R-02</td>
-<td>Perda de eventos em pico por ingestão síncrona</td>
+<td>R-11</td>
+<td>Captura acidental de dado sensível em session replay do PostHog (CPF, dado de saúde)</td>
 <td style="text-align: center;">🟠 Média</td>
 <td style="text-align: center;">🔴 Crítico</td>
-<td>Mitigar — QueuedTracking + Redis (obrigatório, Onda 2)</td>
+<td>Mitigar — mascaramento agressivo por padrão; opt-in explícito; DPIA específico; homologação do time de segurança antes da ativação</td>
 </tr>
 <tr>
-<td>R-03</td>
-<td>Vulnerabilidade crítica explorada na instância</td>
+<td>R-17</td>
+<td>LCP do Xvia degrada acima de 75 ms sustentado por overhead do 2º script</td>
 <td style="text-align: center;">🟡 Baixa</td>
-<td style="text-align: center;">🔴 Crítico</td>
-<td>Mitigar — WAF, patch ≤ 72 h, admin restrito a rede interna</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Monitorar — G9 §11.2 aciona reavaliação em 60 dias</td>
 </tr>
 <tr>
-<td>R-04</td>
-<td>Escassez de competência interna para operar a plataforma</td>
+<td>R-18</td>
+<td>STI não sustenta operação de stack PostHog (ClickHouse + Kafka + coordinadores)</td>
 <td style="text-align: center;">🟠 Média</td>
 <td style="text-align: center;">🟠 Alto</td>
-<td>Mitigar — capacitação; Aceitar residual com contingência A4/A3</td>
+<td>Mitigar — capacitação específica; contratação de suporte especializado; fallback para PostHog Cloud EU (contingência §6.6)</td>
 </tr>
 <tr>
-<td>R-05</td>
-<td>Crescimento além do previsto degrada o MySQL</td>
-<td style="text-align: center;">🟡 Baixa</td>
-<td style="text-align: center;">🟠 Alto</td>
-<td>Monitorar — gatilho de reavaliação em 5×</td>
-</tr>
-<tr>
-<td>R-06</td>
-<td>Concentração de conhecimento em uma única pessoa</td>
+<td>R-19</td>
+<td>Divergência de dados entre Matomo e PostHog no Xvia gera confusão em relatórios executivos</td>
 <td style="text-align: center;">🟠 Média</td>
-<td style="text-align: center;">🟠 Alto</td>
-<td>Mitigar — runbook, IaC, dupla capacitação</td>
-</tr>
-<tr>
-<td>R-07</td>
-<td>Postura de segurança inferior à de SaaS certificado</td>
-<td style="text-align: center;">🟡 Baixa</td>
-<td style="text-align: center;">🟠 Alto</td>
-<td>Mitigar — controles compensatórios e auditoria periódica</td>
-</tr>
-<tr>
-<td>R-08</td>
-<td>Manifestação da ANPD alterando o entendimento sobre analytics</td>
-<td style="text-align: center;">🟡 Baixa</td>
 <td style="text-align: center;">🟡 Médio</td>
-<td>Monitorar — revisão antecipada do ADR</td>
+<td>Mitigar — governança explícita de "qual métrica vem de onde" em <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a>; dashboard consolidado no BI corporativo</td>
 </tr>
 <tr>
-<td>R-09</td>
-<td>Descontinuidade ou mudança de estratégia da InnoCraft</td>
-<td style="text-align: center;">🟢 Muito baixa</td>
-<td style="text-align: center;">🟡 Médio</td>
-<td>Aceitar — GPL v3 garante continuidade</td>
-</tr>
-<tr>
-<td>R-10</td>
-<td>Aumento de preço dos plugins premium</td>
-<td style="text-align: center;">🟡 Baixa</td>
-<td style="text-align: center;">🟢 Baixo</td>
-<td>Aceitar — licença perpétua sobre a versão adquirida</td>
+<td>R-20</td>
+<td>PostHog descontinua modalidade auto-hospedado (movimento já iniciado em 2023)</td>
+<td style="text-align: center;">🟢 Muito baixa (curto prazo) / 🟠 Alta (longo prazo)</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Monitorar — G3 §11.2 aciona revisão em 90 dias; fallback para Cloud EU com RIPD</td>
 </tr>
 </tbody>
 </table>
@@ -3134,33 +2847,33 @@ Uma preocupação metodológica legítima é que um estudo que conclui pela manu
 <tbody>
 <tr>
 <td><strong>P1</strong> — Infraestrutura própria disponível</td>
-<td>Indisponibilidade de infraestrutura para hospedar aplicação web + banco com HA</td>
-<td>A4 (Matomo Cloud) ou A3 (Piwik PRO)</td>
+<td>Indisponibilidade de infraestrutura para hospedar Matomo + PostHog com HA</td>
+<td>Matomo Cloud + PostHog Cloud EU (com RIPD)</td>
 </tr>
 <tr>
 <td><strong>P2</strong> — Capacidade técnica interna</td>
-<td><em>Gate</em> da Onda 1 conclui que a STI não sustenta a operação</td>
-<td>A4 (Matomo Cloud), depois A3</td>
+<td><em>Gate</em> da Onda 5 conclui que STI não sustenta operação do PostHog</td>
+<td>PostHog Cloud EU (§6.6)</td>
 </tr>
 <tr>
 <td><strong>P3</strong> — Preferência por soberania sobre conveniência</td>
-<td>Decisão institucional invertendo a prioridade</td>
-<td>A4 ou A8, com RIPD</td>
+<td>Decisão institucional invertendo prioridade</td>
+<td>Reavaliação integral</td>
 </tr>
 <tr>
 <td><strong>P6</strong> — Perfil de volume mantido</td>
-<td>Crescimento superior a 5× a linha de base</td>
-<td>Reavaliação de arquitetura de dados (ClickHouse, PostHog, Piwik PRO)</td>
+<td>Crescimento superior a 5× a linha de base do Xvia</td>
+<td>Reavaliação de arquitetura de dados</td>
 </tr>
 <tr>
-<td><strong>P7</strong> — Certificação de terceiro não exigida</td>
-<td>Exigência normativa de ISO 27001 do fornecedor</td>
-<td>A3 (Piwik PRO) ou A4</td>
+<td><strong>Xvia justifica product analytics</strong></td>
+<td>Portal Xvia entra em produção e usa exclusivamente rotas anônimas (contradiz premissa de jornada identificada)</td>
+<td>Reverter para Matomo puro no Xvia</td>
 </tr>
 <tr>
-<td><strong>P8</strong> — Software livre juridicamente aceitável</td>
-<td>Parecer jurídico contrário à adoção de software livre</td>
-<td>A3 (Piwik PRO)</td>
+<td><strong>PostHog mantém modalidade auto-hospedado</strong></td>
+<td>Fornecedor descontinua OSS auto-hospedado</td>
+<td>Migração para Cloud EU ou substituição por fork mantido por comunidade</td>
 </tr>
 </tbody>
 </table>
@@ -3181,7 +2894,7 @@ Uma preocupação metodológica legítima é que um estudo que conclui pela manu
 </tr>
 <tr>
 <td><strong>Próxima revisão</strong></td>
-<td>Julho de 2028</td>
+<td>Agosto de 2028</td>
 </tr>
 <tr>
 <td><strong>Responsável</strong></td>
@@ -3189,19 +2902,20 @@ Uma preocupação metodológica legítima é que um estudo que conclui pela manu
 </tr>
 <tr>
 <td><strong>Participantes obrigatórios</strong></td>
-<td>SGD, STI, Encarregado de Dados, Segurança da Informação</td>
+<td>SGD, STI, Encarregado de Dados, Segurança da Informação, Time do portal Xvia</td>
 </tr>
 <tr>
 <td><strong>Escopo mínimo</strong></td>
-<td>Reexecução da matriz de decisão com dados atualizados de mercado; verificação dos indicadores da seção 11.3; reavaliação das premissas P1–P8</td>
+<td>Reexecução da matriz de decisão com dados atualizados; verificação dos indicadores da seção 11.3; avaliação do gate de 12 meses do PostHog no Xvia</td>
 </tr>
 <tr>
 <td><strong>Produto</strong></td>
-<td>Confirmação do ADR-001, ou emissão do ADR-002 substituindo-o</td>
+<td>Confirmação do ADR-002, ou emissão do ADR-003 substituindo-o</td>
 </tr>
 </tbody>
 </table>
 <h3 id="112-gatilhos-de-revisão-antecipada">11.2 Gatilhos de revisão antecipada<a class="headerlink" href="#112-gatilhos-de-revisão-antecipada" title="Permanent link">&para;</a></h3>
+<p>Gatilhos G1 a G8 preservados do ADR-001. Gatilhos novos:</p>
 <table>
 <thead>
 <tr>
@@ -3212,49 +2926,29 @@ Uma preocupação metodológica legítima é que um estudo que conclui pela manu
 </thead>
 <tbody>
 <tr>
-<td>G1</td>
-<td>Manifestação da ANPD sobre uso de analytics de terceiros no setor público</td>
+<td>G9</td>
+<td>LCP do Xvia &gt; 75 ms em conexão 3G sustentado por 2 meses consecutivos</td>
 <td>60 dias</td>
 </tr>
 <tr>
-<td>G2</td>
-<td>Alteração de licenciamento do Matomo para regime restritivo</td>
+<td>G10</td>
+<td>Divergência entre métricas Matomo e PostHog no Xvia &gt; 15 % em métricas equivalentes por 3 meses</td>
 <td>90 dias</td>
 </tr>
 <tr>
-<td>G3</td>
-<td>Descontinuidade ou aquisição da InnoCraft por terceiro</td>
+<td>G11</td>
+<td>Descontinuidade formal do PostHog OSS auto-hospedado</td>
 <td>90 dias</td>
 </tr>
 <tr>
-<td>G4</td>
-<td>Crescimento de volume superior a 5× a linha de base do benchmark</td>
-<td>120 dias</td>
-</tr>
-<tr>
-<td>G5</td>
-<td>Vulnerabilidade crítica no Matomo sem correção em prazo superior a 30 dias</td>
-<td>30 dias</td>
-</tr>
-<tr>
-<td>G6</td>
-<td>Nova exigência normativa federal ou estadual sobre soberania de dados</td>
+<td>G12</td>
+<td>Gate de 12 meses do PostHog no Xvia falha em demonstrar valor incremental (ausência de feature flag ativa em produção, ausência de funil identificado configurado, ausência de session replay em serviço crítico)</td>
 <td>60 dias</td>
-</tr>
-<tr>
-<td>G7</td>
-<td>Falha na execução do plano de adequação (<a href="../10-roadmap/"><code>10-roadmap.md</code></a>) por mais de 2 ondas consecutivas</td>
-<td>60 dias</td>
-</tr>
-<tr>
-<td>G8</td>
-<td>Resultado negativo no <em>gate</em> de validação da premissa P2</td>
-<td>Imediato</td>
 </tr>
 </tbody>
 </table>
 <h3 id="113-indicadores-de-acompanhamento">11.3 Indicadores de acompanhamento<a class="headerlink" href="#113-indicadores-de-acompanhamento" title="Permanent link">&para;</a></h3>
-<p>Métricas que devem ser coletadas continuamente e apresentadas na revisão.</p>
+<p>Indicadores originais preservados. Adicionais para o Xvia:</p>
 <table>
 <thead>
 <tr>
@@ -3266,83 +2960,43 @@ Uma preocupação metodológica legítima é que um estudo que conclui pela manu
 </thead>
 <tbody>
 <tr>
-<td>Disponibilidade do endpoint de coleta</td>
-<td>≥ 99,5 %</td>
-<td>Monitoramento sintético</td>
+<td>LCP do portal Xvia (p75, 3G simulado)</td>
+<td>≤ 75 ms</td>
+<td>RUM / Lighthouse CI</td>
 <td>Mensal</td>
 </tr>
 <tr>
-<td>Taxa de perda de eventos</td>
-<td>≤ 1 %</td>
-<td>Profundidade e descarte da fila</td>
-<td>Mensal</td>
-</tr>
-<tr>
-<td>Latência do endpoint de coleta (p95)</td>
-<td>≤ 200 ms</td>
-<td>APM / logs de acesso</td>
-<td>Mensal</td>
-</tr>
-<tr>
-<td>Conclusão do arquivamento na janela</td>
-<td>100 %</td>
-<td>Log do cron</td>
-<td>Diária</td>
-</tr>
-<tr>
-<td>Aderência à política de retenção</td>
-<td>100 %</td>
-<td>Consulta SQL de auditoria</td>
-<td>Trimestral</td>
-</tr>
-<tr>
-<td>Portais migrados para o padrão</td>
-<td>≥ 80 %</td>
-<td>Inventário de propriedades</td>
-<td>Semestral</td>
-</tr>
-<tr>
-<td>Serviços digitais prioritários com funil configurado</td>
-<td>≥ 20</td>
-<td>Configuração da plataforma</td>
-<td>Semestral</td>
-</tr>
-<tr>
-<td>Tempo de provisionamento de nova propriedade</td>
-<td>≤ 1 dia útil</td>
-<td>Registro de chamados</td>
-<td>Trimestral</td>
-</tr>
-<tr>
-<td>Esforço operacional efetivo</td>
-<td>≤ 0,3 FTE</td>
-<td>Apontamento de horas</td>
-<td>Semestral</td>
-</tr>
-<tr>
-<td>TCO acumulado × TCO projetado</td>
+<td>TCO acumulado × TCO projetado (Matomo + PostHog)</td>
 <td>Desvio ≤ 15 %</td>
 <td>Execução orçamentária</td>
 <td>Anual</td>
 </tr>
 <tr>
-<td>Vulnerabilidades críticas corrigidas em ≤ 72 h</td>
-<td>100 %</td>
-<td>Registro de patches</td>
+<td>Feature flags ativas em produção no Xvia</td>
+<td>≥ 3</td>
+<td>PostHog</td>
 <td>Trimestral</td>
 </tr>
 <tr>
-<td>Teste de restauração de backup bem-sucedido</td>
-<td>100 %</td>
-<td>Relatório de teste</td>
+<td>Funis identificados configurados no Xvia</td>
+<td>≥ 5</td>
+<td>PostHog</td>
 <td>Trimestral</td>
+</tr>
+<tr>
+<td>Session replays capturados com consentimento explícito</td>
+<td>100 % dos capturados</td>
+<td>PostHog + registro de consentimento</td>
+<td>Contínua</td>
+</tr>
+<tr>
+<td>Divergência de page views Matomo × PostHog no Xvia</td>
+<td>≤ 15 %</td>
+<td>Reconciliação mensal</td>
+<td>Mensal</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>⚠️ Bloco de Risco — Indicadores como gatilho</strong>
-O descumprimento sustentado de qualquer indicador por <strong>dois períodos consecutivos</strong> deve acionar análise de causa-raiz. O descumprimento dos indicadores de disponibilidade, perda de eventos ou aderência à retenção por <strong>três períodos consecutivos</strong> constitui gatilho de revisão antecipada, equiparado ao gatilho G7.</p>
-</blockquote>
 <hr />
 <h2 id="12-registro-de-aprovação">12. Registro de aprovação<a class="headerlink" href="#12-registro-de-aprovação" title="Permanent link">&para;</a></h2>
 <table>
@@ -3360,7 +3014,7 @@ O descumprimento sustentado de qualquer indicador por <strong>dois períodos con
 <td>Arquiteto de Soluções (autor)</td>
 <td></td>
 <td>Proposto</td>
-<td>2026-07-29</td>
+<td>2026-08-25</td>
 <td></td>
 </tr>
 <tr>
@@ -3386,6 +3040,13 @@ O descumprimento sustentado de qualquer indicador por <strong>dois períodos con
 </tr>
 <tr>
 <td>Segurança da Informação</td>
+<td></td>
+<td>☐ De acordo ☐ Com ressalvas ☐ Contrário</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Time do portal Xvia</td>
 <td></td>
 <td>☐ De acordo ☐ Com ressalvas ☐ Contrário</td>
 <td></td>
@@ -3432,8 +3093,8 @@ O descumprimento sustentado de qualquer indicador por <strong>dois períodos con
 <tbody>
 <tr>
 <td>1.0</td>
-<td>2026-07-29</td>
-<td>Emissão inicial</td>
+<td>2026-08-25</td>
+<td>Emissão inicial — supersedes ADR-001</td>
 <td>Arquitetura de Soluções — SETDIG</td>
 </tr>
 </tbody>

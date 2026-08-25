@@ -442,18 +442,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-resultado-da-matriz-de-decisão" class="md-nav__link">
+  <a href="#31-resultado-da-matriz-de-decisão-revisão-2026" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Resultado da matriz de decisão
+      3.1 Resultado da matriz de decisão (revisão 2026)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-decisão-recomendada" class="md-nav__link">
+  <a href="#32-decisão-recomendada-adr-002-supersedes-adr-001" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Decisão recomendada
+      3.2 Decisão recomendada (ADR-002 supersedes ADR-001)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#321-o-que-mudou-entre-adr-001-e-adr-002" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 O que mudou entre ADR-001 e ADR-002
     </span>
   </a>
   
@@ -736,6 +745,8 @@
       
         
       
+        
+      
     
     
       
@@ -906,7 +917,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz de decisão (revisão 2026)
   </span>
   
 
@@ -927,7 +938,28 @@
         
   
   <span class="md-ellipsis">
-    ADR
+    ADR-001 (depreciado)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/08-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
   </span>
   
 
@@ -1376,7 +1408,7 @@
         
   
   <span class="md-ellipsis">
-    Custo (TCO)
+    Custo (informativo)
   </span>
   
 
@@ -1502,7 +1534,7 @@
         
   
   <span class="md-ellipsis">
-    Matomo × PostHog
+    Matomo × PostHog (complementaridade)
   </span>
   
 
@@ -1519,11 +1551,11 @@
   
   
     <li class="md-nav__item">
-      <a href="comparativos/migracao-matomo-posthog/" class="md-nav__link">
+      <a href="comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migração Matomo → PostHog
+    Coexistência Matomo + PostHog no Xvia
   </span>
   
 
@@ -1746,18 +1778,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-resultado-da-matriz-de-decisão" class="md-nav__link">
+  <a href="#31-resultado-da-matriz-de-decisão-revisão-2026" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Resultado da matriz de decisão
+      3.1 Resultado da matriz de decisão (revisão 2026)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-decisão-recomendada" class="md-nav__link">
+  <a href="#32-decisão-recomendada-adr-002-supersedes-adr-001" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Decisão recomendada
+      3.2 Decisão recomendada (ADR-002 supersedes ADR-001)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#321-o-que-mudou-entre-adr-001-e-adr-002" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 O que mudou entre ADR-001 e ADR-002
     </span>
   </a>
   
@@ -2018,8 +2059,8 @@
 <blockquote>
 <p><strong>Documento de Arquitetura de Soluções</strong>
 <strong>Órgão:</strong> Secretaria-Executiva de Transformação Digital — SETDIG (SEGOV/MS)
-<strong>Versão:</strong> 1.0
-<strong>Data-base das informações:</strong> julho/2026
+<strong>Versão:</strong> 2.0 (revisão 2026 — ADR-002 supersedes ADR-001)
+<strong>Data-base das informações:</strong> agosto/2026
 <strong>Classificação:</strong> Público / Interno — documento técnico de apoio à decisão
 <strong>Status:</strong> Proposto (aguardando homologação do Comitê de Arquitetura)</p>
 </blockquote>
@@ -2122,15 +2163,20 @@ Este documento <strong>não valida retroativamente</strong> a escolha existente.
 </table>
 <hr />
 <h2 id="3-resumo-executivo">3. Resumo executivo<a class="headerlink" href="#3-resumo-executivo" title="Permanent link">&para;</a></h2>
-<h3 id="31-resultado-da-matriz-de-decisão">3.1 Resultado da matriz de decisão<a class="headerlink" href="#31-resultado-da-matriz-de-decisão" title="Permanent link">&para;</a></h3>
+<h3 id="31-resultado-da-matriz-de-decisão-revisão-2026">3.1 Resultado da matriz de decisão (revisão 2026)<a class="headerlink" href="#31-resultado-da-matriz-de-decisão-revisão-2026" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>📌 Nota metodológica</strong>
+Os totais abaixo refletem os <strong>pesos revisados</strong> aprovados no <a href="docs/08-adr-002/">ADR-002</a>: C03 (TCO) rebaixado a peso 0 (informativo) e 15 pontos redistribuídos entre C05, C06, C08, C09, C10 e C11. As notas permanecem inalteradas — só o peso mudou. A coluna "ADR-001" preserva o total anterior para rastreabilidade.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
 <th>#</th>
 <th>Plataforma</th>
 <th>Modalidade</th>
-<th style="text-align: right;">Pontuação ponderada</th>
-<th style="text-align: right;">% do máximo</th>
+<th style="text-align: right;">Pontuação revisada</th>
+<th style="text-align: right;">%</th>
+<th style="text-align: center;"><em>ADR-001</em></th>
 </tr>
 </thead>
 <tbody>
@@ -2138,104 +2184,155 @@ Este documento <strong>não valida retroativamente</strong> a escolha existente.
 <td>🥇 1</td>
 <td><strong>Matomo</strong></td>
 <td>On-Premise (auto-hospedado)</td>
-<td style="text-align: right;"><strong>520 / 600</strong></td>
-<td style="text-align: right;"><strong>86,7%</strong></td>
+<td style="text-align: right;"><strong>500 / 600</strong></td>
+<td style="text-align: right;"><strong>83,3 %</strong></td>
+<td style="text-align: center;"><em>520 / 86,7 %</em></td>
 </tr>
 <tr>
 <td>🥈 2</td>
-<td>Plausible</td>
-<td>Community Edition (auto-hospedado)</td>
-<td style="text-align: right;">485 / 600</td>
-<td style="text-align: right;">80,8%</td>
+<td>Piwik PRO</td>
+<td>Private Cloud / On-Premise</td>
+<td style="text-align: right;">499 / 600</td>
+<td style="text-align: right;">83,2 %</td>
+<td style="text-align: center;"><em>465 / 77,5 %</em></td>
 </tr>
 <tr>
 <td>🥉 3</td>
 <td>Matomo</td>
 <td>Cloud (SaaS, hospedagem UE)</td>
-<td style="text-align: right;">465 / 600</td>
-<td style="text-align: right;">77,5%</td>
+<td style="text-align: right;">485 / 600</td>
+<td style="text-align: right;">80,8 %</td>
+<td style="text-align: center;"><em>465 / 77,5 %</em></td>
 </tr>
 <tr>
-<td>3</td>
-<td>Piwik PRO</td>
-<td>Private Cloud / On-Premise</td>
-<td style="text-align: right;">465 / 600</td>
-<td style="text-align: right;">77,5%</td>
+<td>4</td>
+<td>PostHog</td>
+<td>Auto-hospedado (Open Source Edition)</td>
+<td style="text-align: right;">464 / 600</td>
+<td style="text-align: right;">77,3 %</td>
+<td style="text-align: center;"><em>455 / 75,8 %</em></td>
 </tr>
 <tr>
 <td>5</td>
-<td>PostHog</td>
-<td>Auto-hospedado (Open Source Edition)</td>
-<td style="text-align: right;">455 / 600</td>
-<td style="text-align: right;">75,8%</td>
+<td>Plausible</td>
+<td>Community Edition (auto-hospedado)</td>
+<td style="text-align: right;">460 / 600</td>
+<td style="text-align: right;">76,7 %</td>
+<td style="text-align: center;"><em>485 / 80,8 %</em></td>
 </tr>
 <tr>
 <td>6</td>
-<td>Umami</td>
-<td>Auto-hospedado</td>
-<td style="text-align: right;">445 / 600</td>
-<td style="text-align: right;">74,2%</td>
+<td>Adobe Analytics</td>
+<td>SaaS enterprise</td>
+<td style="text-align: right;">459 / 600</td>
+<td style="text-align: right;">76,5 %</td>
+<td style="text-align: center;"><em>405 / 67,5 %</em></td>
 </tr>
 <tr>
 <td>7</td>
 <td>PostHog</td>
 <td>Cloud EU</td>
-<td style="text-align: right;">425 / 600</td>
-<td style="text-align: right;">70,8%</td>
+<td style="text-align: right;">448 / 600</td>
+<td style="text-align: right;">74,7 %</td>
+<td style="text-align: center;"><em>425 / 70,8 %</em></td>
 </tr>
 <tr>
 <td>8</td>
 <td>Google Analytics 4</td>
 <td>SaaS (tier gratuito)</td>
-<td style="text-align: right;">410 / 600</td>
-<td style="text-align: right;">68,3%</td>
+<td style="text-align: right;">417 / 600</td>
+<td style="text-align: right;">69,5 %</td>
+<td style="text-align: center;"><em>410 / 68,3 %</em></td>
 </tr>
 <tr>
 <td>9</td>
-<td>Adobe Analytics</td>
-<td>SaaS enterprise</td>
-<td style="text-align: right;">405 / 600</td>
-<td style="text-align: right;">67,5%</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Microsoft Clarity</td>
-<td>SaaS gratuito</td>
-<td style="text-align: right;">355 / 600</td>
-<td style="text-align: right;">59,2%</td>
+<td>Umami</td>
+<td>Auto-hospedado</td>
+<td style="text-align: right;">414 / 600</td>
+<td style="text-align: right;">69,0 %</td>
+<td style="text-align: center;"><em>445 / 74,2 %</em></td>
 </tr>
 <tr>
 <td>10</td>
 <td>Simple Analytics</td>
 <td>SaaS (hospedagem UE)</td>
-<td style="text-align: right;">355 / 600</td>
-<td style="text-align: right;">59,2%</td>
+<td style="text-align: right;">359 / 600</td>
+<td style="text-align: right;">59,8 %</td>
+<td style="text-align: center;"><em>355 / 59,2 %</em></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Microsoft Clarity</td>
+<td>SaaS gratuito</td>
+<td style="text-align: right;">334 / 600</td>
+<td style="text-align: right;">55,7 %</td>
+<td style="text-align: center;"><em>355 / 59,2 %</em></td>
 </tr>
 <tr>
 <td>12</td>
 <td>Cloudflare Web Analytics</td>
 <td>SaaS gratuito</td>
-<td style="text-align: right;">345 / 600</td>
-<td style="text-align: right;">57,5%</td>
+<td style="text-align: right;">319 / 600</td>
+<td style="text-align: right;">53,2 %</td>
+<td style="text-align: center;"><em>345 / 57,5 %</em></td>
 </tr>
 <tr>
 <td>13</td>
 <td>Open Web Analytics</td>
 <td>Auto-hospedado</td>
-<td style="text-align: right;">330 / 600</td>
-<td style="text-align: right;">55,0%</td>
+<td style="text-align: right;">278 / 600</td>
+<td style="text-align: right;">46,3 %</td>
+<td style="text-align: center;"><em>330 / 55,0 %</em></td>
 </tr>
 </tbody>
 </table>
 <p>Memória de cálculo completa e justificativa nota a nota: <a href="docs/07-matriz-decisao/"><code>docs/07-matriz-decisao.md</code></a>.</p>
-<h3 id="32-decisão-recomendada">3.2 Decisão recomendada<a class="headerlink" href="#32-decisão-recomendada" title="Permanent link">&para;</a></h3>
+<h3 id="32-decisão-recomendada-adr-002-supersedes-adr-001">3.2 Decisão recomendada (ADR-002 supersedes ADR-001)<a class="headerlink" href="#32-decisão-recomendada-adr-002-supersedes-adr-001" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><strong>✅ Bloco de Decisão — ADR-001</strong></p>
-<p><strong>Manter o Matomo On-Premise como plataforma padrão de Web Analytics do Governo do Estado de MS</strong>, condicionado à execução de um plano de adequação arquitetural (arquitetura de referência, ingestão assíncrona, política de retenção, alta disponibilidade e camada de integração com BI).</p>
-<p><strong>Complemento aprovado:</strong> adoção de <strong>Plausible Community Edition</strong> como camada leve e opcional para portais de conteúdo de alto volume e baixa criticidade analítica, quando o requisito for exclusivamente métrica agregada com custo operacional mínimo.</p>
-<p><strong>Complemento condicionado:</strong> <strong>Microsoft Clarity</strong> pode ser usado apenas de forma temporária e circunscrita, em portais sem tratamento de dado pessoal sensível, e preferencialmente substituído pelo plugin <em>Heatmaps &amp; Session Recording</em> do próprio Matomo, eliminando transferência internacional de dados.</p>
-<p>Detalhamento: <a href="docs/08-adr/"><code>docs/08-adr.md</code></a> e <a href="docs/09-recomendacao/"><code>docs/09-recomendacao.md</code></a>.</p>
+<p><strong>✅ Bloco de Decisão — ADR-002 (revisão 2026)</strong></p>
+<p><strong>Parque existente (EDS + sites gov MS):</strong> manter <strong>Matomo On-Premise</strong> como plataforma padrão única. Continua atendendo aos requisitos de portais institucionais e de conteúdo.</p>
+<p><strong>Novo portal Xvia (superapp cidadão):</strong> adotar <strong>Matomo On-Premise + PostHog auto-hospedado em paralelo</strong> como camada complementar de product analytics. Matomo mantém web analytics tradicional (audiência, campanhas, conformidade); PostHog agrega jornada identificada, feature flags, experimentação e session replay consentido. O overhead do 2º script no navegador (~+55 KB gzip, +50–200 ms LCP) é aceito conscientemente em troca do ganho funcional para produto digital transacional de alta complexidade.</p>
+<p><strong>Complemento aprovado:</strong> <strong>Plausible Community Edition</strong> permanece opcional em portais de conteúdo de altíssimo volume e baixa criticidade analítica.</p>
+<p><strong>Contingências formais:</strong> Piwik PRO (agora #2 no ranking revisado, 499 pts) e Matomo Cloud (#3, 485 pts) — ambos na faixa "Recomendada" — permanecem como alternativas caso a premissa P2 (capacidade técnica interna) seja invalidada.</p>
+<p><strong>Detalhamento:</strong> <a href="docs/08-adr-002/"><code>docs/08-adr-002.md</code></a> (vigente) · <a href="docs/08-adr/"><code>docs/08-adr.md</code></a> (ADR-001 depreciado, preservado como histórico) · <a href="docs/09-recomendacao/"><code>docs/09-recomendacao.md</code></a>.</p>
 </blockquote>
+<h3 id="321-o-que-mudou-entre-adr-001-e-adr-002">3.2.1 O que mudou entre ADR-001 e ADR-002<a class="headerlink" href="#321-o-que-mudou-entre-adr-001-e-adr-002" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>ADR-001 (2026-07)</th>
+<th>ADR-002 (2026-08)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peso C03 (TCO)</td>
+<td>15 (12,5 %)</td>
+<td>0 (informativo)</td>
+</tr>
+<tr>
+<td>Recomendação do parque</td>
+<td>Matomo OP + Plausible CE</td>
+<td>Matomo OP (Plausible CE opcional)</td>
+</tr>
+<tr>
+<td>Recomendação Xvia</td>
+<td>Cenário C ("requer justificativa")</td>
+<td><strong>Matomo OP + PostHog auto-hospedado</strong></td>
+</tr>
+<tr>
+<td>Cenário "Econômico" na sensibilidade</td>
+<td>Ativo</td>
+<td>Substituído por "Custo pleno (referência histórica)"</td>
+</tr>
+<tr>
+<td>Contingência #1</td>
+<td>Matomo Cloud</td>
+<td>Piwik PRO (novo #2 no ranking)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="33-fundamentos-técnicos-objetivos-da-decisão">3.3 Fundamentos técnicos objetivos da decisão<a class="headerlink" href="#33-fundamentos-técnicos-objetivos-da-decisão" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2270,8 +2367,8 @@ Este documento <strong>não valida retroativamente</strong> a escolha existente.
 <td>API de relatórios em HTTP/JSON/CSV/XML + acesso direto ao banco para conectores nativos de Power BI, Superset, Metabase e Grafana</td>
 </tr>
 <tr>
-<td>TCO em 5 anos</td>
-<td>Menor TCO entre plataformas com cobertura funcional equivalente — ver <a href="comparativos/custo/"><code>comparativos/custo.md</code></a></td>
+<td>Continuidade do parque em produção</td>
+<td>Matomo já opera em EDS e sites gov MS — trocar plataforma padrão seria mudança de baixa razão custo/benefício; a revisão 2026 confirma essa continuidade</td>
 </tr>
 </tbody>
 </table>
@@ -2390,11 +2487,15 @@ Toda afirmação técnica neste repositório deve ser rastreável a uma fonte pr
 </tr>
 <tr>
 <td><a href="docs/07-matriz-decisao/">07 — Matriz de decisão</a></td>
-<td>Matriz ponderada com justificativa nota a nota e análise de sensibilidade</td>
+<td>Matriz ponderada com justificativa nota a nota e análise de sensibilidade (<strong>pesos revisados 2026</strong>)</td>
 </tr>
 <tr>
-<td><a href="docs/08-adr/">08 — ADR</a></td>
-<td>Architecture Decision Record formal (ADR-001)</td>
+<td><a href="docs/08-adr/">08 — ADR-001</a></td>
+<td>Architecture Decision Record original — 🔴 <strong>Depreciado</strong>, substituído por ADR-002</td>
+</tr>
+<tr>
+<td><a href="docs/08-adr-002/">08 — ADR-002</a></td>
+<td>ADR vigente — Matomo padrão do parque + PostHog complementar no Xvia</td>
 </tr>
 <tr>
 <td><a href="docs/09-recomendacao/">09 — Recomendação</a></td>
@@ -2521,12 +2622,16 @@ Toda afirmação técnica neste repositório deve ser rastreável a uma fonte pr
 <td>Lock-in, portabilidade, transparência, auditoria, soberania</td>
 </tr>
 <tr>
-<td><a href="comparativos/matomo-vs-posthog/">Matomo × PostHog (bilateral)</a></td>
-<td>Duelo direto entre os dois candidatos auto-hospedados de maior pontuação</td>
+<td><a href="comparativos/matomo-vs-posthog/">Matomo × PostHog (complementaridade)</a></td>
+<td>Papéis complementares — web analytics tradicional (Matomo) × product analytics (PostHog)</td>
 </tr>
 <tr>
-<td><a href="comparativos/migracao-matomo-posthog/">Migração Matomo → PostHog</a></td>
-<td>Custo, risco e perda de série histórica em cenário hipotético de troca após implantação em curso</td>
+<td><a href="comparativos/coexistencia-matomo-posthog/">Coexistência Matomo + PostHog no Xvia</a></td>
+<td>Modelo de instrumentação paralela, segmentação de eventos, política de retenção coordenada</td>
+</tr>
+<tr>
+<td><a href="comparativos/custo/">Custo (informativo)</a></td>
+<td>Preservado como referência de dimensionamento e prestação de contas — não é mais critério de decisão (ADR-002)</td>
 </tr>
 </tbody>
 </table>
@@ -2563,12 +2668,13 @@ Toda afirmação técnica neste repositório deve ser rastreável a uma fonte pr
 ├── docs/
 │   ├── 01-contexto.md
 │   ├── 02-requisitos.md
-│   ├── 03-criterios-de-avaliacao.md
+│   ├── 03-criterios-de-avaliacao.md    # pesos revisados 2026
 │   ├── 04-mercado.md
 │   ├── 05-comparativo-detalhado.md
 │   ├── 06-tradeoffs.md
-│   ├── 07-matriz-decisao.md
-│   ├── 08-adr.md
+│   ├── 07-matriz-decisao.md            # ranking revisado 2026
+│   ├── 08-adr.md                       # ADR-001 (depreciado)
+│   ├── 08-adr-002.md                   # ADR-002 (vigente)
 │   ├── 09-recomendacao.md
 │   ├── 10-roadmap.md
 │   ├── 11-riscos.md
@@ -2587,14 +2693,14 @@ Toda afirmação técnica neste repositório deve ser rastreável a uma fonte pr
 │   └── posthog.md
 │
 ├── comparativos/
-│   ├── custo.md
+│   ├── custo.md                        # (informativo — não decisor a partir do ADR-002)
 │   ├── lgpd.md
 │   ├── api.md
 │   ├── infraestrutura.md
 │   ├── escalabilidade.md
 │   ├── governanca.md
-│   ├── matomo-vs-posthog.md
-│   └── migracao-matomo-posthog.md
+│   ├── matomo-vs-posthog.md            # complementaridade
+│   └── coexistencia-matomo-posthog.md  # (renomeado de migracao-matomo-posthog.md)
 │
 └── anexos/
     ├── matriz.md
