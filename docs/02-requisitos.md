@@ -3,6 +3,13 @@
 > **Fase TOGAF ADM:** B — Business Architecture / Requirements Management
 > **Anterior:** [01 — Contexto](01-contexto.md) · **Próximo:** [03 — Critérios de avaliação](03-criterios-de-avaliacao.md)
 
+> **📌 Atualização — Revisão 2026 (ADR-002)**
+> Requisitos permanecem inalterados. Consequências da revisão 2026 sobre requisitos:
+>
+> - **RNF-02 (LCP ≤ 50 ms)** permanece válido para o parque existente. Para o **portal Xvia** especificamente, o [ADR-002 §5.T1](08-adr-002.md#5-trade-offs-da-decisão) aceita relaxamento para **LCP ≤ 75 ms em 3G p75** em consequência do overhead da coexistência Matomo + PostHog. Gatilho G9 monitora e reavalia se ultrapassado.
+> - **RN-02 (funil de conversão em serviços digitais)** ganha implementação preferencial no PostHog para o Xvia, mantendo Matomo para funis de conteúdo no parque.
+> - **QA-05 (correção de CVE crítica ≤ 15 dias)** aplica-se agora também ao stack PostHog do Xvia — coberto por R-18.
+
 ---
 
 ## Sumário

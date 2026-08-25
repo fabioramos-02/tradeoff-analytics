@@ -3,8 +3,8 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
-header: "Camada complementar de analytics · SETDIG"
-footer: "Fonte: estudo tradeoff-analytics (2026-07) · Ver README.md"
+header: "PostHog complementar no Xvia · SETDIG (ADR-002)"
+footer: "Fonte: estudo tradeoff-analytics · ADR-002 (2026-08) · Ver README.md"
 style: |
   section { font-family: system-ui, sans-serif; color: #30302e; }
   h1 { color: #004f9f; border-bottom: 3px solid #004f9f; padding-bottom: 8px; }
@@ -20,121 +20,194 @@ style: |
   .ok { background: #e8f4ff; border-left: 6px solid #004f9f; padding: 10px 16px; }
 ---
 
-# Proposta: camada complementar de analytics
+# PostHog complementar no portal Xvia
 
-**Somar, não trocar.**
-O Matomo continua padrão. Onde entra outra ferramenta?
+**Decisão homologada — ADR-002 (2026-08).**
+Matomo continua padrão do parque. Xvia ganha PostHog em paralelo.
 
 <div class="caption">
 Secretaria-Executiva de Transformação Digital — SETDIG · agosto/2026<br>
-Base: estudo formal de 13 plataformas (TOGAF + ATAM + MAUT + ADR)
+Base: estudo formal de 13 plataformas (TOGAF + ATAM + MAUT + ADR-002 supersedes ADR-001)
 </div>
 
 ---
 
-## Pergunta de decisão
-
-<div class="anchor">"O Matomo cobre todo o parque, ou precisamos de uma segunda camada?"</div>
-
-O estudo respondeu com **matriz ponderada de 13 alternativas**.
-Esta apresentação mostra o resultado e a proposta.
-
----
-
-## Resultado da matriz — top 5
-
-| # | Ferramenta | Modalidade | Nota | % |
-|---|------------|-----------|-----:|--:|
-| 🥇 1 | **Matomo** | On-Premise | **520/600** | **86,7%** |
-| 🥈 2 | Plausible | Auto-hospedado | 485/600 | 80,8% |
-| 🥉 3 | Matomo | Cloud (UE) | 465/600 | 77,5% |
-| 3 | Piwik PRO | Private Cloud | 465/600 | 77,5% |
-| 5 | **PostHog** | Auto-hospedado | **455/600** | **75,8%** |
-
-<div class="caption">Memória de cálculo: <code>docs/07-matriz-decisao.md</code></div>
-
----
-
-## O que o Matomo já cobre bem
+## O que mudou desde o ADR-001
 
 <div class="ok">
-
-- **Cobertura ampla:** funis, heatmaps, gravação de sessão, form analytics, A/B, Tag Manager
-- **Soberania de dados:** MySQL sob custódia do Estado — nenhuma transferência internacional
-- **LGPD:** operação **cookieless** validada (precedente CNIL)
-- **Integração com BI:** API HTTP/JSON + acesso SQL direto (Power BI, Superset, Metabase, Grafana)
-- **TCO 5 anos:** **R$ 235.000** (regime marginal SETDIG)
-
+Duas premissas foram atualizadas em agosto/2026.
 </div>
+
+| Dimensão | ADR-001 (jul/26) | **ADR-002 (ago/26)** |
+|----------|------------------|----------------------|
+| Peso do TCO na matriz | 15 (12,5 %) | **0 — critério informativo** |
+| Recomendação para o parque | Matomo + Plausible | **Matomo (Plausible opcional)** |
+| Recomendação para o Xvia | Cenário C "requer justificativa" | **Matomo + PostHog em paralelo** |
+
+**Por que o custo saiu?** Premissa on-premise consolidada (P1/P2/R4). Infra do Estado absorve custo marginal. TCO deixa de filtrar decisão arquitetural — mantido como informativo para prestação de contas.
 
 ---
 
-## Onde o PostHog acrescenta
+## Ranking revisado (pesos ADR-002)
+
+| # | Plataforma | Score | Δ vs ADR-001 |
+|--:|-----------|------:|--------------|
+| 🥇 1 | **Matomo On-Premise** | **500** | −20 |
+| 🥈 2 | Piwik PRO | 499 | +34 |
+| 🥉 3 | Matomo Cloud | 485 | +20 |
+| 4 | **PostHog auto-hospedado** | **464** | +9 |
+| 5 | Plausible CE | 460 | −25 |
+| 6 | Adobe Analytics | 459 | +54 |
+
+**Matomo mantém liderança** (1 pt sobre Piwik, desempate por C02).
+**PostHog sobe para #4** — melhor opção soberana de product analytics.
+**Adobe** salta 54 pts — descarte agora se fundamenta em lock-in (C04=1), não em custo.
+
+---
+
+## Dois perfis, duas arquiteturas
 
 <div class="ok">
-
-Ganhos funcionais sobre o Matomo em **product analytics profundo**:
-
-- **Feature flags** com liberação gradual e A/B com significância estatística
-- **Cohorts comportamentais** de longo prazo (retenção em 30/60/90 dias)
-- **Session replay** com filtros avançados por evento
-- **SDKs modernos** (mais linguagens oficiais que o Matomo)
-
-Onde faz diferença: **serviços digitais transacionais complexos** que precisam iterar em jornada do cidadão.
-
+Decisão híbrida deliberada — não é incoerência arquitetural.
 </div>
 
----
+| Perfil | Arquitetura | Justificativa |
+|--------|-------------|---------------|
+| **Parque existente** (EDS + sites gov MS) | Matomo puro | Continuidade; conteúdo institucional; cookieless CNIL |
+| **Novo portal Xvia** (superapp cidadão) | Matomo + PostHog em paralelo | Jornada identificada, funil transacional, feature flags, session replay consentido |
 
-## Custo real da camada complementar
-
-<div class="number">R$ 955.000</div>
-<div class="anchor">TCO 5 anos do PostHog auto-hospedado — <strong>4× o Matomo</strong></div>
-
-| Rubrica (5 anos) | Matomo | PostHog OSS |
-|------------------|-------:|------------:|
-| Licenciamento | R$ 60k | **R$ 300k** (SSO+RBAC) |
-| Infraestrutura marginal | R$ 30k | **R$ 300k** (Kafka+ClickHouse+MinIO fora do padrão) |
-| Equipe marginal | R$ 75k (~0,1 FTE) | **R$ 240k (~0,4 FTE)** |
-
-<div class="caption">Regime de custo marginal SETDIG · Fonte: <code>comparativos/matomo-vs-posthog.md §5</code></div>
+Diferença justificada pelo **perfil de uso**, não por preferência tecnológica.
 
 ---
 
-## Impacto na LGPD
+## Papéis complementares no Xvia
+
+| Pergunta | Ferramenta |
+|----------|-----------|
+| Quantos visitaram o Xvia? De onde vieram? | **Matomo** |
+| Página com maior tempo médio? | **Matomo** |
+| Qual serviço tem maior conversão? | **PostHog** |
+| Onde o cidadão abandona o pedido? | **PostHog** |
+| A nova versão do formulário aumentou conclusão? | **PostHog** (feature flag + A/B) |
+| Cidadão voltou após 30 dias? | **PostHog** (retenção identificada) |
+| Grave sessão deste serviço crítico | **PostHog** (opt-in + mascarado) |
+
+Regra: **cada capability instrumentada em uma única ferramenta**. Detalhamento em `coexistencia-matomo-posthog.md`.
+
+---
+
+## O overhead — assumido conscientemente
+
+| Métrica | Matomo | PostHog | **Ambos** | Alvo |
+|---------|:------:|:-------:|:---------:|:----:|
+| JS gzip | 22 KB | 55 KB | **~77 KB** | ≤ 100 KB |
+| LCP 3G (p75) | < 50 ms | 50–200 ms | **100–250 ms** | ≤ 75 ms |
+| LCP 4G+ (p75) | Desprezível | 20–50 ms | **30–80 ms** | ≤ 75 ms |
 
 <div class="warn">
-
-**PostHog OSS exige adequação adicional que o Matomo já entrega por padrão:**
-
-- Session replay grava conteúdo de tela → **precisa DPIA** (Avaliação de Impacto)
-- Sem base legal consolidada em precedente europeu (Matomo tem CNIL)
-- Requer política de retenção **mais rígida** e mascaramento de PII na origem
-- Custo estimado de adequação LGPD: **R$ 40k** (vs R$ 30k Matomo)
-
+Usuário do Xvia chega com intenção específica — taxa de abandono por LCP é qualitativamente menor que em portal de conteúdo. Aceite formal, monitorado pelo <strong>gatilho G9</strong>: LCP &gt; 75 ms sustentado por 2 meses aciona reavaliação em 60 dias.
 </div>
 
-<div class="caption">Fonte: <code>comparativos/lgpd.md</code> e <code>comparativos/matomo-vs-posthog.md §6</code></div>
+---
+
+## Governança de session replay
+
+<div class="warn">
+Risco R-11: captura acidental de dado sensível.
+Sem essas regras, session replay é vetado.
+</div>
+
+1. **Desabilitado por padrão.** Ativado apenas após opt-in explícito.
+2. **Mascaramento agressivo padrão.** CPF, senha, dado de saúde, valores financeiros: máscara `***`.
+3. **Ativação por serviço**, com DPIA específico + homologação do time de segurança.
+4. **Retenção curta:** 30 dias (vs 12 meses de eventos brutos).
+5. **Auditoria mensal por amostragem** pelo time de segurança.
+
+Ativação fora dessas regras = incidente de conformidade.
 
 ---
 
-## Três caminhos possíveis
+## Roadmap — Onda 5 (Xvia)
 
-| Cenário | O que entrega | TCO 5a | Recomendação do estudo |
-|---------|---------------|-------:|------------------------|
-| **A. Só Matomo** | Cobertura ampla suficiente para 90% do parque | R$ 235k | Base |
-| **B. Matomo + Plausible** *(ADR-001)* | Camada leve para portais de conteúdo alto volume | +R$ 40k | ✅ **Aprovado** |
-| **C. Matomo + PostHog** *(esta proposta)* | Product analytics profundo para serviços transacionais complexos | +R$ 720k | ⚠️ Requer justificativa de caso de uso |
+**Período:** mês 12 a 24, paralela às Ondas 3 e 4.
 
-<div class="anchor">Decisão pedida ao Comitê: aprovar B, C ou pedir estudo de caso antes de C.</div>
+| # | Marco | Duração |
+|---|-------|--------|
+| 5.1 | DPIA do session replay aprovado pelo DPO | 3 sem |
+| 5.2 | Stack PostHog em produção sob custódia do Estado | 6 sem |
+| 5.3 | STI capacitada em ClickHouse + Kafka (80–120 h) | 8 sem |
+| 5.4 | Segmentação de eventos documentada | 3 sem |
+| 5.5 | Xvia instrumentado com ambos os SDKs | 6 sem |
+| 5.12 | **Gate de 12 meses** ao Comitê | 4 sem |
+
+Falha no gate aciona G12 — reavaliação em 60 dias.
 
 ---
 
-## Como ler esta apresentação
+## Critérios do gate de 12 meses
 
-- Números são **projeções em regime marginal SETDIG** (P1/P2/R4), não cotação formal
-- Matriz de decisão é **auditável nota a nota** em `docs/07-matriz-decisao.md`
-- ADR-001 vigente recomenda **cenário B** (Matomo + Plausible)
-- Cenário C exige, antes de aprovar, **mapear os serviços que justificam feature flags + cohorts de longo prazo**
+Continuidade da coexistência exige **todos** os critérios abaixo:
 
-**Referências completas:** [README.md](../README.md) · [docs/09-recomendacao.md](../docs/09-recomendacao.md) · [comparativos/matomo-vs-posthog.md](../comparativos/matomo-vs-posthog.md)
+1. LCP p75 3G do Xvia ≤ 75 ms por pelo menos 10 dos 12 meses.
+2. ≥ 3 feature flags em uso produtivo (não apenas configuradas).
+3. ≥ 5 funis identificados em uso pelo SGD.
+4. Session replay em ≥ 1 serviço crítico sem incidente de captura acidental.
+5. Divergência Matomo × PostHog ≤ 15 % por 9 dos 12 meses.
+6. STI opera stack de forma autônoma (ou suporte especializado formal).
+
+Falha em qualquer critério → cenários A (ajuste), B (Cloud EU), C (reversão a Matomo puro).
+
+---
+
+## Novos riscos assumidos (ADR-002)
+
+| ID | Risco | Estratégia |
+|----|-------|-----------|
+| R-11 | Captura acidental em session replay | Mitigar (opt-in + mascaramento + auditoria) |
+| **R-17** | LCP degradado > 75 ms | Monitorar (G9) |
+| **R-18** | STI não sustenta stack PostHog | Mitigar (capacitação + reserva de suporte) |
+| **R-19** | Divergência Matomo × PostHog | Mitigar (governança de fonte + reconciliação) |
+| **R-20** | Descontinuidade PostHog OSS | Monitorar (G11 + fallback Cloud EU) |
+
+Detalhamento em `docs/11-riscos.md`.
+
+---
+
+## Contingências formais registradas
+
+<div class="ok">
+Ativação exige novo ADR (ADR-003), não decisão operacional.
+</div>
+
+**Para o parque (contingência do Matomo On-Premise):**
+1. Matomo Cloud (agora #3 no ranking, faixa "Recomendada").
+2. Piwik PRO Private Cloud (agora #2, "Recomendada").
+
+**Para o Xvia (contingência do PostHog auto-hospedado):**
+1. PostHog Cloud EU (com RIPD específico).
+2. Matomo puro estendido com plugins (cobre 60–70 % do caso de uso).
+
+---
+
+## Decisão em uma frase
+
+<div class="anchor">
+Matomo continua padrão do parque. PostHog entra no Xvia em paralelo, com governança rigorosa e gate em 12 meses.
+</div>
+
+Não é substituição. Não é preferência tecnológica.
+É reconhecimento de que web analytics e product analytics são eixos distintos, e o Xvia precisa de ambos.
+
+---
+
+## Referências
+
+- **[ADR-002](../docs/08-adr-002.md)** — decisão vigente, supersedes ADR-001.
+- **[07 — Matriz de decisão](../docs/07-matriz-decisao.md)** — ranking revisado.
+- **[09 — Recomendação](../docs/09-recomendacao.md)** — parque vs Xvia.
+- **[10 — Roadmap, Onda 5](../docs/10-roadmap.md#7bis-onda-5--portal-xvia-posthog-complementar)** — plano de execução.
+- **[11 — Riscos](../docs/11-riscos.md)** — R-11, R-17 a R-20.
+- **[Coexistência Matomo + PostHog no Xvia](../comparativos/coexistencia-matomo-posthog.md)** — modelo operacional.
+- **[Complementaridade Matomo × PostHog](../comparativos/matomo-vs-posthog.md)** — papéis.
+
+**Homologação:** aguardando manifestação do Comitê de Arquitetura, DPO, STI e time do portal Xvia.

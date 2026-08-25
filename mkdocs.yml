@@ -107,8 +107,9 @@ nav:
       - Panorama de mercado: docs/04-mercado.md
       - Comparativo detalhado: docs/05-comparativo-detalhado.md
       - Trade-offs: docs/06-tradeoffs.md
-      - Matriz de decisão: docs/07-matriz-decisao.md
-      - ADR: docs/08-adr.md
+      - Matriz de decisão (revisão 2026): docs/07-matriz-decisao.md
+      - ADR-001 (depreciado): docs/08-adr.md
+      - ADR-002 (vigente): docs/08-adr-002.md
       - Recomendação: docs/09-recomendacao.md
       - Roadmap: docs/10-roadmap.md
       - Riscos: docs/11-riscos.md
@@ -127,14 +128,14 @@ nav:
       - PostHog: plataformas/posthog.md
 
   - Comparativos:
-      - Custo (TCO): comparativos/custo.md
+      - Custo (informativo): comparativos/custo.md
       - LGPD: comparativos/lgpd.md
       - API: comparativos/api.md
       - Infraestrutura: comparativos/infraestrutura.md
       - Escalabilidade: comparativos/escalabilidade.md
       - Governança: comparativos/governanca.md
-      - Matomo × PostHog: comparativos/matomo-vs-posthog.md
-      - Migração Matomo → PostHog: comparativos/migracao-matomo-posthog.md
+      - Matomo × PostHog (complementaridade): comparativos/matomo-vs-posthog.md
+      - Coexistência Matomo + PostHog no Xvia: comparativos/coexistencia-matomo-posthog.md
 
   - Anexos:
       - Matriz de decisão: anexos/matriz.md

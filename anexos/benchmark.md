@@ -93,6 +93,34 @@ Não substitui prova-de-conceito. Para decisão contratual definitiva, recomenda
 | Retenção agregada | 24 meses |
 | Volume total 5 anos | ~5 bilhões de linhas |
 
+### 3.4 Cenário D — Portal Xvia (superapp cidadão) — introduzido pela revisão 2026
+
+Cenário formalizado com o [ADR-002](../docs/08-adr-002.md) para dimensionar a coexistência Matomo + PostHog no portal Xvia.
+
+| Parâmetro | Ano 1 | Ano 3 (projeção) |
+|-----------|-------|------------------|
+| Portais rastreados | 1 (Xvia) | 1 |
+| Usuários únicos autenticados/mês | 300 k | 1,2 M |
+| Sessões/mês | 900 k | 4 M |
+| Page views/mês | 5 M | 20 M |
+| **Eventos identificados PostHog/mês** | **8 M** | **35 M** |
+| Fluxos transacionais instrumentados | 5 | 20 |
+| Feature flags ativas | 3 | 10+ |
+| Session replays capturados/mês (com consentimento) | ~5 k | ~20 k |
+| Retenção Matomo (bruto) | 12 meses | 12 meses |
+| Retenção PostHog (eventos) | 12 meses | 12 meses |
+| Retenção PostHog (session replay) | 30 dias | 30 dias |
+| **LCP alvo p75 (3G)** | **≤ 75 ms** | **≤ 75 ms** |
+| LCP alvo p75 (4G+) | ≤ 50 ms | ≤ 50 ms |
+
+**Perfil de tráfego:** distribuído durante o horário comercial, com picos em janelas de campanha (declaração anual, matrícula escolar, calendário fiscal). Picos esperados de 5×–15× — inferiores ao pico do parque institucional (30×) devido à autenticação prévia limitar tráfego não intencional.
+
+**Requisitos de infra específicos do Xvia:**
+
+- **Matomo Xvia:** instância dedicada, isolada da instância consolidada do parque (segregação de dado autenticado). Stack: 2 nós de coleta, 1 UI, 1 host de arquivamento, MariaDB primário + réplica, Redis.
+- **PostHog Xvia:** stack completo em Kubernetes — Django, PostgreSQL, ClickHouse (16+ GB RAM, SSD NVMe), Kafka + Zookeeper, Redis, MinIO. Dimensionamento inicial: 8 nós K8s.
+- **Monitoramento LCP:** Lighthouse CI executado 4× ao dia em 3G simulado; alertas se p75 > 75 ms por 3 dias consecutivos.
+
 ---
 
 ## 4. Métricas coletadas

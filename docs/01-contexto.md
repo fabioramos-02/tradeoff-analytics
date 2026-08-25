@@ -3,6 +3,11 @@
 > **Fase TOGAF ADM:** A — Architecture Vision
 > **Documento anterior:** [README](../README.md) · **Próximo:** [02 — Requisitos](02-requisitos.md)
 
+> **📌 Atualização — Revisão 2026 (ADR-002)**
+> Dois elementos deste contexto foram atualizados em agosto/2026:
+> 1. **Entrada do portal Xvia** (superapp cidadão) como novo consumidor de analytics — perfil de uso identificado, transacional, com necessidade de product analytics. Cenário de referência de volume permanece o mesmo para o parque; o Xvia é modelado à parte em [`../anexos/benchmark.md`](../anexos/benchmark.md).
+> 2. **Premissa on-premise consolidada** — P1/P2/R4 continuam válidas e passam a ter consequência direta na matriz: [ADR-002](08-adr-002.md) rebaixa TCO (C03) a critério informativo. Custo marginal absorvido pela infra do Estado deixa de filtrar decisões arquiteturais.
+
 ---
 
 ## Sumário
