@@ -269,7 +269,9 @@ analytics-platform-study/
 │   ├── api.md
 │   ├── infraestrutura.md
 │   ├── escalabilidade.md
-│   └── governanca.md
+│   ├── governanca.md
+│   ├── matomo-vs-posthog.md
+│   └── migracao-matomo-posthog.md
 │
 └── anexos/
     ├── matriz.md

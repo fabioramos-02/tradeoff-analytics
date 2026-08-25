@@ -1,0 +1,7 @@
+site/
+_site_analytics/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.mkdocs_cache/

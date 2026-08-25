@@ -1,0 +1,142 @@
+site_name: Estudo de Plataformas de Web Analytics — SETDIG
+site_description: Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul
+site_author: SETDIG — Secretaria-Executiva de Transformação Digital
+site_url: https://fabioramos-02.github.io/tradeoff-analytics/
+
+docs_dir: .
+site_dir: ../_site_analytics
+
+theme:
+  name: material
+  language: pt-BR
+
+  logo: docs/assets/img/segov-logo.svg
+  favicon: docs/assets/img/brasao-ms.svg
+  font: false
+
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Modo escuro
+
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Modo claro
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - docs/assets/css/segov.css
+
+plugins:
+  - same-dir
+  - search:
+      lang: pt
+
+extra:
+  generator: false
+  social:
+    - icon: material/web
+      link: https://www.setdig.ms.gov.br/
+      name: SETDIG
+
+exclude_docs: |
+  CLAUDE.md
+  LICENSE
+  requirements.txt
+  mkdocs.yml
+  .gitignore
+  .github/
+  .claude/
+  site/
+  _site_analytics/
+  .venv/
+  __pycache__/
+  *.pyc
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+
+  - pymdownx.details
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.emoji
+
+nav:
+  - Início: README.md
+
+  - Estudo:
+      - Contexto: docs/01-contexto.md
+      - Requisitos: docs/02-requisitos.md
+      - Critérios de avaliação: docs/03-criterios-de-avaliacao.md
+      - Panorama de mercado: docs/04-mercado.md
+      - Comparativo detalhado: docs/05-comparativo-detalhado.md
+      - Trade-offs: docs/06-tradeoffs.md
+      - Matriz de decisão: docs/07-matriz-decisao.md
+      - ADR: docs/08-adr.md
+      - Recomendação: docs/09-recomendacao.md
+      - Roadmap: docs/10-roadmap.md
+      - Riscos: docs/11-riscos.md
+      - Referências: docs/12-referencias.md
+
+  - Plataformas:
+      - Matomo: plataformas/matomo.md
+      - Google Analytics 4: plataformas/google-analytics.md
+      - Plausible: plataformas/plausible.md
+      - Umami: plataformas/umami.md
+      - Open Web Analytics: plataformas/open-web-analytics.md
+      - Adobe Analytics: plataformas/adobe-analytics.md
+      - Simple Analytics: plataformas/simple-analytics.md
+      - Microsoft Clarity: plataformas/microsoft-clarity.md
+      - Cloudflare Web Analytics: plataformas/cloudflare-web-analytics.md
+      - PostHog: plataformas/posthog.md
+
+  - Comparativos:
+      - Custo (TCO): comparativos/custo.md
+      - LGPD: comparativos/lgpd.md
+      - API: comparativos/api.md
+      - Infraestrutura: comparativos/infraestrutura.md
+      - Escalabilidade: comparativos/escalabilidade.md
+      - Governança: comparativos/governanca.md
+      - Matomo × PostHog: comparativos/matomo-vs-posthog.md
+      - Migração Matomo → PostHog: comparativos/migracao-matomo-posthog.md
+
+  - Anexos:
+      - Matriz de decisão: anexos/matriz.md
+      - Benchmark: anexos/benchmark.md
+      - Glossário: anexos/glossario.md
