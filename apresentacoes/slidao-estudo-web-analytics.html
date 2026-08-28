@@ -3,28 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matomo ou PostHog? · SETDIG</title>
+<title>Web Analytics do Estado · Proposta institucional · SETDIG</title>
 <style>
   :root {
-    --setdig-primary: #004f9f;
-    --setdig-dark: #003a76;
-    --setdig-light: #dbeafe;
-    --matomo: #3b82f6;
-    --matomo-bg: #dbeafe;
-    --posthog: #f59e0b;
-    --posthog-bg: #fef3c7;
-    --ok: #10b981;
-    --warn: #f59e0b;
-    --danger: #ef4444;
-    --neutral: #64748b;
-    --bg: #f8fafc;
+    --gov-primary: #004f9f;
+    --gov-dark: #003a76;
+    --gov-light: #e6f0fa;
+    --gov-line: #cfe0f2;
+    --tool-a: #1e5cad;       /* Matomo (azul institucional escuro) */
+    --tool-a-bg: #e8f0fb;
+    --tool-b: #b45309;       /* PostHog (âmbar institucional) */
+    --tool-b-bg: #fef3c7;
+    --ok: #15803d;
+    --warn: #b45309;
+    --danger: #b91c1c;
+    --neutral: #475569;
+    --bg: #f7f9fc;
     --paper: #ffffff;
     --ink: #0f172a;
     --ink-2: #334155;
     --ink-3: #64748b;
     --border: #e2e8f0;
-    --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 25px 50px rgba(15, 23, 42, 0.15);
+    --shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 25px 50px rgba(15, 23, 42, 0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,7 +40,7 @@
 
   .slide {
     position: absolute; inset: 0;
-    padding: 3.5rem 5rem;
+    padding: 5.5rem 5rem 4rem;
     background: var(--bg);
     opacity: 0;
     pointer-events: none;
@@ -55,91 +56,165 @@
     transform: translateX(0);
   }
 
+  /* Cabeçalho institucional fixo */
+  .gov-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3.5rem;
+    background: white;
+    border-bottom: 3px solid var(--gov-primary);
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 1.25rem;
+    z-index: 5;
+  }
+  .gov-header img {
+    height: 2.3rem;
+    width: auto;
+    display: block;
+    background: #0F4B91;
+    padding: 0.35rem 0.6rem;
+    border-radius: 3px;
+    box-sizing: content-box;
+  }
+  .gov-header .divider {
+    width: 1px;
+    height: 1.75rem;
+    background: var(--border);
+  }
+  .gov-header .titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+  .gov-header .titles .l1 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--gov-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .gov-header .titles .l2 {
+    font-size: 0.7rem;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .gov-header .spacer { flex: 1; }
+  .gov-header .doc-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Cabeçalho escuro na capa */
+  .slide.cover .gov-header {
+    background: rgba(255,255,255,0.08);
+    border-bottom-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+  }
+  .slide.cover .gov-header img {
+    filter: brightness(0) invert(1);
+    background: transparent;
+    padding: 0;
+  }
+  .slide.cover .gov-header .titles .l1 { color: white; }
+  .slide.cover .gov-header .titles .l2 { color: rgba(255,255,255,0.7); }
+  .slide.cover .gov-header .divider { background: rgba(255,255,255,0.25); }
+  .slide.cover .gov-header .doc-tag { color: rgba(255,255,255,0.75); }
+
+  /* Badge de seção */
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--setdig-primary);
-    padding: 0.35rem 0.9rem;
-    background: var(--setdig-light);
-    border-radius: 999px;
+    letter-spacing: 0.1em;
+    color: var(--gov-primary);
+    padding: 0.4rem 0.9rem;
+    background: var(--gov-light);
+    border-radius: 4px;
     align-self: flex-start;
     margin-bottom: 1.2rem;
   }
   .badge::before {
     content: '';
-    width: 6px; height: 6px;
-    background: var(--setdig-primary);
-    border-radius: 50%;
+    width: 4px; height: 14px;
+    background: var(--gov-primary);
   }
 
   h1 {
-    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--ink);
     margin-bottom: 1rem;
   }
   h1 .accent {
-    color: var(--setdig-primary);
+    color: var(--gov-primary);
     display: block;
+    font-weight: 700;
   }
 
   h2 {
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-size: clamp(1.7rem, 2.8vw, 2.4rem);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.2;
     color: var(--ink);
     margin-bottom: 1.5rem;
     letter-spacing: -0.015em;
   }
   h2 span.underline {
-    color: var(--setdig-primary);
-    box-shadow: inset 0 -0.35em 0 rgba(0, 79, 159, 0.15);
+    color: var(--gov-primary);
+    box-shadow: inset 0 -0.3em 0 rgba(0, 79, 159, 0.12);
   }
 
-  h3 { font-size: 1.15rem; font-weight: 700; color: var(--setdig-dark); margin-bottom: 0.5rem; }
+  h3 { font-size: 1.15rem; font-weight: 700; color: var(--gov-dark); margin-bottom: 0.5rem; }
 
   .subtitle {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--ink-2);
     line-height: 1.55;
     margin-bottom: 2rem;
     max-width: 60rem;
   }
 
-  /* Capa */
+  /* Capa institucional */
   .cover {
-    background: linear-gradient(135deg, var(--setdig-dark) 0%, var(--setdig-primary) 100%);
+    background: linear-gradient(135deg, var(--gov-dark) 0%, var(--gov-primary) 100%);
     color: white;
     justify-content: center;
-    padding: 5rem 6rem;
   }
-  .cover .badge { background: rgba(255,255,255,0.15); color: white; }
-  .cover .badge::before { background: white; }
   .cover h1 { color: white; }
-  .cover h1 .accent { color: #7dd3fc; }
-  .cover .subtitle { color: rgba(255,255,255,0.85); font-size: 1.3rem; }
-  .cover-meta { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-top: 2.5rem; }
+  .cover h1 .accent { color: #a8d5ff; }
+  .cover .subtitle { color: rgba(255,255,255,0.9); font-size: 1.25rem; max-width: 55rem; }
   .cover-rec {
-    display: inline-block;
+    display: block;
     margin-top: 2rem;
-    padding: 1rem 1.5rem;
+    padding: 1.25rem 1.75rem;
     background: rgba(255,255,255,0.1);
-    border-left: 4px solid #7dd3fc;
-    border-radius: 8px;
-    font-size: 1.05rem;
+    border-left: 4px solid #a8d5ff;
+    border-radius: 4px;
+    font-size: 1.1rem;
     color: white;
     max-width: 60rem;
+    line-height: 1.5;
   }
-  .cover-rec strong { color: #7dd3fc; }
+  .cover-rec strong { color: #a8d5ff; }
+  .cover-meta {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    margin-top: 2.5rem;
+  }
 
-  /* 2 tools */
+  /* Blocos de ferramenta institucionais (sem emoji) */
   .two-tools {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -148,68 +223,81 @@
   }
   .tool {
     background: var(--paper);
-    border-radius: 16px;
-    padding: 2rem;
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
     box-shadow: var(--shadow);
-    border-top: 6px solid var(--matomo);
+    border-top: 6px solid var(--tool-a);
     position: relative;
   }
-  .tool.posthog { border-color: var(--posthog); }
+  .tool.b { border-color: var(--tool-b); }
   .tool .tag {
     display: inline-block;
     padding: 0.3rem 0.75rem;
-    background: var(--matomo-bg);
-    color: var(--matomo);
-    border-radius: 6px;
-    font-size: 0.75rem;
+    background: var(--tool-a-bg);
+    color: var(--tool-a);
+    border-radius: 3px;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 0.75rem;
   }
-  .tool.posthog .tag { background: var(--posthog-bg); color: #92400e; }
+  .tool.b .tag { background: var(--tool-b-bg); color: var(--tool-b); }
+  .tool .tool-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .tool .tool-marker {
+    width: 12px; height: 32px;
+    background: var(--tool-a);
+    border-radius: 2px;
+  }
+  .tool.b .tool-marker { background: var(--tool-b); }
   .tool h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--ink);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    font-weight: 800;
   }
   .tool .question {
-    font-size: 1.1rem;
-    color: var(--matomo);
-    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--tool-a);
     font-weight: 600;
     margin-bottom: 1rem;
-    line-height: 1.3;
+    line-height: 1.4;
   }
-  .tool.posthog .question { color: #92400e; }
+  .tool.b .question { color: var(--tool-b); }
   .tool .items { color: var(--ink-2); line-height: 1.7; font-size: 0.95rem; }
   .tool .items span {
     display: inline-block;
-    padding: 0.25rem 0.6rem;
+    padding: 0.3rem 0.7rem;
     background: var(--bg);
-    border-radius: 6px;
-    margin: 0.15rem 0.15rem 0.15rem 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    margin: 0.2rem 0.2rem 0.2rem 0;
     font-size: 0.85rem;
     color: var(--ink-2);
   }
 
-  /* Decisão central */
+  /* Bloco de decisão central */
   .decision-hero {
-    background: linear-gradient(135deg, var(--matomo) 0%, var(--posthog) 100%);
+    background: var(--gov-primary);
     padding: 3px;
-    border-radius: 16px;
+    border-radius: 6px;
     margin: 1rem 0;
   }
   .decision-hero-inner {
     background: white;
-    border-radius: 13px;
+    border-radius: 4px;
     padding: 2rem 2.5rem;
     text-align: center;
   }
   .decision-hero-inner .big {
-    font-size: 2.2rem;
-    font-weight: 800;
-    line-height: 1.2;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.3;
     color: var(--ink);
     margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
@@ -222,61 +310,56 @@
   }
   .decision-hero-inner .sub strong { color: var(--ink); }
 
-  /* Quote destaque */
-  .quote-hero {
+  /* Frase-âncora */
+  .anchor-quote {
     background: white;
-    padding: 3rem 3.5rem;
-    border-radius: 16px;
+    padding: 2.5rem 3rem;
+    border-radius: 6px;
     box-shadow: var(--shadow-lg);
     text-align: center;
-    margin: 2rem auto;
+    margin: 1.5rem auto 0;
     max-width: 60rem;
-    border-top: 6px solid var(--setdig-primary);
+    border-top: 6px solid var(--gov-primary);
   }
-  .quote-hero .line-1 {
-    font-size: 1.9rem;
+  .anchor-quote .line-1 {
+    font-size: 1.7rem;
     font-weight: 700;
-    color: var(--matomo);
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
+    color: var(--tool-a);
+    line-height: 1.35;
+    margin-bottom: 0.4rem;
     letter-spacing: -0.015em;
   }
-  .quote-hero .line-2 {
-    font-size: 1.9rem;
+  .anchor-quote .line-2 {
+    font-size: 1.7rem;
     font-weight: 700;
-    color: var(--posthog);
-    line-height: 1.3;
+    color: var(--tool-b);
+    line-height: 1.35;
     letter-spacing: -0.015em;
-  }
-  .quote-hero .caption {
-    margin-top: 1.5rem;
-    color: var(--ink-3);
-    font-size: 1rem;
   }
 
-  /* Tabela simples */
+  /* Tabela */
   table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    border-radius: 12px;
+    border-radius: 4px;
     overflow: hidden;
     box-shadow: var(--shadow);
     font-size: 0.98rem;
     margin-top: 1rem;
   }
   th, td {
-    padding: 1rem 1.25rem;
+    padding: 0.95rem 1.2rem;
     text-align: left;
     border-bottom: 1px solid var(--border);
   }
   th {
-    background: var(--setdig-dark);
+    background: var(--gov-dark);
     color: white;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--bg); }
@@ -285,7 +368,7 @@
   .signal {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     font-weight: 600;
     font-size: 0.9rem;
   }
@@ -303,31 +386,31 @@
   .scope-grid {
     display: grid;
     grid-template-columns: 2fr 3fr;
-    gap: 3rem;
+    gap: 2.5rem;
     margin-top: 1rem;
   }
   .scope-criterion {
     background: white;
-    padding: 2rem;
-    border-radius: 12px;
+    padding: 1.75rem;
+    border-radius: 4px;
     box-shadow: var(--shadow);
-    border-left: 6px solid var(--setdig-primary);
+    border-left: 4px solid var(--gov-primary);
   }
   .scope-criterion h3 {
-    color: var(--setdig-primary);
-    font-size: 1rem;
+    color: var(--gov-primary);
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     margin-bottom: 1rem;
   }
   .scope-criterion ul { list-style: none; padding: 0; }
   .scope-criterion li {
-    padding: 0.55rem 0;
+    padding: 0.6rem 0;
     color: var(--ink-2);
     border-bottom: 1px solid var(--border);
     display: flex;
-    align-items: center;
-    gap: 0.65rem;
+    align-items: flex-start;
+    gap: 0.7rem;
     font-size: 0.95rem;
   }
   .scope-criterion li:last-child { border-bottom: none; }
@@ -335,77 +418,92 @@
     content: '✓';
     color: var(--ok);
     font-weight: 700;
+    margin-top: 0.05rem;
   }
 
-  /* Recomendação layout */
+  /* Recomendação */
   .rec-layout {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 2rem;
+    align-items: stretch;
+    gap: 1.5rem;
     margin-top: 1.5rem;
   }
   .rec-box {
     background: white;
-    border-radius: 16px;
-    padding: 2rem;
+    border-radius: 4px;
+    padding: 1.75rem;
     box-shadow: var(--shadow);
-    border-top: 6px solid var(--matomo);
+    border-top: 6px solid var(--tool-a);
+    display: flex;
+    flex-direction: column;
   }
-  .rec-box.posthog { border-color: var(--posthog); }
+  .rec-box.b { border-color: var(--tool-b); }
   .rec-box .role {
     text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     color: var(--ink-3);
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
   .rec-box .name {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    color: var(--matomo);
-    margin-bottom: 0.5rem;
+    color: var(--tool-a);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
-  .rec-box.posthog .name { color: var(--posthog); }
+  .rec-box.b .name { color: var(--tool-b); }
+  .rec-box .name::before {
+    content: '';
+    display: inline-block;
+    width: 10px; height: 26px;
+    background: currentColor;
+    border-radius: 2px;
+  }
   .rec-box .for {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--ink-3);
     font-weight: 600;
-    margin: 1rem 0 0.5rem;
+    margin: 0.75rem 0 0.5rem;
   }
   .rec-box .items {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-top: 0.5rem;
   }
   .rec-box .items span {
-    padding: 0.3rem 0.7rem;
-    background: var(--matomo-bg);
-    color: var(--matomo);
-    border-radius: 6px;
-    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--tool-a-bg);
+    color: var(--tool-a);
+    border-radius: 3px;
+    font-size: 0.9rem;
     font-weight: 600;
   }
-  .rec-box.posthog .items span { background: var(--posthog-bg); color: #92400e; }
+  .rec-box.b .items span { background: var(--tool-b-bg); color: var(--tool-b); }
   .rec-plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 300;
     color: var(--neutral);
   }
   .rec-conclusion {
     text-align: center;
     background: white;
     padding: 1.5rem 2rem;
-    border-radius: 12px;
+    border-radius: 4px;
     box-shadow: var(--shadow);
     margin-top: 1.5rem;
     font-size: 1.15rem;
     color: var(--ink-2);
-    border-left: 6px solid var(--ok);
+    border-left: 4px solid var(--ok);
   }
   .rec-conclusion strong { color: var(--ink); }
 
@@ -414,94 +512,104 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem auto;
+    gap: 0.75rem;
+    margin: 1rem auto;
     max-width: 55rem;
   }
   .archi-node-hero {
     background: white;
-    padding: 1rem 2rem;
-    border-radius: 12px;
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
     box-shadow: var(--shadow);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--ink);
     text-align: center;
-    min-width: 200px;
+    min-width: 240px;
+    border: 1px solid var(--border);
+  }
+  .archi-node-hero.hero-primary {
+    background: linear-gradient(135deg, var(--gov-primary), var(--gov-dark));
+    color: white;
+    border: none;
+  }
+  .archi-node-hero.hero-light {
+    background: var(--gov-light);
+    color: var(--gov-dark);
+    border-color: var(--gov-line);
   }
   .archi-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
   }
   .archi-branch {
     background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
+    border-radius: 4px;
+    padding: 1.25rem;
     box-shadow: var(--shadow);
     text-align: center;
-    border-top: 4px solid var(--matomo);
+    border-top: 4px solid var(--tool-a);
   }
-  .archi-branch.posthog { border-color: var(--posthog); }
+  .archi-branch.b { border-color: var(--tool-b); }
   .archi-branch .tool-name {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    color: var(--matomo);
+    color: var(--tool-a);
   }
-  .archi-branch.posthog .tool-name { color: var(--posthog); }
+  .archi-branch.b .tool-name { color: var(--tool-b); }
   .archi-branch .role {
     color: var(--ink-2);
     margin-top: 0.35rem;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
   .archi-arrow-down {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--ink-3);
     line-height: 1;
   }
 
-  /* Fases roadmap */
+  /* Fases */
   .phases {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin-top: 1rem;
   }
   .phase {
     background: white;
-    border-radius: 12px;
-    padding: 1.25rem;
+    border-radius: 4px;
+    padding: 1.5rem 1.25rem;
     box-shadow: var(--shadow);
-    position: relative;
     text-align: left;
-    border-top: 4px solid var(--setdig-primary);
+    border-top: 4px solid var(--gov-primary);
   }
   .phase.decision { border-color: var(--ok); }
   .phase .step {
     font-size: 0.75rem;
-    color: var(--setdig-primary);
+    color: var(--gov-primary);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
   }
   .phase.decision .step { color: var(--ok); }
   .phase .title {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--ink);
-    margin: 0.4rem 0 0.35rem;
+    margin: 0.5rem 0 0.35rem;
   }
   .phase .when {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--ink-3);
     margin-bottom: 0.5rem;
     font-family: "SF Mono", Consolas, monospace;
   }
   .phase .desc {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--ink-2);
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   /* Riscos */
@@ -513,13 +621,13 @@
   }
   .risk {
     background: white;
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 1.5rem;
     box-shadow: var(--shadow);
     border-left: 6px solid var(--danger);
   }
   .risk.warn { border-color: var(--warn); }
-  .risk.medium { border-color: #eab308; }
+  .risk.medium { border-color: #ca8a04; }
   .risk h3 {
     color: var(--ink);
     font-size: 1.15rem;
@@ -535,23 +643,23 @@
     background: var(--danger);
   }
   .risk.warn h3::before { background: var(--warn); }
-  .risk.medium h3::before { background: #eab308; }
+  .risk.medium h3::before { background: #ca8a04; }
   .risk .problem {
     color: var(--ink-2);
     font-size: 0.95rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
     line-height: 1.5;
   }
   .risk .response {
     background: var(--bg);
-    padding: 0.65rem 0.9rem;
-    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    border-radius: 3px;
     font-size: 0.9rem;
     color: var(--ink-2);
   }
   .risk .response strong { color: var(--ok); }
 
-  /* Next steps */
+  /* Steps finais */
   .steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -561,49 +669,49 @@
   .step-item {
     background: rgba(255,255,255,0.08);
     padding: 1.5rem;
-    border-radius: 12px;
-    border-left: 3px solid #7dd3fc;
+    border-radius: 4px;
+    border-left: 3px solid #a8d5ff;
     color: rgba(255,255,255,0.95);
   }
   .step-item .n {
     font-family: "SF Mono", Consolas, monospace;
     font-size: 0.75rem;
-    color: #7dd3fc;
+    color: #a8d5ff;
     font-weight: 700;
     margin-bottom: 0.4rem;
   }
   .step-item .t {
     font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
     color: white;
   }
   .step-item .d {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
     line-height: 1.4;
   }
 
   /* Rodapé */
   .footer {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 1.25rem;
     left: 5rem;
     right: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--ink-3);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
-  .footer .brand { font-weight: 600; color: var(--setdig-dark); }
+  .footer .brand { font-weight: 600; color: var(--gov-dark); }
   .cover .footer .brand, .cover .footer .counter { color: rgba(255,255,255,0.7); }
   .counter { font-family: "SF Mono", Consolas, monospace; font-weight: 600; }
 
   /* Nav */
   .nav {
     position: fixed;
-    bottom: 1.25rem;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -638,13 +746,13 @@
 
   .fs-btn {
     position: fixed;
-    top: 1.5rem;
+    top: 4.25rem;
     right: 1.5rem;
     background: rgba(15,23,42,0.6);
     color: white;
     border: 0;
     width: 40px; height: 40px;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
     z-index: 100;
@@ -667,413 +775,562 @@
 
 <div id="deck">
 
-  <!-- 1. CAPA — objetivo em 5 segundos -->
+  <!-- 1. CAPA — Institucional -->
   <section class="slide cover active">
-    <div class="badge">SETDIG · Estudo executivo</div>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Proposta institucional · Agosto 2026</div>
+    </div>
+
     <h1>Web Analytics do Estado
-      <span class="accent">Matomo ou PostHog?</span>
+      <span class="accent">Uma proposta para organizar o uso de Matomo e PostHog</span>
     </h1>
-    <p class="subtitle">Uma decisão sobre como medir os canais digitais do Estado.</p>
+    <p class="subtitle">
+      Como medir o acesso aos canais e o uso dos serviços digitais do Governo do Estado de Mato Grosso do Sul.
+    </p>
     <div class="cover-rec">
-      <strong>Recomendação:</strong> manter Matomo como padrão + usar PostHog onde houver necessidade de análise de jornada.
+      <strong>Recomendação:</strong> Matomo como padrão estadual + PostHog como ferramenta complementar para serviços digitais.
     </div>
     <div class="cover-meta">
-      Secretaria-Executiva de Transformação Digital — SETDIG · SEGOV-MS · agosto/2026
+      SEGOV-MS · Secretaria-Executiva de Transformação Digital — SETDIG · Agosto/2026
     </div>
+
     <div class="footer">
-      <span class="brand">SETDIG</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">01 / 10</span>
     </div>
   </section>
 
-  <!-- 2. PROBLEMA — duas ferramentas, dois problemas diferentes -->
+  <!-- 2. PROBLEMA — duas ferramentas, necessidades diferentes -->
   <section class="slide">
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
     <div class="badge">Problema</div>
-    <h2>Temos duas ferramentas para <span class="underline">resolver problemas diferentes</span></h2>
+    <h2>Temos duas ferramentas para <span class="underline">necessidades diferentes</span></h2>
+
     <div class="two-tools">
       <div class="tool">
-        <div class="tag">Hoje no parque</div>
-        <h3>🟦 Matomo</h3>
-        <p class="question">Já utilizado nos portais e sites do Estado.</p>
+        <div class="tag">Ambiente atual do Estado</div>
+        <div class="tool-brand">
+          <div class="tool-marker"></div>
+          <h3>Matomo</h3>
+        </div>
+        <p class="question">Já utilizado nos canais do Estado.</p>
         <div class="items">
-          <span>Portal do Governo</span>
+          <span>Portais do Estado</span>
           <span>Sites das Secretarias</span>
           <span>Serviços digitais</span>
-          <span>Métricas de audiência</span>
+          <span>Indicadores de acesso e navegação</span>
         </div>
       </div>
-      <div class="tool posthog">
-        <div class="tag">Chega com o Xvia</div>
-        <h3>🟧 PostHog</h3>
-        <p class="question">Adotado pela Xvia para analisar o comportamento dentro do novo portal.</p>
+      <div class="tool b">
+        <div class="tag">Novo cenário</div>
+        <div class="tool-brand">
+          <div class="tool-marker"></div>
+          <h3>PostHog</h3>
+        </div>
+        <p class="question">Adotado pela Xvia para analisar o uso do novo portal.</p>
         <div class="items">
-          <span>Portal Xvia</span>
-          <span>Jornadas de serviço</span>
-          <span>Funil de conversão</span>
-          <span>Experimentação</span>
+          <span>Uso dos serviços digitais</span>
+          <span>Caminho percorrido pelo cidadão</span>
+          <span>Pontos de abandono</span>
+          <span>Testes de novas funcionalidades</span>
         </div>
       </div>
     </div>
+
     <div class="decision-hero">
       <div class="decision-hero-inner">
         <div class="big">Precisamos escolher uma — ou podemos usar as duas?</div>
-        <div class="sub">Não queremos duas ferramentas <strong>fazendo a mesma coisa</strong>. Queremos entender <strong>onde cada uma agrega valor</strong>.</div>
+        <div class="sub">O objetivo <strong>não é ter duas ferramentas fazendo a mesma coisa</strong>. É entender <strong>onde cada uma entrega mais valor</strong>.</div>
       </div>
     </div>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">02 / 10</span>
     </div>
   </section>
 
-  <!-- 3. ESCOPO — o que foi comparado -->
+  <!-- 3. ESCOPO -->
   <section class="slide">
-    <div class="badge">Escopo</div>
-    <h2>O que foi <span class="underline">comparado</span></h2>
-    <p class="subtitle">Critério: soluções gratuitas, auto-hospedadas, sob infraestrutura do Estado.</p>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
+    <div class="badge">O que foi analisado</div>
+    <h2>Comparamos <span class="underline">quatro alternativas</span> que podem funcionar dentro da infraestrutura do Estado</h2>
+
     <div class="scope-grid">
       <div class="scope-criterion">
-        <h3>Filtros aplicados</h3>
+        <h3>Critérios utilizados</h3>
         <ul>
-          <li>Licença gratuita</li>
-          <li>Auto-hospedagem viável</li>
-          <li>Roda na infra do Estado</li>
+          <li>Sem custo de licença</li>
+          <li>Pode ser instalada no Estado</li>
+          <li>Dados permanecem sob controle do Estado</li>
           <li>Sem transferência internacional</li>
         </ul>
       </div>
+
       <table style="margin-top: 0;">
         <thead>
           <tr>
-            <th>Plataforma</th>
+            <th>Ferramenta</th>
             <th>Característica principal</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Matomo</strong></td>
-            <td>Web Analytics — padrão do parque, adotado no Estado</td>
+            <td>Análise de acesso e navegação — padrão hoje no Estado</td>
           </tr>
           <tr>
             <td><strong>PostHog</strong></td>
-            <td>Product Analytics — jornada, funil, experimentação</td>
+            <td>Análise do uso dos serviços digitais</td>
           </tr>
           <tr>
             <td><strong>Plausible</strong></td>
-            <td>Analytics simples e privacy-first</td>
+            <td>Análise simples de acesso</td>
           </tr>
           <tr>
             <td><strong>Umami</strong></td>
-            <td>Analytics simples e leve</td>
+            <td>Análise simples e leve</td>
           </tr>
         </tbody>
       </table>
     </div>
+
     <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--ink-3); text-align: center;">
-      Ferramentas SaaS ou proprietárias (Google Analytics, Adobe, Clarity) ficaram fora do escopo — análise completa preservada como apêndice técnico.
+      Ferramentas com dados fora do país (Google Analytics, Adobe, Clarity) ficaram fora do escopo — análise técnica preservada em apêndice.
     </p>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">03 / 10</span>
     </div>
   </section>
 
-  <!-- 4. TRADE-OFF — dimensões estratégicas Matomo × PostHog -->
+  <!-- 4. COMPARAÇÃO — onde cada uma é mais forte -->
   <section class="slide">
-    <div class="badge">Resultado do trade-off</div>
-    <h2>Onde <span class="underline">cada uma</span> se destaca</h2>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
+    <div class="badge">Resultado da comparação</div>
+    <h2>Onde cada ferramenta é <span class="underline">mais forte</span></h2>
+
     <table>
       <thead>
         <tr>
-          <th>Dimensão</th>
+          <th>O que precisamos analisar</th>
           <th class="center">Matomo</th>
           <th class="center">PostHog</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Web Analytics</strong> (audiência, canais, conteúdo)</td>
-          <td class="center"><span class="signal ok">Excelente</span></td>
+          <td><strong>Acessos aos portais</strong></td>
+          <td class="center"><span class="signal ok">Muito bom</span></td>
           <td class="center"><span class="signal mid">Bom</span></td>
         </tr>
         <tr>
-          <td><strong>Jornada e funil</strong> de serviço digital</td>
-          <td class="center"><span class="signal mid">Bom</span></td>
-          <td class="center"><span class="signal ok">Excelente</span></td>
+          <td><strong>Navegação do cidadão</strong></td>
+          <td class="center"><span class="signal ok">Muito bom</span></td>
+          <td class="center"><span class="signal ok">Muito bom</span></td>
         </tr>
         <tr>
-          <td><strong>Privacidade e conformidade</strong> LGPD</td>
+          <td><strong>Uso de um serviço digital</strong></td>
+          <td class="center"><span class="signal mid">Bom</span></td>
+          <td class="center"><span class="signal ok">Muito bom</span></td>
+        </tr>
+        <tr>
+          <td><strong>Proteção de dados</strong></td>
           <td class="center"><span class="signal ok">Alta</span></td>
           <td class="center"><span class="signal mid">Média</span></td>
         </tr>
         <tr>
-          <td><strong>Complexidade operacional</strong></td>
-          <td class="center"><span class="signal ok">Baixa</span></td>
-          <td class="center"><span class="signal bad">Alta</span></td>
+          <td><strong>Facilidade de operação</strong></td>
+          <td class="center"><span class="signal ok">Maior</span></td>
+          <td class="center"><span class="signal bad">Menor</span></td>
         </tr>
         <tr>
-          <td><strong>Uso no Estado</strong> (base instalada + competência)</td>
-          <td class="center"><span class="signal ok">Maduro</span></td>
-          <td class="center"><span class="signal mid">Novo</span></td>
+          <td><strong>Experiência do Estado</strong></td>
+          <td class="center"><span class="signal ok">Consolidada</span></td>
+          <td class="center"><span class="signal mid">Nova</span></td>
         </tr>
       </tbody>
     </table>
-    <div class="decision-hero" style="margin-top: 1.75rem;">
+
+    <div class="decision-hero" style="margin-top: 1.5rem;">
       <div class="decision-hero-inner">
-        <div class="big" style="font-size: 1.6rem;">
-          Matomo é melhor como <strong>padrão estadual</strong>.<br>
-          PostHog agrega valor em <strong>jornadas digitais mais complexas</strong>.
+        <div class="big" style="font-size: 1.5rem;">
+          <strong>Matomo</strong> é mais adequado para o ambiente geral do Estado.<br>
+          <strong>PostHog</strong> agrega valor para analisar em profundidade o uso de um serviço digital.
         </div>
       </div>
     </div>
-    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--ink-3); text-align: center;">
-      Matriz MAUT completa (12 critérios, notas 1–5) disponível como apêndice técnico.
+
+    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--ink-3); text-align: center;">
+      Matriz de avaliação completa (12 critérios, notas 1–5) disponível em apêndice técnico.
     </p>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">04 / 10</span>
     </div>
   </section>
 
-  <!-- 5. COMPLEMENTARIDADE — não são exatamente concorrentes -->
+  <!-- 5. PERGUNTAS DIFERENTES -->
   <section class="slide">
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
     <div class="badge">Diferença de propósito</div>
-    <h2>Matomo e PostHog <span class="underline">não são exatamente concorrentes</span></h2>
+    <h2>Cada ferramenta responde <span class="underline">uma pergunta diferente</span></h2>
+
     <div class="two-tools" style="margin-bottom: 1rem;">
       <div class="tool">
-        <div class="tag">🟦 Matomo</div>
-        <p class="question">"Quem acessa nossos canais e como eles navegam?"</p>
+        <div class="tool-brand">
+          <div class="tool-marker"></div>
+          <h3>Matomo</h3>
+        </div>
+        <p class="question">"Quantas pessoas acessam nossos canais e como elas navegam?"</p>
         <div class="items">
-          <span>Audiência</span>
-          <span>Páginas</span>
-          <span>Visitas</span>
-          <span>Origem</span>
-          <span>Comportamento agregado</span>
-          <span>Indicadores institucionais</span>
-          <span>BI</span>
+          <span>Acessos</span>
+          <span>Páginas visitadas</span>
+          <span>Origem dos acessos</span>
+          <span>Navegação</span>
+          <span>Indicadores dos portais</span>
         </div>
       </div>
-      <div class="tool posthog">
-        <div class="tag">🟧 PostHog</div>
-        <p class="question">"Como o cidadão utiliza nosso serviço digital?"</p>
+      <div class="tool b">
+        <div class="tool-brand">
+          <div class="tool-marker"></div>
+          <h3>PostHog</h3>
+        </div>
+        <p class="question">"Como o cidadão utiliza um serviço digital?"</p>
         <div class="items">
-          <span>Jornada</span>
-          <span>Funil</span>
-          <span>Eventos identificados</span>
-          <span>Abandono</span>
-          <span>Feature flags</span>
-          <span>Experimentação</span>
-          <span>Replay consentido</span>
+          <span>Etapas realizadas</span>
+          <span>Onde o cidadão desiste</span>
+          <span>Funcionalidades utilizadas</span>
+          <span>Testes de melhorias</span>
+          <span>Análise detalhada da utilização</span>
         </div>
       </div>
     </div>
-    <div class="quote-hero" style="margin: 1.5rem auto 0; padding: 2rem 3rem;">
-      <div class="line-1">Matomo mede o canal.</div>
-      <div class="line-2">PostHog ajuda a entender o produto digital.</div>
+
+    <div class="anchor-quote">
+      <div class="line-1">Matomo → visão dos canais</div>
+      <div class="line-2">PostHog → visão dos serviços</div>
     </div>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">05 / 10</span>
     </div>
   </section>
 
-  <!-- 6. RECOMENDAÇÃO — a revelação -->
+  <!-- 6. RECOMENDAÇÃO -->
   <section class="slide">
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
     <div class="badge">Recomendação</div>
-    <h2>Não substituir. Não duplicar. <span class="underline">Coexistir.</span></h2>
+    <h2>Manter o Matomo e utilizar o PostHog de <span class="underline">forma complementar</span></h2>
+
     <div class="rec-layout">
       <div class="rec-box">
-        <div class="role">Manter como padrão estadual</div>
-        <div class="name">🟦 Matomo</div>
+        <div class="role">Padrão para o Estado</div>
+        <div class="name">Matomo</div>
         <div class="for">Para</div>
         <div class="items">
           <span>Portais</span>
           <span>Sites</span>
-          <span>Conteúdo</span>
           <span>Serviços</span>
+          <span>Conteúdo</span>
+          <span>Indicadores de acesso</span>
         </div>
       </div>
       <div class="rec-plus">+</div>
-      <div class="rec-box posthog">
-        <div class="role">Complementar no Xvia</div>
-        <div class="name">🟧 PostHog</div>
+      <div class="rec-box b">
+        <div class="role">Uso complementar no Xvia</div>
+        <div class="name">PostHog</div>
         <div class="for">Para</div>
         <div class="items">
-          <span>Jornadas</span>
-          <span>Funis</span>
-          <span>Eventos</span>
-          <span>Experimentação</span>
+          <span>Serviços digitais</span>
+          <span>Jornada do cidadão</span>
+          <span>Etapas do serviço</span>
+          <span>Testes de melhorias</span>
         </div>
       </div>
     </div>
-    <div class="rec-conclusion">
-      <strong>Matomo + PostHog</strong> — cada ferramenta com uma responsabilidade clara.
+
+    <div class="rec-conclusion" style="font-size: 1.2rem;">
+      Uma ferramenta <strong>não substitui a outra</strong>. Cada uma será utilizada <strong>onde entrega mais valor</strong>.
     </div>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">06 / 10</span>
     </div>
   </section>
 
-  <!-- 7. ARQUITETURA — visão conceitual -->
+  <!-- 7. ORGANIZAÇÃO DOS DADOS -->
   <section class="slide">
-    <div class="badge">Arquitetura</div>
-    <h2>Como fica a <span class="underline">arquitetura</span></h2>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
+    <div class="badge">Organização dos dados</div>
+    <h2>Como os dados serão <span class="underline">organizados</span></h2>
+
     <div class="archi-simple">
-      <div class="archi-node-hero" style="background: linear-gradient(135deg, var(--setdig-primary), var(--setdig-dark)); color: white;">👤 CIDADÃO</div>
+      <div class="archi-node-hero hero-primary">CIDADÃO</div>
       <div class="archi-arrow-down">↓</div>
       <div class="archi-split">
         <div class="archi-branch">
-          <div class="tool-name">🟦 MATOMO</div>
-          <div class="role">Audiência e canais</div>
+          <div class="tool-name">Matomo</div>
+          <div class="role">Acessos e navegação</div>
         </div>
-        <div class="archi-branch posthog">
-          <div class="tool-name">🟧 POSTHOG</div>
-          <div class="role">Jornada e produto</div>
+        <div class="archi-branch b">
+          <div class="tool-name">PostHog</div>
+          <div class="role">Uso dos serviços</div>
         </div>
       </div>
       <div class="archi-arrow-down">↓</div>
-      <div class="archi-node-hero">🏛️ INFRAESTRUTURA DO ESTADO</div>
+      <div class="archi-node-hero">INFRAESTRUTURA DO ESTADO</div>
       <div class="archi-arrow-down">↓</div>
-      <div class="archi-node-hero" style="background: var(--setdig-light); color: var(--setdig-dark);">📊 BI CORPORATIVO</div>
+      <div class="archi-node-hero hero-light">DADOS PARA GESTÃO (BI)</div>
     </div>
-    <div class="rec-conclusion" style="border-color: var(--setdig-primary); margin-top: 1rem;">
-      As duas ferramentas ficam <strong>sob custódia do Estado</strong>, e <strong>cada métrica terá uma fonte oficial definida</strong>.
+
+    <div class="rec-conclusion" style="border-color: var(--gov-primary); margin-top: 1rem;">
+      Os dados <strong>permanecem sob controle do Estado</strong>. Cada indicador terá uma <strong>fonte oficial</strong> para evitar números diferentes nos relatórios.
     </div>
-    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--ink-3); text-align: center;">
-      Diagrama técnico (MySQL, Redis, ClickHouse, Kafka) na arquitetura detalhada.
+
+    <p style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--ink-3); text-align: center;">
+      Diagrama técnico detalhado disponível em apêndice.
     </p>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">07 / 10</span>
     </div>
   </section>
 
-  <!-- 8. ROADMAP — como vamos validar a decisão -->
+  <!-- 8. VALIDAÇÃO -->
   <section class="slide">
-    <div class="badge">Roadmap</div>
-    <h2>Como vamos <span class="underline">validar</span> a decisão</h2>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
+    <div class="badge">Como vamos validar</div>
+    <h2>Vamos <span class="underline">testar antes de decidir</span> pela continuidade</h2>
+
     <div class="phases">
       <div class="phase">
-        <div class="step">1</div>
-        <div class="title">Homologar</div>
-        <div class="when">0–1 mês</div>
-        <div class="desc">Validar arquitetura e requisitos com Comitê + DPO + SegInfo.</div>
-      </div>
-      <div class="phase">
-        <div class="step">2</div>
+        <div class="step">Etapa 1</div>
         <div class="title">Preparar</div>
-        <div class="when">1–3 meses</div>
-        <div class="desc">LGPD, infraestrutura e governança do dado.</div>
+        <div class="when">0–3 meses</div>
+        <div class="desc">Adequar proteção de dados e infraestrutura.</div>
       </div>
       <div class="phase">
-        <div class="step">3</div>
+        <div class="step">Etapa 2</div>
         <div class="title">Testar</div>
         <div class="when">4–9 meses</div>
-        <div class="desc">Escala, segurança e desempenho — pico 30×.</div>
+        <div class="desc">Verificar segurança, estabilidade e velocidade.</div>
       </div>
       <div class="phase">
-        <div class="step">4</div>
-        <div class="title">Medir valor</div>
+        <div class="step">Etapa 3</div>
+        <div class="title">Utilizar</div>
         <div class="when">10–14 meses</div>
-        <div class="desc">BI integrado + uso real do PostHog no Xvia.</div>
+        <div class="desc">Usar o PostHog no Xvia e avaliar os resultados.</div>
       </div>
       <div class="phase decision">
-        <div class="step">5</div>
-        <div class="title">Decidir</div>
+        <div class="step">Etapa 4</div>
+        <div class="title">Avaliar</div>
         <div class="when">até 24 meses</div>
-        <div class="desc">PostHog continua se comprovar valor. Caso contrário, reavalia.</div>
+        <div class="desc">Verificar se o ganho justifica a continuidade.</div>
       </div>
     </div>
-    <div class="rec-conclusion" style="border-color: var(--ok); margin-top: 1.75rem; font-size: 1.15rem;">
-      O PostHog <strong>não recebe cheque em branco</strong>. Sua continuidade será baseada em <strong>evidências de valor</strong>.
+
+    <div class="rec-conclusion" style="border-color: var(--ok); margin-top: 1.75rem; font-size: 1.2rem;">
+      Se <strong>não gerar valor</strong>, reavaliamos. A decisão fica sempre <strong>baseada em resultados</strong>.
     </div>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">08 / 10</span>
     </div>
   </section>
 
-  <!-- 9. RISCOS — o que estamos assumindo -->
+  <!-- 9. RISCOS -->
   <section class="slide">
-    <div class="badge">Riscos assumidos</div>
-    <h2>O que pode <span class="underline">dar errado</span> — e como controlamos</h2>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Web Analytics do Estado</div>
+    </div>
+
+    <div class="badge">Riscos e controles</div>
+    <h2>O que pode <span class="underline">dar errado</span> — e como vamos controlar</h2>
+
     <div class="risks">
       <div class="risk">
-        <h3>Privacidade</h3>
-        <div class="problem">Session replay pode capturar informação sensível do cidadão (CPF, dado de saúde, valores financeiros).</div>
-        <div class="response"><strong>Resposta:</strong> mascaramento agressivo por padrão + opt-in explícito + DPIA específico.</div>
+        <h3>Proteção dos dados</h3>
+        <div class="problem">A reprodução da navegação do cidadão pode registrar informações sensíveis.</div>
+        <div class="response"><strong>Como controlar:</strong> proteção automática + autorização explícita + avaliação de impacto.</div>
       </div>
       <div class="risk warn">
         <h3>Complexidade</h3>
-        <div class="problem">PostHog possui infraestrutura mais complexa (6 componentes distribuídos), sem suporte oficial ao auto-hospedado.</div>
-        <div class="response"><strong>Resposta:</strong> plano de capacitação da STI + reserva orçamentária para suporte especializado + plano de contingência.</div>
+        <div class="problem">O PostHog exige uma estrutura mais complexa para funcionar.</div>
+        <div class="response"><strong>Como controlar:</strong> capacitação da equipe + suporte especializado + alternativa de contingência.</div>
       </div>
       <div class="risk medium">
-        <h3>Performance</h3>
-        <div class="problem">Dois scripts carregando no portal Xvia podem impactar o tempo de carregamento em conexões lentas.</div>
-        <div class="response"><strong>Resposta:</strong> monitoramento contínuo de LCP + gatilho de reavaliação se ultrapassar limite.</div>
+        <h3>Velocidade</h3>
+        <div class="problem">Duas ferramentas podem aumentar o tempo de carregamento do portal.</div>
+        <div class="response"><strong>Como controlar:</strong> acompanhar continuamente o desempenho.</div>
       </div>
       <div class="risk medium">
-        <h3>Dados diferentes</h3>
-        <div class="problem">Matomo e PostHog podem apresentar números diferentes para métricas equivalentes.</div>
-        <div class="response"><strong>Resposta:</strong> cada métrica terá uma fonte oficial definida + reconciliação mensal (divergência ≤ 15 %).</div>
+        <h3>Números diferentes</h3>
+        <div class="problem">As ferramentas podem apresentar resultados diferentes para o mesmo indicador.</div>
+        <div class="response"><strong>Como controlar:</strong> definir uma fonte oficial para cada indicador.</div>
       </div>
     </div>
-    <div class="rec-conclusion" style="border-color: var(--ok); margin-top: 1.25rem; font-size: 1.15rem;">
+
+    <div class="rec-conclusion" style="border-color: var(--ok); margin-top: 1.25rem; font-size: 1.2rem;">
       O risco <strong>não desaparece</strong>. Ele passa a ser <strong>controlado</strong>.
     </div>
+
     <div class="footer">
-      <span class="brand">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand">SEGOV-MS · SETDIG</span>
       <span class="counter">09 / 10</span>
     </div>
   </section>
 
   <!-- 10. PRÓXIMOS PASSOS -->
   <section class="slide cover" style="background: linear-gradient(135deg, #003a76 0%, #001a4d 100%);">
-    <div class="badge">Próximos passos</div>
+    <div class="gov-header">
+      <img src="assets/logo-governo-ms.svg" alt="Governo do Estado de Mato Grosso do Sul">
+      <div class="divider"></div>
+      <div class="titles">
+        <div class="l1">SETDIG</div>
+        <div class="l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="doc-tag">Próximos passos</div>
+    </div>
+
+    <div class="badge" style="background: rgba(255,255,255,0.15); color: white;">Próximos passos</div>
     <h1 style="color: white;">Vamos
-      <span class="accent" style="color: #7dd3fc;">testar e medir</span>
+      <span class="accent" style="color: #a8d5ff;">testar, medir e decidir</span>
     </h1>
     <p class="subtitle" style="color: rgba(255,255,255,0.85); font-size: 1.15rem;">
-      Se não gerar valor, reavaliamos. A decisão fica sempre baseada em evidência.
+      A continuidade da proposta depende dos resultados obtidos ao longo da validação.
     </p>
+
     <div class="steps">
       <div class="step-item">
         <div class="n">01</div>
-        <div class="t">Aprovar a arquitetura</div>
-        <div class="d">Comitê de Arquitetura + DPO + Segurança + Time Xvia.</div>
+        <div class="t">Aprovar a proposta</div>
+        <div class="d">Comitê e áreas responsáveis pela decisão.</div>
       </div>
       <div class="step-item">
         <div class="n">02</div>
-        <div class="t">Validar ambiente atual</div>
-        <div class="d">LGPD, anonimização, retenção — parque Matomo existente.</div>
+        <div class="t">Avaliar o ambiente atual</div>
+        <div class="d">Proteção de dados e configuração do Matomo.</div>
       </div>
       <div class="step-item">
         <div class="n">03</div>
-        <div class="t">Validar capacidade da STI</div>
-        <div class="d">Infraestrutura e sustentação do stack PostHog.</div>
+        <div class="t">Avaliar a capacidade técnica</div>
+        <div class="d">Infraestrutura e sustentação das ferramentas.</div>
       </div>
       <div class="step-item">
         <div class="n">04</div>
-        <div class="t">Implementar piloto</div>
-        <div class="d">Matomo + PostHog em coexistência no portal Xvia.</div>
+        <div class="t">Fazer um teste no Xvia</div>
+        <div class="d">Matomo + PostHog em uso complementar.</div>
       </div>
       <div class="step-item">
         <div class="n">05</div>
-        <div class="t">Medir resultado</div>
-        <div class="d">Uso, desempenho, funis e valor entregue ao cidadão.</div>
+        <div class="t">Medir os resultados</div>
+        <div class="d">Uso, velocidade e conclusão dos serviços.</div>
       </div>
       <div class="step-item">
         <div class="n">06</div>
-        <div class="t">Reavaliar</div>
-        <div class="d">Decisão baseada nos resultados — continuar, ajustar ou reverter.</div>
+        <div class="t">Tomar a decisão</div>
+        <div class="d">Continuar, ajustar ou reverter — com base em evidência.</div>
       </div>
     </div>
+
     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 2rem; text-align: center;">
-      Secretaria-Executiva de Transformação Digital — SETDIG · SEGOV-MS · agosto/2026
+      Secretaria-Executiva de Transformação Digital — SETDIG · SEGOV-MS · Agosto/2026
     </p>
+
     <div class="footer">
-      <span class="brand" style="color: rgba(255,255,255,0.7);">SETDIG · Matomo ou PostHog?</span>
+      <span class="brand" style="color: rgba(255,255,255,0.7);">SEGOV-MS · SETDIG</span>
       <span class="counter" style="color: rgba(255,255,255,0.7);">10 / 10</span>
     </div>
   </section>
