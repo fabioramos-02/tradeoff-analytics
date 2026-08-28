@@ -2,146 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/anexos/benchmark/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/anexos/glossario/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/anexos/matriz/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/apresentacoes/camada-complementar-posthog/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/api/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/coexistencia-matomo-posthog/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/custo/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/escalabilidade/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/governanca/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/infraestrutura/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/lgpd/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/matomo-vs-posthog/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
+    </url>
+    <url>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/comparativos/on-premise-gratis/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/01-contexto/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/02-requisitos/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/03-criterios-de-avaliacao/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/03-criterios/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/04-mercado/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/05-comparativo-detalhado/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/05-matriz/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/06-tradeoffs/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/06-adr-002/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/07-matriz-decisao/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/07-recomendacao/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/08-adr-002/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/08-roadmap/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/08-adr/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/09-recomendacao/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/10-roadmap/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/11-riscos/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/12-referencias/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/adobe-analytics/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/cloudflare-web-analytics/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/google-analytics/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <loc>https://fabioramos-02.github.io/tradeoff-analytics/docs/99-referencias/</loc>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/matomo/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/microsoft-clarity/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/open-web-analytics/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/plausible/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/posthog/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/simple-analytics/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://fabioramos-02.github.io/tradeoff-analytics/plataformas/umami/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-28</lastmod>
     </url>
 </urlset>

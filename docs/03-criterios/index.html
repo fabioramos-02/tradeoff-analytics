@@ -1,0 +1,2276 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/03-criterios/">
+      
+      
+        <link rel="prev" href="../02-requisitos/">
+      
+      
+        <link rel="next" href="../04-mercado/">
+      
+      
+      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Critérios - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03--critérios-de-avaliação" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Critérios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/matomo-vs-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../apresentacoes/camada-complementar-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Apresentações
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Critérios
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Critérios
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Modelo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-triagem-eliminatória" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Triagem eliminatória
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Triagem eliminatória">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-critérios-de-eliminação" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Critérios de eliminação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-resultado-escopo-enxugado--só-on-prem-grátis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Resultado (escopo enxugado — só on-prem grátis)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-trade-off-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Trade-off points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-critérios-e-pesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Critérios e pesos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Critérios e pesos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cenários-de-sensibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Cenários de sensibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-definição-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Definição operacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Definição operacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c01--lgpd-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      C01 — LGPD (15)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c02--controle-dos-dados-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      C02 — Controle dos dados (15)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c03--tco-0-informativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      C03 — TCO (0, informativo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c04--independência-tecnológica-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      C04 — Independência tecnológica (10)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c05--recursos-analíticos-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      C05 — Recursos analíticos (13)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c06--apis-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      C06 — APIs (13)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c07--integrações-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      C07 — Integrações (10)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c08--escalabilidade-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      C08 — Escalabilidade (13)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c09--segurança-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      C09 — Segurança (12)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c10--operação-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      C10 — Operação (7)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c11--comunidade-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      C11 — Comunidade (7)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c12--documentação-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      C12 — Documentação (5)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fórmula-de-agregação" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Fórmula de agregação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-análise-de-sensibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Análise de sensibilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-limitações" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Limitações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog (complementaridade)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/on-premise-gratis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On-premise gratuito (4 plataformas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coexistência Matomo + PostHog no Xvia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz completa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apresentações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Apresentações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacoes/camada-complementar-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estudo (Marp)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Modelo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-triagem-eliminatória" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Triagem eliminatória
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Triagem eliminatória">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-critérios-de-eliminação" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Critérios de eliminação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-resultado-escopo-enxugado--só-on-prem-grátis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Resultado (escopo enxugado — só on-prem grátis)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-trade-off-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Trade-off points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-critérios-e-pesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Critérios e pesos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Critérios e pesos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cenários-de-sensibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Cenários de sensibilidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-definição-operacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Definição operacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Definição operacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c01--lgpd-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      C01 — LGPD (15)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c02--controle-dos-dados-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      C02 — Controle dos dados (15)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c03--tco-0-informativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      C03 — TCO (0, informativo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c04--independência-tecnológica-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      C04 — Independência tecnológica (10)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c05--recursos-analíticos-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      C05 — Recursos analíticos (13)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c06--apis-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      C06 — APIs (13)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c07--integrações-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      C07 — Integrações (10)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c08--escalabilidade-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      C08 — Escalabilidade (13)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c09--segurança-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      C09 — Segurança (12)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c10--operação-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      C10 — Operação (7)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c11--comunidade-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      C11 — Comunidade (7)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c12--documentação-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      C12 — Documentação (5)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fórmula-de-agregação" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Fórmula de agregação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-análise-de-sensibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Análise de sensibilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-limitações" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Limitações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="03--critérios-de-avaliação">03 — Critérios de Avaliação<a class="headerlink" href="#03--critérios-de-avaliação" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Método:</strong> Gartner Decision Framework + ATAM Utility Tree + MAUT
+<strong>Anterior:</strong> <a href="../02-requisitos/">02 — Requisitos</a> · <strong>Próximo:</strong> <a href="../04-mercado/">04 — Panorama de mercado</a></p>
+<p><strong>📌 Revisão 2026</strong>
+C03 (TCO) rebaixado a <strong>peso 0</strong>, informativo. Racional: sob P1/P2/R4 (<a href="../01-contexto/#7-premissas-e-restrições"><code>01-contexto.md</code></a>), a infra on-premise absorve o custo marginal — TCO deixa de filtrar decisão. Os 15 pontos foram redistribuídos entre C05, C06, C08, C09, C10, C11. TCO continua modelado em <code>anexos/historico/comparativos/custo.md</code> para dimensionamento de infra e prestação de contas ao TCE-MS. Histórico do ADR-001 em <code>anexos/historico/</code>.</p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-modelo">1. Modelo</a></li>
+<li><a href="#2-triagem-eliminatória">2. Triagem eliminatória</a></li>
+<li><a href="#3-trade-off-points">3. Trade-off points</a></li>
+<li><a href="#4-critérios-e-pesos">4. Critérios e pesos</a></li>
+<li><a href="#5-definição-operacional">5. Definição operacional</a></li>
+<li><a href="#6-fórmula-de-agregação">6. Fórmula de agregação</a></li>
+<li><a href="#7-análise-de-sensibilidade">7. Análise de sensibilidade</a></li>
+<li><a href="#8-limitações">8. Limitações</a></li>
+</ul>
+<hr />
+<h2 id="1-modelo">1. Modelo<a class="headerlink" href="#1-modelo" title="Permanent link">&para;</a></h2>
+<p>Duas etapas sequenciais.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Candidatas"] --&gt; B{"Triagem&lt;br/&gt;eliminatória"}
+    B --&gt;|"Reprovada"| C["❌ Descartada"]
+    B --&gt;|"Aprovada"| D["Avaliação&lt;br/&gt;ponderada&lt;br/&gt;12 critérios"]
+    D --&gt; E["Nota 1–5&lt;br/&gt;por critério"]
+    E --&gt; F["Σ (peso × nota)"]
+    F --&gt; G["Ranking"]
+    G --&gt; H{"Sensibilidade"}
+    H --&gt;|"Estável"| I["✅ Recomendação"]
+    H --&gt;|"Instável"| J["⚠️ PoC + condição"]
+
+    style C fill:#7F1D1D,stroke:#EF4444,color:#FFFFFF
+    style I fill:#14532D,stroke:#22C55E,color:#FFFFFF
+    style J fill:#713F12,stroke:#FACC15,color:#FFFFFF</code></pre>
+<blockquote>
+<p><strong>📌 Por que duas etapas</strong>
+Modelo puramente ponderado permite que excelência técnica compense falha legal. Inaceitável em contexto público. Triagem eliminatória bloqueia essa compensação — aplica <em>constraint</em> do TOGAF (limite rígido), distinto de <em>requirement</em> (ponderável).</p>
+</blockquote>
+<hr />
+<h2 id="2-triagem-eliminatória">2. Triagem eliminatória<a class="headerlink" href="#2-triagem-eliminatória" title="Permanent link">&para;</a></h2>
+<p>Falha em qualquer <em>Must have</em> de <a href="../02-requisitos/"><code>02-requisitos.md</code></a> elimina.</p>
+<h3 id="21-critérios-de-eliminação">2.1 Critérios de eliminação<a class="headerlink" href="#21-critérios-de-eliminação" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Critério</th>
+<th>Requisito</th>
+<th>Racional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>Não pode operar como controlador com custódia definida</td>
+<td>RL-01</td>
+<td>Delegação sem instrumento jurídico</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Transferência internacional sem base legal viável</td>
+<td>RL-02</td>
+<td>Art. 33 LGPD</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Não anonimiza IP</td>
+<td>RL-03</td>
+<td>Necessidade</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Não define/aplica retenção</td>
+<td>RL-05</td>
+<td>Arts. 15/16</td>
+</tr>
+<tr>
+<td>E5</td>
+<td>Não exporta integralmente</td>
+<td>RG-03</td>
+<td>Lock-in inaceitável</td>
+</tr>
+<tr>
+<td>E6</td>
+<td>CVE crítica em aberto / projeto sem manutenção</td>
+<td>RNF-39, RNF-36</td>
+<td>Segurança</td>
+</tr>
+<tr>
+<td>E7</td>
+<td>Sem API de leitura</td>
+<td>RI-01</td>
+<td>Impede BI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-resultado-escopo-enxugado--só-on-prem-grátis">2.2 Resultado (escopo enxugado — só on-prem grátis)<a class="headerlink" href="#22-resultado-escopo-enxugado--só-on-prem-grátis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">E1</th>
+<th style="text-align: center;">E2</th>
+<th style="text-align: center;">E3</th>
+<th style="text-align: center;">E4</th>
+<th style="text-align: center;">E5</th>
+<th style="text-align: center;">E6</th>
+<th style="text-align: center;">E7</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matomo On-Premise</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td><strong>Aprovada</strong></td>
+</tr>
+<tr>
+<td><strong>PostHog auto-hospedado</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td><strong>Aprovada</strong></td>
+</tr>
+<tr>
+<td><strong>Plausible CE</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td><strong>Aprovada</strong></td>
+</tr>
+<tr>
+<td><strong>Umami</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td><strong>Aprovada</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plataformas fora do escopo (arquivadas em <code>anexos/historico/plataformas-descartadas/</code>):</strong> GA4, Adobe Analytics, Microsoft Clarity, Cloudflare Web Analytics, Simple Analytics, Open Web Analytics. Motivos: SaaS proprietário (fora do escopo on-prem grátis) ou eliminado por E4/E6 (OWA — CVE-2022-24637 sem correção; Clarity — retenção definida unilateralmente pela MS; Cloudflare — retenção fixa curta). Ver histórico para análise completa.</p>
+<hr />
+<h2 id="3-trade-off-points">3. Trade-off points<a class="headerlink" href="#3-trade-off-points" title="Permanent link">&para;</a></h2>
+<p>Terminologia ATAM: sensibilidade (afeta 1 atributo), trade-off (afeta 2+ em direções opostas), risco (ameaça atributo prioritário).</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Tipo</th>
+<th>Decisão</th>
+<th>Atributos afetados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP-01</td>
+<td>🔀 Trade-off</td>
+<td>Auto-hospedado vs. SaaS</td>
+<td>⬆️ Soberania, Independência · ⬇️ Facilidade operacional</td>
+</tr>
+<tr>
+<td>TP-02</td>
+<td>🔀 Trade-off</td>
+<td>Banco relacional vs. colunar (ClickHouse)</td>
+<td>⬆️ Simplicidade · ⬇️ Desempenho analítico em alto volume</td>
+</tr>
+<tr>
+<td>TP-03</td>
+<td>🔀 Trade-off</td>
+<td>Coleta rica (identificação) vs. cookieless</td>
+<td>⬆️ Analítica · ⬇️ Conformidade</td>
+</tr>
+<tr>
+<td>TP-04</td>
+<td>🔀 Trade-off</td>
+<td>Retenção longa vs. curta</td>
+<td>⬆️ Análise histórica · ⬇️ Conformidade, custo</td>
+</tr>
+<tr>
+<td>TP-05</td>
+<td>🔀 Trade-off</td>
+<td>Ingestão síncrona vs. assíncrona (fila)</td>
+<td>⬆️ Simplicidade · ⬇️ Resiliência a pico</td>
+</tr>
+<tr>
+<td>TP-06</td>
+<td>🎯 Sensibilidade</td>
+<td>Arquivamento (cron vs. sob demanda)</td>
+<td>Desempenho relatório</td>
+</tr>
+<tr>
+<td>TP-07</td>
+<td>🎯 Sensibilidade</td>
+<td>Plugins pagos vs. escopo funcional</td>
+<td>Custo, cobertura</td>
+</tr>
+<tr>
+<td>TP-08</td>
+<td>⚠️ Risco</td>
+<td>Um mantenedor comercial em projeto "open source"</td>
+<td>Independência, continuidade</td>
+</tr>
+<tr>
+<td>TP-09</td>
+<td>🔀 Trade-off</td>
+<td>Instância única vs. por órgão</td>
+<td>⬆️ Escala, visão consolidada · ⬇️ Isolamento</td>
+</tr>
+<tr>
+<td>TP-10</td>
+<td>🎯 Sensibilidade</td>
+<td>Tracking client-side vs. server-side</td>
+<td>Precisão, conformidade, complexidade</td>
+</tr>
+</tbody>
+</table>
+<p>Análise por plataforma: <a href="../05-matriz/"><code>05-matriz.md</code></a>.</p>
+<hr />
+<h2 id="4-critérios-e-pesos">4. Critérios e pesos<a class="headerlink" href="#4-critérios-e-pesos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Critério</th>
+<th style="text-align: right;">Peso</th>
+<th style="text-align: right;">%</th>
+<th>Direcionador</th>
+<th>Natureza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C01</td>
+<td>LGPD</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">12,5</td>
+<td>D2</td>
+<td>Conformidade</td>
+</tr>
+<tr>
+<td>C02</td>
+<td>Controle dos dados</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">12,5</td>
+<td>D1</td>
+<td>Governança</td>
+</tr>
+<tr>
+<td>C03</td>
+<td>TCO <em>(informativo, peso 0)</em></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0,0</td>
+<td>D7</td>
+<td>Econômico</td>
+</tr>
+<tr>
+<td>C04</td>
+<td>Independência tecnológica</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">8,3</td>
+<td>D3</td>
+<td>Governança</td>
+</tr>
+<tr>
+<td>C05</td>
+<td>Recursos analíticos</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">10,8</td>
+<td>D5</td>
+<td>Funcional</td>
+</tr>
+<tr>
+<td>C06</td>
+<td>APIs</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">10,8</td>
+<td>D6</td>
+<td>Técnico</td>
+</tr>
+<tr>
+<td>C07</td>
+<td>Integrações</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">8,3</td>
+<td>D6</td>
+<td>Técnico</td>
+</tr>
+<tr>
+<td>C08</td>
+<td>Escalabilidade</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">10,8</td>
+<td>D8</td>
+<td>Técnico</td>
+</tr>
+<tr>
+<td>C09</td>
+<td>Segurança</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">10,0</td>
+<td>Transversal</td>
+<td>Conformidade</td>
+</tr>
+<tr>
+<td>C10</td>
+<td>Operação</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5,8</td>
+<td>D4</td>
+<td>Operacional</td>
+</tr>
+<tr>
+<td>C11</td>
+<td>Comunidade</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5,8</td>
+<td>Transversal</td>
+<td>Sustentabilidade</td>
+</tr>
+<tr>
+<td>C12</td>
+<td>Documentação</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4,2</td>
+<td>Transversal</td>
+<td>Sustentabilidade</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>120</strong></td>
+<td style="text-align: right;">100</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>✅ Racional dos pesos (revisão 2026)</strong></p>
+<ul>
+<li><strong>15 em LGPD e Controle dos dados</strong>: risco regulatório (multa ANPD até R$ 50M, art. 52) e risco de soberania. Nenhum outro critério com severidade comparável.</li>
+<li><strong>13 em Analíticos, APIs e Escalabilidade</strong> (era 10): on-prem consolidado desloca o valor real para capacidade técnica/funcional. Escala sobe pra acomodar Xvia.</li>
+<li><strong>12 em Segurança</strong> (era 10): on-prem concentra responsabilidade no Estado.</li>
+<li><strong>10 em Independência e Integrações</strong>: longevidade + interoperabilidade.</li>
+<li><strong>7 em Operação e Comunidade</strong> (era 5): coexistência Matomo+PostHog no Xvia aumenta a complexidade operacional; comunidade importa mais sem contrato comercial.</li>
+<li><strong>5 em Documentação</strong>: custo de aprendizado, importante mas não decisor.</li>
+<li><strong>0 em TCO</strong>: rebaixado — infra do Estado absorve. Mantido na tabela para rastreabilidade e no <code>anexos/historico/comparativos/custo.md</code> para dimensionamento.</li>
+</ul>
+<p><strong>Por que Segurança tem 12 e não 15</strong>: postura de segurança on-prem é majoritariamente da arquitetura do Estado (WAF, segmentação, hardening), não do produto. Produto contribui — não domina. Falha estrutural do produto é filtrada pela triagem E6 com peso absoluto.</p>
+</blockquote>
+<h3 id="41-cenários-de-sensibilidade">4.1 Cenários de sensibilidade<a class="headerlink" href="#41-cenários-de-sensibilidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>Ajuste</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base</strong></td>
+<td>Pesos oficiais acima</td>
+</tr>
+<tr>
+<td>Conformidade máxima</td>
+<td>LGPD 25, Controle 25, demais reduzidos proporcionalmente</td>
+</tr>
+<tr>
+<td>Capacidade analítica</td>
+<td>Analíticos 25, APIs 15, Integrações 15</td>
+</tr>
+<tr>
+<td>Operação enxuta</td>
+<td>Operação 25, Escalabilidade 15, Documentação 10</td>
+</tr>
+<tr>
+<td>Custo pleno (referência histórica)</td>
+<td>TCO 15 (peso ADR-001); C05, C06, C08 voltam a 10; C09 a 10; C10 e C11 a 5</td>
+</tr>
+</tbody>
+</table>
+<p>Cenário "Custo pleno" existe para auditar a mudança de peso, não é candidato à decisão.</p>
+<hr />
+<h2 id="5-definição-operacional">5. Definição operacional<a class="headerlink" href="#5-definição-operacional" title="Permanent link">&para;</a></h2>
+<p>Cada critério define notas 1 e 5 explicitamente. Notas 2–4 se interpretam por gradação.</p>
+<h3 id="c01--lgpd-15">C01 — LGPD (15)<a class="headerlink" href="#c01--lgpd-15" title="Permanent link">&para;</a></h3>
+<p>Aderência estrutural à LGPD. Sub-dimensões: consentimento necessário, transferência internacional, anonimização nativa, retenção configurável, direitos do titular, opt-out, instrumento contratual (SaaS).</p>
+<ul>
+<li><strong>5</strong>: opera sem dado pessoal identificável (cookieless + IP anonimizado por padrão); sem transferência; retenção 100% do Estado; base legal dispensável.</li>
+<li><strong>1</strong>: incompatível com órgão público; sem instrumento contratual; sem controle de retenção.</li>
+</ul>
+<h3 id="c02--controle-dos-dados-15">C02 — Controle dos dados (15)<a class="headerlink" href="#c02--controle-dos-dados-15" title="Permanent link">&para;</a></h3>
+<p>Custódia efetiva sobre o dado bruto. Sub-dimensões: localização física, titularidade, acesso ao armazenamento, exportação integral, eliminação verificável.</p>
+<ul>
+<li><strong>5</strong>: dado bruto na infra do Estado, acesso SQL direto, exportação e eliminação totais verificáveis.</li>
+<li><strong>1</strong>: dado sob custódia exclusiva do fornecedor; exportação parcial ou inexistente.</li>
+</ul>
+<h3 id="c03--tco-0-informativo">C03 — TCO (0, informativo)<a class="headerlink" href="#c03--tco-0-informativo" title="Permanent link">&para;</a></h3>
+<p>TCO 5 anos em regime de <strong>custo marginal para o Estado</strong> (P1/P2/R4). Rubricas de infra compartilhada e operação de kernel já absorvidas pelo contrato — TCO reportado inclui apenas incremento sobre o baseline. Modelagem completa em <code>anexos/historico/comparativos/custo.md</code>.</p>
+<ul>
+<li><strong>5</strong>: ≤ R$ 250 mil</li>
+<li><strong>4</strong>: R$ 250 mil – R$ 600 mil</li>
+<li><strong>3</strong>: R$ 600 mil – R$ 1,2 milhão</li>
+<li><strong>2</strong>: R$ 1,2M – R$ 3M</li>
+<li><strong>1</strong>: &gt; R$ 3M</li>
+</ul>
+<blockquote>
+<p><strong>📌 SaaS estrangeiras não têm rubrica absorvível</strong> — custo delas é integralmente incremental. Assimetria intencional, reflete a realidade contratual.</p>
+</blockquote>
+<h3 id="c04--independência-tecnológica-10">C04 — Independência tecnológica (10)<a class="headerlink" href="#c04--independência-tecnológica-10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5</strong>: licença livre (GPL/MIT/Apache/AGPL); código auditável; sem dependência de serviço do fornecedor; schema aberto; múltiplas opções de hospedagem.</li>
+<li><strong>1</strong>: proprietária, acoplamento profundo, formatos fechados, custo de saída elevado.</li>
+</ul>
+<h3 id="c05--recursos-analíticos-13">C05 — Recursos analíticos (13)<a class="headerlink" href="#c05--recursos-analíticos-13" title="Permanent link">&para;</a></h3>
+<p>Cobertura funcional de RF-01 a RF-45, ponderada por MoSCoW (M=3, S=2, C=1).</p>
+<ul>
+<li><strong>5</strong>: ≥ 90 %</li>
+<li><strong>4</strong>: 75–89 %</li>
+<li><strong>3</strong>: 55–74 %</li>
+<li><strong>2</strong>: 35–54 %</li>
+<li><strong>1</strong>: &lt; 35 %</li>
+</ul>
+<h3 id="c06--apis-13">C06 — APIs (13)<a class="headerlink" href="#c06--apis-13" title="Permanent link">&para;</a></h3>
+<p>Qualidade da superfície programática. Sub-dimensões: leitura, escrita/importação, formatos, autenticação, rate limits, versionamento, SDKs, webhooks, acesso ao bruto.</p>
+<ul>
+<li><strong>5</strong>: API completa leitura+escrita, múltiplos formatos, versionada, SDKs oficiais, webhooks, acesso ao bruto.</li>
+<li><strong>1</strong>: sem API utilizável para BI.</li>
+</ul>
+<h3 id="c07--integrações-10">C07 — Integrações (10)<a class="headerlink" href="#c07--integrações-10" title="Permanent link">&para;</a></h3>
+<p>Ecossistema do Estado: BI, IdP, tag manager, CMP.</p>
+<ul>
+<li><strong>5</strong>: conectores nativos para BI, SAML/OIDC, tag manager próprio + GTM, CMP.</li>
+<li><strong>1</strong>: integração inviável.</li>
+</ul>
+<h3 id="c08--escalabilidade-13">C08 — Escalabilidade (13)<a class="headerlink" href="#c08--escalabilidade-13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5</strong>: escala horizontal comprovada acima do cenário de pico; arquitetura distribuída nativa.</li>
+<li><strong>1</strong>: sem estratégia; gargalo estrutural sem contorno.</li>
+</ul>
+<h3 id="c09--segurança-12">C09 — Segurança (12)<a class="headerlink" href="#c09--segurança-12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5</strong>: certificações independentes (ISO 27001, SOC 2 Type II); SDLC seguro; MFA+RBAC granular; auditoria completa; sem CVE crítica.</li>
+<li><strong>1</strong>: sem processo demonstrável; CVE crítica em aberto.</li>
+</ul>
+<h3 id="c10--operação-7">C10 — Operação (7)<a class="headerlink" href="#c10--operação-7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5</strong>: SaaS gerenciado — esforço zero.</li>
+<li><strong>4</strong>: auto-hospedado simples (stack única, container, update trivial).</li>
+<li><strong>3</strong>: 2–3 componentes, cron, tuning periódico.</li>
+<li><strong>2</strong>: 4+ componentes, streaming/storage, tuning frequente.</li>
+<li><strong>1</strong>: equipe dedicada especializada.</li>
+</ul>
+<h3 id="c11--comunidade-7">C11 — Comunidade (7)<a class="headerlink" href="#c11--comunidade-7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5</strong>: comunidade muito grande e diversa; adoção massiva; múltiplos fornecedores de suporte.</li>
+<li><strong>1</strong>: comunidade inativa ou projeto em manutenção mínima.</li>
+</ul>
+<h3 id="c12--documentação-5">C12 — Documentação (5)<a class="headerlink" href="#c12--documentação-5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5</strong>: completa, atualizada, referência de API, guias, exemplos executáveis, traduções.</li>
+<li><strong>1</strong>: ausente, desatualizada ou incorreta.</li>
+</ul>
+<hr />
+<h2 id="6-fórmula-de-agregação">6. Fórmula de agregação<a class="headerlink" href="#6-fórmula-de-agregação" title="Permanent link">&para;</a></h2>
+<p>$$
+S_p = \sum_{i=1}^{12} w_i \cdot n_{p,i} \qquad S_p^{norm} = \frac{S_p}{600} \times 100\%
+$$</p>
+<p><strong>Máximo teórico:</strong> 5 × 120 = <strong>600</strong>.</p>
+<p><strong>Bandas:</strong> ≥80 % 🟢 Recomendada · 70–79 % 🟡 Viável · 60–69 % 🟠 Condicionada · &lt;60 % 🔴 Não recomendada.</p>
+<p><strong>Desempate:</strong> (1) LGPD → (2) Controle dos dados → (3) Independência → (4) Segurança.</p>
+<hr />
+<h2 id="7-análise-de-sensibilidade">7. Análise de sensibilidade<a class="headerlink" href="#7-análise-de-sensibilidade" title="Permanent link">&para;</a></h2>
+<p>Testa se o ranking é robusto a variações razoáveis de peso.</p>
+<p><strong>Critério de robustez:</strong> recomendação é <strong>robusta</strong> se o líder permanecer líder em pelo menos <strong>4 dos 5 cenários</strong>. Se muda em 2+, recomendação passa a <strong>condicionada</strong> — exige PoC comparativa.</p>
+<p>Resultados em <a href="../05-matriz/"><code>05-matriz.md</code></a>.</p>
+<hr />
+<h2 id="8-limitações">8. Limitações<a class="headerlink" href="#8-limitações" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Limitação</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>Julgamento técnico envolve subjetividade</td>
+<td>Definição operacional detalhada + justificativa por nota</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>Soma ponderada permite compensação</td>
+<td>Triagem eliminatória bloqueia falha crítica</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>Pesos podem mudar no tempo</td>
+<td>Sensibilidade + revisão 24 meses</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>Dados de proprietárias são autodeclarados</td>
+<td>Fonte primária + rótulo explícito de não verificável</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>Benchmark não executado em ambiente do Estado</td>
+<td>PoC prevista em <a href="../08-roadmap/"><code>08-roadmap.md</code></a> Onda 1</td>
+</tr>
+<tr>
+<td>L6</td>
+<td>Escala 1–5 é grosseira</td>
+<td>Desempate</td>
+</tr>
+<tr>
+<td>L7</td>
+<td>Estudo avalia produto, não implementação</td>
+<td>Arquitetura de referência em <a href="../07-recomendacao/"><code>07-recomendacao.md</code></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⬅️ Anterior</th>
+<th>➡️ Próximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../02-requisitos/">02 — Requisitos</a></td>
+<td><a href="../04-mercado/">04 — Panorama de mercado</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2558 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/06-adr-002/">
+      
+      
+        <link rel="prev" href="../05-matriz/">
+      
+      
+        <link rel="next" href="../07-recomendacao/">
+      
+      
+      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>ADR-002 (vigente) - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#06--adr-002-matomo-padrão-do-parque--posthog-complementar-no-portal-xvia" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ADR-002 (vigente)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/matomo-vs-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../apresentacoes/camada-complementar-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Apresentações
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-criterios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Contexto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-rebaixamento-do-tco" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Rebaixamento do TCO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-entrada-do-portal-xvia" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Entrada do portal Xvia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ranking-revisado" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Ranking revisado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-o-que-permanece-do-adr-001" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 O que permanece do ADR-001
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-direcionadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Direcionadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alternativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Alternativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Alternativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-descartes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Descartes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Trade-offs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Decisão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Decisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-arquitetura-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Arquitetura-alvo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Justificativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consequências" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Consequências
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consequências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-positivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Positivas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-negativas-assumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Negativas assumidas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-riscos-assumidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Riscos assumidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-condições-de-invalidação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Condições de invalidação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-revisão-futura" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Revisão futura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Revisão futura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-ordinária" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Ordinária
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-gatilhos-antecipados" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Gatilhos antecipados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-indicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Indicadores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-aprovação" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Aprovação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Aprovação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-histórico" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Histórico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-recomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog (complementaridade)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/on-premise-gratis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On-premise gratuito (4 plataformas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coexistência Matomo + PostHog no Xvia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz completa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apresentações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Apresentações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacoes/camada-complementar-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estudo (Marp)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Contexto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Contexto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-rebaixamento-do-tco" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Rebaixamento do TCO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-entrada-do-portal-xvia" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Entrada do portal Xvia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ranking-revisado" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Ranking revisado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-o-que-permanece-do-adr-001" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 O que permanece do ADR-001
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-direcionadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Direcionadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alternativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Alternativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Alternativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-descartes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Descartes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Trade-offs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Decisão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Decisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-arquitetura-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Arquitetura-alvo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Justificativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consequências" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Consequências
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consequências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-positivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Positivas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-negativas-assumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Negativas assumidas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-riscos-assumidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Riscos assumidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-condições-de-invalidação" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Condições de invalidação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-revisão-futura" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Revisão futura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Revisão futura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-ordinária" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Ordinária
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-gatilhos-antecipados" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Gatilhos antecipados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-indicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Indicadores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-aprovação" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Aprovação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Aprovação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-histórico" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Histórico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="06--adr-002-matomo-padrão-do-parque--posthog-complementar-no-portal-xvia">06 — ADR-002: Matomo padrão do parque + PostHog complementar no portal Xvia<a class="headerlink" href="#06--adr-002-matomo-padrão-do-parque--posthog-complementar-no-portal-xvia" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Formato:</strong> Michael Nygard / MADR 4.0
+<strong>Substitui:</strong> ADR-001 (arquivado em <code>../anexos/historico/docs/adr-001.md</code>)
+<strong>Anterior:</strong> <a href="../05-matriz/">05 — Matriz de decisão</a> · <strong>Próximo:</strong> <a href="../07-recomendacao/">07 — Recomendação</a></p>
+</blockquote>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#metadados">Metadados</a></li>
+<li><a href="#1-contexto">1. Contexto</a></li>
+<li><a href="#2-problema">2. Problema</a></li>
+<li><a href="#3-direcionadores">3. Direcionadores</a></li>
+<li><a href="#4-alternativas">4. Alternativas</a></li>
+<li><a href="#5-trade-offs">5. Trade-offs</a></li>
+<li><a href="#6-decisão">6. Decisão</a></li>
+<li><a href="#7-justificativa">7. Justificativa</a></li>
+<li><a href="#8-consequências">8. Consequências</a></li>
+<li><a href="#9-riscos-assumidos">9. Riscos assumidos</a></li>
+<li><a href="#10-condições-de-invalidação">10. Condições de invalidação</a></li>
+<li><a href="#11-revisão-futura">11. Revisão futura</a></li>
+<li><a href="#12-aprovação">12. Aprovação</a></li>
+</ul>
+<hr />
+<h2 id="metadados">Metadados<a class="headerlink" href="#metadados" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identificador</td>
+<td>ADR-002</td>
+</tr>
+<tr>
+<td>Título</td>
+<td>Matomo On-Premise padrão do parque + PostHog auto-hospedado complementar no portal Xvia</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>🟡 <strong>Proposto</strong></td>
+</tr>
+<tr>
+<td>Data</td>
+<td>2026-08-25</td>
+</tr>
+<tr>
+<td>Autor</td>
+<td>Arquitetura de Soluções — SETDIG</td>
+</tr>
+<tr>
+<td>Decisores</td>
+<td>Secretário Executivo SETDIG · Superintendentes SGD/STI · DPO · SegInfo · Time Xvia</td>
+</tr>
+<tr>
+<td>Consultados</td>
+<td>Comunicação Social · Órgãos setoriais · Equipe BI</td>
+</tr>
+<tr>
+<td>Informados</td>
+<td>Administração Direta e Indireta estadual</td>
+</tr>
+<tr>
+<td>Substitui</td>
+<td>ADR-001 (arquivado)</td>
+</tr>
+<tr>
+<td>Escopo</td>
+<td>Portais + serviços digitais do Executivo estadual + portal Xvia</td>
+</tr>
+<tr>
+<td>Prazo de revisão</td>
+<td>24 meses (agosto/2028), ou antecipado por gatilho §11</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>stateDiagram-v2
+    direction LR
+    ADR001["ADR-001 (Depreciado)"] --&gt; [*]
+    [*] --&gt; Proposto: Emissão (2026-08-25)
+    Proposto --&gt; Aceito: Homologação
+    Proposto --&gt; Rejeitado: Não homologado
+    Aceito --&gt; Depreciado: ADR-003 supersedes
+    Aceito --&gt; Aceito: Revisão bienal</code></pre>
+<hr />
+<h2 id="1-contexto">1. Contexto<a class="headerlink" href="#1-contexto" title="Permanent link">&para;</a></h2>
+<p><strong>Substitui ADR-001</strong> por duas mudanças de premissa formalizadas em agosto/2026:</p>
+<h3 id="11-rebaixamento-do-tco">1.1 Rebaixamento do TCO<a class="headerlink" href="#11-rebaixamento-do-tco" title="Permanent link">&para;</a></h3>
+<p>Premissa on-premise (P1/P2/R4) sempre esteve registrada. No ADR-001, C03 (TCO) tinha peso 15 (12,5 %), o mais alto junto de LGPD/Controle. Esse peso funcionava como filtro implícito contra plataformas de stack rico (PostHog OSS, TCO 4× o Matomo).</p>
+<p>Com o parque de infra consolidado e a premissa on-prem confirmada como direcionador estrutural, o peso 15 produzia distorção: penalizava plataformas cujo custo marginal já é absorvido, sem gerar economia real.</p>
+<p><strong>Consequência:</strong> C03 rebaixado a <strong>peso 0</strong> (informativo). Os 15 pontos redistribuídos entre critérios técnicos e funcionais. Racional em <a href="../03-criterios/#4-critérios-e-pesos"><code>03-criterios.md §4</code></a>. Custo continua modelado em <code>anexos/historico/comparativos/custo.md</code> para dimensionamento e prestação de contas ao TCE-MS.</p>
+<h3 id="12-entrada-do-portal-xvia">1.2 Entrada do portal Xvia<a class="headerlink" href="#12-entrada-do-portal-xvia" title="Permanent link">&para;</a></h3>
+<p>Governo MS lançará <strong>Xvia como superapp cidadão</strong> — porta única para serviços transacionais. Perfil analítico difere do parque atual: jornada identificada, experimentação (feature flags), coortes/retenção sobre autenticados, session replay em serviços complexos (com consentimento).</p>
+<p>Núcleo do domínio de <strong>product analytics</strong> — PostHog é referência de mercado. Matomo cobre web analytics tradicional com excelência, mas não é o produto adequado para o eixo de product analytics do Xvia.</p>
+<h3 id="13-ranking-revisado">1.3 Ranking revisado<a class="headerlink" href="#13-ranking-revisado" title="Permanent link">&para;</a></h3>
+<p>Sob os pesos revisados (<a href="../05-matriz/#22-pontuação-ponderada"><code>05-matriz.md §2.2</code></a>):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Plataforma</th>
+<th style="text-align: right;">Score 2026</th>
+<th style="text-align: right;">Score ADR-001</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">🥇 1</td>
+<td>Matomo On-Premise</td>
+<td style="text-align: right;"><strong>500</strong> (83,3 %)</td>
+<td style="text-align: right;">520</td>
+</tr>
+<tr>
+<td style="text-align: right;">🥈 2</td>
+<td>Piwik PRO</td>
+<td style="text-align: right;"><strong>499</strong> (83,2 %)</td>
+<td style="text-align: right;">465</td>
+</tr>
+<tr>
+<td style="text-align: right;">🥉 3</td>
+<td>Matomo Cloud</td>
+<td style="text-align: right;"><strong>485</strong> (80,8 %)</td>
+<td style="text-align: right;">465</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>PostHog auto-hospedado</td>
+<td style="text-align: right;"><strong>464</strong> (77,3 %)</td>
+<td style="text-align: right;">455</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Plausible CE</td>
+<td style="text-align: right;"><strong>460</strong> (76,7 %)</td>
+<td style="text-align: right;">485</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Umami</td>
+<td style="text-align: right;"><strong>414</strong> (69,0 %)</td>
+<td style="text-align: right;">445</td>
+</tr>
+</tbody>
+</table>
+<p>Matomo OP mantém liderança (1 ponto sobre Piwik PRO, desempate por C02). PostHog SH sobe para #4 — <strong>melhor opção soberana de product analytics</strong> disponível — coerente com adoção no Xvia.</p>
+<h3 id="14-o-que-permanece-do-adr-001">1.4 O que permanece do ADR-001<a class="headerlink" href="#14-o-que-permanece-do-adr-001" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Metodologia (MAUT + ATAM + Gartner + ADR): inalterada.</li>
+<li>Notas atribuídas: preservadas — mudança é só de peso.</li>
+<li>Triagem eliminatória: OWA continua eliminado por E6; Clarity e Cloudflare como primárias eliminadas.</li>
+<li>Lacunas L1–L7 do parque Matomo: continuam pendentes.</li>
+<li>Direcionadores (soberania, LGPD, independência, sustentabilidade): inalterados.</li>
+</ul>
+<hr />
+<h2 id="2-problema">2. Problema<a class="headerlink" href="#2-problema" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>🚨 Declaração do problema</strong></p>
+<p><strong>ADR-001 não contempla o portal Xvia</strong>, cujo perfil exige capacidades de product analytics (jornada identificada, feature flags, experimentação, session replay consentido) que não são a força do Matomo. Simultaneamente, C03=15 filtrava plataformas de stack rico — inclusive as que atenderiam ao Xvia — mesmo com custo marginal para o Estado.</p>
+<p><strong>Consequência:</strong> sob ADR-001, única opção "aprovada" para Xvia seria Matomo puro (não cobre product analytics) ou exceção caso-a-caso (frágil em prestação de contas).</p>
+</blockquote>
+<hr />
+<h2 id="3-direcionadores">3. Direcionadores<a class="headerlink" href="#3-direcionadores" title="Permanent link">&para;</a></h2>
+<p>Reponderados na revisão 2026:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Direcionador</th>
+<th style="text-align: center;">Criticidade</th>
+<th style="text-align: right;">Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Soberania de dados</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Conformidade LGPD</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>Independência tecnológica</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>Capacidade analítica</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>Integração com BI</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">23 (APIs 13 + Integr. 10)</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>Elasticidade sob pico</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Segurança (transversal)</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>Sustentabilidade operacional</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Sustentabilidade do produto</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td style="text-align: right;">12 (Comun. 7 + Docs 5)</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>Economicidade <em>(informativo)</em></td>
+<td style="text-align: center;">🟢 Baixo</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restrições rígidas (inalteradas):</strong> R1 (LGPD aplicável), R2 (transferência internacional exige art. 33), R3 (paga exige licitação), R5 (sem ampliação STI), veto absoluto DPO/SegInfo.</p>
+<hr />
+<h2 id="4-alternativas">4. Alternativas<a class="headerlink" href="#4-alternativas" title="Permanent link">&para;</a></h2>
+<p>Arranjos de arquitetura considerados:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Arranjo</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AR1</td>
+<td>Matomo puro em todo o parque + Xvia</td>
+<td>❌ Não cobre product analytics do Xvia</td>
+</tr>
+<tr>
+<td><strong>AR2</strong></td>
+<td><strong>Matomo parque + PostHog complementar no Xvia</strong></td>
+<td>✅ <strong>Selecionada</strong></td>
+</tr>
+<tr>
+<td>AR3</td>
+<td>PostHog substitui Matomo no Xvia</td>
+<td>❌ Abre mão do precedente CNIL / cookieless do Matomo em ambiente sensível</td>
+</tr>
+<tr>
+<td>AR4</td>
+<td>PostHog + Matomo em todo o parque</td>
+<td>❌ Sem valor incremental fora do Xvia; custo marginal ampliado</td>
+</tr>
+<tr>
+<td>AR5</td>
+<td>Piwik PRO substitui Matomo no parque</td>
+<td>❌ Regressão de soberania (C04=2); troca ativo open source consolidado por proprietário</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-descartes">4.1 Descartes<a class="headerlink" href="#41-descartes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AR1</strong>: Xvia sem product analytics = cegueira funcional em produto de alto valor.</li>
+<li><strong>AR3</strong>: Matomo tem precedente CNIL + dispensa de consentimento; substituí-lo exigiria refazer base legal sem ganho — força do PostHog está em identificado, não em audiência anônima.</li>
+<li><strong>AR4</strong>: portais de conteúdo já cobertos 100 % pelo Matomo; 2 stacks duplica operação, orçamento e overhead sem valor.</li>
+<li><strong>AR5</strong>: Piwik PRO é contingência formal (§6.6), não substituição planejada.</li>
+</ul>
+<hr />
+<h2 id="5-trade-offs">5. Trade-offs<a class="headerlink" href="#5-trade-offs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Ganho</th>
+<th>Perda</th>
+<th>Racional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Cobertura product analytics no Xvia (funil identificado, feature flags, replay, HogQL)</td>
+<td>Overhead ~+55 KB gzip, +50–200 ms LCP em 3G</td>
+<td>Xvia é transacional identificado; degradação marginal aceitável em troca da instrumentação. RNF-02 (LCP ≤ 50 ms) permanece válido no resto do parque</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Product analytics soberano — PostHog SH em infra do Estado</td>
+<td>Operar 6 componentes distribuídos sem suporte oficial</td>
+<td>Capacitação STI (Onda 5) + reserva orçamentária para suporte especializado ClickHouse/Kafka se o gate falhar</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Governança distribuída no Xvia (Matomo=audiência, PostHog=produto)</td>
+<td>Complexidade de política de retenção coordenada</td>
+<td>Endereçado em <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a> — "qual evento vai onde"</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Recomendação ADR-001 preservada no parque</td>
+<td>Duas arquiteturas de referência distintas (parque puro Matomo; Xvia híbrido)</td>
+<td>Diferenciação por perfil de uso, não incoerência arquitetural</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Custo deixa de filtrar decisões</td>
+<td>Perda do sinal de disciplina orçamentária que C03=15 fornecia</td>
+<td>Substituído por monitoramento explícito §11.3 — desvio ≤ 15 % como alerta</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Piwik PRO e Matomo Cloud sobem para faixa "Recomendada"</td>
+<td>Complexidade de decisão de contingência (2 opções fortes)</td>
+<td>Ordem de preferência explícita em §6.6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Trade-off crítico aceito</strong>
+<strong>T1 (overhead LCP)</strong> é o mais sensível. Aceito deliberadamente com gatilho de reavaliação: LCP &gt; 75 ms em 3G sustentado por 2 meses → reavaliar PostHog no Xvia (G9 §11.2). Não é "overhead deixa de existir"; é overhead monitorado e mitigável.</p>
+</blockquote>
+<hr />
+<h2 id="6-decisão">6. Decisão<a class="headerlink" href="#6-decisão" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ DECISÃO ADR-002</strong></p>
+<p><strong>6.1 — Plataforma padrão do parque (EDS + sites gov MS)</strong>
+<strong>Matomo On-Premise</strong> como padrão único do parque existente — portais institucionais, sites gov, serviços digitais de conteúdo. Confirma ADR-001 §6.1 sob pesos revisados.</p>
+<p><strong>6.2 — Arquitetura do novo portal Xvia</strong>
+Arquitetura <strong>híbrida deliberada</strong>: <strong>Matomo On-Premise + PostHog auto-hospedado em paralelo</strong>, com segmentação de responsabilidade:
+- <strong>Matomo</strong>: audiência agregada, campanhas, SEO, conteúdo, base legal cookieless simplificada.
+- <strong>PostHog</strong>: jornada identificada, funil transacional, feature flags, experimentação, session replay <strong>consentido</strong> e mascarado.</p>
+<p>Ambos em stack próprio do Estado, sem transferência internacional.</p>
+<p><strong>6.3 — Plataforma complementar aprovada (opcional)</strong>
+<strong>Plausible CE</strong> como opção facultativa em portais de conteúdo de altíssimo volume e baixa criticidade analítica, mediante justificativa do órgão. Uso não obrigatório.</p>
+<p><strong>6.4 — Plataformas vedadas como padrão</strong>
+- <strong>Google Analytics 4</strong>: vedado em portais e serviços do Estado.
+- <strong>Open Web Analytics</strong>: vedado por falha em critério eliminatório de segurança.
+- <strong>Microsoft Clarity e Cloudflare WA</strong>: fora do escopo atual (revisões futuras podem readmitir com RIPD específico).</p>
+<p><strong>6.5 — Contingências formais</strong>
+Se o <em>gate</em> de validação da premissa <strong>P2</strong> (competência STI sustentável) falhar:</p>
+<p><strong>Parque (contingência do Matomo OP):</strong>
+1. <strong>Matomo Cloud</strong> (#3, 485 pts — "Recomendada"; preserva produto e caminho de retorno ao OP);
+2. <strong>Piwik PRO Private Cloud</strong> (#2, 499 pts — conformidade forte, dependência contratual, menor C04).</p>
+<p><strong>Xvia (contingência do PostHog SH):</strong>
+1. <strong>PostHog Cloud EU</strong> (com RIPD e mitigação de transferência via região UE);
+2. <strong>Matomo puro no Xvia</strong> com plugins de funil/heatmap/replay — cobre 60–70 % do caso, sacrifica feature flags e experimentação estruturados.</p>
+<p>Ativação exige <strong>novo ADR (ADR-003)</strong> — não basta decisão operacional.</p>
+</blockquote>
+<h3 id="61-arquitetura-alvo">6.1 Arquitetura-alvo<a class="headerlink" href="#61-arquitetura-alvo" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph EXT["🌐 Externo"]
+        CID["👤 Cidadão"]
+        CID_X["👤 Cidadão autenticado (Xvia)"]
+    end
+
+    subgraph PARQUE["Parque existente (EDS + sites gov MS)"]
+        direction LR
+        WAF1["WAF / TLS 1.3"]
+        MTM["Matomo On-Premise&lt;br/&gt;(cookieless, IP anonimizado)"]
+    end
+
+    subgraph XVIA["Portal Xvia (novo)"]
+        direction LR
+        WAF2["WAF / TLS 1.3"]
+        MTM_X["Matomo On-Premise&lt;br/&gt;(instância dedicada)"]
+        PH["PostHog SH&lt;br/&gt;(Django + Kafka + ClickHouse + Redis + MinIO)"]
+    end
+
+    subgraph DADOS["Dados (infra do Estado)"]
+        DBP[("MySQL/MariaDB")]
+        CH[("ClickHouse")]
+        KAFKA[("Kafka")]
+    end
+
+    subgraph CONSUMO["Consumo"]
+        BI["BI corporativo&lt;br/&gt;Superset / Power BI"]
+    end
+
+    CID --&gt; WAF1 --&gt; MTM --&gt; DBP
+    CID_X --&gt; WAF2
+    WAF2 --&gt; MTM_X --&gt; DBP
+    WAF2 --&gt; PH
+    PH --&gt; KAFKA --&gt; CH
+    DBP --&gt; BI
+    CH --&gt; BI
+
+    style MTM fill:#d1ecf1,stroke:#0ea5e9
+    style MTM_X fill:#d1ecf1,stroke:#0ea5e9
+    style PH fill:#fff3cd,stroke:#f59e0b
+    style CH fill:#e0e7ff,stroke:#6366f1</code></pre>
+<p>Detalhes em <a href="../07-recomendacao/"><code>07-recomendacao.md</code></a> e em <a href="../../comparativos/coexistencia-matomo-posthog/"><code>../comparativos/coexistencia-matomo-posthog.md</code></a>.</p>
+<hr />
+<h2 id="7-justificativa">7. Justificativa<a class="headerlink" href="#7-justificativa" title="Permanent link">&para;</a></h2>
+<p><strong>J1 — Quantitativo:</strong> Matomo OP mantém liderança (500/600, 83,3 %, "Recomendada"). PostHog SH sobe para #4 (464/600, 77,3 %, "Viável") — <strong>maior pontuação soberana de product analytics</strong> do estudo. <a href="../05-matriz/"><code>05-matriz.md</code></a>.</p>
+<p><strong>J2 — Xvia difere estruturalmente:</strong> superapp cidadão = autenticado, transacional, experimentação. Matomo cobre WA tradicional; PostHog cobre product analytics. Xvia precisa dos dois eixos, não da soma linear.</p>
+<p><strong>J3 — Overhead LCP aceitável:</strong> usuário chega ao Xvia com intenção de serviço; abandono por LCP qualitativamente menor que em conteúdo. LCP alvo ≤ 75 ms em 3G registrado como métrica-gatilho §11.</p>
+<p><strong>J4 — PostHog SH preserva soberania:</strong> sob custódia do Estado, sem transferência. Configuração LGPD exige trabalho ativo (mascaramento agressivo padrão; replay opt-in) — equivalente ao já feito no Matomo. DPIA do replay é o principal item novo, coberto por R-11 (§9).</p>
+<p><strong>J5 — Ranking revisado remove filtro implícito do TCO:</strong> sob C03=15, PostHog SH ficava em #5 (455) com 65 pts abaixo do Matomo OP — majoritariamente artefato de peso alto de custo marginal. Sob pesos revisados, fica em #4 (464), 36 pts abaixo — diferença agora reflete atributos técnicos comparáveis (C10=1 vs. C10=3), não penalização financeira.</p>
+<p><strong>J6 — Continuidade do parque preservada:</strong> ADR-002 <strong>não desloca</strong> Matomo do parque. Base instalada, competência STI e arquitetura de referência do ADR-001 seguem valendo. Revisão é aditiva (novo perfil de uso no Xvia), não substitutiva.</p>
+<p><strong>J7 — Aderência legal idêntica ao ADR-001:</strong> operação continua integralmente sob custódia do Estado.</p>
+<hr />
+<h2 id="8-consequências">8. Consequências<a class="headerlink" href="#8-consequências" title="Permanent link">&para;</a></h2>
+<h3 id="81-positivas">8.1 Positivas<a class="headerlink" href="#81-positivas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Consequência</th>
+<th>Prazo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C+1</td>
+<td>Product analytics soberano habilitado no Xvia</td>
+<td>Onda 5</td>
+</tr>
+<tr>
+<td>C+2</td>
+<td>Continuidade do parque preservada; zero migração</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+3</td>
+<td>Filtro implícito do C03 removido — decisões passam a se pautar por atributos técnicos/funcionais</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+4</td>
+<td>Matomo Cloud e Piwik PRO consolidados como contingências "Recomendadas"</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>C+5</td>
+<td>Base de comparação Matomo × PostHog em produção real por 12 meses</td>
+<td>Onda 5 + 12 meses</td>
+</tr>
+<tr>
+<td>C+6</td>
+<td>Capacidade de feature flags e experimentação em serviço transacional prioritário</td>
+<td>Onda 5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-negativas-assumidas">8.2 Negativas assumidas<a class="headerlink" href="#82-negativas-assumidas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Consequência</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C−1</td>
+<td>Overhead LCP Xvia (~50–200 ms)</td>
+<td>G9 §11.2; defer/async; segmentação de eventos; revisar se &gt; 75 ms sustentado</td>
+</tr>
+<tr>
+<td>C−2</td>
+<td>2 stacks no Xvia recaem sobre STI</td>
+<td>Capacitação ClickHouse/Kafka (Onda 5); reserva orçamentária para suporte especializado</td>
+</tr>
+<tr>
+<td>C−3</td>
+<td>DPIA adicional para session replay</td>
+<td>Compliance mapeado; mascaramento padrão; opt-in explícito</td>
+</tr>
+<tr>
+<td>C−4</td>
+<td>2 arquiteturas de referência distintas</td>
+<td>Documentação explícita em <a href="../07-recomendacao/"><code>07-recomendacao.md</code></a> e coexistência</td>
+</tr>
+<tr>
+<td>C−5</td>
+<td>Custo marginal do PostHog (~R$ 955 k / 5a) deixa de filtrar</td>
+<td>Monitorado no §11.3; desvio &gt; 15 % aciona análise</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-riscos-assumidos">9. Riscos assumidos<a class="headerlink" href="#9-riscos-assumidos" title="Permanent link">&para;</a></h2>
+<p>Riscos R-01 a R-10 preservados do ADR-001 (agora consolidados em <a href="../07-recomendacao/#10-riscos"><code>07-recomendacao.md §Riscos</code></a>). Novos:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risco</th>
+<th style="text-align: center;">Prob.</th>
+<th style="text-align: center;">Impacto</th>
+<th>Resposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-11</td>
+<td>Captura acidental de dado sensível em session replay (CPF, saúde)</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🔴 Crítico</td>
+<td>Mascaramento agressivo padrão; opt-in explícito; DPIA específico; homologação SegInfo antes de ativar</td>
+</tr>
+<tr>
+<td>R-17</td>
+<td>LCP do Xvia &gt; 75 ms sustentado por overhead do 2º script</td>
+<td style="text-align: center;">🟡 Baixa</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>G9 §11.2 aciona reavaliação em 60 dias</td>
+</tr>
+<tr>
+<td>R-18</td>
+<td>STI não sustenta stack PostHog</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>Capacitação; suporte contratado; fallback Cloud EU</td>
+</tr>
+<tr>
+<td>R-19</td>
+<td>Divergência Matomo × PostHog no Xvia gera confusão em relatórios</td>
+<td style="text-align: center;">🟠 Média</td>
+<td style="text-align: center;">🟡 Médio</td>
+<td>Governança explícita de origem por métrica; dashboard consolidado no BI</td>
+</tr>
+<tr>
+<td>R-20</td>
+<td>PostHog descontinua modalidade auto-hospedada (iniciado em 2023)</td>
+<td style="text-align: center;">🟢 Muito baixa (curto) / 🟠 Alta (longo)</td>
+<td style="text-align: center;">🟠 Alto</td>
+<td>G3 aciona revisão em 90 dias; fallback Cloud EU com RIPD</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-condições-de-invalidação">10. Condições de invalidação<a class="headerlink" href="#10-condições-de-invalidação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Premissa</th>
+<th>Condição de invalidação</th>
+<th>Alternativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1 (infra própria)</td>
+<td>Indisponibilidade para Matomo + PostHog com HA</td>
+<td>Matomo Cloud + PostHog Cloud EU (com RIPD)</td>
+</tr>
+<tr>
+<td>P2 (competência STI)</td>
+<td>Gate Onda 5 conclui que STI não sustenta PostHog</td>
+<td>PostHog Cloud EU</td>
+</tr>
+<tr>
+<td>P3 (soberania &gt; conveniência)</td>
+<td>Decisão institucional inverte prioridade</td>
+<td>Reavaliação integral</td>
+</tr>
+<tr>
+<td>P6 (volume mantido)</td>
+<td>Crescimento &gt; 5× baseline do Xvia</td>
+<td>Reavaliação de arquitetura de dados</td>
+</tr>
+<tr>
+<td>Xvia justifica product analytics</td>
+<td>Portal entra em produção com rotas 100 % anônimas</td>
+<td>Reverter para Matomo puro no Xvia</td>
+</tr>
+<tr>
+<td>PostHog mantém self-host</td>
+<td>Fornecedor descontinua OSS SH</td>
+<td>Cloud EU ou fork mantido por comunidade</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-revisão-futura">11. Revisão futura<a class="headerlink" href="#11-revisão-futura" title="Permanent link">&para;</a></h2>
+<h3 id="111-ordinária">11.1 Ordinária<a class="headerlink" href="#111-ordinária" title="Permanent link">&para;</a></h3>
+<p>Periodicidade <strong>24 meses</strong> (próxima: agosto/2028). Responsável: Arquitetura de Soluções SETDIG. Participantes obrigatórios: SGD, STI, DPO, SegInfo, Time Xvia. Escopo mínimo: reexecutar matriz com dados atualizados; verificar indicadores §11.3; avaliar gate de 12 meses do PostHog no Xvia. Produto: confirmação ADR-002 ou ADR-003.</p>
+<h3 id="112-gatilhos-antecipados">11.2 Gatilhos antecipados<a class="headerlink" href="#112-gatilhos-antecipados" title="Permanent link">&para;</a></h3>
+<p>G1–G8 preservados do ADR-001. Novos:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Gatilho</th>
+<th>Prazo de reação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G9</td>
+<td>LCP Xvia &gt; 75 ms em 3G sustentado por 2 meses</td>
+<td>60 dias</td>
+</tr>
+<tr>
+<td>G10</td>
+<td>Divergência Matomo × PostHog no Xvia &gt; 15 % por 3 meses</td>
+<td>90 dias</td>
+</tr>
+<tr>
+<td>G11</td>
+<td>Descontinuidade formal do PostHog OSS SH</td>
+<td>90 dias</td>
+</tr>
+<tr>
+<td>G12</td>
+<td>Gate 12 meses PostHog no Xvia falha (sem feature flag ativa, sem funil identificado, sem replay em serviço crítico)</td>
+<td>60 dias</td>
+</tr>
+</tbody>
+</table>
+<h3 id="113-indicadores">11.3 Indicadores<a class="headerlink" href="#113-indicadores" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Indicador</th>
+<th>Meta</th>
+<th>Fonte</th>
+<th>Periodicidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LCP Xvia (p75, 3G)</td>
+<td>≤ 75 ms</td>
+<td>RUM / Lighthouse CI</td>
+<td>Mensal</td>
+</tr>
+<tr>
+<td>TCO acumulado × projetado</td>
+<td>Desvio ≤ 15 %</td>
+<td>Execução orçamentária</td>
+<td>Anual</td>
+</tr>
+<tr>
+<td>Feature flags ativas Xvia</td>
+<td>≥ 3</td>
+<td>PostHog</td>
+<td>Trimestral</td>
+</tr>
+<tr>
+<td>Funis identificados Xvia</td>
+<td>≥ 5</td>
+<td>PostHog</td>
+<td>Trimestral</td>
+</tr>
+<tr>
+<td>Replays com consentimento explícito</td>
+<td>100 % dos capturados</td>
+<td>PostHog + registro</td>
+<td>Contínua</td>
+</tr>
+<tr>
+<td>Divergência PV Matomo × PostHog Xvia</td>
+<td>≤ 15 %</td>
+<td>Reconciliação mensal</td>
+<td>Mensal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-aprovação">12. Aprovação<a class="headerlink" href="#12-aprovação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Nome</th>
+<th>Manifestação</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arquiteto de Soluções (autor)</td>
+<td></td>
+<td>Proposto</td>
+<td>2026-08-25</td>
+</tr>
+<tr>
+<td>Superintendente SGD</td>
+<td></td>
+<td>☐ De acordo ☐ Ressalvas ☐ Contrário</td>
+<td></td>
+</tr>
+<tr>
+<td>Superintendente STI</td>
+<td></td>
+<td>☐ De acordo ☐ Ressalvas ☐ Contrário</td>
+<td></td>
+</tr>
+<tr>
+<td>DPO</td>
+<td></td>
+<td>☐ De acordo ☐ Ressalvas ☐ Contrário</td>
+<td></td>
+</tr>
+<tr>
+<td>SegInfo</td>
+<td></td>
+<td>☐ De acordo ☐ Ressalvas ☐ Contrário</td>
+<td></td>
+</tr>
+<tr>
+<td>Time Xvia</td>
+<td></td>
+<td>☐ De acordo ☐ Ressalvas ☐ Contrário</td>
+<td></td>
+</tr>
+<tr>
+<td>Secretário Executivo SETDIG</td>
+<td></td>
+<td>☐ Homologado ☐ Não homologado</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="121-histórico">12.1 Histórico<a class="headerlink" href="#121-histórico" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Alteração</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-08-25</td>
+<td>Emissão inicial — supersedes ADR-001</td>
+<td>Arquitetura de Soluções SETDIG</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⬅️ Anterior</th>
+<th>➡️ Próximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../05-matriz/">05 — Matriz de decisão</a></td>
+<td><a href="../07-recomendacao/">07 — Recomendação</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -12,13 +12,13 @@
         <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
       
       
-        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/coexistencia-matomo-posthog/">
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/comparativos/on-premise-gratis/">
       
       
-        <link rel="prev" href="../on-premise-gratis/">
+        <link rel="prev" href="../matomo-vs-posthog/">
       
       
-        <link rel="next" href="../../anexos/matriz/">
+        <link rel="next" href="../coexistencia-matomo-posthog/">
       
       
       <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Coexistência Matomo + PostHog no Xvia - Estudo de Plataformas de Web Analytics — SETDIG</title>
+        <title>On-premise gratuito (4 plataformas) - Estudo de Plataformas de Web Analytics — SETDIG</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#comparativo--coexistência-matomo--posthog-no-portal-xvia" class="md-skip">
+        <a href="#comparativo--web-analytics-on-premise-gratuito" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Coexistência Matomo + PostHog no Xvia
+              On-premise gratuito (4 plataformas)
             
           </span>
         </div>
@@ -845,27 +845,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../on-premise-gratis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    On-premise gratuito (4 plataformas)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -882,7 +861,7 @@
           
   
   <span class="md-ellipsis">
-    Coexistência Matomo + PostHog no Xvia
+    On-premise gratuito (4 plataformas)
   </span>
   
 
@@ -893,7 +872,7 @@
         
   
   <span class="md-ellipsis">
-    Coexistência Matomo + PostHog no Xvia
+    On-premise gratuito (4 plataformas)
   </span>
   
 
@@ -924,114 +903,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-escopo" class="md-nav__link">
+  <a href="#1-sinopse" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Escopo
+      1. Sinopse
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-arquitetura-de-instrumentação" class="md-nav__link">
+  <a href="#2-lgpd-e-controle-de-dados" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Arquitetura de instrumentação
+      2. LGPD e controle de dados
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-segmentação-de-eventos-por-sdk" class="md-nav__link">
+  <a href="#3-stack-e-complexidade-operacional" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Segmentação de eventos por SDK
+      3. Stack e complexidade operacional
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-política-de-retenção-coordenada" class="md-nav__link">
+  <a href="#4-custo-marginal-5-anos" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Política de retenção coordenada
+      4. Custo marginal 5 anos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-consentimento-e-session-replay" class="md-nav__link">
+  <a href="#5-cobertura-funcional" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Consentimento e session replay
+      5. Cobertura funcional
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-reconciliação-e-governança-de-divergência" class="md-nav__link">
+  <a href="#6-api-e-integração-com-bi" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Reconciliação e governança de divergência
+      6. API e integração com BI
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-impacto-de-desempenho-no-navegador" class="md-nav__link">
+  <a href="#7-comunidade-e-sustentabilidade" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Impacto de desempenho no navegador
+      7. Comunidade e sustentabilidade
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-plano-de-deprecação-caso-o-gate-falhe" class="md-nav__link">
+  <a href="#8-papel-na-arquitetura-recomendada" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Plano de deprecação caso o gate falhe
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Plano de deprecação caso o gate falhe">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-cenário-a--ajuste-de-configuração" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.1 Cenário A — Ajuste de configuração
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-cenário-b--migração-para-posthog-cloud-eu" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.2 Cenário B — Migração para PostHog Cloud EU
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83-cenário-c--reversão-a-matomo-puro-no-xvia" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.3 Cenário C — Reversão a Matomo puro no Xvia
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-o-que-este-documento-não-cobre" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. O que este documento NÃO cobre
+      8. Papel na arquitetura recomendada
     </span>
   </a>
   
@@ -1050,6 +987,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coexistencia-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coexistência Matomo + PostHog no Xvia
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1288,114 +1246,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-escopo" class="md-nav__link">
+  <a href="#1-sinopse" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Escopo
+      1. Sinopse
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-arquitetura-de-instrumentação" class="md-nav__link">
+  <a href="#2-lgpd-e-controle-de-dados" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Arquitetura de instrumentação
+      2. LGPD e controle de dados
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-segmentação-de-eventos-por-sdk" class="md-nav__link">
+  <a href="#3-stack-e-complexidade-operacional" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Segmentação de eventos por SDK
+      3. Stack e complexidade operacional
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-política-de-retenção-coordenada" class="md-nav__link">
+  <a href="#4-custo-marginal-5-anos" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Política de retenção coordenada
+      4. Custo marginal 5 anos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-consentimento-e-session-replay" class="md-nav__link">
+  <a href="#5-cobertura-funcional" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Consentimento e session replay
+      5. Cobertura funcional
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-reconciliação-e-governança-de-divergência" class="md-nav__link">
+  <a href="#6-api-e-integração-com-bi" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Reconciliação e governança de divergência
+      6. API e integração com BI
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-impacto-de-desempenho-no-navegador" class="md-nav__link">
+  <a href="#7-comunidade-e-sustentabilidade" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Impacto de desempenho no navegador
+      7. Comunidade e sustentabilidade
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-plano-de-deprecação-caso-o-gate-falhe" class="md-nav__link">
+  <a href="#8-papel-na-arquitetura-recomendada" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Plano de deprecação caso o gate falhe
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Plano de deprecação caso o gate falhe">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81-cenário-a--ajuste-de-configuração" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.1 Cenário A — Ajuste de configuração
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-cenário-b--migração-para-posthog-cloud-eu" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.2 Cenário B — Migração para PostHog Cloud EU
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83-cenário-c--reversão-a-matomo-puro-no-xvia" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.3 Cenário C — Reversão a Matomo puro no Xvia
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-o-que-este-documento-não-cobre" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. O que este documento NÃO cobre
+      8. Papel na arquitetura recomendada
     </span>
   </a>
   
@@ -1425,341 +1341,765 @@
                   
 
 
-<h1 id="comparativo--coexistência-matomo--posthog-no-portal-xvia">Comparativo — Coexistência Matomo + PostHog no portal Xvia<a class="headerlink" href="#comparativo--coexistência-matomo--posthog-no-portal-xvia" title="Permanent link">&para;</a></h1>
+<h1 id="comparativo--web-analytics-on-premise-gratuito">Comparativo — Web Analytics on-premise gratuito<a class="headerlink" href="#comparativo--web-analytics-on-premise-gratuito" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Corte transversal</strong> · Modelo operacional da coexistência formalizada pelo <a href="../../docs/06-adr-002/#6-decisão">ADR-002 §6.2</a>
-<a href="../../">← Voltar ao índice</a> · <a href="../matomo-vs-posthog/">Complementaridade Matomo × PostHog</a> · <a href="../../docs/06-adr-002/">ADR-002</a></p>
-<p><strong>📌 Nota metodológica — Documento renomeado e reescrito na revisão 2026</strong>
-Este arquivo substitui <code>migracao-matomo-posthog.md</code>, que analisava o custo hipotético de <strong>substituir</strong> Matomo por PostHog em todo o parque. O <a href="../../docs/06-adr-002/">ADR-002</a> rejeita substituição e formaliza <strong>coexistência restrita ao portal Xvia</strong>. O escopo do documento muda: de análise de risco de migração para modelo operacional de coexistência.</p>
+<p><strong>Corte transversal</strong> · As 4 plataformas do escopo lado a lado nas dimensões estratégicas: LGPD, controle, custo marginal, complexidade e cobertura funcional.
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/05-matriz/">Matriz de decisão</a> · <a href="../../docs/06-adr-002/">ADR-002</a></p>
 </blockquote>
-<hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#1-escopo">1. Escopo</a></li>
-<li><a href="#2-arquitetura-de-instrumentação">2. Arquitetura de instrumentação</a></li>
-<li><a href="#3-segmentação-de-eventos-por-sdk">3. Segmentação de eventos por SDK</a></li>
-<li><a href="#4-política-de-retenção-coordenada">4. Política de retenção coordenada</a></li>
-<li><a href="#5-consentimento-e-session-replay">5. Consentimento e session replay</a></li>
-<li><a href="#6-reconciliação-e-governança-de-divergência">6. Reconciliação e governança de divergência</a></li>
-<li><a href="#7-impacto-de-desempenho-no-navegador">7. Impacto de desempenho no navegador</a></li>
-<li><a href="#8-plano-de-deprecação-caso-o-gate-falhe">8. Plano de deprecação caso o gate falhe</a></li>
-<li><a href="#9-o-que-este-documento-não-cobre">9. O que este documento NÃO cobre</a></li>
+<li><a href="#1-sinopse">1. Sinopse</a></li>
+<li><a href="#2-lgpd-e-controle-de-dados">2. LGPD e controle de dados</a></li>
+<li><a href="#3-stack-e-complexidade-operacional">3. Stack e complexidade operacional</a></li>
+<li><a href="#4-custo-marginal-5-anos">4. Custo marginal 5 anos</a></li>
+<li><a href="#5-cobertura-funcional">5. Cobertura funcional</a></li>
+<li><a href="#6-api-e-integração-com-bi">6. API e integração com BI</a></li>
+<li><a href="#7-comunidade-e-sustentabilidade">7. Comunidade e sustentabilidade</a></li>
+<li><a href="#8-papel-na-arquitetura-recomendada">8. Papel na arquitetura recomendada</a></li>
 </ul>
 <hr />
-<h2 id="1-escopo">1. Escopo<a class="headerlink" href="#1-escopo" title="Permanent link">&para;</a></h2>
-<p>A coexistência descrita aqui aplica-se <strong>exclusivamente ao portal Xvia</strong> (superapp cidadão do Governo de MS). Portais institucionais, sites gov e serviços digitais de conteúdo do parque existente permanecem em <strong>Matomo puro</strong>, conforme <a href="../../docs/06-adr-002/#6-decisão">ADR-002 §6.1</a>. O uso do PostHog fora do Xvia exige justificativa específica e novo ADR.</p>
-<p><strong>Duração:</strong> coexistência com <strong>gate de reavaliação em 12 meses</strong> — critérios de sucesso definidos em <a href="../../docs/08-roadmap/#8-onda-5--portal-xvia-posthog"><code>../docs/08-roadmap.md §7bis.4</code></a>. Falha no gate aciona G12 do ADR-002 e reavaliação em 60 dias com três cenários possíveis: (a) ajuste de configuração, (b) migração para PostHog Cloud EU, (c) reversão a Matomo puro no Xvia.</p>
-<hr />
-<h2 id="2-arquitetura-de-instrumentação">2. Arquitetura de instrumentação<a class="headerlink" href="#2-arquitetura-de-instrumentação" title="Permanent link">&para;</a></h2>
-<p>Ambos os SDKs coexistem no bootstrap do portal Xvia, sob custódia integral do Estado (sem transferência internacional).</p>
-<pre class="mermaid"><code>flowchart TB
-    subgraph BROWSER["Navegador do cidadão Xvia"]
-        BOOT["Bootstrap Xvia&lt;br/&gt;(async/defer para ambos)"]
-        MTM_JS["matomo.js&lt;br/&gt;~22 KB gzip"]
-        PH_JS["posthog.js&lt;br/&gt;~55 KB gzip"]
-    end
-
-    subgraph INFRA_MS["Infraestrutura on-premise do Estado"]
-        MTM_INST["Matomo On-Premise&lt;br/&gt;(instância Xvia)"]
-        PH_INST["PostHog auto-hospedado&lt;br/&gt;(Django + Kafka + ClickHouse)"]
-        DB_MTM[("MariaDB")]
-        CH[("ClickHouse")]
-    end
-
-    BOOT --&gt; MTM_JS
-    BOOT --&gt; PH_JS
-    MTM_JS --&gt;|"page views, campanhas, referenciadores"| MTM_INST --&gt; DB_MTM
-    PH_JS --&gt;|"eventos identificados, funis, feature flags"| PH_INST --&gt; CH
-
-    style MTM_JS fill:#d1ecf1,stroke:#0ea5e9
-    style PH_JS fill:#fff3cd,stroke:#f59e0b</code></pre>
-<p><strong>Regras técnicas obrigatórias:</strong></p>
-<ul>
-<li>Ambos os SDKs carregados com <code>defer</code> (não bloqueiam parse do HTML).</li>
-<li><code>posthog.js</code> inicializado com <code>disable_session_recording: true</code> como padrão; ativado por serviço via config remota do PostHog após consentimento explícito.</li>
-<li>Endpoints de coleta expostos em subdomínios do Estado (ex.: <code>analytics.xvia.ms.gov.br</code>, <code>product.xvia.ms.gov.br</code>), nunca em domínios de terceiros.</li>
-<li>Autohospedagem sem transferência internacional — validado no DPIA (Onda 5.1).</li>
-</ul>
-<hr />
-<h2 id="3-segmentação-de-eventos-por-sdk">3. Segmentação de eventos por SDK<a class="headerlink" href="#3-segmentação-de-eventos-por-sdk" title="Permanent link">&para;</a></h2>
-<p>Regra geral: <strong>cada capability é instrumentada em uma única ferramenta</strong>. Duplicação só onde a análise em ambas agrega valor demonstrável.</p>
+<h2 id="1-sinopse">1. Sinopse<a class="headerlink" href="#1-sinopse" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Categoria de evento</th>
-<th style="text-align: center;">Matomo</th>
-<th style="text-align: center;">PostHog</th>
-<th>Racional</th>
+<th>Dimensão</th>
+<th style="text-align: center;"><strong>Matomo OP</strong></th>
+<th style="text-align: center;"><strong>PostHog SH</strong></th>
+<th style="text-align: center;"><strong>Plausible CE</strong></th>
+<th style="text-align: center;"><strong>Umami</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Page view (anônimo)</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td>Matomo é fonte oficial de audiência</td>
+<td>Licença</td>
+<td style="text-align: center;">GPL v3</td>
+<td style="text-align: center;">MIT + EE proprietária</td>
+<td style="text-align: center;">AGPL v3</td>
+<td style="text-align: center;">MIT</td>
 </tr>
 <tr>
-<td>Sessão anônima</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td>Matomo</td>
+<td>Segmento</td>
+<td style="text-align: center;">WA tradicional</td>
+<td style="text-align: center;">Product analytics</td>
+<td style="text-align: center;">Privacy-first</td>
+<td style="text-align: center;">Privacy-first</td>
 </tr>
 <tr>
-<td>Campanhas UTM</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td>Matomo (roll-up multi-site)</td>
+<td>Pontuação matriz 2026</td>
+<td style="text-align: center;"><strong>500</strong> (83,3 %)</td>
+<td style="text-align: center;">464 (77,3 %)</td>
+<td style="text-align: center;">460 (76,7 %)</td>
+<td style="text-align: center;">414 (69,0 %)</td>
 </tr>
 <tr>
-<td>Referenciadores e busca orgânica</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td>Matomo</td>
+<td>Stack (componentes)</td>
+<td style="text-align: center;">3 (PHP + MySQL + Redis)</td>
+<td style="text-align: center;">6 (Django + PG + ClickHouse + Kafka + Redis + MinIO)</td>
+<td style="text-align: center;">3 (Elixir + PG + ClickHouse)</td>
+<td style="text-align: center;">2 (Next.js + PG/MySQL)</td>
 </tr>
 <tr>
-<td>Evento de conversão anônima</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td>Matomo (meta)</td>
+<td>Cookieless por default</td>
+<td style="text-align: center;">⚠️ Configurável</td>
+<td style="text-align: center;">❌ Padrão identifica</td>
+<td style="text-align: center;">✅ Sim</td>
+<td style="text-align: center;">✅ Sim</td>
 </tr>
 <tr>
-<td>Login de cidadão (<code>user_signed_in</code>)</td>
-<td style="text-align: center;">❌</td>
+<td>Precedente CNIL</td>
 <td style="text-align: center;">✅</td>
-<td>PostHog (identificação)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
 </tr>
 <tr>
-<td>Início de fluxo transacional (<code>service_started</code>)</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog (funil identificado)</td>
+<td>Funil (RF-27, <em>Must</em>)</td>
+<td style="text-align: center;">💲 Plugin pago</td>
+<td style="text-align: center;">✅ Nativo</td>
+<td style="text-align: center;">✅ Nativo</td>
+<td style="text-align: center;">❌ <strong>Reprovado</strong></td>
 </tr>
 <tr>
-<td>Etapa de fluxo (<code>step_completed</code>)</td>
+<td>MFA nativo</td>
+<td style="text-align: center;">✅ TOTP</td>
+<td style="text-align: center;">✅ EE</td>
+<td style="text-align: center;">❌ (via proxy)</td>
 <td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog</td>
 </tr>
 <tr>
-<td>Conclusão de serviço (<code>service_completed</code>)</td>
+<td>SSO SAML/OIDC</td>
+<td style="text-align: center;">💲 Plugin pago</td>
+<td style="text-align: center;">💲 EE</td>
 <td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog (funil de conversão)</td>
+<td style="text-align: center;">❌</td>
 </tr>
 <tr>
-<td>Abandono explícito (<code>service_abandoned</code>)</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog</td>
+<td>Suporte oficial ao self-host</td>
+<td style="text-align: center;">✅ Estável</td>
+<td style="text-align: center;">❌ <strong>Descontinuado 2023</strong></td>
+<td style="text-align: center;">✅ Docker Compose</td>
+<td style="text-align: center;">✅ Docker Compose</td>
 </tr>
 <tr>
-<td>Feature flag exposta (<code>$feature_flag_called</code>)</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog (nativo)</td>
-</tr>
-<tr>
-<td>Evento de experimento (<code>$experiment_started</code>)</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog (nativo)</td>
-</tr>
-<tr>
-<td>Erro de UI</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog (correlação com session replay)</td>
-</tr>
-<tr>
-<td>Clique em CTA</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td>PostHog (SDK mais rico)</td>
+<td>TCO marginal 5a (SETDIG)</td>
+<td style="text-align: center;">~R$ 235 k</td>
+<td style="text-align: center;">~R$ 955 k</td>
+<td style="text-align: center;">~R$ 120 k</td>
+<td style="text-align: center;">~R$ 100 k</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Página de configuração da segmentação:</strong> deve viver em repositório versionado dentro do time Xvia, revisada trimestralmente pelo comitê de governança.</p>
 <hr />
-<h2 id="4-política-de-retenção-coordenada">4. Política de retenção coordenada<a class="headerlink" href="#4-política-de-retenção-coordenada" title="Permanent link">&para;</a></h2>
-<p>Retenção <strong>idêntica em ambas as plataformas</strong> para evitar consulta em ferramenta com janela temporal divergente.</p>
+<h2 id="2-lgpd-e-controle-de-dados">2. LGPD e controle de dados<a class="headerlink" href="#2-lgpd-e-controle-de-dados" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Camada</th>
-<th>Retenção</th>
-<th>Aplicação em Matomo</th>
-<th>Aplicação em PostHog</th>
+<th>Aspecto</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog SH</th>
+<th style="text-align: center;">Plausible CE</th>
+<th style="text-align: center;">Umami</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Dado bruto</td>
-<td>12 meses</td>
-<td><code>delete_logs_older_than=365</code> + cron</td>
-<td><code>event_retention_days: 365</code> na config + TTL ClickHouse</td>
+<td>Sem transferência internacional</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td>Agregados</td>
-<td>60 meses</td>
-<td>Arquivos de arquivamento retidos por 60 meses</td>
-<td>Materialized views + TTL 60 meses</td>
+<td>Anonimização de IP nativa</td>
+<td style="text-align: center;">✅ Configurável (0–4 bytes)</td>
+<td style="text-align: center;">⚠️ Configurável</td>
+<td style="text-align: center;">✅ Não armazena</td>
+<td style="text-align: center;">✅ Hash com sal rotativo</td>
 </tr>
 <tr>
-<td>Session replays</td>
-<td>30 dias</td>
-<td>N/A (não usado no Xvia)</td>
-<td><code>session_recording_retention_days: 30</code></td>
+<td>Cookieless nativo</td>
+<td style="text-align: center;">⚠️ Configurável</td>
+<td style="text-align: center;">❌ Cookie identifica</td>
+<td style="text-align: center;">✅ Design</td>
+<td style="text-align: center;">✅ Design</td>
 </tr>
 <tr>
-<td>IP anonimizado</td>
-<td>Sempre (4 bytes)</td>
-<td><code>anonymize_ip=true</code></td>
-<td><code>ip_anonymize: last_octet</code></td>
+<td>Retenção controlada pelo Estado</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td>Consentimento revogado</td>
-<td>Purga em ≤ 30 dias</td>
-<td>API de direitos do titular + rotina mensal</td>
-<td>API de direitos do titular + rotina mensal</td>
+<td>Direitos do titular exercíveis (art. 18)</td>
+<td style="text-align: center;">✅ SQL direto</td>
+<td style="text-align: center;">✅ HogQL</td>
+<td style="text-align: center;">✅ SQL direto</td>
+<td style="text-align: center;">✅ SQL direto</td>
+</tr>
+<tr>
+<td>Opt-out nativo</td>
+<td style="text-align: center;">✅ Iframe + API</td>
+<td style="text-align: center;">✅ SDK</td>
+<td style="text-align: center;">⚠️ Manual</td>
+<td style="text-align: center;">⚠️ Manual</td>
+</tr>
+<tr>
+<td>Log de auditoria</td>
+<td style="text-align: center;">✅ Nativo</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ Básico</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Session replay (implica RIPD)</td>
+<td style="text-align: center;">💲 Plugin</td>
+<td style="text-align: center;">✅ Nativo</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Nota C01 (LGPD) na matriz</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td>Nota C02 (Controle) na matriz</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Rotina de auditoria trimestral:</strong> DPO valida por amostragem que a retenção efetiva corresponde à configurada.</p>
+<blockquote>
+<p><strong>📌 Configuração ótima</strong>
+Matomo, Plausible e Umami operam em modo em que dado coletado <strong>não é pessoal</strong> (art. 5º I) — passa a anonimizado (art. 12) e LGPD deixa de incidir. PostHog é orientado a identificação: conformidade exige trabalho ativo (mascaramento agressivo, opt-in). Trade-off aceito no ADR-002 para o Xvia por RIPD específico + governança do consentimento.</p>
+</blockquote>
 <hr />
-<h2 id="5-consentimento-e-session-replay">5. Consentimento e session replay<a class="headerlink" href="#5-consentimento-e-session-replay" title="Permanent link">&para;</a></h2>
-<p>Session replay é o único componente da coexistência com <strong>risco crítico</strong> de captura acidental de dado sensível (<a href="../../docs/07-recomendacao/#10-riscos">R-11</a>). Regras rígidas:</p>
-<ol>
-<li><strong>Desabilitado por padrão.</strong> <code>disable_session_recording: true</code> no init do <code>posthog.js</code>.</li>
-<li><strong>Ativado apenas após opt-in explícito</strong>, coletado por Consent Manager único (compartilhado entre Matomo e PostHog).</li>
-<li><strong>Mascaramento agressivo por padrão</strong>:</li>
-<li>Todos os inputs: <code>data-ph-no-capture</code> ou máscara automática.</li>
-<li>Campos sensíveis (CPF, senha, dado de saúde, valor financeiro): máscara <code>***</code>.</li>
-<li>Regex de segurança rejeita padrões de CPF/CNPJ/CEP em campos texto.</li>
-<li><strong>Ativação por serviço</strong>, não por padrão. Cada serviço que quiser ativar replay requer:</li>
-<li>Aprovação do DPO com DPIA específico do serviço.</li>
-<li>Homologação da configuração pelo time de segurança.</li>
-<li>Justificativa formal do valor incremental (ex.: "diagnóstico de fluxo de agendamento onde 15 % abandonam sem completar").</li>
-<li><strong>Retenção curta</strong> — 30 dias, não os 12 meses do evento bruto.</li>
-<li><strong>Auditoria mensal</strong> — amostragem aleatória de replays revisada pelo time de segurança para caçar captura acidental.</li>
-</ol>
-<p><strong>Bloqueio operacional:</strong> ativação em qualquer serviço sem os 6 requisitos acima é considerada incidente de conformidade e aciona R-11.</p>
-<hr />
-<h2 id="6-reconciliação-e-governança-de-divergência">6. Reconciliação e governança de divergência<a class="headerlink" href="#6-reconciliação-e-governança-de-divergência" title="Permanent link">&para;</a></h2>
-<p>Métricas equivalentes divergirão — é o comportamento esperado, não a exceção. Causas:</p>
-<ul>
-<li>Diferenças de sampling e de definição de sessão (padrão de 30 min vs 30 min inatividade).</li>
-<li>Bloqueadores de rastreamento diferentes (uBlock bloqueia domínios diferentes).</li>
-<li>Timing de disparo dos scripts (um pode disparar antes do outro em conexão lenta).</li>
-<li>Filtros de bot diferentes.</li>
-</ul>
-<p><strong>Regra de convivência:</strong></p>
+<h2 id="3-stack-e-complexidade-operacional">3. Stack e complexidade operacional<a class="headerlink" href="#3-stack-e-complexidade-operacional" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Divergência mensal (métrica equivalente)</th>
-<th>Situação</th>
-<th>Ação</th>
+<th>Componente</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog SH</th>
+<th style="text-align: center;">Plausible CE</th>
+<th style="text-align: center;">Umami</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>≤ 15 %</td>
-<td>Esperada</td>
-<td>Nenhuma — dashboard consolidado marca a fonte</td>
+<td>Aplicação</td>
+<td style="text-align: center;">PHP 8.x</td>
+<td style="text-align: center;">Django (Python)</td>
+<td style="text-align: center;">Elixir</td>
+<td style="text-align: center;">Node.js</td>
 </tr>
 <tr>
-<td>15–25 %</td>
-<td>Alerta</td>
-<td>Análise de causa em 30 dias</td>
+<td>Banco relacional</td>
+<td style="text-align: center;">MySQL/MariaDB</td>
+<td style="text-align: center;">PostgreSQL</td>
+<td style="text-align: center;">PostgreSQL</td>
+<td style="text-align: center;">PG ou MySQL</td>
 </tr>
 <tr>
-<td>&gt; 25 % ou sustentada &gt; 15 % por 3 meses</td>
-<td>Incidente de governança</td>
-<td>Aciona <a href="../../docs/06-adr-002/#112-gatilhos-antecipados">G10 do ADR-002</a> — reavaliação em 90 dias</td>
+<td>Banco colunar</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ ClickHouse</td>
+<td style="text-align: center;">✅ ClickHouse</td>
+<td style="text-align: center;">❌ (opcional CH em nuvem)</td>
+</tr>
+<tr>
+<td>Fila / streaming</td>
+<td style="text-align: center;">Redis (plugin)</td>
+<td style="text-align: center;">✅ Kafka</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Cache</td>
+<td style="text-align: center;">Redis</td>
+<td style="text-align: center;">Redis</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Object storage</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ MinIO (session replay)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Container oficial</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅ (Compose "não suportado")</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Helm chart oficial</td>
+<td style="text-align: center;">⚠️ Comunidade</td>
+<td style="text-align: center;">❌ <strong>Descontinuado 2023</strong></td>
+<td style="text-align: center;">⚠️ Comunidade</td>
+<td style="text-align: center;">⚠️ Comunidade</td>
+</tr>
+<tr>
+<td>Cron obrigatório</td>
+<td style="text-align: center;">✅ Arquivamento</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Esforço STI (~FTE)</td>
+<td style="text-align: center;">~0,3</td>
+<td style="text-align: center;"><strong>~0,8</strong></td>
+<td style="text-align: center;">~0,15</td>
+<td style="text-align: center;">~0,1</td>
+</tr>
+<tr>
+<td>Nota C10 (Operação)</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Reconciliação mensal:</strong> SGD + BI comparam page views, sessões e conversões em ambas as plataformas. Relatório publicado no dashboard executivo do Xvia com fonte e delta em cada card.</p>
+<blockquote>
+<p><strong>🚨 PostHog SH exige competência ClickHouse + Kafka</strong>
+Descontinuação do suporte oficial ao K8s em 2023 desloca integralmente o ônus operacional ao Estado. Documentação self-host explicitamente rotulada como "não suportada em produção" — recomendada só para avaliação. R-18 mitiga por capacitação + reserva orçamentária para suporte especializado.</p>
+</blockquote>
 <hr />
-<h2 id="7-impacto-de-desempenho-no-navegador">7. Impacto de desempenho no navegador<a class="headerlink" href="#7-impacto-de-desempenho-no-navegador" title="Permanent link">&para;</a></h2>
-<p>Aceite consciente registrado no <a href="../../docs/06-adr-002/#5-trade-offs">ADR-002 §5.T1</a>.</p>
+<h2 id="4-custo-marginal-5-anos">4. Custo marginal 5 anos<a class="headerlink" href="#4-custo-marginal-5-anos" title="Permanent link">&para;</a></h2>
+<p>Regime marginal SETDIG — infra compartilhada e operação de kernel absorvidas pelo contrato existente. Detalhamento em <code>../anexos/historico/comparativos/custo.md</code>.</p>
 <table>
 <thead>
 <tr>
-<th>Métrica</th>
-<th style="text-align: center;">Matomo sozinho</th>
-<th style="text-align: center;">PostHog sozinho</th>
-<th style="text-align: center;"><strong>Ambos em paralelo</strong></th>
-<th style="text-align: center;">Alvo Xvia</th>
+<th>Rubrica</th>
+<th style="text-align: right;">Matomo OP</th>
+<th style="text-align: right;">PostHog SH</th>
+<th style="text-align: right;">Plausible CE</th>
+<th style="text-align: right;">Umami</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>JS transferido (gzip)</td>
-<td style="text-align: center;">22 KB</td>
-<td style="text-align: center;">55 KB</td>
-<td style="text-align: center;"><strong>~77 KB</strong></td>
-<td style="text-align: center;">≤ 100 KB</td>
+<td>Licença de software</td>
+<td style="text-align: right;">R$ 0</td>
+<td style="text-align: right;">R$ 300 k (EE: SSO+RBAC)</td>
+<td style="text-align: right;">R$ 0</td>
+<td style="text-align: right;">R$ 0</td>
 </tr>
 <tr>
-<td>Requisições no first paint</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1–2</td>
-<td style="text-align: center;"><strong>2–3</strong></td>
-<td style="text-align: center;">≤ 4</td>
+<td>Plugins premium</td>
+<td style="text-align: right;">R$ 60 k</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
 </tr>
 <tr>
-<td>Impacto no LCP (3G simulado, p75)</td>
-<td style="text-align: center;">&lt; 50 ms</td>
-<td style="text-align: center;">50–200 ms</td>
-<td style="text-align: center;"><strong>~100–250 ms</strong></td>
-<td style="text-align: center;">≤ 75 ms</td>
+<td>Infra marginal</td>
+<td style="text-align: right;">R$ 30 k</td>
+<td style="text-align: right;">R$ 300 k (Kafka + CH dedicado + MinIO fora do padrão)</td>
+<td style="text-align: right;">R$ 20 k</td>
+<td style="text-align: right;">R$ 15 k</td>
 </tr>
 <tr>
-<td>Impacto no LCP (4G+, p75)</td>
-<td style="text-align: center;">Desprezível</td>
-<td style="text-align: center;">20–50 ms</td>
-<td style="text-align: center;"><strong>~30–80 ms</strong></td>
-<td style="text-align: center;">≤ 75 ms</td>
+<td>Equipe marginal (FTE incremental)</td>
+<td style="text-align: right;">R$ 75 k (~0,1)</td>
+<td style="text-align: right;">R$ 240 k (~0,4)</td>
+<td style="text-align: right;">R$ 60 k (~0,05)</td>
+<td style="text-align: right;">R$ 50 k (~0,04)</td>
+</tr>
+<tr>
+<td>Implantação inicial</td>
+<td style="text-align: right;">R$ 10 k</td>
+<td style="text-align: right;">R$ 45 k</td>
+<td style="text-align: right;">R$ 10 k</td>
+<td style="text-align: right;">R$ 5 k</td>
+</tr>
+<tr>
+<td>Adequação LGPD</td>
+<td style="text-align: right;">R$ 30 k</td>
+<td style="text-align: right;">R$ 40 k</td>
+<td style="text-align: right;">R$ 15 k</td>
+<td style="text-align: right;">R$ 15 k</td>
+</tr>
+<tr>
+<td>Contingência (riscos)</td>
+<td style="text-align: right;">R$ 30 k</td>
+<td style="text-align: right;">R$ 30 k</td>
+<td style="text-align: right;">R$ 15 k</td>
+<td style="text-align: right;">R$ 15 k</td>
+</tr>
+<tr>
+<td><strong>Total 5 anos</strong></td>
+<td style="text-align: right;"><strong>~R$ 235 k</strong></td>
+<td style="text-align: right;"><strong>~R$ 955 k</strong></td>
+<td style="text-align: right;"><strong>~R$ 120 k</strong></td>
+<td style="text-align: right;"><strong>~R$ 100 k</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Mitigações obrigatórias:</strong></p>
-<ul>
-<li>Ambos com <code>defer</code>.</li>
-<li>Autohost dos JS no domínio do Estado (elimina resolução DNS de terceiro).</li>
-<li>Segmentação de eventos rigorosa — só rastrear o que tem valor decisório.</li>
-<li>Monitoramento contínuo de LCP p75 3G via Lighthouse CI (Onda 5.10).</li>
-</ul>
-<p><strong>Gatilho de reavaliação:</strong> LCP &gt; 75 ms sustentado por 2 meses aciona <a href="../../docs/06-adr-002/#112-gatilhos-antecipados">G9 do ADR-002</a>. Contingências (§8) preveem PostHog Cloud EU com CDN de borda ou reversão a Matomo puro no Xvia.</p>
+<blockquote>
+<p><strong>📌 Custo não é filtro de decisão no ADR-002</strong> (C03 = peso 0). Modelagem serve a dimensionamento e prestação de contas ao TCE-MS.</p>
+</blockquote>
 <hr />
-<h2 id="8-plano-de-deprecação-caso-o-gate-falhe">8. Plano de deprecação caso o gate falhe<a class="headerlink" href="#8-plano-de-deprecação-caso-o-gate-falhe" title="Permanent link">&para;</a></h2>
-<p>Falha em qualquer critério do <a href="../../docs/08-roadmap/#8-onda-5--portal-xvia-posthog">gate de 12 meses</a> aciona reavaliação em 60 dias. Três cenários pré-definidos:</p>
-<h3 id="81-cenário-a--ajuste-de-configuração">8.1 Cenário A — Ajuste de configuração<a class="headerlink" href="#81-cenário-a--ajuste-de-configuração" title="Permanent link">&para;</a></h3>
-<p><strong>Quando:</strong> LCP marginal, divergência marginal, mas capacidade funcional está sendo usada com valor.
-<strong>Ação:</strong> ajustes técnicos (segmentação mais rigorosa, retirada de session replay de serviços marginais, revisão de eventos duplicados).
-<strong>Impacto:</strong> baixo. Coexistência mantida com escopo reduzido.</p>
-<h3 id="82-cenário-b--migração-para-posthog-cloud-eu">8.2 Cenário B — Migração para PostHog Cloud EU<a class="headerlink" href="#82-cenário-b--migração-para-posthog-cloud-eu" title="Permanent link">&para;</a></h3>
-<p><strong>Quando:</strong> operação do stack auto-hospedado excede capacidade da STI, mas capacidade funcional é essencial.
-<strong>Ação:</strong> provisionar PostHog Cloud EU; migrar configuração; encerrar stack auto-hospedado.
-<strong>Impacto:</strong> DPIA novo (transferência para UE, sob art. 33 da LGPD); custo recorrente em moeda estrangeira; perda de acesso SQL direto.
-<strong>Base legal:</strong> exige aprovação formal do DPO e RIPD específico.</p>
-<h3 id="83-cenário-c--reversão-a-matomo-puro-no-xvia">8.3 Cenário C — Reversão a Matomo puro no Xvia<a class="headerlink" href="#83-cenário-c--reversão-a-matomo-puro-no-xvia" title="Permanent link">&para;</a></h3>
-<p><strong>Quando:</strong> capacidade funcional do PostHog não foi usada (feature flags vazias, funis não configurados, replays não capturados).
-<strong>Ação:</strong> remover <code>posthog.js</code> do bootstrap; encerrar stack; migrar necessidades residuais (funis) para plugins do Matomo; documentar aprendizado.
-<strong>Impacto:</strong> perda de dado histórico do PostHog (exportação recomendada antes do desligamento); cobertura reduzida de product analytics, aceita.
-<strong>Custo evitado:</strong> operação recorrente do stack PostHog.</p>
-<p><strong>Escolha do cenário:</strong> decisão colegiada do comitê de governança + Arquitetura + DPO, com base em relatório do gate.</p>
+<h2 id="5-cobertura-funcional">5. Cobertura funcional<a class="headerlink" href="#5-cobertura-funcional" title="Permanent link">&para;</a></h2>
+<p>Ponderação por MoSCoW: M=3, S=2, C=1.</p>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th style="text-align: center;">Prio</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog SH</th>
+<th style="text-align: center;">Plausible CE</th>
+<th style="text-align: center;">Umami</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-01 Page views</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-02 Eventos customizados</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-05 Dimensões customizadas</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">💲 Plano pago</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td>RF-09 SPAs</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-21 Audiência</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ (via evento)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-22 Aquisição / UTM</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-26 Metas</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td><strong>RF-27 Funil</strong></td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;">✅ 💲</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-28 Segmentação avançada</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ Filtros</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td>RF-30 Tempo real</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-31 Coortes / retenção</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-32 Heatmap</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">💲</td>
+<td style="text-align: center;">⚠️ Via replay</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-33 Session replay</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">💲</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-35 A/B testing / Feature flags</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">💲</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-36 Jornada do usuário</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-40 Multi-site + segregação</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-43 MFA admin</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">💲 EE</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-45 Tag Manager próprio</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Nota C05 (Recursos)</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>🚨 Umami reprovado em RF-27 (funil, <em>Must have</em>)</strong>
+Não pode ser plataforma padrão do parque nem do Xvia. Papel residual: portais classe D (temporários) ou instrumentação de contagem simples.</p>
+</blockquote>
 <hr />
-<h2 id="9-o-que-este-documento-não-cobre">9. O que este documento NÃO cobre<a class="headerlink" href="#9-o-que-este-documento-não-cobre" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Análise comparativa das duas ferramentas.</strong> Ver <a href="../matomo-vs-posthog/"><code>matomo-vs-posthog.md</code></a>.</li>
-<li><strong>Custo comparativo.</strong> Não é mais critério de decisão — referência histórica em <a href="../../anexos/historico/comparativos/custo/"><code>custo.md</code></a>.</li>
-<li><strong>Configuração detalhada de Matomo.</strong> Ver <a href="../../plataformas/matomo/"><code>../plataformas/matomo.md</code></a>.</li>
-<li><strong>Configuração detalhada de PostHog.</strong> Ver <a href="../../plataformas/posthog/"><code>../plataformas/posthog.md</code></a>.</li>
-<li><strong>Coexistência fora do Xvia.</strong> Vedada por padrão — exige novo ADR.</li>
-</ul>
+<h2 id="6-api-e-integração-com-bi">6. API e integração com BI<a class="headerlink" href="#6-api-e-integração-com-bi" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog SH</th>
+<th style="text-align: center;">Plausible CE</th>
+<th style="text-align: center;">Umami</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API REST leitura</td>
+<td style="text-align: center;">✅ Reporting API</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅ Stats API</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>API REST escrita/ingestão</td>
+<td style="text-align: center;">✅ Tracking API</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅ Events API</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Query SQL sobre bruto</td>
+<td style="text-align: center;">✅ Direto ao MySQL</td>
+<td style="text-align: center;">✅ HogQL</td>
+<td style="text-align: center;">✅ Direto ao ClickHouse</td>
+<td style="text-align: center;">✅ Direto ao PG/MySQL</td>
+</tr>
+<tr>
+<td>Formatos de saída</td>
+<td style="text-align: center;">JSON, XML, CSV, TSV, HTML, RSS</td>
+<td style="text-align: center;">JSON</td>
+<td style="text-align: center;">JSON, CSV</td>
+<td style="text-align: center;">JSON, CSV</td>
+</tr>
+<tr>
+<td>SDKs oficiais</td>
+<td style="text-align: center;">PHP + móveis</td>
+<td style="text-align: center;">JS, Py, Node, Go, iOS, Android, RN</td>
+<td style="text-align: center;">❌ (só comunitário)</td>
+<td style="text-align: center;">❌ (só comunitário)</td>
+</tr>
+<tr>
+<td>Webhooks nativos</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Versionamento explícito</td>
+<td style="text-align: center;">⚠️ Implícito</td>
+<td style="text-align: center;">✅ v1</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>GraphQL</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Conector Power BI nativo</td>
+<td style="text-align: center;">❌ (via ODBC MySQL)</td>
+<td style="text-align: center;">❌ (via ClickHouse)</td>
+<td style="text-align: center;">❌ (via ClickHouse)</td>
+<td style="text-align: center;">❌ (via ODBC)</td>
+</tr>
+<tr>
+<td>Integração Metabase/Superset/Grafana</td>
+<td style="text-align: center;">✅ SQL direto</td>
+<td style="text-align: center;">✅ ClickHouse</td>
+<td style="text-align: center;">✅ ClickHouse</td>
+<td style="text-align: center;">✅ SQL direto</td>
+</tr>
+<tr>
+<td><strong>Nota C06 (APIs)</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 SQL direto sobre banco vs API</strong>
+Todas as 4 permitem acesso SQL ao banco de bruto — vantagem estrutural sobre qualquer SaaS. Padrão do Estado: <strong>Reporting API para consumo externo; réplica de leitura só para ETL do DW corporativo</strong> (não expor a BI de autoatendimento).</p>
+</blockquote>
+<hr />
+<h2 id="7-comunidade-e-sustentabilidade">7. Comunidade e sustentabilidade<a class="headerlink" href="#7-comunidade-e-sustentabilidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">PostHog SH</th>
+<th style="text-align: center;">Plausible CE</th>
+<th style="text-align: center;">Umami</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ano de criação</td>
+<td style="text-align: center;">2007</td>
+<td style="text-align: center;">2020</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">2020</td>
+</tr>
+<tr>
+<td>Mantenedor principal</td>
+<td style="text-align: center;">InnoCraft (NZ) + comunidade</td>
+<td style="text-align: center;">PostHog Inc.</td>
+<td style="text-align: center;">Plausible Insights OÜ (EE)</td>
+<td style="text-align: center;">Umami Software Inc.</td>
+</tr>
+<tr>
+<td>Adoção institucional pública</td>
+<td style="text-align: center;">✅ Comissão Europeia; setor público FR/DE</td>
+<td style="text-align: center;">⚠️ Emergente</td>
+<td style="text-align: center;">⚠️ Emergente</td>
+<td style="text-align: center;">⚠️ Baixa</td>
+</tr>
+<tr>
+<td>Precedente regulatório (DPA)</td>
+<td style="text-align: center;">✅ CNIL</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>Cadência de releases</td>
+<td style="text-align: center;">Regular (mensal)</td>
+<td style="text-align: center;">Elevada (semanal)</td>
+<td style="text-align: center;">Regular (mensal)</td>
+<td style="text-align: center;">Regular (mensal)</td>
+</tr>
+<tr>
+<td>Risco de relicenciamento</td>
+<td style="text-align: center;">🟢 Baixo (GPL v3, contribuidores diversos)</td>
+<td style="text-align: center;">🟡 Médio (<strong>já concretizado 2023</strong>)</td>
+<td style="text-align: center;">🟡 Médio (AGPL, mantenedor único)</td>
+<td style="text-align: center;">🟡 Médio (MIT permite fechar futuras)</td>
+</tr>
+<tr>
+<td>Profissionais no BR</td>
+<td style="text-align: center;">✅ Razoável</td>
+<td style="text-align: center;">⚠️ Baixa</td>
+<td style="text-align: center;">⚠️ Baixa</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Nota C11 (Comunidade)</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td><strong>Nota C12 (Documentação)</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-papel-na-arquitetura-recomendada">8. Papel na arquitetura recomendada<a class="headerlink" href="#8-papel-na-arquitetura-recomendada" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Papel</th>
+<th>Onde</th>
+<th>Fundamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matomo OP</strong></td>
+<td>🥇 <strong>Padrão único</strong> do parque</td>
+<td>EDS + sites gov MS</td>
+<td>Cobertura + precedente CNIL + auditoria verificável + custo previsível</td>
+</tr>
+<tr>
+<td><strong>Matomo OP</strong></td>
+<td>Co-instância no <strong>Xvia</strong> para audiência anônima</td>
+<td>Portal Xvia</td>
+<td>Base legal cookieless + roll-up + Tag Manager próprio</td>
+</tr>
+<tr>
+<td><strong>PostHog SH</strong></td>
+<td>Camada de <strong>product analytics</strong> no Xvia</td>
+<td>Portal Xvia</td>
+<td>Único soberano que cobre funil identificado + feature flags + replay + HogQL</td>
+</tr>
+<tr>
+<td><strong>Plausible CE</strong></td>
+<td>Camada leve <strong>opcional</strong> para conteúdo classe C</td>
+<td>Portais de altíssimo volume, baixa criticidade</td>
+<td>Cookieless por design + stack simples</td>
+</tr>
+<tr>
+<td><strong>Umami</strong></td>
+<td><strong>Referência de leveza</strong></td>
+<td>Fora do escopo produtivo (reprovado em RF-27)</td>
+<td>Menor stack e custo — sem funil = sem plataforma padrão</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
 <table>
@@ -1771,20 +2111,20 @@ Este arquivo substitui <code>migracao-matomo-posthog.md</code>, que analisava o 
 </thead>
 <tbody>
 <tr>
+<td><a href="../matomo-vs-posthog/">Matomo × PostHog</a></td>
+<td>Complementaridade binária</td>
+</tr>
+<tr>
+<td><a href="../coexistencia-matomo-posthog/">Coexistência no Xvia</a></td>
+<td>Modelo operacional</td>
+</tr>
+<tr>
+<td><a href="../../docs/05-matriz/">Matriz de decisão</a></td>
+<td>Notas nota-a-nota</td>
+</tr>
+<tr>
 <td><a href="../../docs/06-adr-002/">ADR-002</a></td>
-<td>Decisão formal</td>
-</tr>
-<tr>
-<td><a href="../matomo-vs-posthog/">Complementaridade Matomo × PostHog</a></td>
-<td>Comparativo das duas ferramentas</td>
-</tr>
-<tr>
-<td><a href="../../docs/08-roadmap/#8-onda-5--portal-xvia-posthog">Onda 5 do roadmap</a></td>
-<td>Plano de execução</td>
-</tr>
-<tr>
-<td><a href="../../docs/07-recomendacao/#10-riscos">R-11, R-17, R-18, R-19, R-20</a></td>
-<td>Riscos associados</td>
+<td>Decisão vigente</td>
 </tr>
 </tbody>
 </table>

@@ -18,7 +18,7 @@
         <link rel="prev" href="../plausible/">
       
       
-        <link rel="next" href="../open-web-analytics/">
+        <link rel="next" href="../../comparativos/matomo-vs-posthog/">
       
       
       <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
@@ -265,7 +265,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../comparativos/custo/" class="md-tabs__link">
+        <a href="../../comparativos/matomo-vs-posthog/" class="md-tabs__link">
           
   
     
@@ -291,6 +291,26 @@
     
   
   Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../apresentacoes/camada-complementar-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Apresentações
 
         </a>
       </li>
@@ -358,14 +378,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -467,11 +479,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docs/03-criterios-de-avaliacao/" class="md-nav__link">
+      <a href="../../docs/03-criterios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Critérios de avaliação
+    Critérios
   </span>
   
 
@@ -509,11 +521,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docs/05-comparativo-detalhado/" class="md-nav__link">
+      <a href="../../docs/05-matriz/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Comparativo detalhado
+    Matriz de decisão
   </span>
   
 
@@ -530,70 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docs/06-tradeoffs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Trade-offs
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../docs/07-matriz-decisao/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Matriz de decisão (revisão 2026)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../docs/08-adr/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ADR-001 (depreciado)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../docs/08-adr-002/" class="md-nav__link">
+      <a href="../../docs/06-adr-002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -614,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docs/09-recomendacao/" class="md-nav__link">
+      <a href="../../docs/07-recomendacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -635,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docs/10-roadmap/" class="md-nav__link">
+      <a href="../../docs/08-roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -656,28 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docs/11-riscos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Riscos
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../docs/12-referencias/" class="md-nav__link">
+      <a href="../../docs/99-referencias/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,18 +636,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -793,11 +709,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../google-analytics/" class="md-nav__link">
+      <a href="../posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Google Analytics 4
+    PostHog
   </span>
   
 
@@ -896,408 +812,84 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Visão geral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-identificação" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1 Identificação
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-história" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2 História
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-comunidade" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.3 Comunidade
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-modelo-de-negócio" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.4 Modelo de negócio
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-casos-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.5 Casos de uso
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-licenciamento" class="md-nav__link">
+  <a href="#2-licença-e-modelo" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Licenciamento
+      2. Licença e modelo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-hospedagem" class="md-nav__link">
+  <a href="#3-hospedagem-on-premise" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Hospedagem
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Hospedagem">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-requisitos" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 Requisitos
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-implantação" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 Implantação
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-funcionalidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Funcionalidades
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Funcionalidades">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-cobertura-dos-requisitos-funcionais" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Cobertura dos requisitos funcionais
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-apis" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. APIs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. APIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-rest-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 REST API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.1 REST API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#endpoints-principais" class="md-nav__link">
-    <span class="md-ellipsis">
-      Endpoints principais
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-schema-do-banco" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 Schema do banco
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-exemplos-de-integração" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Exemplos de integração
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Exemplos de integração">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.1 Python
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-nodejs" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.2 Node.js
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2 Node.js">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#envio-server-side" class="md-nav__link">
-    <span class="md-ellipsis">
-      Envio server-side
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#63-power-bi" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.3 Power BI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#64-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.4 Grafana
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#65-metabase" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.5 Metabase
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#66-apache-superset" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.6 Apache Superset
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#67-qlik-sense" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.7 Qlik Sense
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#68-google-looker-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.8 Google Looker Studio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-integrações" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Integrações
+      3. Hospedagem on-premise
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-infraestrutura" class="md-nav__link">
+  <a href="#4-funcionalidades-essenciais" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Infraestrutura
+      4. Funcionalidades essenciais
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-segurança" class="md-nav__link">
+  <a href="#5-apis-e-integrações" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Segurança
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Segurança">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#91-o-que-o-umami-coleta" class="md-nav__link">
-    <span class="md-ellipsis">
-      9.1 O que o Umami coleta
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-governança" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Governança
+      5. APIs e integrações
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-performance" class="md-nav__link">
+  <a href="#6-segurança-e-lgpd" class="md-nav__link">
     <span class="md-ellipsis">
-      11. Performance
+      6. Segurança e LGPD
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-custos" class="md-nav__link">
+  <a href="#7-custos" class="md-nav__link">
     <span class="md-ellipsis">
-      12. Custos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. Custos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121-tco-consolidado--coluna-dupla" class="md-nav__link">
-    <span class="md-ellipsis">
-      12.1 TCO consolidado — coluna dupla
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-pontos-fortes" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Pontos fortes
+      7. Custos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-pontos-fracos" class="md-nav__link">
+  <a href="#8-pontos-fortes--fracos" class="md-nav__link">
     <span class="md-ellipsis">
-      14. Pontos fracos
+      8. Pontos fortes / fracos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#15-quando-utilizar" class="md-nav__link">
+  <a href="#9-quando-usar--quando-evitar" class="md-nav__link">
     <span class="md-ellipsis">
-      15. Quando utilizar
+      9. Quando usar / quando evitar
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#16-quando-evitar" class="md-nav__link">
+  <a href="#10-notas-do-avaliador" class="md-nav__link">
     <span class="md-ellipsis">
-      16. Quando evitar
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#17-notas-do-avaliador" class="md-nav__link">
-    <span class="md-ellipsis">
-      17. Notas do avaliador
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referências" class="md-nav__link">
-    <span class="md-ellipsis">
-      Referências
+      10. Notas do avaliador
     </span>
   </a>
   
@@ -1307,132 +899,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../open-web-analytics/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Open Web Analytics
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adobe-analytics/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Adobe Analytics
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../simple-analytics/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Simple Analytics
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../microsoft-clarity/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Microsoft Clarity
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cloudflare-web-analytics/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cloudflare Web Analytics
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../posthog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PostHog
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1453,16 +919,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -1510,137 +966,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comparativos/custo/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Custo (informativo)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../comparativos/lgpd/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LGPD
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../comparativos/api/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    API
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../comparativos/infraestrutura/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Infraestrutura
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../comparativos/escalabilidade/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Escalabilidade
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../comparativos/governanca/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Governança
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Matomo × PostHog (complementaridade)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/on-premise-gratis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On-premise gratuito (4 plataformas)
   </span>
   
 
@@ -1737,7 +1088,7 @@
         
   
   <span class="md-ellipsis">
-    Matriz de decisão
+    Matriz completa
   </span>
   
 
@@ -1796,6 +1147,78 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apresentações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Apresentações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacoes/camada-complementar-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estudo (Marp)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1838,408 +1261,84 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Visão geral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-identificação" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1 Identificação
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-história" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2 História
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-comunidade" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.3 Comunidade
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-modelo-de-negócio" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.4 Modelo de negócio
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-casos-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.5 Casos de uso
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-licenciamento" class="md-nav__link">
+  <a href="#2-licença-e-modelo" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Licenciamento
+      2. Licença e modelo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-hospedagem" class="md-nav__link">
+  <a href="#3-hospedagem-on-premise" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Hospedagem
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Hospedagem">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-requisitos" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 Requisitos
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-implantação" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 Implantação
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-funcionalidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Funcionalidades
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Funcionalidades">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-cobertura-dos-requisitos-funcionais" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Cobertura dos requisitos funcionais
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-apis" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. APIs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. APIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-rest-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 REST API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.1 REST API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#endpoints-principais" class="md-nav__link">
-    <span class="md-ellipsis">
-      Endpoints principais
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-schema-do-banco" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 Schema do banco
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-exemplos-de-integração" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Exemplos de integração
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Exemplos de integração">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.1 Python
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-nodejs" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.2 Node.js
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2 Node.js">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#envio-server-side" class="md-nav__link">
-    <span class="md-ellipsis">
-      Envio server-side
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#63-power-bi" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.3 Power BI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#64-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.4 Grafana
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#65-metabase" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.5 Metabase
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#66-apache-superset" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.6 Apache Superset
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#67-qlik-sense" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.7 Qlik Sense
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#68-google-looker-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.8 Google Looker Studio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-integrações" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Integrações
+      3. Hospedagem on-premise
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-infraestrutura" class="md-nav__link">
+  <a href="#4-funcionalidades-essenciais" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Infraestrutura
+      4. Funcionalidades essenciais
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-segurança" class="md-nav__link">
+  <a href="#5-apis-e-integrações" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Segurança
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Segurança">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#91-o-que-o-umami-coleta" class="md-nav__link">
-    <span class="md-ellipsis">
-      9.1 O que o Umami coleta
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-governança" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Governança
+      5. APIs e integrações
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-performance" class="md-nav__link">
+  <a href="#6-segurança-e-lgpd" class="md-nav__link">
     <span class="md-ellipsis">
-      11. Performance
+      6. Segurança e LGPD
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-custos" class="md-nav__link">
+  <a href="#7-custos" class="md-nav__link">
     <span class="md-ellipsis">
-      12. Custos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. Custos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121-tco-consolidado--coluna-dupla" class="md-nav__link">
-    <span class="md-ellipsis">
-      12.1 TCO consolidado — coluna dupla
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-pontos-fortes" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Pontos fortes
+      7. Custos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-pontos-fracos" class="md-nav__link">
+  <a href="#8-pontos-fortes--fracos" class="md-nav__link">
     <span class="md-ellipsis">
-      14. Pontos fracos
+      8. Pontos fortes / fracos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#15-quando-utilizar" class="md-nav__link">
+  <a href="#9-quando-usar--quando-evitar" class="md-nav__link">
     <span class="md-ellipsis">
-      15. Quando utilizar
+      9. Quando usar / quando evitar
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#16-quando-evitar" class="md-nav__link">
+  <a href="#10-notas-do-avaliador" class="md-nav__link">
     <span class="md-ellipsis">
-      16. Quando evitar
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#17-notas-do-avaliador" class="md-nav__link">
-    <span class="md-ellipsis">
-      17. Notas do avaliador
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referências" class="md-nav__link">
-    <span class="md-ellipsis">
-      Referências
+      10. Notas do avaliador
     </span>
   </a>
   
@@ -2262,1476 +1361,258 @@
 
 <h1 id="umami">Umami<a class="headerlink" href="#umami" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Ficha técnica de plataforma</strong> · Pontuação na matriz: <strong>445/600 (74,2 %)</strong> — 5º lugar · 🟡 Viável
-<strong>Situação:</strong> ❌ <strong>Não selecionada</strong> — falha no requisito <em>Must have</em> RF-27 (funil de conversão)
-<a href="../../">← Voltar ao índice</a> · <a href="../../docs/07-matriz-decisao/">Matriz de decisão</a></p>
+<p><strong>Ficha técnica de plataforma</strong> · Pontuação na matriz revisada 2026: <strong>414/600 (69,0 %)</strong> — 6º · 🟠 Condicionada
+<strong>Situação:</strong> ❌ <strong>Não selecionada</strong> — falha em requisito <em>Must have</em> RF-27 (funil de conversão)
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/05-matriz/">Matriz de decisão</a></p>
 </blockquote>
-<hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#1-visão-geral">1. Visão geral</a></li>
-<li><a href="#2-licenciamento">2. Licenciamento</a></li>
-<li><a href="#3-hospedagem">3. Hospedagem</a></li>
-<li><a href="#4-funcionalidades">4. Funcionalidades</a></li>
-<li><a href="#5-apis">5. APIs</a></li>
-<li><a href="#6-exemplos-de-integração">6. Exemplos de integração</a></li>
-<li><a href="#7-integrações">7. Integrações</a></li>
-<li><a href="#8-infraestrutura">8. Infraestrutura</a></li>
-<li><a href="#9-segurança">9. Segurança</a></li>
-<li><a href="#10-governança">10. Governança</a></li>
-<li><a href="#11-performance">11. Performance</a></li>
-<li><a href="#12-custos">12. Custos</a></li>
-<li><a href="#13-pontos-fortes">13. Pontos fortes</a></li>
-<li><a href="#14-pontos-fracos">14. Pontos fracos</a></li>
-<li><a href="#15-quando-utilizar">15. Quando utilizar</a></li>
-<li><a href="#16-quando-evitar">16. Quando evitar</a></li>
-<li><a href="#17-notas-do-avaliador">17. Notas do avaliador</a></li>
+<li><a href="#2-licença-e-modelo">2. Licença e modelo</a></li>
+<li><a href="#3-hospedagem-on-premise">3. Hospedagem on-premise</a></li>
+<li><a href="#4-funcionalidades-essenciais">4. Funcionalidades essenciais</a></li>
+<li><a href="#5-apis-e-integrações">5. APIs e integrações</a></li>
+<li><a href="#6-segurança-e-lgpd">6. Segurança e LGPD</a></li>
+<li><a href="#7-custos">7. Custos</a></li>
+<li><a href="#8-pontos-fortes--fracos">8. Pontos fortes / fracos</a></li>
+<li><a href="#9-quando-usar--quando-evitar">9. Quando usar / quando evitar</a></li>
+<li><a href="#10-notas-do-avaliador">10. Notas do avaliador</a></li>
 </ul>
 <hr />
 <h2 id="1-visão-geral">1. Visão geral<a class="headerlink" href="#1-visão-geral" title="Permanent link">&para;</a></h2>
-<h3 id="11-identificação">1.1 Identificação<a class="headerlink" href="#11-identificação" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Nome</strong></td>
-<td>Umami</td>
-</tr>
-<tr>
-<td><strong>Criador</strong></td>
-<td>Mike Cao</td>
-</tr>
-<tr>
-<td><strong>Ano de lançamento</strong></td>
-<td>2020</td>
-</tr>
-<tr>
-<td><strong>Mantenedor</strong></td>
-<td>Umami Software, Inc.</td>
-</tr>
-<tr>
-<td><strong>Sede</strong></td>
-<td>Estados Unidos</td>
-</tr>
-<tr>
-<td><strong>Segmento</strong></td>
-<td>Privacy-first analytics</td>
-</tr>
-<tr>
-<td><strong>Repositório</strong></td>
-<td><code>https://github.com/umami-software/umami</code></td>
-</tr>
-<tr>
-<td><strong>Site oficial</strong></td>
-<td><code>https://umami.is/</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="12-história">1.2 História<a class="headerlink" href="#12-história" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>timeline
-    title Evolução do Umami
-    2020 : Lançamento como projeto pessoal — alternativa mínima ao Google Analytics
-         : Stack Next.js + PostgreSQL/MySQL, licença MIT
-    2022 : Adoção ampla na comunidade de desenvolvedores
-    2023 : Umami v2 — reescrita da interface e do modelo de dados
-         : Constituição da Umami Software Inc. e lançamento do Umami Cloud
-    2024 : Suporte a ClickHouse na modalidade nuvem
-    2025 : Consolidação do modelo comercial em torno da nuvem</code></pre>
-<h3 id="13-comunidade">1.3 Comunidade<a class="headerlink" href="#13-comunidade" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Indicador</th>
-<th>Situação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Idade do projeto</td>
-<td>5+ anos</td>
-</tr>
-<tr>
-<td>Governança</td>
-<td>Mantenedor comercial único</td>
-</tr>
-<tr>
-<td>Cadência de releases</td>
-<td>Regular</td>
-</tr>
-<tr>
-<td>Base instalada</td>
-<td>Ampla entre desenvolvedores individuais e projetos pequenos</td>
-</tr>
-<tr>
-<td>Adoção institucional pública</td>
-<td>❌ Sem casos documentados relevantes</td>
-</tr>
-<tr>
-<td>Profissionais no Brasil</td>
-<td>🔴 Escassa</td>
-</tr>
-<tr>
-<td><strong>Nota C11 (Comunidade)</strong></td>
-<td><strong>3/5</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="14-modelo-de-negócio">1.4 Modelo de negócio<a class="headerlink" href="#14-modelo-de-negócio" title="Permanent link">&para;</a></h3>
-<p><strong>Classificação:</strong> <em>open core</em> com licença MIT. O produto auto-hospedado é integralmente funcional; a receita vem do Umami Cloud.</p>
-<blockquote>
-<p><strong>⚠️ Bloco de Risco — MIT e o risco de fechamento</strong>
-Diferentemente da GPL (Matomo) e da AGPL (Plausible), a licença <strong>MIT é permissiva</strong> — não obriga que versões derivadas permaneçam livres. O mantenedor pode, legalmente, tornar versões futuras proprietárias.</p>
-<p><strong>O que a MIT garante:</strong> direito perpétuo e irrevogável sobre a versão já obtida, incluindo o direito de fork.
-<strong>O que a MIT não garante:</strong> que a evolução futura permaneça livre.</p>
-<p>Este é o fundamento da nota <strong>4</strong> (e não 5) em C04 — Independência tecnológica.</p>
-</blockquote>
-<h3 id="15-casos-de-uso">1.5 Casos de uso<a class="headerlink" href="#15-casos-de-uso" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Caso de uso</th>
-<th style="text-align: center;">Aderência</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Site pessoal, blog, documentação</td>
-<td style="text-align: center;">🟢 Excelente</td>
-</tr>
-<tr>
-<td>Painel interno de uso de aplicação</td>
-<td style="text-align: center;">🟢 Excelente</td>
-</tr>
-<tr>
-<td>Portal institucional simples</td>
-<td style="text-align: center;">🟢 Boa</td>
-</tr>
-<tr>
-<td>Hotsite de campanha</td>
-<td style="text-align: center;">🟢 Boa</td>
-</tr>
-<tr>
-<td>Portal com análise de conversão</td>
-<td style="text-align: center;">🟠 Limitada</td>
-</tr>
-<tr>
-<td>Serviço digital transacional</td>
-<td style="text-align: center;">🔴 Inadequada</td>
-</tr>
-<tr>
-<td>Análise comportamental</td>
-<td style="text-align: center;">🔴 Inadequada</td>
-</tr>
-</tbody>
-</table>
+<p>Analytics privacy-first minimalista, lançado em 2020 por Mike Cao. Stack Next.js + PostgreSQL/MySQL. Licença MIT. Reescrita completa (v2) em 2023 com interface renovada e Umami Software Inc. constituída para operar o Umami Cloud.</p>
+<p><strong>Segmento:</strong> privacy-first. <strong>Repositório:</strong> <code>github.com/umami-software/umami</code>. <strong>Site:</strong> <code>umami.is</code>.</p>
 <hr />
-<h2 id="2-licenciamento">2. Licenciamento<a class="headerlink" href="#2-licenciamento" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Tipo</strong></td>
-<td>🟢 Open Source</td>
-</tr>
-<tr>
-<td><strong>Licença</strong></td>
-<td><strong>MIT</strong></td>
-</tr>
-<tr>
-<td><strong>Texto</strong></td>
-<td><code>https://opensource.org/license/mit</code></td>
-</tr>
-<tr>
-<td><strong>Copyleft</strong></td>
-<td>❌ Permissiva</td>
-</tr>
-<tr>
-<td><strong>Uso comercial / modificação / redistribuição</strong></td>
-<td>✅ Sem restrição</td>
-</tr>
-<tr>
-<td><strong>Obrigação de manter derivadas livres</strong></td>
-<td>❌ Não</td>
-</tr>
-<tr>
-<td><strong>Direito perpétuo sobre a versão obtida</strong></td>
-<td>✅ Sim</td>
-</tr>
-<tr>
-<td><strong>Custo — auto-hospedado</strong></td>
-<td><strong>R$ 0</strong></td>
-</tr>
-<tr>
-<td><strong>Custo — Umami Cloud</strong></td>
-<td>Tier gratuito com limite de eventos; planos pagos por volume</td>
-</tr>
-</tbody>
-</table>
+<h2 id="2-licença-e-modelo">2. Licença e modelo<a class="headerlink" href="#2-licença-e-modelo" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Licença:</strong> MIT (permissiva).</li>
+<li><strong>Modelo:</strong> open core — código integral do produto sob MIT; comercial vive no Umami Cloud.</li>
+<li><strong>Governança:</strong> concentrada na Umami Software Inc. Base de contribuidores cresce lentamente.</li>
+<li><strong>Direito perpétuo:</strong> MIT garante uso e modificação da versão obtida indefinidamente. Permite fechar versões futuras — risco de bifurcação declarado.</li>
+</ul>
 <hr />
-<h2 id="3-hospedagem">3. Hospedagem<a class="headerlink" href="#3-hospedagem" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Modalidade</th>
-<th style="text-align: center;">Suporte</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Auto-hospedado</td>
-<td style="text-align: center;">✅ Nativo</td>
-</tr>
-<tr>
-<td>Docker</td>
-<td style="text-align: center;">✅ Imagem oficial</td>
-</tr>
-<tr>
-<td>Docker Compose</td>
-<td style="text-align: center;">✅ Documentado</td>
-</tr>
-<tr>
-<td>Kubernetes</td>
-<td style="text-align: center;">⚠️ Comunidade</td>
-</tr>
-<tr>
-<td>Plataformas serverless (Vercel, Netlify, Railway)</td>
-<td style="text-align: center;">✅ Documentado</td>
-</tr>
-<tr>
-<td>SaaS (Umami Cloud)</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td>On-premises com suporte</td>
-<td style="text-align: center;">❌</td>
-</tr>
-</tbody>
-</table>
-<h3 id="31-requisitos">3.1 Requisitos<a class="headerlink" href="#31-requisitos" title="Permanent link">&para;</a></h3>
+<h2 id="3-hospedagem-on-premise">3. Hospedagem on-premise<a class="headerlink" href="#3-hospedagem-on-premise" title="Permanent link">&para;</a></h2>
+<p><strong>Stack (2 componentes):</strong></p>
 <table>
 <thead>
 <tr>
 <th>Componente</th>
+<th>Versão mínima</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Umami (Next.js)</td>
+<td>2.14+</td>
+<td>Aplicação + UI + coletor + API</td>
+</tr>
+<tr>
+<td>PostgreSQL ou MySQL</td>
+<td>PG 12+ / MySQL 8.0+</td>
+<td>Persistência</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Distribuição:</strong> container OCI oficial + <code>docker-compose.yml</code> de referência; Helm chart mantido pela comunidade. <strong>Atualização:</strong> trivial (<code>docker compose pull &amp;&amp; up -d</code>). <strong>Cron:</strong> sem processo obrigatório.</p>
+<p><strong>Dimensionamento estimado (12M PV/mês):</strong> 1 vCPU + 2 GB RAM na aplicação; 4 vCPU + 8 GB RAM + 200 GB SSD no PG. Escala vertical suficiente até volume moderado; ClickHouse é modalidade nuvem, menos documentado no self-host.</p>
+<hr />
+<h2 id="4-funcionalidades-essenciais">4. Funcionalidades essenciais<a class="headerlink" href="#4-funcionalidades-essenciais" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
 <th>Requisito</th>
+<th style="text-align: center;">Prio</th>
+<th style="text-align: center;">Umami</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Runtime</td>
-<td>Node.js 18+ (abstraído pelo container)</td>
+<td>RF-01 Page views</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td>Banco de dados</td>
-<td>PostgreSQL 12+ <strong>ou</strong> MySQL 8+ (escolher um)</td>
+<td>RF-02 Eventos customizados</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td>Memória</td>
-<td>≥ 2 GB (aplicação)</td>
+<td>RF-05 Dimensões customizadas</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">⚠️ Data payload livre, sem UI de segmentação</td>
 </tr>
 <tr>
-<td>Componentes mínimos</td>
-<td><strong>2</strong> — o menor do conjunto avaliado</td>
+<td>RF-09 SPAs</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-21 Audiência</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-22 UTM / campanhas</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-25 Geografia</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-26 Metas</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">⚠️ Via evento nomeado</td>
+</tr>
+<tr>
+<td><strong>RF-27 Funil</strong></td>
+<td style="text-align: center;"><strong>M</strong></td>
+<td style="text-align: center;"><strong>❌ Não tem</strong></td>
+</tr>
+<tr>
+<td>RF-28 Segmentação avançada</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">⚠️ Filtros básicos</td>
+</tr>
+<tr>
+<td>RF-30 Tempo real</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-31 Coortes / retenção</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-32/33/34 Heatmap / replay / forms</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-36 Jornada</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-40 Multi-site + segregação</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>RF-43 MFA admin</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>RF-45 Tag Manager</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">❌</td>
 </tr>
 </tbody>
 </table>
-<h3 id="32-implantação">3.2 Implantação<a class="headerlink" href="#32-implantação" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># docker-compose.yml — Umami auto-hospedado</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16-alpine</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">umami</span>
-<span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">umami</span>
-<span class="w">      </span><span class="nt">POSTGRES_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_password</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_data:/var/lib/postgresql/data</span>
-<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">db_password</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"CMD-SHELL"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">umami"</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-
-<span class="w">  </span><span class="nt">umami</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/umami-software/umami:postgresql-latest</span>
-<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> condition</span><span class="p">:</span><span class="w"> </span><span class="nv">service_healthy</span><span class="w"> </span><span class="p p-Indicator">}</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql://umami:${DB_PASSWORD}@db:5432/umami</span>
-<span class="w">      </span><span class="nt">DATABASE_TYPE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql</span>
-<span class="w">      </span><span class="nt">APP_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${APP_SECRET}</span>
-<span class="w">      </span><span class="nt">DISABLE_TELEMETRY</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span><span class="w">        </span><span class="c1"># desativa telemetria para o fornecedor</span>
-<span class="w">      </span><span class="nt">TRACKER_SCRIPT_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">"estatisticas"</span><span class="w">   </span><span class="c1"># evita bloqueio por ad blockers</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"127.0.0.1:3000:3000"</span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">pg_data</span><span class="p">:</span>
-
-<span class="nt">secrets</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db_password</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./secrets/db_password.txt</span>
-</code></pre></div>
-<blockquote>
-<p><strong>📌 Observação — <code>DISABLE_TELEMETRY</code></strong>
-Por padrão, o Umami envia telemetria anônima de uso ao mantenedor. Em instalação de órgão público, essa variável <strong>deve ser definida como <code>1</code></strong>, eliminando qualquer comunicação de saída não essencial. Isso é verificável por inspeção do tráfego de rede.</p>
-</blockquote>
+<p><strong>Cobertura ponderada (MoSCoW):</strong> 35–54 % — nota <strong>C05 = 2</strong>.</p>
+<p><strong>Reprovação em RF-27</strong> é o motivo estrutural para não usar como plataforma padrão do parque nem do Xvia.</p>
 <hr />
-<h2 id="4-funcionalidades">4. Funcionalidades<a class="headerlink" href="#4-funcionalidades" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Funcionalidade</th>
-<th style="text-align: center;">Suporte</th>
-<th>Detalhe</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Dashboards</strong></td>
-<td style="text-align: center;">⚠️ Fixo</td>
-<td>Painel único por site, não configurável</td>
-</tr>
-<tr>
-<td><strong>Eventos customizados</strong></td>
-<td style="text-align: center;">✅</td>
-<td>Eventos nomeados com propriedades (<code>data-umami-event</code>)</td>
-</tr>
-<tr>
-<td><strong>Goals (metas)</strong></td>
-<td style="text-align: center;">⚠️</td>
-<td>Não há objeto "meta"; aproximável por evento</td>
-</tr>
-<tr>
-<td><strong>Conversion Funnel</strong></td>
-<td style="text-align: center;">❌</td>
-<td><strong>Não disponível</strong> — falha no requisito <em>Must have</em> RF-27</td>
-</tr>
-<tr>
-<td><strong>Heatmaps</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Session Recording</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>User Journey</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>A/B Testing</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Form Analytics</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Real Time</strong></td>
-<td style="text-align: center;">✅</td>
-<td>Visitantes ativos</td>
-</tr>
-<tr>
-<td><strong>Cohort</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Retention</strong></td>
-<td style="text-align: center;">❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Custom Dimensions</strong></td>
-<td style="text-align: center;">⚠️</td>
-<td>Propriedades de evento e de sessão</td>
-</tr>
-<tr>
-<td><strong>Segmentação</strong></td>
-<td style="text-align: center;">⚠️</td>
-<td>Filtros no painel</td>
-</tr>
-<tr>
-<td><strong>Comparação de períodos</strong></td>
-<td style="text-align: center;">✅</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Campanhas / UTM</strong></td>
-<td style="text-align: center;">✅</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Geolocalização</strong></td>
-<td style="text-align: center;">✅</td>
-<td>País, região, cidade</td>
-</tr>
-<tr>
-<td><strong>Tecnologia</strong></td>
-<td style="text-align: center;">✅</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Relatórios (v2)</strong></td>
-<td style="text-align: center;">⚠️</td>
-<td>Relatórios de insights, jornada simplificada, retenção — em evolução</td>
-</tr>
-<tr>
-<td><strong>Painel público</strong></td>
-<td style="text-align: center;">✅</td>
-<td>Compartilhamento por URL</td>
-</tr>
-<tr>
-<td><strong>Multi-site</strong></td>
-<td style="text-align: center;">✅</td>
-<td>Ilimitado</td>
-</tr>
-<tr>
-<td><strong>Times / equipes</strong></td>
-<td style="text-align: center;">✅</td>
-<td>Agrupamento de usuários</td>
-</tr>
-<tr>
-<td><strong>Amostragem</strong></td>
-<td style="text-align: center;">❌</td>
-<td>Dado sempre completo</td>
-</tr>
-</tbody>
-</table>
-<h3 id="41-cobertura-dos-requisitos-funcionais">4.1 Cobertura dos requisitos funcionais<a class="headerlink" href="#41-cobertura-dos-requisitos-funcionais" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Prioridade</th>
-<th style="text-align: center;">Atendidos</th>
-<th style="text-align: right;">Cobertura</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Must have</em></td>
-<td style="text-align: center;">10 / 17</td>
-<td style="text-align: right;">59 %</td>
-</tr>
-<tr>
-<td><em>Should have</em></td>
-<td style="text-align: center;">7 / 18</td>
-<td style="text-align: right;">39 %</td>
-</tr>
-<tr>
-<td><em>Could have</em></td>
-<td style="text-align: center;">2 / 12</td>
-<td style="text-align: right;">17 %</td>
-</tr>
-<tr>
-<td><strong>Ponderada</strong></td>
-<td style="text-align: center;"><strong>46 / 99</strong></td>
-<td style="text-align: right;"><strong>46 %</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Nota C05 (Recursos analíticos): 2/5</strong> — faixa 35–54 %.</p>
-<blockquote>
-<p><strong>🚨 Alerta — Motivo objetivo do descarte</strong>
-O Umami <strong>não oferece funil de conversão</strong> (RF-27), requisito classificado como <em>Must have</em> e diretamente vinculado ao requisito de negócio <strong>RN-02</strong> (identificação de gargalos em jornadas de serviço digital).</p>
-<p>Trata-se de falha em requisito obrigatório, e não de inferioridade relativa. Nenhuma ponderação de critérios corrige isso — o descarte é determinado pela triagem, não pela matriz.</p>
-</blockquote>
+<h2 id="5-apis-e-integrações">5. APIs e integrações<a class="headerlink" href="#5-apis-e-integrações" title="Permanent link">&para;</a></h2>
+<p><strong>API:</strong>
+- REST autenticada por Bearer token, para leitura e ingestão.
+- Documentação enxuta; sem versionamento explícito.
+- Sem webhooks nativos.
+- Sem SDKs oficiais além do JS de tracking.</p>
+<p><strong>Acesso ao dado bruto:</strong> SQL direto ao PostgreSQL/MySQL — schema conhecido, tabelas <code>website</code>, <code>session</code>, <code>website_event</code>. Vantagem estrutural sobre APIs limitadas.</p>
+<p><strong>Integração com BI:</strong> via SQL direto (Metabase, Superset, Grafana, Power BI via ODBC). Sem conectores nativos, sem SSO SAML/OIDC.</p>
+<p><strong>Tag Manager:</strong> ausente. Instrumentação exige inserir <code>&lt;script&gt;</code> do umami em cada portal ou orquestrar via GTM.</p>
 <hr />
-<h2 id="5-apis">5. APIs<a class="headerlink" href="#5-apis" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>API</th>
-<th>Tipo</th>
-<th>Finalidade</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>REST API</strong></td>
-<td>REST</td>
-<td>Leitura de métricas e administração</td>
-</tr>
-<tr>
-<td><strong>Send API</strong></td>
-<td>HTTP POST</td>
-<td>Ingestão de eventos</td>
-</tr>
-<tr>
-<td><strong>GraphQL</strong></td>
-<td>❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Webhooks</strong></td>
-<td>❌</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Acesso SQL</strong></td>
-<td>✅</td>
-<td>Direto no PostgreSQL/MySQL</td>
-</tr>
-</tbody>
-</table>
-<h3 id="51-rest-api">5.1 REST API<a class="headerlink" href="#51-rest-api" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Característica</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Base</strong></td>
-<td><code>https://&lt;host&gt;/api</code></td>
-</tr>
-<tr>
-<td><strong>Autenticação</strong></td>
-<td><code>Authorization: Bearer &lt;token&gt;</code> (obtido em <code>POST /api/auth/login</code>) ou API key</td>
-</tr>
-<tr>
-<td><strong>Formato</strong></td>
-<td>JSON</td>
-</tr>
-<tr>
-<td><strong>Versionamento</strong></td>
-<td>⚠️ Implícito</td>
-</tr>
-<tr>
-<td><strong>Rate limits</strong></td>
-<td>✅ No Cloud; sem limite no auto-hospedado</td>
-</tr>
-</tbody>
-</table>
-<h4 id="endpoints-principais">Endpoints principais<a class="headerlink" href="#endpoints-principais" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Retorno</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GET /api/websites</code></td>
-<td>Lista de propriedades</td>
-</tr>
-<tr>
-<td><code>GET /api/websites/{id}/stats</code></td>
-<td>Métricas agregadas</td>
-</tr>
-<tr>
-<td><code>GET /api/websites/{id}/pageviews</code></td>
-<td>Série temporal de page views</td>
-</tr>
-<tr>
-<td><code>GET /api/websites/{id}/metrics?type=url</code></td>
-<td>Detalhamento por dimensão</td>
-</tr>
-<tr>
-<td><code>GET /api/websites/{id}/events</code></td>
-<td>Eventos customizados</td>
-</tr>
-<tr>
-<td><code>GET /api/websites/{id}/active</code></td>
-<td>Visitantes ativos</td>
-</tr>
-<tr>
-<td><code>POST /api/send</code></td>
-<td>Ingestão de evento</td>
-</tr>
-</tbody>
-</table>
-<h3 id="52-schema-do-banco">5.2 Schema do banco<a class="headerlink" href="#52-schema-do-banco" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Tabela</th>
-<th>Conteúdo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>website</code></td>
-<td>Propriedades cadastradas</td>
-</tr>
-<tr>
-<td><code>session</code></td>
-<td>Sessões (identificador derivado por hash)</td>
-</tr>
-<tr>
-<td><code>website_event</code></td>
-<td>Eventos e page views</td>
-</tr>
-<tr>
-<td><code>event_data</code></td>
-<td>Propriedades de evento</td>
-</tr>
-<tr>
-<td><code>session_data</code></td>
-<td>Propriedades de sessão</td>
-</tr>
-<tr>
-<td><code>user</code>, <code>team</code>, <code>team_user</code></td>
-<td>Usuários e equipes</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>✅ Bloco de Decisão — O schema mais simples do estudo</strong>
-O modelo de dados do Umami tem <strong>6 tabelas principais</strong>, contra dezenas no Matomo. Isso torna a construção de ETL e a auditoria do que é efetivamente armazenado triviais — um analista lê o schema completo em minutos.</p>
-<p>É a razão da nota <strong>4</strong> em C10 (Operação) e da avaliação "muito alta" em facilidade de auditoria.</p>
-</blockquote>
-<p><strong>Nota C06 (APIs): 3/5</strong></p>
+<h2 id="6-segurança-e-lgpd">6. Segurança e LGPD<a class="headerlink" href="#6-segurança-e-lgpd" title="Permanent link">&para;</a></h2>
+<p><strong>Conformidade por design:</strong>
+- Sem cookies.
+- IP não armazenado em claro — hash com sal rotativo por sessão.
+- Sem identificador persistente.</p>
+<p><strong>Base legal:</strong> dado coletado não é pessoal (LGPD art. 5º I), passa a anonimizado (art. 12). LGPD não incide — dispensa consentimento e RIPD específico.</p>
+<p><strong>Segurança:</strong>
+- Base de código pequena e auditável.
+- Gestão de CVE presente porém cadência irregular.
+- <strong>MFA ausente</strong> — só usuário/senha. Contornável por proxy autenticador (Authelia, Cloudflare Access).
+- RBAC básico (admin vs. usuário; sem granularidade fina).
+- Log de auditoria ausente.</p>
+<p><strong>Nota C01 (LGPD):</strong> 5. <strong>Nota C02 (Controle):</strong> 5. <strong>Nota C09 (Segurança):</strong> 3.</p>
 <hr />
-<h2 id="6-exemplos-de-integração">6. Exemplos de integração<a class="headerlink" href="#6-exemplos-de-integração" title="Permanent link">&para;</a></h2>
-<h3 id="61-python">6.1 Python<a class="headerlink" href="#61-python" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="sd">"""Cliente da API do Umami."""</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">UmamiClient</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">"x-umami-api-key"</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">websites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">/api/websites"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="p">[])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">website_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">start_at</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_at</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""start_at/end_at em milissegundos desde a época Unix."""</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">/api/websites/</span><span class="si">{</span><span class="n">website_id</span><span class="si">}</span><span class="s2">/stats"</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"startAt"</span><span class="p">:</span> <span class="n">start_at</span><span class="p">,</span> <span class="s2">"endAt"</span><span class="p">:</span> <span class="n">end_at</span><span class="p">},</span>
-            <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">website_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">start_at</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_at</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"url"</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">/api/websites/</span><span class="si">{</span><span class="n">website_id</span><span class="si">}</span><span class="s2">/metrics"</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"startAt"</span><span class="p">:</span> <span class="n">start_at</span><span class="p">,</span> <span class="s2">"endAt"</span><span class="p">:</span> <span class="n">end_at</span><span class="p">,</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="n">type_</span><span class="p">,</span> <span class="s2">"limit"</span><span class="p">:</span> <span class="n">limit</span><span class="p">},</span>
-            <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-    <span class="n">cli</span> <span class="o">=</span> <span class="n">UmamiClient</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"UMAMI_URL"</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"UMAMI_KEY"</span><span class="p">])</span>
-
-    <span class="n">fim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
-    <span class="n">inicio</span> <span class="o">=</span> <span class="n">fim</span> <span class="o">-</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span>
-
-    <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">cli</span><span class="o">.</span><span class="n">websites</span><span class="p">():</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">cli</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">site</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span> <span class="n">inicio</span><span class="p">,</span> <span class="n">fim</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">site</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="s1">'pageviews'</span><span class="p">][</span><span class="s1">'value'</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> pageviews, "</span>
-              <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="s1">'visitors'</span><span class="p">][</span><span class="s1">'value'</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> visitantes"</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="62-nodejs">6.2 Node.js<a class="headerlink" href="#62-nodejs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="cm">/** Cliente da API do Umami — Node.js 18+ */</span>
-<span class="kd">class</span><span class="w"> </span><span class="nx">UmamiClient</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">baseUrl</span><span class="p">,</span><span class="w"> </span><span class="nx">apiKey</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">baseUrl</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\/$/</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">);</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">'x-umami-api-key'</span><span class="o">:</span><span class="w"> </span><span class="nx">apiKey</span><span class="w"> </span><span class="p">};</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="n">#get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">URL</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="si">}${</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-<span class="w">    </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(([</span><span class="nx">k</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">v</span><span class="p">)));</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">headers</span><span class="w"> </span><span class="p">});</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">res</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Umami </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">websites</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">#get</span><span class="p">(</span><span class="s1">'/api/websites'</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">stats</span><span class="p">(</span><span class="nx">websiteId</span><span class="p">,</span><span class="w"> </span><span class="nx">startAt</span><span class="p">,</span><span class="w"> </span><span class="nx">endAt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">#get</span><span class="p">(</span><span class="sb">`/api/websites/</span><span class="si">${</span><span class="nx">websiteId</span><span class="si">}</span><span class="sb">/stats`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">startAt</span><span class="p">,</span><span class="w"> </span><span class="nx">endAt</span><span class="w"> </span><span class="p">});</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h4 id="envio-server-side">Envio server-side<a class="headerlink" href="#envio-server-side" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">enviarEventoUmami</span><span class="p">({</span><span class="w"> </span><span class="nx">websiteId</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">nome</span><span class="p">,</span><span class="w"> </span><span class="nx">dados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">UMAMI_URL</span><span class="si">}</span><span class="sb">/api/send`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">'POST'</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s1">'Content-Type'</span><span class="o">:</span><span class="w"> </span><span class="s1">'application/json'</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">'User-Agent'</span><span class="o">:</span><span class="w"> </span><span class="s1">'servidor-ms-gov/1.0'</span><span class="p">,</span><span class="w">   </span><span class="c1">// obrigatório</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'event'</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">website</span><span class="o">:</span><span class="w"> </span><span class="nx">websiteId</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">nome</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="nx">dados</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="p">}),</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="63-power-bi">6.3 Power BI<a class="headerlink" href="#63-power-bi" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Obter Dados → Banco de Dados PostgreSQL
-Servidor: umami-db.interno.ms.gov.br:5432
-Banco: umami
-Modo: Importação
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1">-- View estável para BI</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">vw_bi_umami_diario</span><span class="w"> </span><span class="k">AS</span>
-<span class="k">SELECT</span>
-<span class="w">    </span><span class="nb">DATE</span><span class="p">(</span><span class="n">we</span><span class="p">.</span><span class="n">created_at</span><span class="p">)</span><span class="w">                              </span><span class="k">AS</span><span class="w"> </span><span class="k">data</span><span class="p">,</span>
-<span class="w">    </span><span class="n">w</span><span class="p">.</span><span class="n">name</span><span class="w">                                           </span><span class="k">AS</span><span class="w"> </span><span class="n">portal</span><span class="p">,</span>
-<span class="w">    </span><span class="n">w</span><span class="p">.</span><span class="k">domain</span><span class="w">                                         </span><span class="k">AS</span><span class="w"> </span><span class="n">dominio</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">event_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="n">pageviews</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">event_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="n">eventos</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">session_id</span><span class="p">)</span><span class="w">                    </span><span class="k">AS</span><span class="w"> </span><span class="n">sessoes</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w">                             </span><span class="k">AS</span><span class="w"> </span><span class="n">visitantes</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">website_event</span><span class="w"> </span><span class="n">we</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">website_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">website_id</span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">session_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">session_id</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">CURRENT_DATE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">'24 months'</span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="64-grafana">6.4 Grafana<a class="headerlink" href="#64-grafana" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Connections → Add data source → PostgreSQL
-Host: umami-db.interno.ms.gov.br:5432 · Database: umami
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1">-- Painel: pageviews por hora</span>
-<span class="k">SELECT</span>
-<span class="w">    </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'hour'</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">created_at</span><span class="p">)</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="k">time</span><span class="p">,</span>
-<span class="w">    </span><span class="n">w</span><span class="p">.</span><span class="n">name</span><span class="w">                             </span><span class="k">AS</span><span class="w"> </span><span class="n">metric</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">                           </span><span class="k">AS</span><span class="w"> </span><span class="n">value</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">website_event</span><span class="w"> </span><span class="n">we</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">website_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">website_id</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="err">$</span><span class="n">__timeFilter</span><span class="p">(</span><span class="n">we</span><span class="p">.</span><span class="n">created_at</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">we</span><span class="p">.</span><span class="n">event_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="65-metabase">6.5 Metabase<a class="headerlink" href="#65-metabase" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Admin → Databases → Add → PostgreSQL
-Host: umami-db.interno.ms.gov.br · Database: umami
-Usuário: metabase_ro (GRANT SELECT nas views)
-</code></pre></div>
-<h3 id="66-apache-superset">6.6 Apache Superset<a class="headerlink" href="#66-apache-superset" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># String de conexão (cadastrar pela interface)</span>
-<span class="c1"># postgresql+psycopg2://superset_ro:&lt;senha&gt;@umami-db.interno.ms.gov.br:5432/umami</span>
-</code></pre></div>
-<h3 id="67-qlik-sense">6.7 Qlik Sense<a class="headerlink" href="#67-qlik-sense" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">LIB</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span>TO<span class="w"> </span><span class="s">'UmamiPostgres'</span><span class="p">;</span>
-
-<span class="kd">Metricas:</span>
-<span class="k">LOAD</span><span class="w"> </span>Data<span class="p">,</span><span class="w"> </span>Portal<span class="p">,</span><span class="w"> </span>Pageviews<span class="p">,</span><span class="w"> </span>Visitantes<span class="p">;</span>
-<span class="k">SQL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span>data<span class="p">,</span><span class="w"> </span>portal<span class="p">,</span><span class="w"> </span>pageviews<span class="p">,</span><span class="w"> </span>visitantes<span class="w"> </span><span class="k">FROM</span><span class="w"> </span>vw_bi_umami_diario<span class="p">;</span>
-</code></pre></div>
-<h3 id="68-google-looker-studio">6.8 Google Looker Studio<a class="headerlink" href="#68-google-looker-studio" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Caminho</th>
-<th>Avaliação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Conector PostgreSQL nativo do Looker Studio</td>
-<td>⚠️ Exige expor o banco à internet — <strong>não recomendado</strong></td>
-</tr>
-<tr>
-<td>Painel público nativo do Umami</td>
-<td>✅ Preferencial para publicação</td>
-</tr>
-<tr>
-<td>Google Sheets como intermediário</td>
-<td>🔧 Alternativa</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>🚨 Alerta</strong>
-O conector PostgreSQL do Looker Studio requer que o banco seja acessível pela internet a partir dos endereços do Google. Para um banco de analytics de órgão público, <strong>isso é inaceitável do ponto de vista de segurança</strong>. Usar o painel público nativo ou um ETL intermediário.</p>
-</blockquote>
-<hr />
-<h2 id="7-integrações">7. Integrações<a class="headerlink" href="#7-integrações" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Integração</th>
-<th style="text-align: center;">Suporte</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Google Tag Manager</td>
-<td style="text-align: center;">✅ Tag customizada</td>
-</tr>
-<tr>
-<td>Matomo Tag Manager</td>
-<td style="text-align: center;">✅ Tag customizada</td>
-</tr>
-<tr>
-<td>Consent Manager</td>
-<td style="text-align: center;">➖ Dispensável</td>
-</tr>
-<tr>
-<td>Identity Provider / SSO</td>
-<td style="text-align: center;">❌</td>
-</tr>
-<tr>
-<td>OAuth 2.0 / OIDC / SAML</td>
-<td style="text-align: center;">❌</td>
-</tr>
-<tr>
-<td>MFA</td>
-<td style="text-align: center;">❌</td>
-</tr>
-<tr>
-<td>WordPress</td>
-<td style="text-align: center;">✅ Plugin da comunidade</td>
-</tr>
-<tr>
-<td>Next.js, Astro, Docusaurus, Hugo</td>
-<td style="text-align: center;">✅ Documentado</td>
-</tr>
-<tr>
-<td>Webhooks</td>
-<td style="text-align: center;">❌</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Nota C07 (Integrações): 2/5</strong> — integração exige desenvolvimento; sem SSO, sem Tag Manager, sem conectores prontos. O acesso SQL direto é a única via prática.</p>
-<hr />
-<h2 id="8-infraestrutura">8. Infraestrutura<a class="headerlink" href="#8-infraestrutura" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Aspecto</th>
-<th>Detalhe</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Banco utilizado</strong></td>
-<td>PostgreSQL 12+ ou MySQL 8+ (ClickHouse apenas na nuvem)</td>
-</tr>
-<tr>
-<td><strong>Tipo</strong></td>
-<td>Relacional orientado a linha</td>
-</tr>
-<tr>
-<td><strong>Componentes mínimos</strong></td>
-<td><strong>2</strong> — o menor do estudo</td>
-</tr>
-<tr>
-<td><strong>Fila / streaming</strong></td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>Cache</strong></td>
-<td>⚠️ Básico (Redis opcional)</td>
-</tr>
-<tr>
-<td><strong>Escalabilidade horizontal</strong></td>
-<td>✅ Aplicação stateless</td>
-</tr>
-<tr>
-<td><strong>Alta disponibilidade</strong></td>
-<td>⚠️ Parcial — depende do banco</td>
-</tr>
-<tr>
-<td><strong>Backup</strong></td>
-<td>✅ Padrão do SGBD, simples</td>
-</tr>
-<tr>
-<td><strong>Disaster Recovery</strong></td>
-<td>🔧 Construir</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="9-segurança">9. Segurança<a class="headerlink" href="#9-segurança" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Aspecto</th>
-<th>Situação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>LGPD</strong></td>
-<td>✅ Excelente — sem cookies, IP não armazenado em claro</td>
-</tr>
-<tr>
-<td><strong>GDPR</strong></td>
-<td>✅ Conformidade por design</td>
-</tr>
-<tr>
-<td><strong>ISO 27001 / SOC 2</strong></td>
-<td>➖ Não aplicável ao auto-hospedado</td>
-</tr>
-<tr>
-<td><strong>Controle de acesso</strong></td>
-<td>⚠️ Básico — administrador, usuário, times</td>
-</tr>
-<tr>
-<td><strong>MFA</strong></td>
-<td>❌ <strong>Não disponível</strong></td>
-</tr>
-<tr>
-<td><strong>Auditoria</strong></td>
-<td>❌ Sem log de auditoria</td>
-</tr>
-<tr>
-<td><strong>Logs</strong></td>
-<td>⚠️ Apenas log de aplicação</td>
-</tr>
-<tr>
-<td><strong>Criptografia em trânsito</strong></td>
-<td>✅ TLS no proxy</td>
-</tr>
-<tr>
-<td><strong>Criptografia em repouso</strong></td>
-<td>🔧 Nível de infraestrutura</td>
-</tr>
-<tr>
-<td><strong>Retenção de dados</strong></td>
-<td>✅ Controle total (via SQL ou configuração)</td>
-</tr>
-<tr>
-<td><strong>Superfície de ataque</strong></td>
-<td>🟢 Muito reduzida</td>
-</tr>
-<tr>
-<td><strong>Nota C09 (Segurança)</strong></td>
-<td><strong>3/5</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="91-o-que-o-umami-coleta">9.1 O que o Umami coleta<a class="headerlink" href="#91-o-que-o-umami-coleta" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Dado</th>
-<th style="text-align: center;">Coletado?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Endereço IP</td>
-<td style="text-align: center;">⚠️ Processado, transformado em hash; não armazenado em claro</td>
-</tr>
-<tr>
-<td>Cookies</td>
-<td style="text-align: center;">❌ Nenhum</td>
-</tr>
-<tr>
-<td>Identificador persistente</td>
-<td style="text-align: center;">❌ Nenhum</td>
-</tr>
-<tr>
-<td>URL, referenciador, título</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td>País, região, cidade</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td>Navegador, SO, dispositivo, resolução</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td>Propriedades de evento</td>
-<td style="text-align: center;">✅</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>⚠️ Bloco de Risco — Ausência de MFA</strong>
-O Umami não oferece autenticação multifator, falhando no requisito <em>Must have</em> <strong>RNF-31</strong>. Para uso institucional, isso exige compensação por infraestrutura:</p>
-<ol>
-<li>Colocar a aplicação atrás de proxy autenticador (<code>oauth2-proxy</code>) integrado ao IdP do Estado; <strong>ou</strong></li>
-<li>Restringir o acesso administrativo exclusivamente à rede interna ou VPN com MFA.</li>
-</ol>
-<p>Ambas as soluções funcionam, mas adicionam componentes e não integram com o modelo de permissões interno. É uma limitação real para uso multi-órgão.</p>
-</blockquote>
-<hr />
-<h2 id="10-governança">10. Governança<a class="headerlink" href="#10-governança" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Aspecto</th>
-<th style="text-align: center;">Avaliação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Vendor lock-in</strong></td>
-<td style="text-align: center;">🟢 Muito baixo</td>
-</tr>
-<tr>
-<td><strong>Controle dos dados</strong></td>
-<td style="text-align: center;">🟢 Total</td>
-</tr>
-<tr>
-<td><strong>Portabilidade</strong></td>
-<td style="text-align: center;">🟢 Total — schema simples, SQL direto</td>
-</tr>
-<tr>
-<td><strong>Transparência</strong></td>
-<td style="text-align: center;">🟢 Código aberto e legível</td>
-</tr>
-<tr>
-<td><strong>Auditoria</strong></td>
-<td style="text-align: center;">🟢 <strong>Muito alta</strong> — base de código pequena</td>
-</tr>
-<tr>
-<td><strong>Soberania</strong></td>
-<td style="text-align: center;">🟢 Total</td>
-</tr>
-<tr>
-<td><strong>Continuidade sem o fornecedor</strong></td>
-<td style="text-align: center;">🟢 Indefinida (MIT)</td>
-</tr>
-<tr>
-<td><strong>Risco de relicenciamento futuro</strong></td>
-<td style="text-align: center;">🟡 Médio (MIT permite)</td>
-</tr>
-<tr>
-<td><strong>Custo de saída</strong></td>
-<td style="text-align: center;">🟢 ~R$ 20 k</td>
-</tr>
-<tr>
-<td><strong>Nota C02 (Controle)</strong></td>
-<td style="text-align: center;"><strong>5/5</strong></td>
-</tr>
-<tr>
-<td><strong>Nota C04 (Independência)</strong></td>
-<td style="text-align: center;"><strong>4/5</strong></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="11-performance">11. Performance<a class="headerlink" href="#11-performance" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Métrica</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Volume suportado</strong></td>
-<td>~100 M eventos/mês com PostgreSQL bem dimensionado</td>
-</tr>
-<tr>
-<td><strong>Escalabilidade horizontal (aplicação)</strong></td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>Escalabilidade horizontal (banco)</strong></td>
-<td>⚠️ Réplicas de leitura</td>
-</tr>
-<tr>
-<td><strong>Escalabilidade vertical</strong></td>
-<td>✅</td>
-</tr>
-<tr>
-<td><strong>Ingestão com fila</strong></td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>Latência do endpoint</strong></td>
-<td>🟢 &lt; 50 ms</td>
-</tr>
-<tr>
-<td><strong>Latência de relatório</strong></td>
-<td>🟡 Boa até volumes médios; degrada acima</td>
-</tr>
-<tr>
-<td><strong>Tamanho do script (gzip)</strong></td>
-<td>🟢 ~2 KB</td>
-</tr>
-<tr>
-<td><strong>Impacto no LCP</strong></td>
-<td>🟢 Mínimo</td>
-</tr>
-<tr>
-<td><strong>Amostragem</strong></td>
-<td>❌ Nenhuma</td>
-</tr>
-<tr>
-<td><strong>Nota C08 (Escalabilidade)</strong></td>
-<td><strong>3/5</strong></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="12-custos">12. Custos<a class="headerlink" href="#12-custos" title="Permanent link">&para;</a></h2>
-<p>Cenário de referência: 12 M page views/mês, 80 propriedades, horizonte de 5 anos, <strong>regime de custo marginal SETDIG</strong> (fundamento em <a href="../../docs/03-criterios-de-avaliacao/#c03--tco-peso-15"><code>../docs/03-criterios-de-avaliacao.md §5.C03</code></a> e <a href="../../comparativos/custo/#14-regime-de-custo--marginal-para-o-estado"><code>../comparativos/custo.md §1.4</code></a>).</p>
-<h3 id="121-tco-consolidado--coluna-dupla">12.1 TCO consolidado — coluna dupla<a class="headerlink" href="#121-tco-consolidado--coluna-dupla" title="Permanent link">&para;</a></h3>
+<h2 id="7-custos">7. Custos<a class="headerlink" href="#7-custos" title="Permanent link">&para;</a></h2>
+<p>TCO marginal SETDIG em 5 anos (regime C03 do <a href="../../docs/03-criterios/#5-definição-operacional"><code>../docs/03-criterios.md</code></a>):</p>
 <table>
 <thead>
 <tr>
 <th>Rubrica</th>
-<th style="text-align: right;">Custo marginal SETDIG (5 anos)</th>
-<th style="text-align: right;">Custo pleno de referência (greenfield, 5 anos)</th>
+<th style="text-align: right;">Valor</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Licenciamento</strong></td>
-<td style="text-align: right;">R$ 0</td>
+<td>Licença</td>
 <td style="text-align: right;">R$ 0</td>
 </tr>
 <tr>
-<td><strong>Infra marginal</strong> — 1 pod + PostgreSQL compartilhado</td>
-<td style="text-align: right;">R$ 15.000</td>
-<td style="text-align: right;">R$ 120.000</td>
+<td>Infra marginal (rateio PG compartilhado)</td>
+<td style="text-align: right;">R$ 15 k</td>
 </tr>
 <tr>
-<td><strong>Equipe marginal</strong> — ~0,03 FTE incremental</td>
-<td style="text-align: right;">R$ 45.000</td>
-<td style="text-align: right;">R$ 100.000</td>
+<td>Equipe marginal (~0,04 FTE incremental)</td>
+<td style="text-align: right;">R$ 50 k</td>
 </tr>
 <tr>
-<td><strong>Implantação (snippet ~200 portais)</strong></td>
-<td style="text-align: right;">R$ 10.000</td>
-<td style="text-align: right;">R$ 30.000</td>
+<td>Implantação inicial</td>
+<td style="text-align: right;">R$ 5 k</td>
 </tr>
 <tr>
-<td><strong>Adequação LGPD</strong> — baixa (cookieless)</td>
-<td style="text-align: right;">R$ 15.000</td>
-<td style="text-align: right;">R$ 15.000</td>
+<td>Adequação LGPD (mínima — design conforme)</td>
+<td style="text-align: right;">R$ 15 k</td>
 </tr>
 <tr>
-<td><strong>Riscos operacionais</strong></td>
-<td style="text-align: right;">R$ 15.000</td>
-<td style="text-align: right;">R$ 20.000</td>
-</tr>
-<tr>
-<td><strong>TCO 5 anos</strong></td>
-<td style="text-align: right;"><strong>≈ R$ 100.000</strong></td>
-<td style="text-align: right;"><strong>≈ R$ 285.000</strong></td>
-</tr>
-<tr>
-<td><strong>Faixa de nota C03</strong></td>
-<td style="text-align: right;">≤ 250k = <strong>5</strong></td>
-<td style="text-align: right;">250k–600k = 4</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>📌 Observação</strong>
-<strong>O Umami tem o menor TCO entre todas as opções soberanas do estudo</strong> em ambos os regimes (marginal e pleno). Vantagem econômica real e substancial — mas insuficiente por si só, porque a plataforma falha em requisito <em>Must have</em> (RF-27 funil de conversão). Economicidade não compensa não atendimento de requisito obrigatório — é exatamente por isso que a triagem eliminatória precede a matriz.</p>
-</blockquote>
-<hr />
-<h2 id="13-pontos-fortes">13. Pontos fortes<a class="headerlink" href="#13-pontos-fortes" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Ponto forte</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><strong>Menor TCO entre as opções soberanas</strong></td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>Operação mais simples do conjunto auto-hospedado</strong> — apenas 2 componentes</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>Licença MIT</strong> — máxima permissividade de uso</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>Script de ~2 KB</strong></td>
-</tr>
-<tr>
-<td>5</td>
-<td><strong>Conformidade por design</strong> — sem cookies, IP com hash</td>
-</tr>
-<tr>
-<td>6</td>
-<td><strong>Schema de banco muito simples</strong> — auditoria e ETL triviais</td>
-</tr>
-<tr>
-<td>7</td>
-<td><strong>Implantação em minutos</strong></td>
-</tr>
-<tr>
-<td>8</td>
-<td><strong>Flexibilidade de banco</strong> — PostgreSQL ou MySQL</td>
-</tr>
-<tr>
-<td>9</td>
-<td><strong>Multi-site ilimitado e agrupamento por times</strong></td>
-</tr>
-<tr>
-<td>10</td>
-<td><strong>Painel público</strong> para transparência</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="14-pontos-fracos">14. Pontos fracos<a class="headerlink" href="#14-pontos-fracos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Ponto fraco</th>
-<th style="text-align: center;">Mitigável?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><strong>Sem funil de conversão (RF-27, <em>Must have</em>)</strong></td>
-<td style="text-align: center;">❌ <strong>Não</strong></td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>Sem MFA (RNF-31, <em>Must have</em>)</strong></td>
-<td style="text-align: center;">⚠️ Proxy autenticador ou VPN</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>Sem SSO</strong></td>
-<td style="text-align: center;">⚠️ Proxy autenticador</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>Sem log de auditoria</strong></td>
-<td style="text-align: center;">❌ Não</td>
-</tr>
-<tr>
-<td>5</td>
-<td><strong>Sem heatmap, replay, coorte, retenção, jornada</strong></td>
-<td style="text-align: center;">❌ Não</td>
-</tr>
-<tr>
-<td>6</td>
-<td><strong>Sem Tag Manager</strong></td>
-<td style="text-align: center;">⚠️ GTM ou Matomo Tag Manager</td>
-</tr>
-<tr>
-<td>7</td>
-<td><strong>Metas não são objeto de primeira classe</strong></td>
-<td style="text-align: center;">⚠️ Aproximação por evento</td>
-</tr>
-<tr>
-<td>8</td>
-<td><strong>Sem conectores de BI</strong></td>
-<td style="text-align: center;">⚠️ SQL direto</td>
-</tr>
-<tr>
-<td>9</td>
-<td><strong>Banco relacional limita escala analítica</strong></td>
-<td style="text-align: center;">⚠️ ClickHouse apenas na nuvem</td>
-</tr>
-<tr>
-<td>10</td>
-<td><strong>Detecção de bots menos robusta</strong></td>
-<td style="text-align: center;">⚠️ Filtros no WAF</td>
-</tr>
-<tr>
-<td>11</td>
-<td><strong>Documentação enxuta em tópicos avançados</strong></td>
-<td style="text-align: center;">⚠️ Código legível compensa</td>
-</tr>
-<tr>
-<td>12</td>
-<td><strong>Risco de relicenciamento (MIT)</strong></td>
-<td style="text-align: center;">⚠️ Direito perpétuo sobre a versão obtida</td>
-</tr>
-<tr>
-<td>13</td>
-<td><strong>Telemetria ativa por padrão</strong></td>
-<td style="text-align: center;">✅ <code>DISABLE_TELEMETRY=1</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="15-quando-utilizar">15. Quando utilizar<a class="headerlink" href="#15-quando-utilizar" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>✅ Use o Umami quando:</strong></p>
-<ul>
-<li>A necessidade for <strong>estritamente métrica básica</strong> — visitantes, páginas, origem, dispositivo;</li>
-<li>O <strong>custo operacional</strong> for a restrição dominante;</li>
-<li>A equipe for pequena e a simplicidade tiver alto valor;</li>
-<li>Houver muitos <strong>sites pequenos</strong> a instrumentar com baixo esforço;</li>
-<li>For necessário <strong>painel interno</strong> de uso de aplicação;</li>
-<li>A <strong>auditoria do que é coletado</strong> precisar ser trivial de demonstrar;</li>
-<li>Como plataforma para <strong>hotsites e sites temporários</strong> de campanha.</li>
-</ul>
-</blockquote>
-<hr />
-<h2 id="16-quando-evitar">16. Quando evitar<a class="headerlink" href="#16-quando-evitar" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>🚨 Evite o Umami quando:</strong></p>
-<ul>
-<li><strong>Funil de conversão</strong> for requisito — não existe;</li>
-<li><strong>MFA ou SSO</strong> forem exigência de segurança sem componente adicional;</li>
-<li><strong>Log de auditoria administrativo</strong> for exigência de conformidade;</li>
-<li>For necessária qualquer <strong>análise comportamental</strong>;</li>
-<li><strong>Coortes, retenção ou jornada</strong> forem requisitos;</li>
-<li>For necessária <strong>integração pronta com BI</strong>;</li>
-<li>O volume superar ~100 M eventos/mês no auto-hospedado;</li>
-<li>Como <strong>plataforma padrão de um Estado</strong> que precisa analisar serviços digitais.</li>
-</ul>
-</blockquote>
-<hr />
-<h2 id="17-notas-do-avaliador">17. Notas do avaliador<a class="headerlink" href="#17-notas-do-avaliador" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Critério</th>
-<th style="text-align: right;">Peso</th>
-<th style="text-align: center;">Nota</th>
-<th style="text-align: right;">Pontos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>C01 — LGPD</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: right;">75</td>
-</tr>
-<tr>
-<td>C02 — Controle dos dados</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: right;">75</td>
-</tr>
-<tr>
-<td>C03 — TCO</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: right;">75</td>
-</tr>
-<tr>
-<td>C04 — Independência tecnológica</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: right;">40</td>
-</tr>
-<tr>
-<td>C05 — Recursos analíticos</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: center;"><strong>2</strong></td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr>
-<td>C06 — APIs</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr>
-<td>C07 — Integrações</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: center;"><strong>2</strong></td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr>
-<td>C08 — Escalabilidade</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr>
-<td>C09 — Segurança</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr>
-<td>C10 — Operação</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr>
-<td>C11 — Comunidade</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr>
-<td>C12 — Documentação</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: right;">15</td>
+<td>Contingência</td>
+<td style="text-align: right;">R$ 15 k</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>120</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: right;"><strong>445 / 600 (74,2 %)</strong></td>
+<td style="text-align: right;"><strong>~R$ 100 k</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>📌 Observação final — O único com três notas 5</strong>
-O Umami é a <strong>única plataforma do estudo com nota 5 simultânea em LGPD, Controle dos dados e TCO</strong>. Nos três critérios de maior peso, é imbatível.</p>
-<p>Perde por cobertura funcional: nota 2 em C05 e 2 em C07. Em termos práticos, o Umami responde muito bem à pergunta "quantas pessoas acessaram" e não responde à pergunta "onde o cidadão desistiu de solicitar o serviço" — que é justamente a pergunta que o requisito RN-02 exige responder.</p>
-<p>É a demonstração mais clara de que <strong>economicidade não substitui adequação funcional</strong>.</p>
-</blockquote>
+<p>Menor TCO do escopo. Insuficiente para compensar reprovação em RF-27.</p>
 <hr />
-<h2 id="referências">Referências<a class="headerlink" href="#referências" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Site oficial: <code>https://umami.is/</code></li>
-<li>Documentação: <code>https://umami.is/docs</code></li>
-<li>API: <code>https://umami.is/docs/api</code></li>
-<li>Repositório: <code>https://github.com/umami-software/umami</code></li>
-<li>Licença MIT: <code>https://opensource.org/license/mit</code></li>
-<li>Lista completa: <a href="../../docs/12-referencias/#10-documentação-oficial--umami"><code>../docs/12-referencias.md</code>, seção 10</a></li>
-</ul>
+<h2 id="8-pontos-fortes--fracos">8. Pontos fortes / fracos<a class="headerlink" href="#8-pontos-fortes--fracos" title="Permanent link">&para;</a></h2>
+<p><strong>Fortes:</strong>
+- Stack mais simples do escopo (2 componentes).
+- Menor esforço operacional (~0,04 FTE).
+- Menor TCO.
+- Conformidade LGPD por design — dispensa CMP e RIPD.
+- MIT permite uso irrestrito.</p>
+<p><strong>Fracos:</strong>
+- <strong>Sem funil (RF-27) — Must have não atendido.</strong>
+- Sem jornada, coortes, retenção, heatmap, session replay, forms.
+- Sem MFA nativo, sem SSO, RBAC básico, sem log de auditoria.
+- Sem Tag Manager.
+- Sem SDKs oficiais além do JS.
+- Comunidade menor; mercado brasileiro praticamente inexistente.
+- Governança concentrada em um mantenedor comercial.</p>
 <hr />
-<table>
-<thead>
-<tr>
-<th>← Anterior</th>
-<th>Índice</th>
-<th>Próxima →</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../plausible/">Plausible</a></td>
-<td><a href="../../">Plataformas</a></td>
-<td><a href="../open-web-analytics/">Open Web Analytics</a></td>
-</tr>
-</tbody>
-</table>
+<h2 id="9-quando-usar--quando-evitar">9. Quando usar / quando evitar<a class="headerlink" href="#9-quando-usar--quando-evitar" title="Permanent link">&para;</a></h2>
+<p><strong>Usar:</strong>
+- Sites temporários (campanha, evento) sem exigência de funil.
+- Instrumentação simples de contagem em portais classe D do <a href="../../docs/07-recomendacao/#8-estratégia-por-classe-de-portal"><code>../docs/07-recomendacao.md §8</code></a>.
+- Referência de leveza para prototipagem.</p>
+<p><strong>Evitar:</strong>
+- Como plataforma padrão do parque — falha em Must have.
+- No Xvia — perfil transacional exige funil identificado.
+- Portais com exigência de MFA para administradores.
+- Contextos que exijam Tag Manager próprio.</p>
+<hr />
+<h2 id="10-notas-do-avaliador">10. Notas do avaliador<a class="headerlink" href="#10-notas-do-avaliador" title="Permanent link">&para;</a></h2>
+<p>Ferramenta muito boa para o que se propõe: mensurar acesso a site pequeno com o mínimo de fricção. <strong>Não é candidata a substituir Matomo</strong>. A força do Umami — simplicidade radical — é o oposto do que o Estado precisa: funil, jornada, retenção, MFA, log de auditoria. Trocar Matomo por Umami no parque seria regressão funcional.</p>
+<p><strong>Papel residual:</strong> referência de leveza + opção declarada para portais sem exigência analítica.</p>
 
 
 

@@ -1,0 +1,3064 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo técnico de arquitetura para seleção de plataforma de Web Analytics do Governo do Estado de Mato Grosso do Sul">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/07-recomendacao/">
+      
+      
+        <link rel="prev" href="../06-adr-002/">
+      
+      
+        <link rel="next" href="../08-roadmap/">
+      
+      
+      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Recomendação - Estudo de Plataformas de Web Analytics — SETDIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#07--recomendação-técnica" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estudo de Plataformas de Web Analytics — SETDIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Recomendação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-contexto/" class="md-tabs__link">
+          
+  
+    
+  
+  Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plataformas/matomo/" class="md-tabs__link">
+          
+  
+    
+  
+  Plataformas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparativos/matomo-vs-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparativos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../anexos/matriz/" class="md-tabs__link">
+          
+  
+    
+  
+  Anexos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../apresentacoes/camada-complementar-posthog/" class="md-tabs__link">
+          
+  
+    
+  
+  Apresentações
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
+      
+  <img src="../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Estudo de Plataformas de Web Analytics — SETDIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Estudo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-contexto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-criterios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-mercado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Panorama de mercado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-adr-002/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADR-002 (vigente)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-recomendação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Recomendação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Recomendação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-parque-existente-eds--sites-gov-ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Parque existente (EDS + sites gov MS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-portal-xvia-superapp-cidadão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Portal Xvia (superapp cidadão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-recomendações-complementares" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Recomendações complementares
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-aderência-às-premissas-do-setor-público" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aderência às premissas do setor público
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-demonstração-técnica-da-manutenção-do-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Demonstração técnica da manutenção do Matomo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Demonstração técnica da manutenção do Matomo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#m1--única-plataforma-soberana-com-cobertura-funcional-suficiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      M1 — Única plataforma soberana com cobertura funcional suficiente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m2--única-com-precedente-regulatório-favorável" class="md-nav__link">
+    <span class="md-ellipsis">
+      M2 — Única com precedente regulatório favorável
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m3--auditoria-verificável-não-documental" class="md-nav__link">
+    <span class="md-ellipsis">
+      M3 — Auditoria verificável, não documental
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m4--custo-insensível-a-volume-perfil-de-carga-é-bursty" class="md-nav__link">
+    <span class="md-ellipsis">
+      M4 — Custo insensível a volume; perfil de carga é bursty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m5--deficiência-relevante-é-mitigável-por-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      M5 — Deficiência relevante é mitigável por arquitetura
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-por-que-não-as-alternativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Por que não as alternativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Por que não as alternativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-plausible-ce" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Plausible CE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-umami" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Umami
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-posthog-auto-hospedado-como-padrão-do-parque" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 PostHog auto-hospedado (como padrão do parque)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-piwik-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Piwik PRO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-google-analytics-4-arquivado" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Google Analytics 4 (arquivado)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-open-web-analytics-arquivado" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Open Web Analytics (arquivado)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-arquitetura-alvo-de-referência" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Arquitetura-alvo de referência
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Arquitetura-alvo de referência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-componentes-parque" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Componentes (parque)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-decisões-da-arquitetura-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Decisões da arquitetura-alvo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-fluxo-de-coleta-desacoplada" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Fluxo de coleta desacoplada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-padrão-de-conformidade-lgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Padrão de conformidade LGPD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Padrão de conformidade LGPD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-configuração-padrão-obrigatória" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Configuração padrão obrigatória
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-base-legal-por-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Base legal por classe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-artefatos-de-conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Artefatos de conformidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-padrão-de-integração-com-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Padrão de integração com BI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-estratégia-por-classe-de-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Estratégia por classe de portal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Estratégia por classe de portal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-árvore-de-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Árvore de decisão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dimensionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Dimensionamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-condicionantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Condicionantes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-o-que-esta-recomendação-não-afirma" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. O que esta recomendação NÃO afirma
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referências
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plataformas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/matomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostHog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/plausible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plausible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plataformas/umami/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umami
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Comparativos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comparativos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/matomo-vs-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matomo × PostHog (complementaridade)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/on-premise-gratis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On-premise gratuito (4 plataformas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparativos/coexistencia-matomo-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coexistência Matomo + PostHog no Xvia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Anexos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Anexos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/matriz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz completa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/glossario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apresentações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Apresentações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacoes/camada-complementar-posthog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estudo (Marp)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-recomendação" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Recomendação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Recomendação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-parque-existente-eds--sites-gov-ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Parque existente (EDS + sites gov MS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-portal-xvia-superapp-cidadão" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Portal Xvia (superapp cidadão)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-recomendações-complementares" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Recomendações complementares
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-aderência-às-premissas-do-setor-público" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aderência às premissas do setor público
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-demonstração-técnica-da-manutenção-do-matomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Demonstração técnica da manutenção do Matomo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Demonstração técnica da manutenção do Matomo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#m1--única-plataforma-soberana-com-cobertura-funcional-suficiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      M1 — Única plataforma soberana com cobertura funcional suficiente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m2--única-com-precedente-regulatório-favorável" class="md-nav__link">
+    <span class="md-ellipsis">
+      M2 — Única com precedente regulatório favorável
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m3--auditoria-verificável-não-documental" class="md-nav__link">
+    <span class="md-ellipsis">
+      M3 — Auditoria verificável, não documental
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m4--custo-insensível-a-volume-perfil-de-carga-é-bursty" class="md-nav__link">
+    <span class="md-ellipsis">
+      M4 — Custo insensível a volume; perfil de carga é bursty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m5--deficiência-relevante-é-mitigável-por-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      M5 — Deficiência relevante é mitigável por arquitetura
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-por-que-não-as-alternativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Por que não as alternativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Por que não as alternativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-plausible-ce" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Plausible CE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-umami" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Umami
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-posthog-auto-hospedado-como-padrão-do-parque" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 PostHog auto-hospedado (como padrão do parque)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-piwik-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Piwik PRO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-google-analytics-4-arquivado" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Google Analytics 4 (arquivado)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-open-web-analytics-arquivado" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Open Web Analytics (arquivado)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-arquitetura-alvo-de-referência" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Arquitetura-alvo de referência
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Arquitetura-alvo de referência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-componentes-parque" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Componentes (parque)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-decisões-da-arquitetura-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Decisões da arquitetura-alvo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-fluxo-de-coleta-desacoplada" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Fluxo de coleta desacoplada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-padrão-de-conformidade-lgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Padrão de conformidade LGPD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Padrão de conformidade LGPD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-configuração-padrão-obrigatória" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Configuração padrão obrigatória
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-base-legal-por-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Base legal por classe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-artefatos-de-conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Artefatos de conformidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-padrão-de-integração-com-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Padrão de integração com BI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-estratégia-por-classe-de-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Estratégia por classe de portal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Estratégia por classe de portal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-árvore-de-decisão" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Árvore de decisão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dimensionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Dimensionamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-condicionantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Condicionantes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-o-que-esta-recomendação-não-afirma" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. O que esta recomendação NÃO afirma
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="07--recomendação-técnica">07 — Recomendação Técnica<a class="headerlink" href="#07--recomendação-técnica" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Anterior:</strong> <a href="../06-adr-002/">06 — ADR-002</a> · <strong>Próximo:</strong> <a href="../08-roadmap/">08 — Roadmap</a></p>
+</blockquote>
+<p>Reflete a decisão vigente do <a href="../06-adr-002/">ADR-002</a> — dois perfis: parque existente (§1.1) e portal Xvia (§1.2). Recomendação do parque confirma linha do ADR-001 sob pesos revisados; recomendação do Xvia é nova.</p>
+<hr />
+<h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-recomendação">1. Recomendação</a></li>
+<li><a href="#2-aderência-às-premissas-do-setor-público">2. Aderência às premissas do setor público</a></li>
+<li><a href="#3-demonstração-técnica-da-manutenção-do-matomo">3. Demonstração técnica da manutenção do Matomo</a></li>
+<li><a href="#4-por-que-não-as-alternativas">4. Por que não as alternativas</a></li>
+<li><a href="#5-arquitetura-alvo-de-referência">5. Arquitetura-alvo de referência</a></li>
+<li><a href="#6-padrão-de-conformidade-lgpd">6. Padrão de conformidade LGPD</a></li>
+<li><a href="#7-padrão-de-integração-com-bi">7. Padrão de integração com BI</a></li>
+<li><a href="#8-estratégia-por-classe-de-portal">8. Estratégia por classe de portal</a></li>
+<li><a href="#9-dimensionamento">9. Dimensionamento</a></li>
+<li><a href="#10-riscos">10. Riscos</a></li>
+<li><a href="#11-condicionantes">11. Condicionantes</a></li>
+<li><a href="#12-o-que-esta-recomendação-não-afirma">12. O que esta recomendação NÃO afirma</a></li>
+</ul>
+<hr />
+<h2 id="1-recomendação">1. Recomendação<a class="headerlink" href="#1-recomendação" title="Permanent link">&para;</a></h2>
+<h3 id="11-parque-existente-eds--sites-gov-ms">1.1 Parque existente (EDS + sites gov MS)<a class="headerlink" href="#11-parque-existente-eds--sites-gov-ms" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ RECOMENDAÇÃO — PARQUE</strong>
+Manter <strong>Matomo On-Premise</strong> como plataforma padrão única de Web Analytics do parque existente. Condicionada à execução integral do plano em <a href="../08-roadmap/"><code>08-roadmap.md</code></a> (Ondas 1–4).</p>
+<p><strong>Quantitativo:</strong> 500/600 (83,3 %) — 🟢 Recomendada. Vantagem de 1 ponto sobre Piwik PRO (499); desempate por C02.</p>
+<p><strong>Qualitativo:</strong> combina soberania verificável, cobertura funcional suficiente aos <em>Must have</em> do parque, e independência tecnológica por licença copyleft — sem deficiência crítica não mitigável por arquitetura.</p>
+</blockquote>
+<h3 id="12-portal-xvia-superapp-cidadão">1.2 Portal Xvia (superapp cidadão)<a class="headerlink" href="#12-portal-xvia-superapp-cidadão" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>✅ RECOMENDAÇÃO — XVIA</strong>
+<strong>Arquitetura híbrida: Matomo On-Premise + PostHog auto-hospedado em paralelo.</strong></p>
+<ul>
+<li><strong>Matomo:</strong> audiência agregada, campanhas, SEO, conteúdo — base legal cookieless simplificada.</li>
+<li><strong>PostHog:</strong> jornada identificada, funil transacional, feature flags, experimentação, session replay <strong>consentido</strong> e mascarado.</li>
+</ul>
+<p>Ambos sob custódia do Estado, sem transferência internacional.</p>
+<p><strong>Quantitativo:</strong> PostHog SH — 464/600 (77,3 %), #4 do ranking, maior pontuação entre plataformas soberanas de product analytics.</p>
+<p><strong>Qualitativo:</strong> perfil analítico do Xvia (jornada identificada, funil transacional, experimentação, replay em serviços críticos) não é domínio do Matomo. Plugins do Matomo cobrem parcial — PostHog cobre.</p>
+<p><strong>Overhead aceito:</strong> ~+55 KB gzip, +50–200 ms LCP em 3G. Monitorado por G9 do <a href="../06-adr-002/#112-gatilhos-antecipados">ADR-002</a> — reavaliação se LCP &gt; 75 ms sustentado por 2 meses.</p>
+</blockquote>
+<h3 id="13-recomendações-complementares">1.3 Recomendações complementares<a class="headerlink" href="#13-recomendações-complementares" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Recomendação</th>
+<th>Escopo</th>
+<th>Natureza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RC-1</td>
+<td>Plausible CE como camada leve opcional em portais de conteúdo classe C</td>
+<td>Parque</td>
+<td>Facultativa, com justificativa</td>
+</tr>
+<tr>
+<td>RC-2</td>
+<td>Vedar <strong>Google Analytics 4</strong> como plataforma padrão em qualquer contexto</td>
+<td>Ambos</td>
+<td>Obrigatória</td>
+</tr>
+<tr>
+<td>RC-3</td>
+<td>Vedar <strong>Open Web Analytics</strong> por falha em critério eliminatório de segurança</td>
+<td>Ambos</td>
+<td>Obrigatória</td>
+</tr>
+<tr>
+<td>RC-4</td>
+<td>Contingências formais ativáveis por novo ADR: <strong>Matomo Cloud</strong> e <strong>Piwik PRO</strong> (parque); <strong>PostHog Cloud EU</strong> (Xvia)</td>
+<td>Ambos</td>
+<td>Formal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-aderência-às-premissas-do-setor-público">2. Aderência às premissas do setor público<a class="headerlink" href="#2-aderência-às-premissas-do-setor-público" title="Permanent link">&para;</a></h2>
+<p>Verificação item a item para o setor público brasileiro.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Premissa</th>
+<th style="text-align: center;">Matomo OP</th>
+<th style="text-align: center;">Plausible CE</th>
+<th style="text-align: center;">Piwik PRO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LGPD</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Governo Digital (14.129/2021)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ API limitada</td>
+<td style="text-align: center;">⚠️ Fechado</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Soberania</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ Contratual</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hospedagem própria</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Infra estatal</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ ClickHouse</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Custo-benefício</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Longo ciclo de vida</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ Mantenedor único</td>
+<td style="text-align: center;">⚠️ Contratual</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Integração com BI</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ Sem conectores</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td>9</td>
+<td>APIs abertas</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Auditoria</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌ Fechado</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Transparência</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Evitar lock-in</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Plenas/12</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-demonstração-técnica-da-manutenção-do-matomo">3. Demonstração técnica da manutenção do Matomo<a class="headerlink" href="#3-demonstração-técnica-da-manutenção-do-matomo" title="Permanent link">&para;</a></h2>
+<h3 id="m1--única-plataforma-soberana-com-cobertura-funcional-suficiente">M1 — Única plataforma soberana com cobertura funcional suficiente<a class="headerlink" href="#m1--única-plataforma-soberana-com-cobertura-funcional-suficiente" title="Permanent link">&para;</a></h3>
+<p>Entre as auto-hospedadas do escopo, só Matomo cobre simultaneamente funil (RF-27), metas (RF-26), segmentação avançada (RF-28), jornada (RF-36) e dimensões customizadas (RF-05):</p>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th style="text-align: center;">RF-26</th>
+<th style="text-align: center;">RF-27</th>
+<th style="text-align: center;">RF-28</th>
+<th style="text-align: center;">RF-36</th>
+<th style="text-align: center;">RF-05</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matomo OP</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅ 💲</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Plausible CE</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ Filtros</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">💲</td>
+</tr>
+<tr>
+<td>Umami</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⚠️ Filtros</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⚠️</td>
+</tr>
+<tr>
+<td>PostHog SH</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<p>PostHog cobre igualmente, mas é eliminado por M4 (sob R5).</p>
+<p><strong>Consequência:</strong> alternativas soberanas de menor custo <strong>não são substitutos</strong> — falham em RN-01/RN-02. Não é preferência; é não atendimento.</p>
+<h3 id="m2--única-com-precedente-regulatório-favorável">M2 — Única com precedente regulatório favorável<a class="headerlink" href="#m2--única-com-precedente-regulatório-favorável" title="Permanent link">&para;</a></h3>
+<p>CNIL publicou orientação reconhecendo configuração específica do Matomo como isenta de consentimento. Nenhuma outra da matriz tem precedente equivalente de DPA.</p>
+<p><strong>Consequência:</strong> fundamentação da base legal perante ANPD dispõe de configuração já <strong>auditada por autoridade regulatória</strong>, não só argumentação própria.</p>
+<h3 id="m3--auditoria-verificável-não-documental">M3 — Auditoria verificável, não documental<a class="headerlink" href="#m3--auditoria-verificável-não-documental" title="Permanent link">&para;</a></h3>
+<p>Auditor pode, sem depender do fornecedor:</p>
+<table>
+<thead>
+<tr>
+<th>Camada</th>
+<th>Método</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Código-fonte</td>
+<td>Inspeção do repositório GPL v3</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>Captura de tráfego do navegador + código do tracker</td>
+</tr>
+<tr>
+<td>Dado persistido</td>
+<td>Consulta SQL direta ao banco</td>
+</tr>
+<tr>
+<td>Aplicação de retenção</td>
+<td><code>SELECT MIN(server_time) FROM matomo_log_visit</code> comprova exclusão física</td>
+</tr>
+<tr>
+<td>Ausência de exfiltração</td>
+<td>Captura de tráfego de saída</td>
+</tr>
+<tr>
+<td>Acesso admin</td>
+<td>Log de auditoria nativo, exportável para SIEM</td>
+</tr>
+</tbody>
+</table>
+<p>Nenhum SaaS oferece cinco das seis camadas. Para dado de navegação de cidadão sob órgão público, auditoria verificável é qualitativamente superior à documental.</p>
+<h3 id="m4--custo-insensível-a-volume-perfil-de-carga-é-bursty">M4 — Custo insensível a volume; perfil de carga é <em>bursty</em><a class="headerlink" href="#m4--custo-insensível-a-volume-perfil-de-carga-é-bursty" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Efeito de pico 30×</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto-hospedado (Matomo OP)</td>
+<td><strong>Custo inalterado</strong> — consumo de capacidade provisionada</td>
+</tr>
+<tr>
+<td>SaaS por PV (Plausible, Simple, Matomo Cloud)</td>
+<td>Salto de plano; possível excedente</td>
+</tr>
+<tr>
+<td>SaaS por evento (PostHog Cloud)</td>
+<td><strong>Fatura proporcional ao pico</strong></td>
+</tr>
+<tr>
+<td>Gratuito com limites (GA4)</td>
+<td>Amostragem, degradação de precisão</td>
+</tr>
+</tbody>
+</table>
+<p>Previsibilidade orçamentária do auto-hospedado é direta ao orçamento público — dotação fixa não comporta variação proporcional a evento imprevisível.</p>
+<h3 id="m5--deficiência-relevante-é-mitigável-por-arquitetura">M5 — Deficiência relevante é mitigável por arquitetura<a class="headerlink" href="#m5--deficiência-relevante-é-mitigável-por-arquitetura" title="Permanent link">&para;</a></h3>
+<p>Gargalo de arquivamento do Matomo é conhecido e tem mitigações estabelecidas:</p>
+<table>
+<thead>
+<tr>
+<th>Mitigação</th>
+<th>Custo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>browser_archiving_disabled_enforce = 1</code></td>
+<td>Configuração</td>
+</tr>
+<tr>
+<td>Host dedicado para cron de arquivamento</td>
+<td>1 VM</td>
+</tr>
+<tr>
+<td>Paralelização (<code>--concurrent-requests-per-website</code>)</td>
+<td>Configuração</td>
+</tr>
+<tr>
+<td>Réplica de leitura para relatórios e BI</td>
+<td>1 instância de banco</td>
+</tr>
+<tr>
+<td>QueuedTracking + Redis</td>
+<td>1 instância Redis</td>
+</tr>
+</tbody>
+</table>
+<p>Compare com o não mitigável nas alternativas: nenhuma configuração do GA4 elimina custódia de terceiro; nenhuma do PostHog reduz aos 6 componentes; nenhuma do Adobe traz TCO à faixa aceitável.</p>
+<hr />
+<h2 id="4-por-que-não-as-alternativas">4. Por que não as alternativas<a class="headerlink" href="#4-por-que-não-as-alternativas" title="Permanent link">&para;</a></h2>
+<h3 id="41-plausible-ce">4.1 Plausible CE<a class="headerlink" href="#41-plausible-ce" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-27 Funil</td>
+<td>✅ Atende</td>
+</tr>
+<tr>
+<td>RF-28 Segmentação avançada</td>
+<td>⚠️ Só filtros simples</td>
+</tr>
+<tr>
+<td>RF-36 Jornada</td>
+<td>❌ Não atende</td>
+</tr>
+<tr>
+<td>RF-31 Coortes e retenção</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>RF-32/33/34 Heatmap, replay, forms</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>RNF-31 MFA</td>
+<td>❌ Veto potencial SegInfo</td>
+</tr>
+<tr>
+<td>RN-02 Gargalos em jornadas</td>
+<td>⚠️ Parcial</td>
+</tr>
+</tbody>
+</table>
+<p>Excelente como camada complementar para conteúdo; insuficiente como padrão de Estado que precisa diagnosticar jornadas.</p>
+<h3 id="42-umami">4.2 Umami<a class="headerlink" href="#42-umami" title="Permanent link">&para;</a></h3>
+<p>Falha em <strong>RF-27 (funil, <em>Must</em>)</strong> e RN-02. Cobertura 35–54 %. Melhor TCO entre soberanas — insuficiente para compensar não atendimento de <em>Must have</em>.</p>
+<h3 id="43-posthog-auto-hospedado-como-padrão-do-parque">4.3 PostHog auto-hospedado (como padrão do parque)<a class="headerlink" href="#43-posthog-auto-hospedado-como-padrão-do-parque" title="Permanent link">&para;</a></h3>
+<p>Ver M4 (§3) — superioridade funcional inacessível sob R5. Coloca-se como <strong>complemento do Xvia</strong>, não substituto do parque.</p>
+<h3 id="44-piwik-pro">4.4 Piwik PRO<a class="headerlink" href="#44-piwik-pro" title="Permanent link">&para;</a></h3>
+<p>Conformidade e capacidade excelentes, mas: TCO ~R$ 1,32M/5a (2× Matomo OP); C04=2 (proprietária, sem fork, sem operação independente); auditoria só documental; código não inspecionável. Contingência formal se P2 falhar.</p>
+<h3 id="45-google-analytics-4-arquivado">4.5 Google Analytics 4 (arquivado)<a class="headerlink" href="#45-google-analytics-4-arquivado" title="Permanent link">&para;</a></h3>
+<p>Quatro fundamentos independentes:</p>
+<ol>
+<li><strong>Controle nulo</strong> (C02=1) — custódia do fornecedor; export só via BigQuery pré-configurado.</li>
+<li><strong>Transferência internacional</strong> para jurisdição sem adequação da ANPD.</li>
+<li><strong>Precedente regulatório desfavorável</strong> — 4 DPAs europeias.</li>
+<li><strong>Precedente concretizado de descontinuidade</strong> — UA→GA4 impôs migração forçada com perda de série histórica.</li>
+</ol>
+<h3 id="46-open-web-analytics-arquivado">4.6 Open Web Analytics (arquivado)<a class="headerlink" href="#46-open-web-analytics-arquivado" title="Permanent link">&para;</a></h3>
+<p>Eliminado por E6 — CVE-2022-24637 sem correção; cadência incompatível com QA-05. <strong>Dominado estritamente</strong> pelo Matomo OP.</p>
+<hr />
+<h2 id="5-arquitetura-alvo-de-referência">5. Arquitetura-alvo de referência<a class="headerlink" href="#5-arquitetura-alvo-de-referência" title="Permanent link">&para;</a></h2>
+<h3 id="51-componentes-parque">5.1 Componentes (parque)<a class="headerlink" href="#51-componentes-parque" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph INTERNET["🌐 Internet"]
+        CID["👤 Cidadão"]
+    end
+
+    subgraph DMZ["🛡️ DMZ"]
+        WAF["WAF · Rate limit · TLS 1.3"]
+        LB["Load Balancer"]
+    end
+
+    subgraph APP["⚙️ Aplicação"]
+        subgraph TRACK["Coleta (stateless, escaláveis)"]
+            T1["matomo.php n1"]
+            TN["matomo.php nN"]
+        end
+        UI["UI relatórios&lt;br/&gt;(rede interna/VPN)"]
+        ARC["Host de arquivamento&lt;br/&gt;cron core:archive"]
+    end
+
+    subgraph DATA["💾 Dados"]
+        REDIS[("Redis&lt;br/&gt;QueuedTracking")]
+        DBP[("MySQL primário")]
+        DBR[("MySQL réplica&lt;br/&gt;leitura + BI")]
+        BKP[("Backup diário + binlog")]
+    end
+
+    subgraph OBS["📊 Observabilidade"]
+        MON["Prometheus / Zabbix"]
+        LOG["SIEM"]
+    end
+
+    subgraph CONS["📈 Consumo"]
+        BI["Superset / Power BI / Metabase / Grafana"]
+    end
+
+    subgraph IAM["🔐 Identidade"]
+        IDP["SAML 2.0 / OIDC"]
+    end
+
+    CID --&gt;|HTTPS| WAF --&gt; LB --&gt; T1 &amp; TN
+    LB --&gt; UI
+    T1 &amp; TN --&gt;|enfileira| REDIS
+    REDIS --&gt;|consome| ARC --&gt; DBP
+    UI --&gt; DBP
+    DBP ==&gt; DBR --&gt; BI
+    DBP --&gt; BKP
+    UI -.-&gt; IDP
+    APP -.-&gt; MON &amp; LOG
+
+    style REDIS fill:#fff3cd,stroke:#f59e0b
+    style DBP fill:#d1ecf1,stroke:#0ea5e9
+    style DBR fill:#d1ecf1,stroke:#0ea5e9
+    style WAF fill:#fee2e2,stroke:#ef4444</code></pre>
+<h3 id="52-decisões-da-arquitetura-alvo">5.2 Decisões da arquitetura-alvo<a class="headerlink" href="#52-decisões-da-arquitetura-alvo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Decisão</th>
+<th style="text-align: center;">Lacuna</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AA-1</td>
+<td><strong>Ingestão assíncrona</strong> (QueuedTracking + Redis)</td>
+<td style="text-align: center;">L1</td>
+<td>Único mecanismo que atende QA-01 (pico 30×, 45 min, perda ≤ 1 %)</td>
+</tr>
+<tr>
+<td>AA-2</td>
+<td>Coleta stateless, escala horizontal</td>
+<td style="text-align: center;">L1</td>
+<td>Absorve pico sem tocar no banco</td>
+</tr>
+<tr>
+<td>AA-3</td>
+<td>Host dedicado ao cron; arquivamento pelo navegador desabilitado</td>
+<td style="text-align: center;">—</td>
+<td>Isola agregação da UI</td>
+</tr>
+<tr>
+<td>AA-4</td>
+<td>Réplica de leitura para relatórios e BI</td>
+<td style="text-align: center;">L3</td>
+<td>Elimina competição com coleta</td>
+</tr>
+<tr>
+<td>AA-5</td>
+<td>UI restrita a rede interna/VPN; só endpoint de coleta público</td>
+<td style="text-align: center;">—</td>
+<td>Superfície mínima</td>
+</tr>
+<tr>
+<td>AA-6</td>
+<td>Retenção automatizada: bruto 6 meses, agregado 60 meses</td>
+<td style="text-align: center;">L2</td>
+<td>Atende RL-05</td>
+</tr>
+<tr>
+<td>AA-7</td>
+<td>SAML 2.0 / OIDC (plugin)</td>
+<td style="text-align: center;">L6</td>
+<td>Elimina gestão manual de usuários</td>
+</tr>
+<tr>
+<td>AA-8</td>
+<td>Anonimização padrão: IP 2 bytes, cookieless, sem fingerprint</td>
+<td style="text-align: center;">L5</td>
+<td>Alinhado ao precedente CNIL</td>
+</tr>
+<tr>
+<td>AA-9</td>
+<td>Backup diário + binlog; teste trimestral</td>
+<td style="text-align: center;">L4, L7</td>
+<td>Atende RNF-12/13</td>
+</tr>
+<tr>
+<td>AA-10</td>
+<td>Observabilidade de fila, cron e latência</td>
+<td style="text-align: center;">L4</td>
+<td>Converte indicadores do ADR em métricas</td>
+</tr>
+<tr>
+<td>AA-11</td>
+<td>IaC para toda implantação</td>
+<td style="text-align: center;">L4</td>
+<td>Reprodutibilidade; evita conhecimento tácito</td>
+</tr>
+<tr>
+<td>AA-12</td>
+<td>Instância segregada p/ dado sensível (saúde, assistência)</td>
+<td style="text-align: center;">—</td>
+<td>Isolamento e segregação física</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-fluxo-de-coleta-desacoplada">5.3 Fluxo de coleta desacoplada<a class="headerlink" href="#53-fluxo-de-coleta-desacoplada" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant N as Navegador
+    participant W as WAF/LB
+    participant T as Nó de coleta
+    participant R as Redis (fila)
+    participant A as Arquivamento
+    participant D as MySQL
+
+    N-&gt;&gt;W: GET matomo.php
+    W-&gt;&gt;W: Rate limit / bot
+    W-&gt;&gt;T: forward
+    T-&gt;&gt;T: valida, anonimiza IP, respeita DNT
+    T-&gt;&gt;R: LPUSH evento
+    T--&gt;&gt;N: 204 No Content (&lt;50ms)
+
+    Note over R,A: Assíncrono — desacoplado do usuário
+
+    loop A cada N segundos
+        A-&gt;&gt;R: RPOP lote
+        A-&gt;&gt;D: INSERT em lote (matomo_log_*)
+    end
+
+    loop Cron periódico
+        A-&gt;&gt;D: core:archive (agrega em matomo_archive_*)
+    end
+
+    Note over N,D: Pico 30×: fila cresce, latência do usuário não.</code></pre>
+<blockquote>
+<p><strong>✅ AA-1 é a decisão arquitetural mais importante do estudo</strong>
+Sem desacoplamento: pico 30× → latência crescente → conexões acumuladas → pool MySQL esgotado → <strong>perda de eventos</strong> ou indisponibilidade.
+Com desacoplamento: pico = crescimento temporário da fila, absorvido em minutos. Usuário não percebe. Nenhum evento perdido.
+Lacuna L1. Razão pela qual a recomendação é <strong>condicionada</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="6-padrão-de-conformidade-lgpd">6. Padrão de conformidade LGPD<a class="headerlink" href="#6-padrão-de-conformidade-lgpd" title="Permanent link">&para;</a></h2>
+<h3 id="61-configuração-padrão-obrigatória">6.1 Configuração padrão obrigatória<a class="headerlink" href="#61-configuração-padrão-obrigatória" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+<th>Fundamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anonimização de IP</td>
+<td>2 bytes mascarados (mín.)</td>
+<td>RL-03; CNIL</td>
+</tr>
+<tr>
+<td>Cookies</td>
+<td>Desabilitados (<code>disableCookies</code>) ou estritamente necessários 13m</td>
+<td>RL-04</td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td>Vedado, salvo justificativa formal com RIPD</td>
+<td>Necessidade</td>
+</tr>
+<tr>
+<td>Do Not Track</td>
+<td>Respeitado</td>
+<td>RL-08</td>
+</tr>
+<tr>
+<td>Retenção bruto</td>
+<td>6 meses, exclusão automática</td>
+<td>RL-05</td>
+</tr>
+<tr>
+<td>Retenção agregado</td>
+<td>60 meses</td>
+<td>RL-05</td>
+</tr>
+<tr>
+<td>Compartilhamento entre sites</td>
+<td>Desabilitado</td>
+<td>Finalidade</td>
+</tr>
+<tr>
+<td>Fingerprinting</td>
+<td>Desabilitado</td>
+<td>RL-13</td>
+</tr>
+<tr>
+<td>Session recording</td>
+<td>Vedado por padrão; habilitação exige RIPD</td>
+<td>Art. 11 LGPD</td>
+</tr>
+<tr>
+<td>Log de auditoria</td>
+<td>Habilitado, exportado para SIEM</td>
+<td>RL-10, RNF-34</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>1.2 mín; 1.3 preferencial</td>
+<td>RL-12</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-base-legal-por-classe">6.2 Base legal por classe<a class="headerlink" href="#62-base-legal-por-classe" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Configuração</th>
+<th>Base legal</th>
+<th style="text-align: center;">Consentimento?</th>
+<th style="text-align: center;">RIPD?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portal institucional/conteúdo</td>
+<td>Cookieless, IP anonimizado, sem userId</td>
+<td>Anonimizado — LGPD não incide (art. 12)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⚠️ Recomendado</td>
+</tr>
+<tr>
+<td>Serviço transacional</td>
+<td>Cookieless, IP anonimizado, sessão para funil</td>
+<td>Políticas públicas (art. 7º III) ou legítimo interesse (art. 7º IX)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Session recording / heatmap</td>
+<td>Mascaramento total padrão</td>
+<td>Consentimento (art. 7º I)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Análise com usuário logado</td>
+<td>userId habilitado</td>
+<td>Políticas públicas (art. 7º III)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 Configuração ótima dispensa a discussão</strong>
+Cookieless + IP anonimizado + sem identificador persistente → dado <strong>não é pessoal</strong> (art. 5º I), passa a anonimizado (art. 12). LGPD não incide: dispensa consentimento, CMP, art. 18 (não há titular identificável), reduz impacto de incidente, elimina discussão de base legal. <strong>Trade-off:</strong> perde métrica de recorrente e cross-sessão — troca favorável para portal público.</p>
+</blockquote>
+<h3 id="63-artefatos-de-conformidade">6.3 Artefatos de conformidade<a class="headerlink" href="#63-artefatos-de-conformidade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Artefato</th>
+<th>Responsável</th>
+<th>Prazo</th>
+<th>Fundamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registro de operações de tratamento</td>
+<td>DPO + STI</td>
+<td>Onda 1</td>
+<td>LGPD art. 37</td>
+</tr>
+<tr>
+<td>RIPD da plataforma</td>
+<td>DPO</td>
+<td>Onda 1</td>
+<td>LGPD art. 38</td>
+</tr>
+<tr>
+<td>Política de retenção formal</td>
+<td>SETDIG</td>
+<td>Onda 1</td>
+<td>Arts. 15, 16</td>
+</tr>
+<tr>
+<td>Aviso de privacidade</td>
+<td>Comunicação + DPO</td>
+<td>Onda 1</td>
+<td>Art. 9º</td>
+</tr>
+<tr>
+<td>Procedimento de atendimento a titular</td>
+<td>DPO</td>
+<td>Onda 2</td>
+<td>Art. 18</td>
+</tr>
+<tr>
+<td>Opt-out publicado</td>
+<td>STI</td>
+<td>Onda 2</td>
+<td>Art. 18 §2º</td>
+</tr>
+<tr>
+<td>Auditoria de conformidade</td>
+<td>DPO</td>
+<td>Semestral</td>
+<td>Boa prática</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-padrão-de-integração-com-bi">7. Padrão de integração com BI<a class="headerlink" href="#7-padrão-de-integração-com-bi" title="Permanent link">&para;</a></h2>
+<p>Dois caminhos:</p>
+<table>
+<thead>
+<tr>
+<th>Caminho</th>
+<th>Quando usar</th>
+<th>Vantagens</th>
+<th>Limitações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reporting API</strong></td>
+<td>Métricas agregadas; integrações externas; automações</td>
+<td>Simples; consistente com UI; sem acesso ao banco</td>
+<td>Rate limits; menos flexível</td>
+</tr>
+<tr>
+<td><strong>Réplica de leitura (SQL)</strong></td>
+<td>ETL p/ data warehouse; modelagem própria; junção com outras bases</td>
+<td>Máxima flexibilidade; sem rate limit; joins com sistemas do Estado</td>
+<td>Exige schema; acopla ETL a estrutura interna</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>✅ Padrão recomendado</strong>
+<strong>Reporting API</strong> para consumo de métricas e integrações externas; <strong>réplica de leitura</strong> apenas para pipeline de ETL do DW corporativo.
+Réplica <strong>não deve ser exposta</strong> a BI de autoatendimento — consultas mal formadas sobre dezenas de milhões de linhas geram carga imprevisível. Padrão: réplica → ETL → data mart modelado → BI.</p>
+</blockquote>
+<p><strong>Tabelas relevantes p/ ETL:</strong> <code>matomo_log_visit</code> (sessões), <code>matomo_log_link_visit_action</code> (eventos/PV), <code>matomo_log_action</code> (dicionário), <code>matomo_log_conversion</code> (metas), <code>matomo_site</code> (dimensão órgão), <code>matomo_archive_numeric_*</code> (agregados). <strong>Não usar</strong> <code>matomo_archive_blob_*</code> (formato interno serializado).</p>
+<blockquote>
+<p><strong>⚠️ Acoplamento a schema interno</strong>
+<code>matomo_log_*</code> pode mudar entre versões maiores. ETL deve ser versionado com a versão do Matomo. <strong>Mitigação:</strong> camada de <em>views</em> SQL estáveis entre schema e ETL — mudança de schema atualiza só views.</p>
+</blockquote>
+<hr />
+<h2 id="8-estratégia-por-classe-de-portal">8. Estratégia por classe de portal<a class="headerlink" href="#8-estratégia-por-classe-de-portal" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Exemplos</th>
+<th>Plataforma</th>
+<th>Configuração</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A — Serviço transacional</strong></td>
+<td>Protocolo, agendamento, benefício</td>
+<td><strong>Matomo</strong> (principal ou segregada se sensível)</td>
+<td>Eventos, metas, funis, dimensões, server-side crítico</td>
+</tr>
+<tr>
+<td><strong>B — Portal institucional principal</strong></td>
+<td>Portal do Governo, Secretarias</td>
+<td><strong>Matomo</strong> (principal)</td>
+<td>Padrão completa</td>
+</tr>
+<tr>
+<td><strong>C — Conteúdo de alto volume</strong></td>
+<td>Notícias, transparência</td>
+<td><strong>Matomo</strong> ou <strong>Plausible CE</strong></td>
+<td>Métricas agregadas</td>
+</tr>
+<tr>
+<td><strong>D — Temporário / campanha</strong></td>
+<td>Hotsite</td>
+<td><strong>Matomo</strong> (propriedade dedicada)</td>
+<td>Mínima + UTM</td>
+</tr>
+<tr>
+<td><strong>E — Aplicação interna</strong></td>
+<td>Sistemas administrativos</td>
+<td><strong>Matomo</strong> (principal, segregada)</td>
+<td>Eventos + metas de uso</td>
+</tr>
+<tr>
+<td><strong>F — Superapp cidadão (Xvia)</strong></td>
+<td>Portal Xvia</td>
+<td><strong>Matomo + PostHog SH</strong> paralelo</td>
+<td>Matomo anônimo cookieless; PostHog identificado, funil, feature flags, replay consentido</td>
+</tr>
+</tbody>
+</table>
+<h3 id="81-árvore-de-decisão">8.1 Árvore de decisão<a class="headerlink" href="#81-árvore-de-decisão" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A["Nova propriedade"] --&gt; B{"Trata dado sensível?&lt;br/&gt;(saúde, biometria, benefício)"}
+    B --&gt;|Sim| C["Instância segregada Matomo&lt;br/&gt;+ RIPD obrigatório&lt;br/&gt;+ replay VEDADO"]
+    B --&gt;|Não| D{"Serviço transacional?"}
+    D --&gt;|Sim| E["Instância principal Matomo&lt;br/&gt;+ funil obrigatório&lt;br/&gt;+ metas por etapa&lt;br/&gt;+ RIPD"]
+    D --&gt;|Não| F{"&gt; 2M PV/mês?"}
+    F --&gt;|Sim| G{"Análise além de agregado?"}
+    F --&gt;|Não| H["Instância principal Matomo&lt;br/&gt;padrão"]
+    G --&gt;|Sim| H
+    G --&gt;|Não| I["Plausible CE opcional"]
+
+    style C fill:#fee2e2,stroke:#ef4444
+    style E fill:#dbeafe,stroke:#3b82f6
+    style H fill:#d1fae5,stroke:#10b981
+    style I fill:#fef3c7,stroke:#f59e0b</code></pre>
+<hr />
+<h2 id="9-dimensionamento">9. Dimensionamento<a class="headerlink" href="#9-dimensionamento" title="Permanent link">&para;</a></h2>
+<p>Cenário de referência: 12M PV/mês, 80 propriedades, picos até 30×.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: center;">Qtd.</th>
+<th style="text-align: right;">vCPU</th>
+<th style="text-align: right;">RAM</th>
+<th style="text-align: right;">Disco</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coleta (PHP-FPM + Nginx)</td>
+<td style="text-align: center;">2 mín → 4 pico</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8 GB</td>
+<td style="text-align: right;">40 GB</td>
+<td>Stateless, escala horizontal</td>
+</tr>
+<tr>
+<td>UI relatórios</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">16 GB</td>
+<td style="text-align: right;">40 GB</td>
+<td>Rede interna</td>
+</tr>
+<tr>
+<td>Arquivamento</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">16 GB</td>
+<td style="text-align: right;">40 GB</td>
+<td>Cron dedicado</td>
+</tr>
+<tr>
+<td>Redis (fila + cache)</td>
+<td style="text-align: center;">1 + 1 réplica</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">8 GB</td>
+<td style="text-align: right;">20 GB</td>
+<td>AOF habilitada</td>
+</tr>
+<tr>
+<td>MySQL primário</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">32 GB</td>
+<td style="text-align: right;">1 TB SSD NVMe</td>
+<td><code>buffer_pool_size</code> ≈ 24 GB</td>
+</tr>
+<tr>
+<td>MySQL réplica</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">32 GB</td>
+<td style="text-align: right;">1 TB SSD NVMe</td>
+<td>Leitura + ETL</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">3 TB</td>
+<td>30d + mensal 12m</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Volume estimado:</strong> ~6 GB/mês bruto; ~280 GB em regime (retenção 6m/60m + índices). Provisionar 1 TB (3,5× estimado).</p>
+<p>Configuração completa de MySQL + Matomo (<code>config.ini.php</code>) — validar na PoC da Onda 1. Documentação em <code>anexos/benchmark.md</code>.</p>
+<hr />
+<h2 id="10-riscos">10. Riscos<a class="headerlink" href="#10-riscos" title="Permanent link">&para;</a></h2>
+<p>Top-10 preservados dos R-01 a R-20 (ADR-001 + ADR-002). Registro completo em <a href="../06-adr-002/#9-riscos-assumidos"><code>06-adr-002.md §9</code></a>.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risco</th>
+<th style="text-align: center;">Prob</th>
+<th style="text-align: center;">Impacto</th>
+<th>Resposta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td>Gargalo de arquivamento do Matomo em pico</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td>AA-1 (QueuedTracking + Redis)</td>
+</tr>
+<tr>
+<td>R-02</td>
+<td>Perda de eventos em pico sem fila</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td>AA-1; teste de carga na Onda 1</td>
+</tr>
+<tr>
+<td>R-03</td>
+<td>CVE crítica no produto</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">🔴</td>
+<td>Patch ≤ 15 dias; SIEM; hardening</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>Escalonamento inadequado do MySQL</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">🟠</td>
+<td>Réplica de leitura; buffer_pool tuning</td>
+</tr>
+<tr>
+<td>R-06</td>
+<td>Conhecimento tácito concentrado na STI</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td>IaC; documentação; rotação</td>
+</tr>
+<tr>
+<td>R-11</td>
+<td>Captura acidental de dado sensível em replay do PostHog</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🔴</td>
+<td>Mascaramento agressivo padrão; opt-in; DPIA; homologação SegInfo</td>
+</tr>
+<tr>
+<td>R-17</td>
+<td>LCP Xvia &gt; 75 ms sustentado por overhead 2º script</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">🟠</td>
+<td>G9 §11.2 aciona reavaliação em 60d</td>
+</tr>
+<tr>
+<td>R-18</td>
+<td>STI não sustenta stack PostHog</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟠</td>
+<td>Capacitação; suporte contratado; fallback Cloud EU</td>
+</tr>
+<tr>
+<td>R-19</td>
+<td>Divergência Matomo × PostHog no Xvia gera confusão</td>
+<td style="text-align: center;">🟠</td>
+<td style="text-align: center;">🟡</td>
+<td>Governança de origem por métrica; dashboard consolidado</td>
+</tr>
+<tr>
+<td>R-20</td>
+<td>PostHog descontinua SH (iniciado 2023)</td>
+<td style="text-align: center;">🟢 curto / 🟠 longo</td>
+<td style="text-align: center;">🟠</td>
+<td>G11 revisão em 90d; fallback Cloud EU</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-condicionantes">11. Condicionantes<a class="headerlink" href="#11-condicionantes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Condicionante</th>
+<th>Verificação</th>
+<th>Prazo</th>
+<th>Se não satisfeita</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CD-1</td>
+<td>Execução integral do plano</td>
+<td>Marcos Ondas 1–4</td>
+<td>18 m</td>
+<td>Gatilho G7 do ADR</td>
+</tr>
+<tr>
+<td>CD-2</td>
+<td>Validação de P2 (competência STI)</td>
+<td>Gate na Onda 1</td>
+<td>3 m</td>
+<td>Ativar contingência via ADR-003</td>
+</tr>
+<tr>
+<td>CD-3</td>
+<td>Implementação de AA-1 (desacoplamento)</td>
+<td>Teste de carga pico 30×</td>
+<td>6 m</td>
+<td>R-02 permanece crítico</td>
+</tr>
+<tr>
+<td>CD-4</td>
+<td>Aprovação da configuração pelo DPO</td>
+<td>Parecer formal</td>
+<td>3 m</td>
+<td>Veto absoluto — recomendação suspensa</td>
+</tr>
+<tr>
+<td>CD-5</td>
+<td>Aprovação pela SegInfo</td>
+<td>Parecer formal</td>
+<td>3 m</td>
+<td>Veto absoluto — recomendação suspensa</td>
+</tr>
+<tr>
+<td>CD-6</td>
+<td>Confirmação do perfil de volume por medição</td>
+<td>Relatório de benchmark</td>
+<td>3 m</td>
+<td>Redimensionamento</td>
+</tr>
+<tr>
+<td>CD-7</td>
+<td>Orçamento p/ plugins premium + infra</td>
+<td>Dotação confirmada</td>
+<td>6 m</td>
+<td>Escopo funcional reduzido</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-o-que-esta-recomendação-não-afirma">12. O que esta recomendação NÃO afirma<a class="headerlink" href="#12-o-que-esta-recomendação-não-afirma" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Não afirma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Que Matomo é tecnicamente superior em todos aspectos. <strong>Não é.</strong> PostHog o supera em capacidade analítica; GA4 em ecossistema</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Que a operação atual do Matomo está adequada. <strong>Não está.</strong> 7 lacunas L1–L7 pendentes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Que o resultado seria o mesmo sob outra ponderação. Análise de sensibilidade mostra inversão em 1 de 5 cenários (para outra modalidade do mesmo produto)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Que os números de desempenho foram medidos no ambiente do Estado. <strong>Não foram</strong> — exigem PoC (Onda 1)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Que os valores de TCO são preços contratados. <strong>São estimativas modeladas</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Que GA4 é ilegal no BR. <strong>Não há decisão da ANPD nesse sentido</strong> — é risco antecipável sob norma análoga</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Que a recomendação é permanente. <strong>Vale por 24 meses</strong> ou até gatilho de revisão</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Que a escolha do produto resolve o problema. <strong>Não resolve</strong> — o problema é ausência de arquitetura e governança; produto é um componente</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⬅️ Anterior</th>
+<th>➡️ Próximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../06-adr-002/">06 — ADR-002</a></td>
+<td><a href="../08-roadmap/">08 — Roadmap</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
