@@ -1,10 +1,10 @@
 # Comparativo — Coexistência Matomo + PostHog no portal Xvia
 
-> **Corte transversal** · Modelo operacional da coexistência formalizada pelo [ADR-002 §6.2](../docs/08-adr-002.md#6-decisão)
-> [← Voltar ao índice](../README.md) · [Complementaridade Matomo × PostHog](matomo-vs-posthog.md) · [ADR-002](../docs/08-adr-002.md)
+> **Corte transversal** · Modelo operacional da coexistência formalizada pelo [ADR-002 §6.2](../docs/06-adr-002.md#6-decisão)
+> [← Voltar ao índice](../README.md) · [Complementaridade Matomo × PostHog](matomo-vs-posthog.md) · [ADR-002](../docs/06-adr-002.md)
 
 > **📌 Nota metodológica — Documento renomeado e reescrito na revisão 2026**
-> Este arquivo substitui `migracao-matomo-posthog.md`, que analisava o custo hipotético de **substituir** Matomo por PostHog em todo o parque. O [ADR-002](../docs/08-adr-002.md) rejeita substituição e formaliza **coexistência restrita ao portal Xvia**. O escopo do documento muda: de análise de risco de migração para modelo operacional de coexistência.
+> Este arquivo substitui `migracao-matomo-posthog.md`, que analisava o custo hipotético de **substituir** Matomo por PostHog em todo o parque. O [ADR-002](../docs/06-adr-002.md) rejeita substituição e formaliza **coexistência restrita ao portal Xvia**. O escopo do documento muda: de análise de risco de migração para modelo operacional de coexistência.
 
 ---
 
@@ -24,9 +24,9 @@
 
 ## 1. Escopo
 
-A coexistência descrita aqui aplica-se **exclusivamente ao portal Xvia** (superapp cidadão do Governo de MS). Portais institucionais, sites gov e serviços digitais de conteúdo do parque existente permanecem em **Matomo puro**, conforme [ADR-002 §6.1](../docs/08-adr-002.md#6-decisão). O uso do PostHog fora do Xvia exige justificativa específica e novo ADR.
+A coexistência descrita aqui aplica-se **exclusivamente ao portal Xvia** (superapp cidadão do Governo de MS). Portais institucionais, sites gov e serviços digitais de conteúdo do parque existente permanecem em **Matomo puro**, conforme [ADR-002 §6.1](../docs/06-adr-002.md#6-decisão). O uso do PostHog fora do Xvia exige justificativa específica e novo ADR.
 
-**Duração:** coexistência com **gate de reavaliação em 12 meses** — critérios de sucesso definidos em [`../docs/10-roadmap.md §7bis.4`](../docs/10-roadmap.md#7bis4-critérios-de-sucesso-para-o-gate-de-12-meses). Falha no gate aciona G12 do ADR-002 e reavaliação em 60 dias com três cenários possíveis: (a) ajuste de configuração, (b) migração para PostHog Cloud EU, (c) reversão a Matomo puro no Xvia.
+**Duração:** coexistência com **gate de reavaliação em 12 meses** — critérios de sucesso definidos em [`../docs/08-roadmap.md §7bis.4`](../docs/08-roadmap.md#8-onda-5--portal-xvia-posthog). Falha no gate aciona G12 do ADR-002 e reavaliação em 60 dias com três cenários possíveis: (a) ajuste de configuração, (b) migração para PostHog Cloud EU, (c) reversão a Matomo puro no Xvia.
 
 ---
 
@@ -110,7 +110,7 @@ Retenção **idêntica em ambas as plataformas** para evitar consulta em ferrame
 
 ## 5. Consentimento e session replay
 
-Session replay é o único componente da coexistência com **risco crítico** de captura acidental de dado sensível ([R-11](../docs/11-riscos.md)). Regras rígidas:
+Session replay é o único componente da coexistência com **risco crítico** de captura acidental de dado sensível ([R-11](../docs/07-recomendacao.md#10-riscos)). Regras rígidas:
 
 1. **Desabilitado por padrão.** `disable_session_recording: true` no init do `posthog.js`.
 2. **Ativado apenas após opt-in explícito**, coletado por Consent Manager único (compartilhado entre Matomo e PostHog).
@@ -144,7 +144,7 @@ Métricas equivalentes divergirão — é o comportamento esperado, não a exce�
 |------------------------------------------|----------|------|
 | ≤ 15 % | Esperada | Nenhuma — dashboard consolidado marca a fonte |
 | 15–25 % | Alerta | Análise de causa em 30 dias |
-| > 25 % ou sustentada > 15 % por 3 meses | Incidente de governança | Aciona [G10 do ADR-002](../docs/08-adr-002.md#112-gatilhos-de-revisão-antecipada) — reavaliação em 90 dias |
+| > 25 % ou sustentada > 15 % por 3 meses | Incidente de governança | Aciona [G10 do ADR-002](../docs/06-adr-002.md#112-gatilhos-antecipados) — reavaliação em 90 dias |
 
 **Reconciliação mensal:** SGD + BI comparam page views, sessões e conversões em ambas as plataformas. Relatório publicado no dashboard executivo do Xvia com fonte e delta em cada card.
 
@@ -152,7 +152,7 @@ Métricas equivalentes divergirão — é o comportamento esperado, não a exce�
 
 ## 7. Impacto de desempenho no navegador
 
-Aceite consciente registrado no [ADR-002 §5.T1](../docs/08-adr-002.md#5-trade-offs-da-decisão).
+Aceite consciente registrado no [ADR-002 §5.T1](../docs/06-adr-002.md#5-trade-offs).
 
 | Métrica | Matomo sozinho | PostHog sozinho | **Ambos em paralelo** | Alvo Xvia |
 |---------|:--------------:|:---------------:|:---------------------:|:---------:|
@@ -168,13 +168,13 @@ Aceite consciente registrado no [ADR-002 §5.T1](../docs/08-adr-002.md#5-trade-o
 - Segmentação de eventos rigorosa — só rastrear o que tem valor decisório.
 - Monitoramento contínuo de LCP p75 3G via Lighthouse CI (Onda 5.10).
 
-**Gatilho de reavaliação:** LCP > 75 ms sustentado por 2 meses aciona [G9 do ADR-002](../docs/08-adr-002.md#112-gatilhos-de-revisão-antecipada). Contingências (§8) preveem PostHog Cloud EU com CDN de borda ou reversão a Matomo puro no Xvia.
+**Gatilho de reavaliação:** LCP > 75 ms sustentado por 2 meses aciona [G9 do ADR-002](../docs/06-adr-002.md#112-gatilhos-antecipados). Contingências (§8) preveem PostHog Cloud EU com CDN de borda ou reversão a Matomo puro no Xvia.
 
 ---
 
 ## 8. Plano de deprecação caso o gate falhe
 
-Falha em qualquer critério do [gate de 12 meses](../docs/10-roadmap.md#7bis4-critérios-de-sucesso-para-o-gate-de-12-meses) aciona reavaliação em 60 dias. Três cenários pré-definidos:
+Falha em qualquer critério do [gate de 12 meses](../docs/08-roadmap.md#8-onda-5--portal-xvia-posthog) aciona reavaliação em 60 dias. Três cenários pré-definidos:
 
 ### 8.1 Cenário A — Ajuste de configuração
 
@@ -203,7 +203,7 @@ Falha em qualquer critério do [gate de 12 meses](../docs/10-roadmap.md#7bis4-cr
 ## 9. O que este documento NÃO cobre
 
 - **Análise comparativa das duas ferramentas.** Ver [`matomo-vs-posthog.md`](matomo-vs-posthog.md).
-- **Custo comparativo.** Não é mais critério de decisão — referência histórica em [`custo.md`](custo.md).
+- **Custo comparativo.** Não é mais critério de decisão — referência histórica em [`custo.md`](../anexos/historico/comparativos/custo.md).
 - **Configuração detalhada de Matomo.** Ver [`../plataformas/matomo.md`](../plataformas/matomo.md).
 - **Configuração detalhada de PostHog.** Ver [`../plataformas/posthog.md`](../plataformas/posthog.md).
 - **Coexistência fora do Xvia.** Vedada por padrão — exige novo ADR.
@@ -214,7 +214,7 @@ Falha em qualquer critério do [gate de 12 meses](../docs/10-roadmap.md#7bis4-cr
 
 | Documento | Papel |
 |-----------|-------|
-| [ADR-002](../docs/08-adr-002.md) | Decisão formal |
+| [ADR-002](../docs/06-adr-002.md) | Decisão formal |
 | [Complementaridade Matomo × PostHog](matomo-vs-posthog.md) | Comparativo das duas ferramentas |
-| [Onda 5 do roadmap](../docs/10-roadmap.md#7bis-onda-5--portal-xvia-posthog-complementar) | Plano de execução |
-| [R-11, R-17, R-18, R-19, R-20](../docs/11-riscos.md) | Riscos associados |
+| [Onda 5 do roadmap](../docs/08-roadmap.md#8-onda-5--portal-xvia-posthog) | Plano de execução |
+| [R-11, R-17, R-18, R-19, R-20](../docs/07-recomendacao.md#10-riscos) | Riscos associados |

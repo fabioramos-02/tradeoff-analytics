@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Analytics SETDIG · Estudo e Recomendação</title>
+<style>
+  :root {
+    --setdig-primary: #004f9f;
+    --setdig-dark: #003a76;
+    --setdig-light: #dbeafe;
+    --setdig-accent: #e58900;
+    --ok: #10b981;
+    --warn: #f59e0b;
+    --danger: #ef4444;
+    --bg: #f8fafc;
+    --paper: #ffffff;
+    --ink: #0f172a;
+    --ink-2: #334155;
+    --ink-3: #64748b;
+    --border: #e2e8f0;
+    --code-bg: #1e293b;
+    --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 25px 50px rgba(15, 23, 42, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; background: var(--ink); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Deck geral */
+  #deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    padding: 3.5rem 5rem;
+    background: var(--bg);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(30px);
+    transition: opacity .4s ease, transform .4s ease;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* Header/badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--setdig-primary);
+    padding: 0.35rem 0.9rem;
+    background: var(--setdig-light);
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-bottom: 1.2rem;
+  }
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--setdig-primary);
+    border-radius: 50%;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  h1 .accent {
+    color: var(--setdig-primary);
+    display: block;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: -0.015em;
+  }
+  h2 span.underline {
+    color: var(--setdig-primary);
+    box-shadow: inset 0 -0.35em 0 rgba(0, 79, 159, 0.15);
+  }
+
+  h3 { font-size: 1.1rem; font-weight: 700; color: var(--setdig-dark); margin-bottom: 0.5rem; }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin-bottom: 2rem;
+    max-width: 55rem;
+  }
+
+  /* Layouts */
+  .cover {
+    background: linear-gradient(135deg, var(--setdig-dark) 0%, var(--setdig-primary) 100%);
+    color: white;
+    justify-content: center;
+    padding: 5rem 6rem;
+  }
+  .cover .badge { background: rgba(255,255,255,0.15); color: white; }
+  .cover .badge::before { background: white; }
+  .cover h1 { color: white; }
+  .cover h1 .accent { color: #7dd3fc; }
+  .cover .subtitle { color: rgba(255,255,255,0.85); }
+  .cover .meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    max-width: 55rem;
+  }
+  .cover .meta > div { color: rgba(255,255,255,0.9); }
+  .cover .meta .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; margin-bottom: 0.35rem; }
+  .cover .meta .value { font-size: 1rem; font-weight: 600; }
+
+  /* Grid de cards */
+  .grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
+    margin-top: 1rem;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform .2s ease;
+  }
+  .card:hover { transform: translateY(-2px); }
+  .card .num {
+    font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--setdig-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .card .title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+  .card .desc { font-size: 0.9rem; color: var(--ink-3); line-height: 1.5; }
+  .card.emphasis {
+    background: linear-gradient(135deg, var(--setdig-primary), var(--setdig-dark));
+    color: white;
+    border: none;
+  }
+  .card.emphasis .num, .card.emphasis .title { color: white; }
+  .card.emphasis .desc { color: rgba(255,255,255,0.85); }
+
+  /* Callout — bloco de decisão */
+  .callout {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border-left: 6px solid var(--setdig-primary);
+    background: white;
+    box-shadow: var(--shadow);
+    margin: 1rem 0 1.5rem;
+  }
+  .callout.ok { border-color: var(--ok); }
+  .callout.warn { border-color: var(--warn); }
+  .callout.danger { border-color: var(--danger); }
+  .callout .icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--setdig-light);
+    color: var(--setdig-primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+  .callout.ok .icon { background: rgba(16,185,129,0.12); color: var(--ok); }
+  .callout.warn .icon { background: rgba(245,158,11,0.12); color: var(--warn); }
+  .callout.danger .icon { background: rgba(239,68,68,0.12); color: var(--danger); }
+  .callout .body { flex: 1; }
+  .callout .body strong { color: var(--ink); }
+
+  /* Tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    font-size: 0.92rem;
+    margin-top: 1rem;
+  }
+  th, td {
+    padding: 0.85rem 1.1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    background: var(--setdig-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg); }
+  td.num, th.num { text-align: right; font-family: "SF Mono", Consolas, monospace; }
+  td.center, th.center { text-align: center; }
+
+  .medal { font-size: 1.15rem; }
+  .badge-role {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--setdig-light);
+    color: var(--setdig-dark);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .badge-role.ok { background: rgba(16,185,129,0.12); color: var(--ok); }
+  .badge-role.warn { background: rgba(245,158,11,0.15); color: #92400e; }
+  .badge-role.danger { background: rgba(239,68,68,0.12); color: var(--danger); }
+
+  /* Cronograma */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .wave {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 0.85rem;
+    border-top: 4px solid var(--setdig-primary);
+    box-shadow: var(--shadow);
+  }
+  .wave .n { font-size: 0.7rem; font-weight: 700; color: var(--setdig-primary); text-transform: uppercase; letter-spacing: 0.08em; }
+  .wave .name { font-size: 0.95rem; font-weight: 700; color: var(--ink); margin: 0.4rem 0 0.35rem; }
+  .wave .when { font-size: 0.75rem; color: var(--ink-3); }
+  .wave.parallel { border-color: var(--setdig-accent); }
+  .wave.parallel .n { color: var(--setdig-accent); }
+
+  /* Arquitetura */
+  .archi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .archi-col {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--setdig-primary);
+  }
+  .archi-col.xvia { border-color: var(--setdig-accent); }
+  .archi-col h3 { color: var(--setdig-primary); margin-bottom: 0.85rem; }
+  .archi-col.xvia h3 { color: var(--setdig-accent); }
+  .archi-flow { display: flex; align-items: center; gap: 0.5rem; margin: 0.75rem 0; font-size: 0.9rem; }
+  .archi-node {
+    padding: 0.45rem 0.85rem;
+    background: var(--setdig-light);
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--setdig-dark);
+    font-size: 0.85rem;
+  }
+  .archi-node.ph { background: rgba(245,158,11,0.15); color: #92400e; }
+  .archi-node.data { background: rgba(148,163,184,0.15); color: var(--ink-2); font-family: "SF Mono", Consolas, monospace; }
+  .archi-arrow { color: var(--ink-3); font-weight: 700; }
+  .archi-col p { font-size: 0.9rem; color: var(--ink-3); line-height: 1.5; margin-top: 0.75rem; }
+
+  /* Rodapé + navegação */
+  .footer {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 5rem;
+    right: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink-3);
+    font-size: 0.8rem;
+  }
+  .footer .brand { font-weight: 600; color: var(--setdig-dark); }
+  .cover .footer .brand, .cover .footer .counter { color: rgba(255,255,255,0.7); }
+
+  .counter { font-family: "SF Mono", Consolas, monospace; font-weight: 600; }
+
+  /* Nav bar */
+  .nav {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    z-index: 100;
+  }
+  .nav button {
+    background: transparent;
+    border: 0;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background .2s;
+  }
+  .nav button:hover { background: rgba(255,255,255,0.1); }
+  .nav .dots { display: flex; gap: 0.35rem; align-items: center; padding: 0 0.5rem; }
+  .nav .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .nav .dot.active { background: white; transform: scale(1.5); }
+
+  /* Fullscreen button */
+  .fs-btn {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(15,23,42,0.6);
+    color: white;
+    border: 0;
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fs-btn:hover { background: rgba(15,23,42,0.85); }
+
+  /* Slides específicos */
+  .quote-big {
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--setdig-dark);
+    padding: 2rem;
+    background: white;
+    border-left: 6px solid var(--setdig-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+  }
+  .quote-big em { color: var(--setdig-primary); font-style: normal; }
+
+  ul.plain { list-style: none; padding: 0; }
+  ul.plain li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+    color: var(--ink-2);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  ul.plain li:last-child { border-bottom: none; }
+  ul.plain li strong { color: var(--ink); }
+  ul.plain li .k {
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--setdig-light);
+    color: var(--setdig-primary);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  /* Impressão */
+  @media print {
+    body, html { overflow: visible; }
+    #deck { height: auto; }
+    .slide {
+      position: static;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+      page-break-after: always;
+      min-height: 100vh;
+    }
+    .nav, .fs-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- 1. CAPA -->
+  <section class="slide cover active">
+    <div class="badge">SETDIG · SEGOV-MS · Agosto 2026</div>
+    <h1>Web Analytics para o Estado
+      <span class="accent">Estudo e recomendação</span>
+    </h1>
+    <p class="subtitle">
+      Manter Matomo, substituir por PostHog, ou operar os dois em coexistência?
+      Benchmark documental de plataformas <strong>on-premise gratuitas</strong> que rodam dentro da infra do Estado.
+    </p>
+    <div class="meta">
+      <div><div class="label">Método</div><div class="value">TOGAF · ATAM · MAUT · ADR</div></div>
+      <div><div class="label">Escopo</div><div class="value">Matomo · PostHog · Plausible · Umami</div></div>
+      <div><div class="label">Documento</div><div class="value">ADR-002 supersedes ADR-001</div></div>
+    </div>
+    <div class="footer">
+      <span class="brand">Secretaria-Executiva de Transformação Digital — SETDIG</span>
+      <span class="counter">01 / 10</span>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEMA -->
+  <section class="slide">
+    <div class="badge">Problema</div>
+    <h2>Matomo foi implantado <span class="underline">sem estudo</span>. Xvia entra usando PostHog.</h2>
+    <p class="subtitle">
+      Duas realidades operacionais em rota de colisão que exigem decisão arquitetural formal e defensável perante órgãos de controle.
+    </p>
+    <div class="grid" style="--cols: 3;">
+      <div class="card">
+        <div class="num">80+</div>
+        <div class="title">Portais rodam Matomo</div>
+        <div class="desc">Portal institucional, sites gov, serviços digitais — implantação herdada, sem ADR, sem benchmark documentado.</div>
+      </div>
+      <div class="card">
+        <div class="num">1</div>
+        <div class="title">Novo portal Xvia</div>
+        <div class="desc">Superapp cidadão em construção — equipe técnica adotou PostHog on-premise gratuito para product analytics.</div>
+      </div>
+      <div class="card emphasis">
+        <div class="num">?</div>
+        <div class="title">Direção do Estado</div>
+        <div class="desc">Substituir, manter ou coexistir? Sem estudo, escolha é indefensável perante TCE-MS e ANPD.</div>
+      </div>
+    </div>
+    <div class="callout warn" style="margin-top: 1.5rem;">
+      <div class="icon">⚠</div>
+      <div class="body">
+        <strong>Ausência de artefato decisório ≠ decisão errada</strong> — mas é decisão <strong>indefensável formalmente</strong>. Este estudo remedia o processo e produz o ADR-002.
+      </div>
+    </div>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">02 / 10</span>
+    </div>
+  </section>
+
+  <!-- 3. ESCOPO -->
+  <section class="slide">
+    <div class="badge">Escopo</div>
+    <h2>4 plataformas <span class="underline">on-premise gratuitas</span> dentro da infra do Estado</h2>
+    <p class="subtitle">
+      Diretriz da chefia: benchmark antes de bater o martelo. SaaS e proprietários saíram do escopo — arquivados no histórico.
+    </p>
+    <div class="grid" style="--cols: 4;">
+      <div class="card">
+        <div class="num" style="font-size: 2rem;">🇳🇿</div>
+        <div class="title">Matomo</div>
+        <div class="desc">GPL v3 · WA tradicional · 2007 · Comissão Europeia usa</div>
+      </div>
+      <div class="card">
+        <div class="num" style="font-size: 2rem;">🇺🇸</div>
+        <div class="title">PostHog</div>
+        <div class="desc">MIT + EE · Product analytics · 2020 · Stack Xvia atual</div>
+      </div>
+      <div class="card">
+        <div class="num" style="font-size: 2rem;">🇪🇪</div>
+        <div class="title">Plausible</div>
+        <div class="desc">AGPL v3 · Privacy-first · 2019 · Cookieless</div>
+      </div>
+      <div class="card">
+        <div class="num" style="font-size: 2rem;">🇺🇸</div>
+        <div class="title">Umami</div>
+        <div class="desc">MIT · Privacy-first · 2020 · Stack mais simples</div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem;">
+      <h3 style="margin-bottom: 0.75rem; color: var(--ink-3); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em;">Fora do escopo — arquivadas em anexos/historico/</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <span class="badge-role danger">GA4</span>
+        <span class="badge-role danger">Adobe Analytics</span>
+        <span class="badge-role warn">Microsoft Clarity</span>
+        <span class="badge-role warn">Cloudflare WA</span>
+        <span class="badge-role warn">Simple Analytics</span>
+        <span class="badge-role danger">Open Web Analytics (E6 — CVE crítica)</span>
+        <span class="badge-role warn">Piwik PRO (contingência)</span>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">03 / 10</span>
+    </div>
+  </section>
+
+  <!-- 4. MATRIZ -->
+  <section class="slide">
+    <div class="badge">Matriz de decisão · MAUT</div>
+    <h2>Ranking <span class="underline">revisão 2026</span> (pesos ADR-002)</h2>
+    <p class="subtitle">
+      12 critérios ponderados, escala 1–5. TCO rebaixado a peso 0 — infra do Estado absorve custo marginal. Detalhamento em <code>docs/05-matriz.md</code>.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th class="center">#</th>
+          <th>Plataforma</th>
+          <th class="num">Pontos</th>
+          <th class="num">%</th>
+          <th class="center">Faixa</th>
+          <th>Papel na arquitetura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center medal">🥇</td>
+          <td><strong>Matomo On-Premise</strong></td>
+          <td class="num"><strong>500</strong></td>
+          <td class="num"><strong>83,3 %</strong></td>
+          <td class="center"><span class="badge-role ok">Recomendada</span></td>
+          <td>Padrão do parque</td>
+        </tr>
+        <tr>
+          <td class="center medal">🥈</td>
+          <td>Piwik PRO ⁽ᶜ⁾</td>
+          <td class="num">499</td>
+          <td class="num">83,2 %</td>
+          <td class="center"><span class="badge-role ok">Recomendada</span></td>
+          <td>Contingência se P2 falhar</td>
+        </tr>
+        <tr>
+          <td class="center medal">🥉</td>
+          <td>Matomo Cloud ⁽ᶜ⁾</td>
+          <td class="num">485</td>
+          <td class="num">80,8 %</td>
+          <td class="center"><span class="badge-role ok">Recomendada</span></td>
+          <td>Contingência gerenciada</td>
+        </tr>
+        <tr>
+          <td class="center">4</td>
+          <td><strong>PostHog auto-hospedado</strong></td>
+          <td class="num"><strong>464</strong></td>
+          <td class="num"><strong>77,3 %</strong></td>
+          <td class="center"><span class="badge-role warn">Viável</span></td>
+          <td><strong>Product analytics no Xvia</strong></td>
+        </tr>
+        <tr>
+          <td class="center">5</td>
+          <td>Plausible CE</td>
+          <td class="num">460</td>
+          <td class="num">76,7 %</td>
+          <td class="center"><span class="badge-role warn">Viável</span></td>
+          <td>Opcional em conteúdo classe C</td>
+        </tr>
+        <tr>
+          <td class="center">6</td>
+          <td>Umami</td>
+          <td class="num">414</td>
+          <td class="num">69,0 %</td>
+          <td class="center"><span class="badge-role">Condicionada</span></td>
+          <td>Reprovado em RF-27 (funil)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--ink-3);">
+      ⁽ᶜ⁾ Contingência formal — ativação exige novo ADR. Vantagem 1º sobre 2º = 1 ponto (dentro da margem). Desempate por C02 (Controle dos dados).
+    </p>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">04 / 10</span>
+    </div>
+  </section>
+
+  <!-- 5. COMPARATIVO -->
+  <section class="slide">
+    <div class="badge">Comparativo</div>
+    <h2>4 dimensões <span class="underline">estratégicas</span> lado a lado</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Dimensão</th>
+          <th class="center">Matomo OP</th>
+          <th class="center">PostHog SH</th>
+          <th class="center">Plausible CE</th>
+          <th class="center">Umami</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Cookieless por padrão</strong></td><td class="center">⚠️ Configurável</td><td class="center">❌ Identifica</td><td class="center">✅</td><td class="center">✅</td></tr>
+        <tr><td><strong>Precedente CNIL</strong></td><td class="center">✅</td><td class="center">❌</td><td class="center">❌</td><td class="center">❌</td></tr>
+        <tr><td><strong>Funil (RF-27, <em>Must</em>)</strong></td><td class="center">💲 Plugin</td><td class="center">✅ Nativo</td><td class="center">✅ Nativo</td><td class="center"><span style="color: var(--danger); font-weight: 700;">❌ Reprovado</span></td></tr>
+        <tr><td><strong>Feature flags / experimentação</strong></td><td class="center">💲 Plugin</td><td class="center">✅ Nativo</td><td class="center">❌</td><td class="center">❌</td></tr>
+        <tr><td><strong>Session replay consentido</strong></td><td class="center">💲 Plugin</td><td class="center">✅ Nativo</td><td class="center">❌</td><td class="center">❌</td></tr>
+        <tr><td><strong>MFA nativo</strong></td><td class="center">✅ TOTP</td><td class="center">💲 EE</td><td class="center">❌ (via proxy)</td><td class="center">❌</td></tr>
+        <tr><td><strong>SSO SAML/OIDC</strong></td><td class="center">💲 Plugin</td><td class="center">💲 EE</td><td class="center">❌</td><td class="center">❌</td></tr>
+        <tr><td><strong>Suporte oficial ao self-host</strong></td><td class="center">✅ Estável</td><td class="center" style="color: var(--danger);">❌ Descontinuado 2023</td><td class="center">✅</td><td class="center">✅</td></tr>
+        <tr><td><strong>Stack (nº componentes)</strong></td><td class="center">3</td><td class="center" style="color: var(--danger);"><strong>6</strong></td><td class="center">3</td><td class="center">2</td></tr>
+        <tr><td><strong>TCO marginal 5 anos</strong></td><td class="center num">~R$ 235 k</td><td class="center num">~R$ 955 k</td><td class="center num">~R$ 120 k</td><td class="center num">~R$ 100 k</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--ink-3);">
+      Detalhamento em <code>comparativos/on-premise-gratis.md</code>.
+    </p>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">05 / 10</span>
+    </div>
+  </section>
+
+  <!-- 6. RECOMENDAÇÃO -->
+  <section class="slide">
+    <div class="badge">Recomendação · ADR-002</div>
+    <h2>Duas arquiteturas, <span class="underline">um estudo</span></h2>
+    <div class="quote-big">
+      Matomo continua padrão do parque.<br>
+      Xvia ganha <em>PostHog</em> em paralelo.<br>
+      <span style="font-size: 1rem; color: var(--ink-3); font-weight: 500; display: block; margin-top: 1rem;">
+        Não é substituição. Não é preferência tecnológica. É reconhecimento de que web analytics e product analytics são eixos distintos.
+      </span>
+    </div>
+    <div class="grid" style="--cols: 2; margin-top: 1.5rem;">
+      <div class="callout ok" style="margin: 0;">
+        <div class="icon">✓</div>
+        <div class="body">
+          <h3 style="color: var(--ok);">Parque existente</h3>
+          <p style="color: var(--ink-2); font-size: 0.95rem; margin-top: 0.25rem;">
+            <strong>Matomo On-Premise</strong> como padrão único — portais institucionais, sites gov, serviços de conteúdo. Continuidade preservada, cookieless CNIL, auditoria verificável.
+          </p>
+        </div>
+      </div>
+      <div class="callout warn" style="margin: 0;">
+        <div class="icon">◈</div>
+        <div class="body">
+          <h3 style="color: #92400e;">Portal Xvia</h3>
+          <p style="color: var(--ink-2); font-size: 0.95rem; margin-top: 0.25rem;">
+            <strong>Matomo + PostHog em paralelo</strong>. Matomo → audiência anônima. PostHog → jornada identificada, funil transacional, feature flags, replay consentido.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">06 / 10</span>
+    </div>
+  </section>
+
+  <!-- 7. ARQUITETURA -->
+  <section class="slide">
+    <div class="badge">Arquitetura-alvo</div>
+    <h2>Ambas sob <span class="underline">custódia do Estado</span>. Zero transferência internacional.</h2>
+    <div class="archi">
+      <div class="archi-col">
+        <h3>▸ Parque</h3>
+        <div class="archi-flow">
+          <span class="archi-node">Cidadão</span>
+          <span class="archi-arrow">→</span>
+          <span class="archi-node">Matomo</span>
+          <span class="archi-arrow">→</span>
+          <span class="archi-node data">MySQL</span>
+        </div>
+        <div class="archi-flow">
+          <span class="archi-node data">Redis (fila)</span>
+          <span class="archi-arrow">↔</span>
+          <span class="archi-node">Arquivamento</span>
+        </div>
+        <div class="archi-flow">
+          <span class="archi-node data">MySQL réplica</span>
+          <span class="archi-arrow">→</span>
+          <span class="archi-node">BI corporativo</span>
+        </div>
+        <p><strong>3 componentes</strong> — PHP + MySQL + Redis. QueuedTracking absorve pico 30×. Réplica de leitura isola BI. Padrão cookieless CNIL.</p>
+      </div>
+      <div class="archi-col xvia">
+        <h3>▸ Xvia (superapp cidadão)</h3>
+        <div class="archi-flow">
+          <span class="archi-node">Cidadão auth</span>
+          <span class="archi-arrow">→</span>
+          <span class="archi-node">Matomo</span>
+          <span class="archi-arrow">+</span>
+          <span class="archi-node ph">PostHog</span>
+        </div>
+        <div class="archi-flow">
+          <span class="archi-node ph">Kafka</span>
+          <span class="archi-arrow">→</span>
+          <span class="archi-node data">ClickHouse</span>
+          <span class="archi-arrow">→</span>
+          <span class="archi-node ph">Object storage (replay)</span>
+        </div>
+        <p><strong>6 componentes PostHog</strong> — Django + PG + ClickHouse + Kafka + Redis + MinIO. Session replay opt-in + mascaramento agressivo padrão. Feature flags e experimentação estruturada.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top: 1rem;">
+      <div class="icon">♦</div>
+      <div class="body">
+        <strong>Governança do dado duplicado:</strong> cada capability instrumentada em UMA ferramenta; fonte primária declarada por métrica; retenção sincronizada; reconciliação mensal (divergência ≤ 15 %).
+      </div>
+    </div>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">07 / 10</span>
+    </div>
+  </section>
+
+  <!-- 8. ROADMAP -->
+  <section class="slide">
+    <div class="badge">Roadmap · 24 meses</div>
+    <h2>5 ondas com <span class="underline">gates formais</span></h2>
+    <p class="subtitle">
+      Orçamento marginal total ~R$ 915 k. Recorrente pós-projeto ~R$ 145 k/ano. Gate P2 (competência STI) na Onda 1 é decisivo.
+    </p>
+    <div class="timeline">
+      <div class="wave">
+        <div class="n">Onda 0</div>
+        <div class="name">Homologação</div>
+        <div class="when">Mês 0–1 · R$ 15 k</div>
+      </div>
+      <div class="wave">
+        <div class="n">Onda 1</div>
+        <div class="name">Conformidade + gate P2</div>
+        <div class="when">Mês 1–3 · R$ 85 k</div>
+      </div>
+      <div class="wave">
+        <div class="n">Onda 2</div>
+        <div class="name">Resiliência + segurança</div>
+        <div class="when">Mês 4–9 · R$ 260 k</div>
+      </div>
+      <div class="wave">
+        <div class="n">Onda 3</div>
+        <div class="name">Capacidade + BI</div>
+        <div class="when">Mês 10–14 · R$ 175 k</div>
+      </div>
+      <div class="wave">
+        <div class="n">Onda 4</div>
+        <div class="name">Escala + governança</div>
+        <div class="when">Mês 15–18 · R$ 120 k</div>
+      </div>
+      <div class="wave parallel">
+        <div class="n">Onda 5 ∥</div>
+        <div class="name">Xvia + PostHog</div>
+        <div class="when">Mês 12–24 · R$ 260 k</div>
+      </div>
+    </div>
+    <div class="grid" style="--cols: 3; margin-top: 1.75rem;">
+      <div class="card">
+        <div class="title" style="color: var(--setdig-primary);">🔑 Gate P2 · Onda 1</div>
+        <div class="desc">Competência técnica sustentável da STI. Falha → contingência via ADR-003 (Matomo Cloud ou Piwik PRO).</div>
+      </div>
+      <div class="card">
+        <div class="title" style="color: var(--setdig-primary);">🔑 Gate 2 · Onda 2</div>
+        <div class="desc">Teste de carga pico 30×, perda ≤ 1 %, LCP inalterado. Sem isso, R-02 (perda em pico) permanece crítico.</div>
+      </div>
+      <div class="card">
+        <div class="title" style="color: var(--setdig-accent);">🔑 Gate 5 · Mês 24</div>
+        <div class="desc">Valor incremental do PostHog no Xvia comprovado: ≥ 3 feature flags, ≥ 5 funis, replay em serviço crítico.</div>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">08 / 10</span>
+    </div>
+  </section>
+
+  <!-- 9. RISCOS -->
+  <section class="slide">
+    <div class="badge">Riscos top-5</div>
+    <h2>Trade-offs <span class="underline">assumidos conscientemente</span></h2>
+    <ul class="plain">
+      <li>
+        <span class="k">R-11</span>
+        <div><strong>Captura acidental de dado sensível em session replay.</strong> Prob. média · Impacto crítico. Mitigado por mascaramento agressivo padrão + opt-in explícito + DPIA + homologação SegInfo antes de ativar.</div>
+      </li>
+      <li>
+        <span class="k">R-17</span>
+        <div><strong>LCP do Xvia degrada &gt; 75 ms sustentado por overhead do 2º script.</strong> Prob. baixa · Impacto alto. Gatilho G9 aciona reavaliação em 60 dias.</div>
+      </li>
+      <li>
+        <span class="k">R-18</span>
+        <div><strong>STI não sustenta stack PostHog</strong> (ClickHouse + Kafka + coordenadores). Prob. média · Impacto alto. Plano de capacitação + reserva orçamentária para suporte especializado + fallback PostHog Cloud EU.</div>
+      </li>
+      <li>
+        <span class="k">R-19</span>
+        <div><strong>Divergência Matomo × PostHog no Xvia gera confusão em relatórios executivos.</strong> Governança explícita de fonte por métrica; reconciliação mensal com limite ≤ 15 %.</div>
+      </li>
+      <li>
+        <span class="k">R-20</span>
+        <div><strong>PostHog descontinua modalidade auto-hospedada</strong> (movimento já iniciado em 2023 com fim do suporte K8s). Monitoramento contínuo (G11) + fallback Cloud EU com RIPD específico.</div>
+      </li>
+    </ul>
+    <div class="footer">
+      <span class="brand">SETDIG · Estudo Web Analytics</span>
+      <span class="counter">09 / 10</span>
+    </div>
+  </section>
+
+  <!-- 10. PRÓXIMOS PASSOS -->
+  <section class="slide cover" style="background: linear-gradient(135deg, #003a76 0%, #001a4d 100%);">
+    <div class="badge">Próximos passos</div>
+    <h1 style="color: white;">Homologar o ADR-002 no
+      <span class="accent" style="color: #7dd3fc;">Comitê de Arquitetura</span>
+    </h1>
+    <ul class="plain" style="margin-top: 2rem; max-width: 60rem;">
+      <li style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
+        <span class="k" style="background: rgba(255,255,255,0.15); color: white;">01</span>
+        <div><strong style="color: white;">Homologar ADR-002</strong> — Comitê de Arquitetura + DPO + SegInfo + Time Xvia (Onda 0, mês 0–1).</div>
+      </li>
+      <li style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
+        <span class="k" style="background: rgba(255,255,255,0.15); color: white;">02</span>
+        <div><strong style="color: white;">Diagnóstico do parque atual</strong> + configuração LGPD (anonimização, retenção, RIPD) — Onda 1.</div>
+      </li>
+      <li style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
+        <span class="k" style="background: rgba(255,255,255,0.15); color: white;">03</span>
+        <div><strong style="color: white;">Gate P2</strong> — validação formal da competência STI. Falha → contingência ADR-003.</div>
+      </li>
+      <li style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
+        <span class="k" style="background: rgba(255,255,255,0.15); color: white;">04</span>
+        <div><strong style="color: white;">Implementar QueuedTracking + Redis</strong> — desacoplamento de ingestão (AA-1). Fundamento para escala.</div>
+      </li>
+      <li style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
+        <span class="k" style="background: rgba(255,255,255,0.15); color: white;">05</span>
+        <div><strong style="color: white;">Onda 5 (paralela) — Xvia + PostHog</strong>. Gate de 12 meses ao Comitê define continuidade da coexistência.</div>
+      </li>
+    </ul>
+    <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 2.5rem; max-width: 60rem;">
+      Estudo completo em <code style="background: rgba(255,255,255,0.15); padding: 0.15rem 0.4rem; border-radius: 4px;">docs/</code> · Fichas em <code style="background: rgba(255,255,255,0.15); padding: 0.15rem 0.4rem; border-radius: 4px;">plataformas/</code> · Comparativos em <code style="background: rgba(255,255,255,0.15); padding: 0.15rem 0.4rem; border-radius: 4px;">comparativos/</code> · ADR-002 em <code style="background: rgba(255,255,255,0.15); padding: 0.15rem 0.4rem; border-radius: 4px;">docs/06-adr-002.md</code>
+    </p>
+    <div class="footer">
+      <span class="brand" style="color: rgba(255,255,255,0.7);">Secretaria-Executiva de Transformação Digital — SETDIG · SEGOV-MS</span>
+      <span class="counter" style="color: rgba(255,255,255,0.7);">10 / 10</span>
+    </div>
+  </section>
+
+</div>
+
+<!-- Nav bar -->
+<div class="nav">
+  <button id="prev" title="Anterior (←)">←</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" title="Próximo (→)">→</button>
+</div>
+
+<button class="fs-btn" id="fullscreen" title="Tela cheia (F)">⛶</button>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  let current = 0;
+
+  // criar dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => go(i);
+    dotsContainer.appendChild(dot);
+  });
+  const dots = document.querySelectorAll('.dot');
+
+  function go(i) {
+    if (i < 0 || i >= slides.length) return;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  document.getElementById('prev').onclick = () => go(current - 1);
+  document.getElementById('next').onclick = () => go(current + 1);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(slides.length - 1); }
+    else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
+  });
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+  document.getElementById('fullscreen').onclick = toggleFullscreen;
+
+  // Swipe touch
+  let touchStart = 0;
+  document.addEventListener('touchstart', (e) => touchStart = e.touches[0].clientX);
+  document.addEventListener('touchend', (e) => {
+    const delta = e.changedTouches[0].clientX - touchStart;
+    if (Math.abs(delta) > 50) go(current + (delta < 0 ? 1 : -1));
+  });
+</script>
+
+</body>
+</html>

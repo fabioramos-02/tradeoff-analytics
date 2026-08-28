@@ -1,10 +1,10 @@
 # Comparativo — Matomo × PostHog: complementaridade, não competição
 
-> **Corte transversal** · Reposicionamento pós-[ADR-002](../docs/08-adr-002.md): as duas plataformas atendem eixos distintos e são adotadas em coexistência no portal Xvia.
-> [← Voltar ao índice](../README.md) · [ADR-002](../docs/08-adr-002.md) · [Coexistência no Xvia](coexistencia-matomo-posthog.md) · [Matomo](../plataformas/matomo.md) · [PostHog](../plataformas/posthog.md)
+> **Corte transversal** · Reposicionamento pós-[ADR-002](../docs/06-adr-002.md): as duas plataformas atendem eixos distintos e são adotadas em coexistência no portal Xvia.
+> [← Voltar ao índice](../README.md) · [ADR-002](../docs/06-adr-002.md) · [Coexistência no Xvia](coexistencia-matomo-posthog.md) · [Matomo](../plataformas/matomo.md) · [PostHog](../plataformas/posthog.md)
 
-> **📌 Nota metodológica — Revisão 2026**
-> Versão anterior deste documento tratava Matomo e PostHog como **candidatos concorrentes** a plataforma padrão do Estado, dirimindo viés de "PostHog Cloud → OSS auto-hospedado". Aquela leitura foi útil para o [ADR-001](../docs/08-adr.md), mas o [ADR-002](../docs/08-adr-002.md) reposiciona a análise: as duas ferramentas cobrem **domínios distintos** (web analytics tradicional × product analytics) e são adotadas **em coexistência no portal Xvia**. O comparativo é reescrito neste novo enquadramento. A análise histórica de custo (Matomo R$ 235 k vs PostHog R$ 955 k) permanece registrada em [`custo.md`](custo.md) como informativa.
+> **📌 Enquadramento**
+> Matomo e PostHog cobrem **domínios distintos** (web analytics tradicional × product analytics) e são adotadas **em coexistência no portal Xvia**. Comparativo binário. Análise histórica de custo (Matomo ~R$ 235 k × PostHog ~R$ 955 k marginais em 5 anos) preservada em `../anexos/historico/comparativos/custo.md`.
 
 ---
 
@@ -164,10 +164,10 @@ Referência rápida para times do Xvia decidirem em qual ferramenta instrumentar
 
 ## 7. O que este comparativo NÃO responde
 
-- **Custo comparativo entre as duas ferramentas.** Não é mais critério de decisão. Referência histórica em [`custo.md`](custo.md).
-- **Escolha entre Matomo Cloud e PostHog Cloud EU.** Ambos são contingências formais registradas no [ADR-002 §6.6](../docs/08-adr-002.md#6-decisão), acionadas em caso de invalidação da premissa P2.
-- **Comparação de operação isolada de cada uma.** Coberta nas fichas individuais [`../plataformas/matomo.md`](../plataformas/matomo.md) e [`../plataformas/posthog.md`](../plataformas/posthog.md).
-- **Justificativa do overhead de LCP no Xvia.** Coberta no [ADR-002 §5.T1](../docs/08-adr-002.md#5-trade-offs-da-decisão) e no risco R-17 de [`../docs/11-riscos.md`](../docs/11-riscos.md).
+- **Custo comparativo.** Não é mais critério de decisão. Referência em `../anexos/historico/comparativos/custo.md`.
+- **Escolha entre Matomo Cloud e PostHog Cloud EU.** Contingências formais em [ADR-002 §6.5](../docs/06-adr-002.md#6-decisão), acionadas se P2 falhar.
+- **Operação isolada.** Coberta nas fichas [`../plataformas/matomo.md`](../plataformas/matomo.md) e [`../plataformas/posthog.md`](../plataformas/posthog.md).
+- **Overhead de LCP no Xvia.** [ADR-002 §5.T1](../docs/06-adr-002.md#5-trade-offs) e risco R-17 em [`../docs/07-recomendacao.md`](../docs/07-recomendacao.md#10-riscos).
 
 ---
 
@@ -175,8 +175,7 @@ Referência rápida para times do Xvia decidirem em qual ferramenta instrumentar
 
 | Documento | Papel |
 |-----------|-------|
-| [ADR-002](../docs/08-adr-002.md) | Decisão formal da coexistência no Xvia |
+| [ADR-002](../docs/06-adr-002.md) | Decisão formal da coexistência no Xvia |
 | [Coexistência Matomo + PostHog no Xvia](coexistencia-matomo-posthog.md) | Detalhamento operacional |
 | [Matomo](../plataformas/matomo.md) | Ficha técnica |
 | [PostHog](../plataformas/posthog.md) | Ficha técnica |
-| [Custo (informativo)](custo.md) | Referência histórica |

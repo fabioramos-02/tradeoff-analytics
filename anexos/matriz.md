@@ -1,12 +1,12 @@
 # Anexo — Matriz de decisão em formato tabular
 
 > **Anexo estrutural** · Formato tabular exportável para XLSX/CSV
-> [← Voltar ao índice](../README.md) · [Matriz analítica](../docs/07-matriz-decisao.md)
+> [← Voltar ao índice](../README.md) · [Matriz analítica](../docs/05-matriz.md)
 
-Este documento reproduz a matriz de decisão em formato tabular puro, para conversão direta em planilha eletrônica. A justificativa nota-a-nota está em [`docs/07-matriz-decisao.md`](../docs/07-matriz-decisao.md).
+Este documento reproduz a matriz de decisão em formato tabular puro, para conversão direta em planilha eletrônica. A justificativa nota-a-nota está em [`docs/07-matriz-decisao.md`](../docs/05-matriz.md).
 
 > **📌 Nota metodológica — Revisão 2026**
-> Este anexo reflete os **pesos revisados** homologados no [ADR-002](../docs/08-adr-002.md): C03 (TCO) rebaixado a **peso 0** (informativo) e 15 pontos redistribuídos entre C05, C06, C08 (+3 cada), C09 (+2), C10 (+2) e C11 (+2). A soma dos pesos permanece 120. As notas atribuídas foram preservadas — só o peso mudou. Os totais do ADR-001 continuam impressos ao lado dos revisados para rastreabilidade e auditoria.
+> Este anexo reflete os **pesos revisados** homologados no [ADR-002](../docs/06-adr-002.md): C03 (TCO) rebaixado a **peso 0** (informativo) e 15 pontos redistribuídos entre C05, C06, C08 (+3 cada), C09 (+2), C10 (+2) e C11 (+2). A soma dos pesos permanece 120. As notas atribuídas foram preservadas — só o peso mudou. Os totais do ADR-001 continuam impressos ao lado dos revisados para rastreabilidade e auditoria.
 
 ---
 
@@ -17,8 +17,8 @@ Este documento reproduz a matriz de decisão em formato tabular puro, para conve
 - [3. Escala de notas](#3-escala-de-notas)
 - [4. Fórmula de agregação](#4-fórmula-de-agregação)
 - [5. Matriz de notas](#5-matriz-de-notas)
-- [6. Cálculo ponderado por plataforma](#6-cálculo-ponderado-por-plataforma)
-- [7. Ranking final](#7-ranking-final)
+- [6. Cálculo ponderado por plataforma](#)
+- [7. Ranking final](#3-ranking)
 - [8. Análise de sensibilidade](#8-análise-de-sensibilidade)
 - [9. Como converter para CSV/XLSX](#9-como-converter-para-csvxlsx)
 
@@ -63,7 +63,7 @@ Este documento reproduz a matriz de decisão em formato tabular puro, para conve
 | 2 | Insuficiente — atende parcialmente |
 | 1 | Reprovado — não atende |
 
-Não há meia-nota. Cada nota tem justificativa textual obrigatória em [`docs/07-matriz-decisao.md`](../docs/07-matriz-decisao.md).
+Não há meia-nota. Cada nota tem justificativa textual obrigatória em [`docs/07-matriz-decisao.md`](../docs/05-matriz.md).
 
 ---
 
@@ -80,7 +80,7 @@ Modelo MAUT (Multi-Attribute Utility Theory) — soma ponderada linear, sem tran
 
 ## 5. Matriz de notas
 
-Notas atribuídas a cada plataforma × critério (escala 1–5). Alinhadas com [`docs/07-matriz-decisao.md §2.1`](../docs/07-matriz-decisao.md#21-notas-atribuídas). Notas **inalteradas** desde o ADR-001; apenas os pesos foram revisados.
+Notas atribuídas a cada plataforma × critério (escala 1–5). Alinhadas com [`docs/07-matriz-decisao.md §2.1`](../docs/05-matriz.md#21-notas). Notas **inalteradas** desde o ADR-001; apenas os pesos foram revisados.
 
 | Plataforma / Modalidade | C01 (15) | C02 (15) | C03 (0) | C04 (10) | C05 (13) | C06 (13) | C07 (10) | C08 (13) | C09 (12) | C10 (7) | C11 (7) | C12 (5) |
 |--------------------------|:--------:|:--------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:-------:|:-------:|:-------:|
@@ -268,7 +268,7 @@ Total revisado: **319 / 600 (53,2 %)** · Total ADR-001: *345 / 600 (57,5 %)*.
 | 12 | Cloudflare Web Analytics | SaaS | 319 / 600 | 53,2 % | *345 / 57,5 %* |
 | 13 | Open Web Analytics | Auto-hospedado | 278 / 600 | 46,3 % | *330 / 55,0 %* |
 
-Ordem consistente com o Resumo Executivo do [`README.md`](../README.md) §3.1 e com [`docs/07-matriz-decisao.md §3.1`](../docs/07-matriz-decisao.md#31-ranking-final).
+Ordem consistente com o Resumo Executivo do [`README.md`](../README.md) §3.1 e com [`docs/07-matriz-decisao.md §3.1`](../docs/05-matriz.md#3-ranking).
 
 ---
 
@@ -304,7 +304,7 @@ Ordem consistente com o Resumo Executivo do [`README.md`](../README.md) §3.1 e 
 | 18 (base +5) | Piwik PRO / Matomo Cloud empatam com Matomo OP | Margem se dilui |
 | 25 | Piwik PRO ultrapassa | Cenário "Capacidade analítica" |
 
-**Conclusão:** liderança do Matomo OP é sensível a aumento adicional de C05. Consistente com o cenário "Capacidade analítica" documentado em [`docs/07-matriz-decisao.md §5`](../docs/07-matriz-decisao.md#5-análise-de-sensibilidade).
+**Conclusão:** liderança do Matomo OP é sensível a aumento adicional de C05. Consistente com o cenário "Capacidade analítica" documentado em [`docs/07-matriz-decisao.md §5`](../docs/05-matriz.md#5-sensibilidade).
 
 ---
 

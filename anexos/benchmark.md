@@ -29,7 +29,7 @@ Este anexo consolida:
 > **⚠️ Bloco de Risco — projeções não são medições**
 > Nenhum número marcado com `[proj.]` neste documento foi medido em laboratório com o parque real da SETDIG. São estimativas fundamentadas destinadas a **orientar dimensionamento inicial**. Antes de deploy produtivo, todo dimensionamento deve ser revalidado por teste real na infraestrutura de destino.
 
-Não substitui prova-de-conceito. Para decisão contratual definitiva, recomenda-se rodar PoC de 30 dias em ambiente pré-produção com tráfego real, conforme descrito em [`docs/10-roadmap.md`](../docs/10-roadmap.md).
+Não substitui prova-de-conceito. Para decisão contratual definitiva, recomenda-se rodar PoC de 30 dias em ambiente pré-produção com tráfego real, conforme descrito em [`docs/10-roadmap.md`](../docs/08-roadmap.md).
 
 ---
 
@@ -95,7 +95,7 @@ Não substitui prova-de-conceito. Para decisão contratual definitiva, recomenda
 
 ### 3.4 Cenário D — Portal Xvia (superapp cidadão) — introduzido pela revisão 2026
 
-Cenário formalizado com o [ADR-002](../docs/08-adr-002.md) para dimensionar a coexistência Matomo + PostHog no portal Xvia.
+Cenário formalizado com o [ADR-002](../docs/06-adr-002.md) para dimensionar a coexistência Matomo + PostHog no portal Xvia.
 
 | Parâmetro | Ano 1 | Ano 3 (projeção) |
 |-----------|-------|------------------|
@@ -300,10 +300,10 @@ LIMIT 20;
 - BundIT (Alemanha) — recomendação de plataformas open-source para portais federais.
 - DGov França — orientação para uso de Matomo em portais governamentais.
 
-Fontes completas: [`docs/12-referencias.md`](../docs/12-referencias.md).
+Fontes completas: [`docs/12-referencias.md`](../docs/99-referencias.md).
 
 ---
 
 > **✅ Bloco de Decisão — benchmark como insumo, não como fim**
 >
-> Nenhum número deste anexo justifica isoladamente uma decisão arquitetural. O objetivo do benchmark é **dimensionar corretamente** a plataforma escolhida e **descartar** plataformas com limitações estruturais que impediriam a operação. A escolha da plataforma primária é feita pela matriz ponderada ([`docs/07-matriz-decisao.md`](../docs/07-matriz-decisao.md)), sob os critérios definidos em [`docs/03-criterios-de-avaliacao.md`](../docs/03-criterios-de-avaliacao.md).
+> Nenhum número deste anexo justifica isoladamente uma decisão arquitetural. O objetivo do benchmark é **dimensionar corretamente** a plataforma escolhida e **descartar** plataformas com limitações estruturais que impediriam a operação. A escolha da plataforma primária é feita pela matriz ponderada ([`docs/07-matriz-decisao.md`](../docs/05-matriz.md)), sob os critérios definidos em [`docs/03-criterios-de-avaliacao.md`](../docs/03-criterios.md).

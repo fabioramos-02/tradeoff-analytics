@@ -1,457 +1,205 @@
 # PostHog
 
-> **Ficha técnica de plataforma** · Pontuação na matriz: **455/600 (75,8 %)** — 5º/6º lugar (Auto-hospedado OSS) · **425/600 (70,8 %)** — 7º lugar (Cloud EU) · 🟡 Viável
-> **Situação:** ❌ **Não selecionada** — sobreposição funcional com Matomo, licenciamento MIT + EE proprietária introduz risco de lock-in em recursos avançados
-> [← Voltar ao índice](../README.md) · [Matriz de decisão](../docs/07-matriz-decisao.md)
-
----
+> **Ficha técnica de plataforma** · Pontuação na matriz revisada 2026: **464/600 (77,3 %)** (auto-hospedado OSS) — 4º · 🟡 Viável
+> **Situação:** ✅ **Aprovada como camada complementar no portal Xvia** ([ADR-002 §6.2](../docs/06-adr-002.md#6-decisão)). Melhor opção soberana de product analytics disponível.
+> [← Voltar ao índice](../README.md) · [Matriz de decisão](../docs/05-matriz.md)
 
 ## Sumário
 
 - [1. Visão geral](#1-visão-geral)
-- [2. Licenciamento](#2-licenciamento)
-- [3. Hospedagem](#3-hospedagem)
-- [4. Funcionalidades](#4-funcionalidades)
-- [5. APIs](#5-apis)
-- [6. Exemplos de integração](#6-exemplos-de-integração)
-- [7. Integrações](#7-integrações)
-- [8. Infraestrutura](#8-infraestrutura)
-- [9. Segurança](#9-segurança)
-- [10. Governança](#10-governança)
-- [11. Performance](#11-performance)
-- [12. Custos](#12-custos)
-- [13. Pontos fortes](#13-pontos-fortes)
-- [14. Pontos fracos](#14-pontos-fracos)
-- [15. Quando utilizar](#15-quando-utilizar)
-- [16. Quando evitar](#16-quando-evitar)
-- [17. Notas do avaliador](#17-notas-do-avaliador)
+- [2. Licença e modelo](#2-licença-e-modelo)
+- [3. Hospedagem on-premise](#3-hospedagem-on-premise)
+- [4. Funcionalidades essenciais](#4-funcionalidades-essenciais)
+- [5. APIs e integrações](#5-apis-e-integrações)
+- [6. Segurança e LGPD](#6-segurança-e-lgpd)
+- [7. Custos](#7-custos)
+- [8. Pontos fortes / fracos](#8-pontos-fortes--fracos)
+- [9. Quando usar / quando evitar](#9-quando-usar--quando-evitar)
+- [10. Notas do avaliador](#10-notas-do-avaliador)
 
 ---
 
 ## 1. Visão geral
 
-### 1.1 Identificação
+Plataforma de product analytics lançada em 2020 (EUA/Reino Unido). Alternativa auto-hospedada a Amplitude, Mixpanel e Heap. Escopo funcional amplo: eventos, funis, coortes, retenção, session replay, feature flags, experimentos A/B, surveys, HogQL (SQL sobre ClickHouse). Stack complexa: Django + PostgreSQL + ClickHouse + Kafka + Redis + MinIO. Mantida por PostHog Inc. (bem capitalizada, série D em 2024).
 
-| Campo | Valor |
-|-------|-------|
-| **Nome** | PostHog |
-| **Fundadores** | James Hawkins e Tim Glaser |
-| **Ano de lançamento** | 2020 |
-| **Mantenedor** | PostHog, Inc. |
-| **Sede** | San Francisco / Londres |
-| **Segmento** | *Product analytics* — analytics de produto para SaaS/software |
-| **Repositório** | `https://github.com/PostHog/posthog` |
-| **Site oficial** | `https://posthog.com/` |
-
-### 1.2 História
-
-```mermaid
-timeline
-    title Evolução do PostHog
-    2020 : Lançamento como alternativa open-source ao Mixpanel/Amplitude
-         : Stack Django + PostgreSQL + Redis, licença MIT
-    2021 : Adoção do ClickHouse como banco analítico primário
-    2022 : Consolidação de produtos — Session Replay, Feature Flags, A/B Testing
-    2023 : Introdução da Experimentation, Surveys, Data Warehouse
-    2024 : LLM Observability e integração com pipelines de IA
-    2025 : PostHog "Product OS" — suíte completa de produto
-```
-
-### 1.3 Comunidade
-
-| Indicador | Situação |
-|-----------|----------|
-| Idade do projeto | 6 anos |
-| Governança | Mantenedor comercial único (PostHog, Inc.) |
-| Cadência de releases | Alta — várias releases por mês |
-| Base instalada | Ampla no mercado SaaS/startup |
-| Adoção institucional pública | ⚠️ Muito escassa — produto voltado a SaaS, não a portal governamental |
-| Profissionais no Brasil | 🟠 Média — presença crescente em startups |
-| **Nota C11 (Comunidade)** | **4/5** |
-
-### 1.4 Modelo de negócio
-
-**Classificação:** *open core*. O núcleo é MIT — funcional e sem restrição de uso. Recursos "enterprise" (SSO SAML, RBAC avançado, auditoria refinada) estão sob **PostHog Enterprise Edition (EE)**, com licenciamento proprietário.
-
-| Componente | Licença |
-|-----------|:-------:|
-| Core (`posthog/posthog`) | MIT |
-| `ee/` (Enterprise Edition) | Proprietária, uso requer licença comercial |
-
-**Cloud comercial:** PostHog Cloud EU (Frankfurt) e PostHog Cloud US.
-
-### 1.5 Casos de uso
-
-| Caso de uso | Aderência |
-|-------------|:---------:|
-| Produto SaaS / aplicação web transacional | 🟢 Excelente |
-| Portal de serviço digital com forte componente de UX/analytics | 🟢 Boa |
-| Portal institucional de conteúdo | 🟠 Sobredimensionado |
-| Site pequeno / blog | 🔴 Inadequado (excesso de complexidade) |
-| Experimentação (A/B testing) | 🟢 Excelente |
-| Analytics de conteúdo/audiência (marketing) | 🟠 Aceitável, mas não é a proposta |
+**Segmento:** product analytics. **Repositório:** `github.com/PostHog/posthog`. **Site:** `posthog.com`.
 
 ---
 
-## 2. Licenciamento
+## 2. Licença e modelo
 
-| Componente | Licença | Observação |
-|-----------|:-------:|-----------|
-| Core PostHog | MIT | Uso livre, incluindo comercial e fork |
-| PostHog EE (recursos enterprise) | Proprietária | Requer aquisição de licença |
-| Ícones e logotipos | Marcas registradas PostHog | Não redistribuir sem permissão |
+- **Licença (core):** MIT — cobre eventos, funis, retenção, HogQL, feature flags básicos.
+- **Licença (Enterprise Edition):** proprietária — SSO SAML, RBAC granular, projetos ilimitados, session replay avançado, priorização de suporte.
+- **Modelo:** open core. Divergência clara entre OSS e Cloud/EE.
+- **Governança:** concentrada em PostHog Inc.
+- **Direito perpétuo:** MIT sobre a versão obtida do core. **Sem direito equivalente sobre EE** — recursos avançados exigem licença comercial mesmo em auto-hospedado.
 
-> **⚠️ Bloco de Risco — MIT + EE dividida**
-> A dualidade MIT + EE é o padrão do modelo *open core*. Na prática:
->
-> - Recursos de **produto** (analytics, funis, session replay, feature flags básicos) são MIT.
-> - Recursos de **operação empresarial** (SSO SAML, RBAC granular, políticas de retenção configuráveis) são EE.
->
-> Para o Estado, os recursos EE são normalmente **obrigatórios** por norma interna (SSO corporativo, RBAC). Isso reintroduz o custo de licenciamento na modalidade auto-hospedada, contradizendo a expectativa de "open-source gratuito".
+> **🚨 Descontinuação do suporte oficial ao self-host (2023)**
+> Em 2023 a PostHog descontinuou o suporte à implantação auto-hospedada gerenciada (Kubernetes/Helm). Modalidade remanescente: `docker-compose` **explicitamente rotulada como não suportada em produção**, adequada apenas a avaliação. Estado assume integralmente a operação sem suporte do fornecedor. Trata-se de caso em que o risco TP-08 se concretizou — não hipotético.
 
 ---
 
-## 3. Hospedagem
+## 3. Hospedagem on-premise
 
-| Modalidade | Disponibilidade | Observação |
-|-----------|:--------------:|-----------|
-| Auto-hospedado (Docker Compose) | 🟠 | Disponível, mas oficialmente **desencorajado** pela PostHog para produção em alta escala |
-| Auto-hospedado (Kubernetes / Helm) | 🟢 | Recomendação oficial para produção; complexidade significativa |
-| PostHog Cloud EU | 🟢 | Frankfurt (Alemanha) — GDPR-friendly |
-| PostHog Cloud US | 🟢 | Estados Unidos |
-| On-Premise em datacenter próprio | 🟢 | Mesmo stack do Cloud, gerido internamente |
+**Stack (6 componentes):**
 
-> **🚨 Alerta — auto-hospedagem oficialmente desencorajada em Docker Compose**
-> A própria PostHog recomenda **Kubernetes com Helm** para deployments produtivos. A modalidade Docker Compose é declarada como "para avaliação e desenvolvimento". Isso muda o custo operacional real do auto-hospedado — não basta um `docker compose up`; é preciso cluster Kubernetes, gestão de ClickHouse, Kafka e Redis.
+| Componente | Versão | Papel |
+|-----------|--------|-------|
+| PostHog Web (Django) | 1.75+ | UI + API + ingestão HTTP |
+| PostHog Plugin Server (Node.js) | 1.75+ | Transformação de eventos |
+| PostgreSQL | 14+ | Metadados + configuração |
+| ClickHouse | 24.3+ | Eventos brutos + session replay metadata |
+| Kafka | 3.4+ | Streaming de eventos entre Django e ClickHouse |
+| Redis | 7+ | Cache + coordenação |
+| MinIO (ou S3) | — | Blobs de session replay |
+| Zookeeper (Kafka legado) | 3.8+ | Coordenação Kafka (removível com Kafka KRaft) |
 
----
+**Distribuição:** `docker-compose.yml` público (não suportado); Helm chart oficial **descontinuado** em 2023 — comunidade mantém forks. **Cron:** múltiplos (limpeza, agregação, retenção).
 
-## 4. Funcionalidades
+**Dimensionamento (12M PV/mês + 20 M eventos/mês):**
+- Web (Django): 2× 4 vCPU + 8 GB
+- Plugin Server: 2× 4 vCPU + 8 GB
+- PostgreSQL: 8 vCPU + 32 GB + 200 GB SSD
+- **ClickHouse: 16 vCPU + 64 GB + 2 TB SSD NVMe**
+- Kafka: 3× 4 vCPU + 16 GB + 500 GB
+- Redis: 4 GB
+- MinIO: 1 TB (session replay é caro em storage)
 
-| Funcionalidade | Suporte | Observação |
-|---------------|:-------:|-----------|
-| Dashboards padrão | 🟢 | Customização rica, múltiplos dashboards por projeto |
-| Eventos customizados | 🟢 | Modelo de dados baseado em eventos, primeira classe |
-| Metas (`goals`) | 🟢 | Via `insights` |
-| Funil de conversão | 🟢 | Funis multi-etapa, com *breakdown* por propriedade |
-| Heatmaps | 🟢 | Extensão do session replay |
-| **Session recording** | 🟢 | Recurso de destaque — reprodução completa da sessão |
-| User journey (paths) | 🟢 | Visualização de fluxos entre eventos |
-| **A/B testing / Experimentation** | 🟢 | Recurso de destaque — testes com significância estatística |
-| Form analytics | 🟠 | Via eventos customizados |
-| Real time | 🟢 | Dashboards em tempo real |
-| Cohort | 🟢 | Cohorts dinâmicos e estáticos |
-| Retenção | 🟢 | Análise de retenção completa |
-| Dimensões customizadas | 🟢 | Propriedades ilimitadas em eventos e pessoas |
-| **Feature flags** | 🟢 | Recurso de destaque — flags booleanas e multivariadas |
-| **Surveys** | 🟢 | Pesquisas in-app |
-| Data warehouse | 🟢 | Sincronização com S3, BigQuery, Snowflake, Postgres |
-| LLM Observability | 🟢 | Rastreamento de chamadas a LLMs |
-
-> **📌 Observação — sobreposição funcional com Matomo**
-> PostHog tem cobertura funcional **maior** que o Matomo em vários recursos (feature flags, experimentação, surveys, LLM observability). Isso é uma **vantagem no papel**, mas gera sobreposição desnecessária no caso governamental — recursos de *product analytics* de SaaS não são requisitos primários de portal público.
+**Esforço STI:** ~0,4 FTE incremental — R-18 exige plano de capacitação em ClickHouse + Kafka. Sem contratação de suporte especializado, operação é frágil.
 
 ---
 
-## 5. APIs
+## 4. Funcionalidades essenciais
 
-### 5.1 Superfície de API
+| Requisito | Prio | PostHog SH |
+|-----------|:----:|:----------:|
+| RF-01 Page views | M | ✅ |
+| RF-02 Eventos customizados | M | ✅ Nativo com autocaptura |
+| RF-05 Dimensões customizadas | S | ✅ Ilimitadas |
+| RF-06 Server-side tracking | S | ✅ SDKs multi-linguagem |
+| RF-09 SPAs | M | ✅ |
+| RF-21 Audiência | M | ⚠️ Via evento (não é o foco) |
+| RF-22 UTM / campanhas | M | ⚠️ Via evento |
+| RF-25 Geografia | S | ✅ |
+| RF-26 Metas | M | ✅ |
+| **RF-27 Funil** | M | ✅ Nativo, identificado |
+| RF-28 Segmentação avançada | M | ✅ Cohorts + HogQL |
+| RF-30 Tempo real | S | ✅ |
+| RF-31 Coortes / retenção | C | ✅ Nativo |
+| RF-32 Heatmap | C | ⚠️ Via session replay |
+| RF-33 Session replay | C | ✅ Nativo, mascaramento configurável |
+| RF-34 Form analytics | C | ⚠️ Via eventos + replay |
+| **RF-35 Feature flags / A/B testing** | W | ✅ Diferencial do produto |
+| RF-36 Jornada | S | ✅ Path analysis |
+| RF-40 Multi-site + segregação | M | ✅ Projetos |
+| **RF-43 MFA admin** | M | 💲 EE |
+| RF-45 Tag Manager | S | ⚠️ Terceiros (GTM) |
 
-| Recurso | Situação |
-|---------|:--------:|
-| REST API pública | 🟢 v1 estável — `https://<host>/api/` |
-| Batch ingestion API | 🟢 `/batch/` |
-| SDKs oficiais | JavaScript, Python, Node.js, Ruby, Go, PHP, iOS, Android, Flutter, React Native, .NET |
-| Webhooks | 🟢 |
-| Rate limits | Configuráveis por instância; no Cloud, 240 req/min por token |
-| Autenticação | *Project API key* (client) + *Personal API key* (server) |
-| Versionamento | v1 |
+**Cobertura ponderada (MoSCoW):** ≥ 90 % — nota **C05 = 5**.
 
-### 5.2 Exemplo — captura de evento
-
-```http
-POST /capture/ HTTP/1.1
-Host: app.posthog.com
-Content-Type: application/json
-
-{
-  "api_key": "<PROJECT_API_KEY>",
-  "event": "servico_solicitado",
-  "distinct_id": "cidadao-12345",
-  "properties": {
-    "servico": "iptu_2a_via",
-    "orgao": "sefaz"
-  },
-  "timestamp": "2026-07-29T10:00:00Z"
-}
-```
-
-### 5.3 Exportação
-
-- Data warehouse sink nativo (S3, BigQuery, Snowflake, PostgreSQL, Redshift).
-- Batch export para dumps periódicos.
-- Query engine SQL sobre ClickHouse (HogQL) — permite consultas ad-hoc no dado bruto.
+**Diferenciais únicos:** feature flags integradas a experimentação; HogQL para consulta SQL rica sobre eventos; session replay com mascaramento nativo.
 
 ---
 
-## 6. Exemplos de integração
+## 5. APIs e integrações
 
-### 6.1 Instalação (JavaScript)
+**API:**
+- **REST v1 estável** — leitura, escrita, admin. Autenticação por Personal API Key. Versionamento explícito. Rate limits declarados.
+- **Batch ingestion** para eventos.
+- **HogQL** — SQL diretamente sobre ClickHouse via API ou UI.
+- **Webhooks nativos** para triggers em feature flags e eventos.
+- **SDKs oficiais:** JavaScript, Python, Node.js, Go, iOS, Android, React Native, PHP, Ruby, Java, .NET, Elixir, Flutter.
 
-```html
-<script>
-  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loaded".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-  posthog.init('<PROJECT_API_KEY>', {api_host: 'https://<host>'});
-</script>
-```
+**Acesso ao dado bruto:** HogQL + acesso SQL direto ao ClickHouse.
 
-### 6.2 Python (backend)
+**Integração com BI:** ClickHouse conecta a Grafana, Superset, Metabase; Power BI via ODBC ClickHouse. Destinos nativos: Slack, Zapier, webhooks genéricos. SSO SAML/OIDC **só na EE**.
 
-```python
-import posthog
-
-posthog.project_api_key = os.environ["POSTHOG_KEY"]
-posthog.host = "https://analytics.exemplo.gov.br"
-
-def registrar_evento(cidadao_id: str, servico: str) -> None:
-    posthog.capture(
-        distinct_id=cidadao_id,
-        event="servico_solicitado",
-        properties={"servico": servico},
-    )
-```
-
-### 6.3 Node.js (backend)
-
-```javascript
-import { PostHog } from 'posthog-node';
-
-const posthog = new PostHog(process.env.POSTHOG_KEY, {
-  host: 'https://analytics.exemplo.gov.br',
-});
-
-export function registrarEvento(cidadaoId, servico) {
-  posthog.capture({
-    distinctId: cidadaoId,
-    event: 'servico_solicitado',
-    properties: { servico },
-  });
-}
-```
-
-### 6.4 Consulta HogQL (SQL sobre ClickHouse)
-
-```sql
-SELECT
-  properties.servico AS servico,
-  count() AS total,
-  uniq(distinct_id) AS cidadaos
-FROM events
-WHERE event = 'servico_solicitado'
-  AND timestamp >= now() - INTERVAL 30 DAY
-GROUP BY servico
-ORDER BY total DESC
-```
-
-### 6.5 Power BI
-
-- Conector via Web (JSON) apontando para `/api/projects/<id>/insights/`.
-- Alternativa: sink para PostgreSQL/BigQuery + conector nativo do Power BI.
-
-### 6.6 Grafana
-
-- Datasource ClickHouse (plugin oficial) apontando diretamente para o ClickHouse do PostHog.
-- HogQL como linguagem de consulta.
-
-### 6.7 Metabase / Superset
-
-Suportam ClickHouse nativamente — conexão direta ao banco do PostHog é o padrão recomendado para BI corporativo.
-
-### 6.8 Looker Studio
-
-Via BigQuery sink (recomendado) ou via conector Web para a API.
+**Tag Manager:** sem TM próprio; instrumentação por SDK ou GTM.
 
 ---
 
-## 7. Integrações
+## 6. Segurança e LGPD
 
-| Integração | Status |
-|-----------|:------:|
-| Google Tag Manager | 🟢 Template oficial disponível |
-| Matomo Tag Manager | 🟠 Via HTML customizado |
-| Segment | 🟢 Fonte e destino nativos |
-| RudderStack | 🟢 |
-| Consent Manager | 🟢 API para *opt-in/opt-out*: `posthog.opt_in_capturing()` / `opt_out_capturing()` |
-| IdP corporativo (SAML) | 🟠 **Apenas na EE** — não disponível na modalidade OSS |
-| OAuth 2.0 / OIDC | 🟠 **Apenas na EE** |
-| Slack / MS Teams | 🟢 Notificações de eventos |
-| Zapier | 🟢 |
+**LGPD — não conforme por padrão; exige configuração ativa:**
+- Cookies de identificação **habilitados por padrão** — precisa desativar (`persistence: 'memory'`) ou aceitar com consentimento.
+- Autocapture pode coletar valores de campos — precisa mascaramento agressivo (`mask_all_text: true`, `mask_all_element_attributes: true`).
+- Session replay armazena rendering do DOM — precisa `sessionRecording.maskAllInputs: true` e opt-in explícito.
+- IP anonimizável, mas não é padrão.
 
-> **⚠️ Bloco de Risco — SSO corporativo requer EE**
-> Norma padrão de segurança da SETDIG exige SSO federado com o IdP corporativo. Isso implica adquirir a licença PostHog EE, o que muda o custo total do "auto-hospedado gratuito".
+**Configuração conforme LGPD exige RIPD específico** — coberto por R-11 do [ADR-002 §9](../docs/06-adr-002.md#9-riscos-assumidos). Governança do consentimento é obrigatória.
 
----
+**Segurança:**
+- Código auditável (core MIT).
+- Gestão de CVE ativa.
+- SOC 2 Type II na Cloud (não aplicável a self-host).
+- MFA para admin **só na EE**.
+- RBAC granular **só na EE**.
+- Auditoria completa **só na EE**.
 
-## 8. Infraestrutura
-
-### 8.1 Stack de dependências
-
-| Componente | Papel | Complexidade operacional |
-|-----------|-------|-------------------------|
-| **ClickHouse** | Banco analítico principal (eventos) | 🔴 Alta — requer expertise |
-| **PostgreSQL** | Banco relacional (usuários, dashboards, configs) | 🟢 Baixa |
-| **Redis** | Cache e filas | 🟢 Baixa |
-| **Kafka** | Ingestão de eventos em alta escala | 🔴 Alta |
-| **MinIO / S3** | Armazenamento de session replay | 🟠 Média |
-| **Zookeeper** | Coordenação Kafka + ClickHouse | 🟠 Média |
-
-### 8.2 Modelo de implantação
-
-- **Docker Compose:** viável para POC — não recomendado para produção pelo próprio fornecedor.
-- **Kubernetes + Helm chart oficial:** recomendação para produção. Complexidade equivalente a operar um pequeno cluster de dados.
-
-### 8.3 Backup e DR
-
-- Backup do PostgreSQL: padrão.
-- Backup do ClickHouse: exige estratégia dedicada — snapshot de disco + `BACKUP TO` (recurso ClickHouse) ou export via `clickhouse-backup`.
-- DR: exige replicação cross-região do ClickHouse — complexidade alta.
+**Nota C01 (LGPD):** 4. **Nota C02 (Controle):** 5. **Nota C09 (Segurança):** 4.
 
 ---
 
-## 9. Segurança
+## 7. Custos
 
-| Item | Situação (OSS) | Situação (EE / Cloud) |
-|------|:--------------:|:---------------------:|
-| Criptografia em trânsito | 🟢 TLS | 🟢 TLS |
-| Criptografia em repouso | 🟠 Dependente do storage | 🟢 Gerenciada |
-| **Conformidade LGPD** | 🟢 Sob custódia própria | 🟠 Cloud EU: adequação GDPR estendida |
-| GDPR | 🟢 | 🟢 |
-| ISO 27001 | ❌ (aplica-se ao Cloud) | 🟢 |
-| SOC 2 Type II | ❌ (aplica-se ao Cloud) | 🟢 |
-| RBAC granular | ❌ | 🟢 (EE) |
-| SSO SAML | ❌ | 🟢 (EE) |
-| Auditoria completa | 🟠 Básica | 🟢 (EE) |
-| Anonimização | 🟢 API para *reset*, *opt-out*, apagamento de pessoa |
+TCO marginal SETDIG 5 anos — inclui EE mínima (SSO + RBAC obrigatórios em contexto gov):
 
----
+| Rubrica | Valor |
+|---------|------:|
+| Licença EE (SSO + RBAC) | R$ 300 k |
+| Infra marginal (Kafka + CH dedicado + MinIO **fora do padrão SETDIG**) | R$ 300 k |
+| Equipe marginal (~0,4 FTE — curva ClickHouse + Kafka alta) | R$ 240 k |
+| Implantação inicial + PoC | R$ 45 k |
+| Adequação LGPD (RIPD replay, governança consentimento) | R$ 40 k |
+| Contingência (riscos R-11, R-18, R-20) | R$ 30 k |
+| **Total** | **~R$ 955 k** |
 
-## 10. Governança
-
-| Dimensão | Avaliação (OSS auto-hospedado) |
-|----------|-------------------------------|
-| Vendor lock-in | 🟠 Baixo no core (MIT), médio-alto se dependente de recursos EE |
-| Controle dos dados | 🟢 Alto (auto-hospedado) — dado bruto em ClickHouse próprio |
-| Portabilidade | 🟠 Média — modelo de dados de eventos é padrão do mercado, mas a migração de dashboards é custosa |
-| Transparência | 🟢 Alta (core aberto) |
-| Auditoria | 🟢 (código); 🟠 (trilha operacional) |
-| Soberania | 🟢 Alta se auto-hospedado no Estado |
-
-**Nota C02 (Controle dos dados):** 4/5 (OSS) / 3/5 (Cloud EU).
-**Nota C04 (Independência tecnológica):** 3/5 — MIT no core, EE separada.
+**Cerca de 4× o TCO marginal do Matomo OP.** Por isso o C03 rebaixado a peso 0 no ADR-002 é o que viabiliza a coexistência no Xvia — custo é modelado, mas não filtra.
 
 ---
 
-## 11. Performance
+## 8. Pontos fortes / fracos
 
-### 11.1 Impacto no site
+**Fortes:**
+- Cobertura funcional ≥ 90 % — a maior entre soberanas.
+- Feature flags + experimentação estruturada em produto único (não há equivalente open source).
+- Session replay com mascaramento nativo.
+- HogQL para consulta SQL rica.
+- SDKs modernos em várias linguagens.
+- ClickHouse escala massivamente.
+- Comunidade grande e ativa; cadência de releases elevada.
 
-| Métrica | Valor típico |
-|---------|:-----------:|
-| Tamanho do script `posthog.js` | ~55 KB (gzip) |
-| Impacto médio em LCP | +50 ms a +200 ms (dependente de session replay) |
-| Impacto médio em CLS | Nulo |
-
-Session replay ativo aumenta significativamente o tráfego do beacon e o consumo de armazenamento no servidor.
-
-### 11.2 Escala do serviço
-
-ClickHouse é o padrão do mercado para analytics de alta escala. Instalações PostHog produtivas comprovadamente processam bilhões de eventos/mês (referência: casos do próprio fornecedor).
-
-**Gargalo operacional para o Estado:** não é escala — é a **complexidade** de operar ClickHouse + Kafka + PostgreSQL simultaneamente.
-
----
-
-## 12. Custos
-
-### 12.1 Modelo tarifário (PostHog Cloud, referência 2026)
-
-| Recurso | Cota gratuita | Preço marginal |
-|---------|:-------------:|:--------------:|
-| Product analytics | 1 M eventos/mês | US$ 0,00031/evento |
-| Session replay | 5 k sessões/mês | US$ 0,005/sessão |
-| Feature flags | 1 M requests/mês | US$ 0,0001/request |
-| Surveys | 250 respostas/mês | US$ 0,20/resposta |
-| Data warehouse | 1 M linhas/mês | US$ 0,000015/linha |
-| LLM observability | 5 k eventos/mês | US$ 0,00005/evento |
-
-### 12.2 TCO em 5 anos — auto-hospedado OSS + EE mínima
-
-Regime de custo marginal SETDIG. Detalhamento em [`../comparativos/custo.md §1.4`](../comparativos/custo.md#14-regime-de-custo--marginal-para-o-estado).
-
-| Rubrica | Custo marginal SETDIG (5 anos) | Custo pleno de referência (greenfield, 5 anos) |
-|---------|-------------------------------:|----------------------------------------------:|
-| **Licenciamento EE** — SSO SAML + RBAC granular | R$ 300.000 | R$ 300.000 |
-| **Infra marginal** — Kafka + ClickHouse dedicado + MinIO fora do padrão SETDIG | R$ 300.000 | R$ 480.000 |
-| **Equipe marginal** — ~0,4 FTE incremental (curva ClickHouse/Kafka alta) | R$ 240.000 | R$ 660.000 |
-| **Implantação (snippet ~200 portais)** | R$ 15.000 | R$ 60.000 |
-| **Adequação LGPD** | R$ 40.000 | R$ 40.000 |
-| **Riscos operacionais** — session replay storage, upgrades | R$ 60.000 | R$ 60.000 |
-| **TCO 5 anos** | **≈ R$ 955.000** | **≈ R$ 1.600.000** |
-| **Faixa de nota C03** | 600k–1,2M = **3** | 1,2M–3M = 2 |
-
-> **📌 Observação — abatimento parcial, não total**
-> Diferentemente do Matomo/Plausible/Umami, o PostHog **exige stack fora do padrão SETDIG** (Kafka + ClickHouse dedicado + MinIO). O parque atual não cobre esses componentes de forma compartilhada. Consequência: o abatimento em regime marginal é **parcial** — a infra ainda tem custo significativo mesmo assumindo o baseline SETDIG. Isso posiciona o PostHog na **faixa C03 = 3**, não 5 como Matomo/Plausible/Umami.
->
-> Valor comparável ao TCO do Matomo com plugins, mas com **cobertura funcional que excede** as necessidades governamentais. O ganho marginal (feature flags, experimentation, LLM obs) não se converte em valor operacional para portais públicos.
+**Fracos:**
+- **6 componentes** em stack distribuída — operação frágil.
+- **Suporte oficial ao self-host descontinuado em 2023** (R-20).
+- **Não conforme LGPD por padrão** — configuração ativa obrigatória.
+- MFA, SSO, RBAC granular e auditoria só na EE paga.
+- Custo marginal 4× o Matomo OP.
+- Curva de aprendizado ClickHouse + Kafka alta; competência escassa no BR.
+- Sem Tag Manager próprio.
 
 ---
 
-## 13. Pontos fortes
+## 9. Quando usar / quando evitar
 
-- Suíte funcional mais ampla do mercado open-source — cobre analytics + session replay + feature flags + experimentation + surveys.
-- Modelo de dados baseado em eventos, primeira classe — flexibilidade máxima para análise.
-- ClickHouse como banco — desempenho analítico superior aos concorrentes.
-- HogQL (SQL sobre ClickHouse) — analistas podem consultar direto os dados brutos.
-- SDKs em todas as principais linguagens e frameworks.
-- Data warehouse sink nativo (S3, BigQuery, Snowflake, PostgreSQL).
-- Cadência de releases alta e comunidade ativa.
+**Usar:**
+- **Portal Xvia**, em coexistência com Matomo — decisão ADR-002 §6.2.
+- Produtos digitais transacionais que exijam funil identificado, feature flags e experimentação estruturada.
+- Contexto onde equipe tem capacidade ou verba para operar ClickHouse + Kafka.
 
-## 14. Pontos fracos
-
-- Complexidade operacional do stack ClickHouse + Kafka + PostgreSQL + Redis + MinIO.
-- Docker Compose desencorajado — requer Kubernetes para produção.
-- Recursos empresariais críticos (SSO SAML, RBAC granular) sob licença EE separada.
-- Curva de aprendizado significativa — produto pensado para times de produto de SaaS.
-- Modelo de negócio focado em SaaS/startup — adoção institucional pública ainda muito escassa.
-- Session replay eleva substancialmente o custo de armazenamento e o impacto de rede no navegador.
-
-## 15. Quando utilizar
-
-- **Serviços digitais** transacionais complexos com forte necessidade de *product analytics* (não *audience analytics*).
-- Ecossistema de aplicações internas onde o Estado desenvolve produto (não apenas portal).
-- Experimentação (A/B testing) formal com significância estatística.
-- Feature flags corporativos para *release management*.
-- Análise de LLMs em fluxos com IA generativa.
-
-## 16. Quando evitar
-
-- Portais institucionais primariamente de conteúdo.
-- Casos em que Matomo (com plugins) já cobre o requisito.
-- Órgãos sem equipe de plataforma dedicada — a operação exige competência em ClickHouse e Kafka.
-- Cenários em que a expectativa é "open-source gratuito" — o SSO corporativo puxa a EE, que é paga.
+**Evitar:**
+- Como plataforma padrão do parque — perfil de conteúdo não justifica o overhead.
+- Sem plano formal de capacitação da STI ou contratação de suporte especializado.
+- Portais com dado sensível sem RIPD específico para session replay (R-11).
+- Portais onde MFA é *Must have* sem orçamento para EE.
 
 ---
 
-## 17. Notas do avaliador
+## 10. Notas do avaliador
 
-PostHog é tecnicamente excelente para o problema que se propõe a resolver — *product analytics* de SaaS moderno. **Não** é o problema central da SETDIG. A pontuação de 455/600 (OSS) é a mais alta entre plataformas que **não foram selecionadas**, e reflete o fato de que a plataforma **compete tecnicamente** com o Matomo em cobertura funcional.
+Ferramenta poderosa; melhor open source de product analytics. Descontinuação do suporte ao K8s em 2023 é sinal amarelo — indica que a PostHog Inc. deve ao longo do tempo migrar valor pro Cloud, deixando o self-host como opção "para quem quiser". Estado assume esse risco conscientemente no ADR-002.
 
-A decisão de **não recomendar** o PostHog está apoiada em três razões objetivas:
+**Coexistência com Matomo no Xvia é a solução certa** — cobre a lacuna estrutural de product analytics sem substituir a base cookieless auditada do Matomo. Gate de 12 meses na Onda 5 do roadmap valida se investimento se paga em feature flags ativas, funis identificados e replay em serviço crítico.
 
-1. **Sobreposição funcional com Matomo** — os recursos que o PostHog adiciona (feature flags, experimentation) não são requisitos primários dos portais estaduais.
-2. **Complexidade operacional** — Kubernetes + ClickHouse + Kafka é um custo real de plataforma, sem contrapartida em valor entregue para o caso governamental típico.
-3. **Licenciamento EE necessário** — os recursos obrigatórios de segurança corporativa (SSO SAML, RBAC granular) exigem EE, que reintroduz custo de licenciamento.
-
-Como **candidato futuro**, PostHog ficaria natural em um segundo estudo específico para plataformas de *product analytics* voltadas a **serviços digitais transacionais complexos** (por exemplo, superapp cidadão).
-
-Análise cruzada: [`docs/06-tradeoffs.md`](../docs/06-tradeoffs.md) e [`comparativos/api.md`](../comparativos/api.md).
+Se o gate falhar, contingência formal é PostHog Cloud EU com RIPD específico — mitigação de transferência internacional via região UE — ou retorno a Matomo puro no Xvia com plugins.

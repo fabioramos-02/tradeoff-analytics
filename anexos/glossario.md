@@ -19,7 +19,7 @@
 
 ## 1. Como usar
 
-Consulte por ordem alfabética dentro de cada seção. Referências cruzadas em `[[colchetes]]` indicam o termo correspondente em outra seção deste glossário. Fontes normativas relevantes: [`docs/12-referencias.md`](../docs/12-referencias.md).
+Consulte por ordem alfabética dentro de cada seção. Referências cruzadas em `[[colchetes]]` indicam o termo correspondente em outra seção deste glossário. Fontes normativas relevantes: [`docs/12-referencias.md`](../docs/99-referencias.md).
 
 ---
 
@@ -27,7 +27,7 @@ Consulte por ordem alfabética dentro de cada seção. Referências cruzadas em 
 
 ### ADR — Architecture Decision Record
 
-Registro formal, versionado e datado de uma decisão arquitetural relevante, com contexto, alternativas consideradas, decisão tomada e consequências. Formato Nygard (2011) ou MADR 4.0. Neste estudo: [`docs/08-adr.md`](../docs/08-adr.md).
+Registro formal, versionado e datado de uma decisão arquitetural relevante, com contexto, alternativas consideradas, decisão tomada e consequências. Formato Nygard (2011) ou MADR 4.0. Neste estudo: [`docs/08-adr.md`](../anexos/historico/docs/adr-001.md).
 
 ### Architectural driver
 
@@ -47,7 +47,7 @@ Template padronizado para ADR em Markdown, mantido pela comunidade em `adr.githu
 
 ### MAUT — Multi-Attribute Utility Theory
 
-Fundamentação matemática de decisão multicritério. Consiste em atribuir notas a cada critério, ponderar por peso e agregar linearmente. Neste estudo: [`docs/07-matriz-decisao.md`](../docs/07-matriz-decisao.md).
+Fundamentação matemática de decisão multicritério. Consiste em atribuir notas a cada critério, ponderar por peso e agregar linearmente. Neste estudo: [`docs/07-matriz-decisao.md`](../docs/05-matriz.md).
 
 ### Quality Attribute Utility Tree
 
@@ -401,4 +401,4 @@ Situação em que o cliente **não consegue** migrar de fornecedor sem custo des
 
 ---
 
-Referências completas para termos aqui listados: [`docs/12-referencias.md`](../docs/12-referencias.md).
+Referências completas para termos aqui listados: [`docs/12-referencias.md`](../docs/99-referencias.md).

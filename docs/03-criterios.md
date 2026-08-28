@@ -3,554 +3,268 @@
 > **Método:** Gartner Decision Framework + ATAM Utility Tree + MAUT
 > **Anterior:** [02 — Requisitos](02-requisitos.md) · **Próximo:** [04 — Panorama de mercado](04-mercado.md)
 
-> **📌 Nota metodológica — Revisão 2026**
-> Esta versão do documento reflete a **revisão dos pesos** consequente ao [ADR-002](08-adr-002.md). O critério **C03 (TCO)** passa a ter **peso 0** e função **informativa**, e os 15 pontos são redistribuídos entre C05, C06, C08, C09, C10 e C11. O racional é objetivo: sob premissas P1/P2/R4 ([`01-contexto.md §7–§8`](01-contexto.md#7-premissas)), a infraestrutura on-premise do Estado absorve o custo marginal de operação, retirando do TCO a função de direcionador de escolha. O comparativo de custo permanece publicado em [`../comparativos/custo.md`](../comparativos/custo.md) como referência de dimensionamento e de prestação de contas ao TCE-MS. A versão anterior dos pesos, aplicada no ADR-001, está preservada no histórico do arquivo.
+> **📌 Revisão 2026**
+> C03 (TCO) rebaixado a **peso 0**, informativo. Racional: sob P1/P2/R4 ([`01-contexto.md`](01-contexto.md#7-premissas-e-restrições)), a infra on-premise absorve o custo marginal — TCO deixa de filtrar decisão. Os 15 pontos foram redistribuídos entre C05, C06, C08, C09, C10, C11. TCO continua modelado em `anexos/historico/comparativos/custo.md` para dimensionamento de infra e prestação de contas ao TCE-MS. Histórico do ADR-001 em `anexos/historico/`.
 
 ---
 
 ## Sumário
 
-- [1. Modelo de avaliação](#1-modelo-de-avaliação)
+- [1. Modelo](#1-modelo)
 - [2. Triagem eliminatória](#2-triagem-eliminatória)
-- [3. Árvore de atributos de qualidade](#3-árvore-de-atributos-de-qualidade)
+- [3. Trade-off points](#3-trade-off-points)
 - [4. Critérios e pesos](#4-critérios-e-pesos)
-- [5. Definição operacional de cada critério](#5-definição-operacional-de-cada-critério)
+- [5. Definição operacional](#5-definição-operacional)
 - [6. Fórmula de agregação](#6-fórmula-de-agregação)
 - [7. Análise de sensibilidade](#7-análise-de-sensibilidade)
-- [8. Limitações do método](#8-limitações-do-método)
+- [8. Limitações](#8-limitações)
 
 ---
 
-## 1. Modelo de avaliação
+## 1. Modelo
 
-O modelo é composto por **duas etapas sequenciais**: uma triagem eliminatória binária e uma avaliação ponderada contínua.
+Duas etapas sequenciais.
 
 ```mermaid
-flowchart TD
-    A["16 plataformas<br/>candidatas"] --> B{"Triagem<br/>eliminatória<br/>(requisitos mínimos)"}
-    B -->|"Reprovada"| C["❌ Descartada<br/>com justificativa"]
-    B -->|"Aprovada"| D["Avaliação ponderada<br/>12 critérios"]
-    D --> E["Nota 1–5 por critério<br/>com justificativa textual"]
-    E --> F["Σ (peso × nota)<br/>Máx. 600 pontos"]
+flowchart LR
+    A["Candidatas"] --> B{"Triagem<br/>eliminatória"}
+    B -->|"Reprovada"| C["❌ Descartada"]
+    B -->|"Aprovada"| D["Avaliação<br/>ponderada<br/>12 critérios"]
+    D --> E["Nota 1–5<br/>por critério"]
+    E --> F["Σ (peso × nota)"]
     F --> G["Ranking"]
-    G --> H{"Análise de<br/>sensibilidade"}
-    H -->|"Ranking estável"| I["✅ Recomendação"]
-    H -->|"Ranking instável"| J["⚠️ Recomendação<br/>condicionada + PoC"]
+    G --> H{"Sensibilidade"}
+    H -->|"Estável"| I["✅ Recomendação"]
+    H -->|"Instável"| J["⚠️ PoC + condição"]
 
-    %% Fluxo padrão
-    style A fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFFFFF
-    style B fill:#1E293B,stroke:#3B82F6,stroke-width:3px,color:#FFFFFF
-    style D fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFFFFF
-    style E fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFFFFF
-    style F fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFFFFF
-    style G fill:#1E293B,stroke:#64748B,stroke-width:2px,color:#FFFFFF
-    style H fill:#1E293B,stroke:#3B82F6,stroke-width:3px,color:#FFFFFF
-
-    %% Caminhos
-    style C fill:#7F1D1D,stroke:#EF4444,stroke-width:3px,color:#FFFFFF
-    style I fill:#14532D,stroke:#22C55E,stroke-width:3px,color:#FFFFFF
-    style J fill:#713F12,stroke:#FACC15,stroke-width:3px,color:#FFFFFF
+    style C fill:#7F1D1D,stroke:#EF4444,color:#FFFFFF
+    style I fill:#14532D,stroke:#22C55E,color:#FFFFFF
+    style J fill:#713F12,stroke:#FACC15,color:#FFFFFF
 ```
 
-> **📌 Observação — Por que duas etapas**
-> Um modelo puramente ponderado permite que uma plataforma compense uma falha legal grave com excelência técnica em outros critérios. Isso é inaceitável em contexto público: conformidade não é negociável contra desempenho. A triagem eliminatória impede essa compensação indevida — é a aplicação do conceito de *constraint* (restrição rígida) do TOGAF, distinto de *requirement* (requisito ponderável).
+> **📌 Por que duas etapas**
+> Modelo puramente ponderado permite que excelência técnica compense falha legal. Inaceitável em contexto público. Triagem eliminatória bloqueia essa compensação — aplica *constraint* do TOGAF (limite rígido), distinto de *requirement* (ponderável).
 
 ---
 
 ## 2. Triagem eliminatória
 
-Uma plataforma é eliminada se **falhar em qualquer requisito Must have** de [`02-requisitos.md`](02-requisitos.md).
+Falha em qualquer *Must have* de [`02-requisitos.md`](02-requisitos.md) elimina.
 
-### 2.1 Critérios de eliminação aplicados
+### 2.1 Critérios de eliminação
 
-| # | Critério eliminatório | Requisito | Racional |
-|---|----------------------|-----------|----------|
-| E1 | Impossibilidade de operar como controlador com custódia definida | RL-01 | Órgão público não pode delegar controle sem instrumento jurídico adequado |
-| E2 | Transferência internacional sem base legal viável | RL-02 | Art. 33 da LGPD |
-| E3 | Impossibilidade de anonimizar IP | RL-03 | Princípio da necessidade |
-| E4 | Impossibilidade de definir e aplicar retenção | RL-05 | Art. 15/16 da LGPD |
-| E5 | Impossibilidade de exportar integralmente os dados | RG-03 | Lock-in inaceitável em ativo público |
-| E6 | Vulnerabilidade crítica conhecida sem correção / projeto sem manutenção ativa | RNF-39, RNF-36 | Risco de segurança inaceitável |
-| E7 | Ausência de API de leitura programática | RI-01 | Impede integração com BI (RN-04) |
+| # | Critério | Requisito | Racional |
+|---|----------|-----------|----------|
+| E1 | Não pode operar como controlador com custódia definida | RL-01 | Delegação sem instrumento jurídico |
+| E2 | Transferência internacional sem base legal viável | RL-02 | Art. 33 LGPD |
+| E3 | Não anonimiza IP | RL-03 | Necessidade |
+| E4 | Não define/aplica retenção | RL-05 | Arts. 15/16 |
+| E5 | Não exporta integralmente | RG-03 | Lock-in inaceitável |
+| E6 | CVE crítica em aberto / projeto sem manutenção | RNF-39, RNF-36 | Segurança |
+| E7 | Sem API de leitura | RI-01 | Impede BI |
 
-### 2.2 Resultado da triagem
+### 2.2 Resultado (escopo enxugado — só on-prem grátis)
 
 | Plataforma | E1 | E2 | E3 | E4 | E5 | E6 | E7 | Situação |
 |-----------|:--:|:--:|:--:|:--:|:--:|:--:|:--:|----------|
 | **Matomo On-Premise** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada** |
-| **Matomo Cloud** | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada com ressalva** |
-| **Google Analytics 4** | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ✅ | ✅ | **Aprovada com ressalva grave** |
+| **PostHog auto-hospedado** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada** |
 | **Plausible CE** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada** |
 | **Umami** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada** |
-| **Open Web Analytics** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ⚠️ | **Eliminada (E6)** |
-| **Adobe Analytics** | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada com ressalva** |
-| **Simple Analytics** | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | **Aprovada com ressalva** |
-| **Microsoft Clarity** | ❌ | ⚠️ | ⚠️ | ❌ | ❌ | ✅ | ⚠️ | **Eliminada como plataforma primária (E1, E4, E5)** |
-| **Cloudflare Web Analytics** | ⚠️ | ⚠️ | ✅ | ❌ | ⚠️ | ✅ | ✅ | **Eliminada como plataforma primária (E4)** |
-| **PostHog auto-hospedado** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada** |
-| **PostHog Cloud EU** | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada com ressalva** |
-| **Piwik PRO** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **Aprovada** |
 
-**Legenda:** ✅ atende · ⚠️ atende parcialmente ou com condições · ❌ não atende
-
-> **📌 Observação — Tratamento das eliminadas**
-> Plataformas eliminadas **permanecem no estudo e são pontuadas**, por duas razões: (a) transparência do processo decisório perante órgão de controle; (b) algumas eliminadas como *plataforma primária* permanecem viáveis como *complemento pontual* (caso do Microsoft Clarity para análise comportamental e do Cloudflare Web Analytics para métrica de borda). A eliminação restringe o papel, não apaga a análise.
-
-### 2.3 Justificativa das eliminações
-
-#### Open Web Analytics — eliminada por E6
-
-> **🚨 Alerta**
-> O OWA registra **CVE-2022-24637**, vulnerabilidade de execução remota de código na versão 1.7.3, com exploração pública documentada. A cadência de releases do projeto é esparsa e a base de mantenedores é reduzida. O cenário de qualidade **QA-05** ([02, seção 9](02-requisitos.md#qa-05--vulnerabilidade-crítica-divulgada)) exige correção de vulnerabilidade crítica em ≤ 15 dias — capacidade que o projeto não demonstra estruturalmente. Detalhamento em [`../plataformas/open-web-analytics.md`](../plataformas/open-web-analytics.md).
-
-#### Microsoft Clarity — eliminada como plataforma primária por E1, E4, E5
-
-- **E1:** o modelo de serviço não oferece instrumento contratual de operador nos termos da LGPD para órgão público brasileiro; o serviço é gratuito e regido por termos de uso unilaterais.
-- **E4:** a retenção é definida unilateralmente pela Microsoft e não é configurável pelo cliente.
-- **E5:** não há exportação integral dos dados; a API de exportação disponibiliza apenas janela recente e agregada.
-
-**Papel residual admitido:** análise comportamental complementar (heatmap, session recording) em portais **sem tratamento de dado sensível**, mediante RIPD específico. Ver [`09-recomendacao.md`](09-recomendacao.md).
-
-#### Cloudflare Web Analytics — eliminada como plataforma primária por E4
-
-- **E4:** retenção fixa e curta, definida pelo fornecedor, sem controle do cliente.
-- Adicionalmente, não atende RF-02 (eventos customizados), RF-26 (metas) nem RF-27 (funis), que são requisitos **Must have**.
-
-**Papel residual admitido:** métrica de borda (RUM) complementar em domínios já servidos pela Cloudflare, sem custo adicional.
+**Plataformas fora do escopo (arquivadas em `anexos/historico/plataformas-descartadas/`):** GA4, Adobe Analytics, Microsoft Clarity, Cloudflare Web Analytics, Simple Analytics, Open Web Analytics. Motivos: SaaS proprietário (fora do escopo on-prem grátis) ou eliminado por E4/E6 (OWA — CVE-2022-24637 sem correção; Clarity — retenção definida unilateralmente pela MS; Cloudflare — retenção fixa curta). Ver histórico para análise completa.
 
 ---
 
-## 3. Árvore de atributos de qualidade
+## 3. Trade-off points
 
-Estrutura ATAM: atributo de qualidade → refinamento → cenário → prioridade `(importância para o negócio, dificuldade técnica)`.
-
-```mermaid
-flowchart LR
-    R((Utilidade)) --> C1["Conformidade"]
-    R --> C2["Segurança"]
-    R --> C3["Desempenho"]
-    R --> C4["Modificabilidade"]
-    R --> C5["Disponibilidade"]
-    R --> C6["Interoperabilidade"]
-    R --> C7["Custo"]
-
-    C1 --> C1a["Base legal · (A,M)"]
-    C1 --> C1b["Retenção · (A,B)"]
-    C1 --> C1c["Direitos do titular · (A,M)"]
-    C1 --> C1d["Soberania · (A,B)"]
-
-    C2 --> C2a["Gestão de vulnerabilidades · (A,M)"]
-    C2 --> C2b["Controle de acesso · (A,B)"]
-    C2 --> C2c["Auditoria · (M,B)"]
-
-    C3 --> C3a["Ingestão sob pico · (A,A)"]
-    C3 --> C3b["Latência de relatório · (M,M)"]
-    C3 --> C3c["Impacto no portal · (A,B)"]
-
-    C4 --> C4a["Portabilidade · (A,M)"]
-    C4 --> C4b["Independência de fornecedor · (A,B)"]
-    C4 --> C4c["Extensibilidade · (B,M)"]
-
-    C5 --> C5a["HA da coleta · (A,A)"]
-    C5 --> C5b["DR · (M,M)"]
-
-    C6 --> C6a["API de BI · (A,B)"]
-    C6 --> C6b["Federação de identidade · (M,M)"]
-    C6 --> C6c["Tag management · (M,B)"]
-
-    C7 --> C7a["TCO 5 anos · (A,M)"]
-    C7 --> C7b["Custo de saída · (M,M)"]
-```
-
-**Legenda de prioridade:** `(importância para o negócio, dificuldade técnica)` — A = Alta, M = Média, B = Baixa.
-
-### 3.1 Pontos de sensibilidade e trade-off points
-
-Terminologia ATAM:
-- **Ponto de sensibilidade:** decisão que afeta fortemente **um** atributo de qualidade.
-- **Trade-off point:** decisão que afeta **dois ou mais** atributos em direções opostas.
-- **Risco:** decisão que ameaça um atributo prioritário.
+Terminologia ATAM: sensibilidade (afeta 1 atributo), trade-off (afeta 2+ em direções opostas), risco (ameaça atributo prioritário).
 
 | ID | Tipo | Decisão | Atributos afetados |
 |----|------|---------|--------------------|
-| **TP-01** | 🔀 Trade-off | Auto-hospedado vs. SaaS | ⬆️ Soberania, Independência, Custo de licença · ⬇️ Facilidade de operação, Disponibilidade fora da caixa |
-| **TP-02** | 🔀 Trade-off | Banco relacional (MySQL) vs. colunar (ClickHouse) | ⬆️ Simplicidade operacional, Ecossistema de ferramentas · ⬇️ Desempenho analítico em alto volume |
-| **TP-03** | 🔀 Trade-off | Coleta rica (identificação) vs. cookieless anônima | ⬆️ Capacidade analítica, Precisão · ⬇️ Conformidade, Simplicidade da base legal |
-| **TP-04** | 🔀 Trade-off | Retenção longa de dado bruto vs. curta | ⬆️ Capacidade de reprocessamento e análise histórica · ⬇️ Conformidade, Custo de armazenamento, Desempenho |
-| **TP-05** | 🔀 Trade-off | Ingestão síncrona vs. assíncrona (fila) | ⬆️ Simplicidade, Dado imediato · ⬇️ Resiliência a pico |
-| **TP-06** | 🎯 Sensibilidade | Estratégia de arquivamento (cron vs. sob demanda) | Desempenho de relatório |
-| **TP-07** | 🎯 Sensibilidade | Plugins pagos vs. escopo funcional reduzido | Custo, Capacidade analítica |
-| **TP-08** | ⚠️ Risco | Dependência de um único mantenedor comercial em projeto "open source" | Independência, Continuidade |
-| **TP-09** | 🔀 Trade-off | Instância única multi-site vs. instâncias por órgão | ⬆️ Economia de escala, Visão consolidada · ⬇️ Isolamento de falha, Segregação forte |
-| **TP-10** | 🎯 Sensibilidade | Tracking client-side vs. server-side | Precisão (bloqueadores), Conformidade, Complexidade |
+| TP-01 | 🔀 Trade-off | Auto-hospedado vs. SaaS | ⬆️ Soberania, Independência · ⬇️ Facilidade operacional |
+| TP-02 | 🔀 Trade-off | Banco relacional vs. colunar (ClickHouse) | ⬆️ Simplicidade · ⬇️ Desempenho analítico em alto volume |
+| TP-03 | 🔀 Trade-off | Coleta rica (identificação) vs. cookieless | ⬆️ Analítica · ⬇️ Conformidade |
+| TP-04 | 🔀 Trade-off | Retenção longa vs. curta | ⬆️ Análise histórica · ⬇️ Conformidade, custo |
+| TP-05 | 🔀 Trade-off | Ingestão síncrona vs. assíncrona (fila) | ⬆️ Simplicidade · ⬇️ Resiliência a pico |
+| TP-06 | 🎯 Sensibilidade | Arquivamento (cron vs. sob demanda) | Desempenho relatório |
+| TP-07 | 🎯 Sensibilidade | Plugins pagos vs. escopo funcional | Custo, cobertura |
+| TP-08 | ⚠️ Risco | Um mantenedor comercial em projeto "open source" | Independência, continuidade |
+| TP-09 | 🔀 Trade-off | Instância única vs. por órgão | ⬆️ Escala, visão consolidada · ⬇️ Isolamento |
+| TP-10 | 🎯 Sensibilidade | Tracking client-side vs. server-side | Precisão, conformidade, complexidade |
 
-Análise completa dos trade-offs por plataforma: [`06-tradeoffs.md`](06-tradeoffs.md).
+Análise por plataforma: [`05-matriz.md`](05-matriz.md).
 
 ---
 
 ## 4. Critérios e pesos
 
-### 4.1 Tabela de pesos
+| # | Critério | Peso | % | Direcionador | Natureza |
+|---|----------|-----:|--:|--------------|----------|
+| C01 | LGPD | 15 | 12,5 | D2 | Conformidade |
+| C02 | Controle dos dados | 15 | 12,5 | D1 | Governança |
+| C03 | TCO *(informativo, peso 0)* | 0 | 0,0 | D7 | Econômico |
+| C04 | Independência tecnológica | 10 | 8,3 | D3 | Governança |
+| C05 | Recursos analíticos | 13 | 10,8 | D5 | Funcional |
+| C06 | APIs | 13 | 10,8 | D6 | Técnico |
+| C07 | Integrações | 10 | 8,3 | D6 | Técnico |
+| C08 | Escalabilidade | 13 | 10,8 | D8 | Técnico |
+| C09 | Segurança | 12 | 10,0 | Transversal | Conformidade |
+| C10 | Operação | 7 | 5,8 | D4 | Operacional |
+| C11 | Comunidade | 7 | 5,8 | Transversal | Sustentabilidade |
+| C12 | Documentação | 5 | 4,2 | Transversal | Sustentabilidade |
+| | **Total** | **120** | 100 | | |
 
-| # | Critério | Peso | % do total | Direcionador | Natureza |
-|---|----------|-----:|-----------:|--------------|----------|
-| C01 | **LGPD** | 15 | 12,5 % | D2 | Conformidade |
-| C02 | **Controle dos dados** | 15 | 12,5 % | D1 | Governança |
-| C03 | **TCO** *(informativo, peso 0)* | 0 | 0,0 % | D7 | Econômico |
-| C04 | **Independência tecnológica** | 10 | 8,3 % | D3 | Governança |
-| C05 | **Recursos analíticos** | 13 | 10,8 % | D5 | Funcional |
-| C06 | **APIs** | 13 | 10,8 % | D6 | Técnico |
-| C07 | **Integrações** | 10 | 8,3 % | D6 | Técnico |
-| C08 | **Escalabilidade** | 13 | 10,8 % | D8 | Técnico |
-| C09 | **Segurança** | 12 | 10,0 % | Transversal | Conformidade |
-| C10 | **Operação** | 7 | 5,8 % | D4 | Operacional |
-| C11 | **Comunidade** | 7 | 5,8 % | Transversal | Sustentabilidade |
-| C12 | **Documentação** | 5 | 4,2 % | Transversal | Sustentabilidade |
-| | **Total** | **120** | **100 %** | | |
-
-> **📌 Observação — Como ler esta tabela após a revisão 2026**
-> A soma de pesos permanece **120** (máximo teórico de 600 pontos), preservando comparabilidade histórica com o ADR-001. O peso do C03 (TCO) foi realocado da seguinte forma: **+3 em C05, C06 e C08** (fatores técnicos/funcionais que passam a dominar a escolha), **+2 em C09** (segurança concentra responsabilidade no Estado em ambiente on-premise), **+2 em C10** (complexidade operacional do 2º stack no Xvia aumenta o peso da rubrica) e **+2 em C11** (sustentabilidade do produto ganha relevância sem custo como filtro). C01, C02, C04, C07 e C12 mantêm os pesos originais. C03 permanece na tabela para preservar a rastreabilidade da revisão.
-
-### 4.2 Distribuição por natureza
-
-```mermaid
-%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    "pie1": "#2563EB",
-    "pie2": "#DC2626",
-    "pie3": "#16A34A",
-    "pie4": "#CA8A04",
-    "pie5": "#7C3AED",
-    "pie6": "#EA580C",
-    "pie7": "#0891B2",
-    "pieStrokeColor": "#1F2937",
-    "pieStrokeWidth": "2px",
-    "pieOuterStrokeWidth": "2px",
-    "pieOpacity": "1",
-    "pieLegendTextColor": "#FFFFFF",
-    "pieTitleTextColor": "#FFFFFF",
-    "pieSectionTextColor": "#FFFFFF"
-  }
-}}%%
-
-pie showData
-    title Distribuição dos pesos por natureza do critério (revisão 2026)
-    "Conformidade (LGPD + Segurança)" : 27
-    "Governança (Controle + Independência)" : 25
-    "Técnico (APIs + Integrações + Escalabilidade)" : 36
-    "Funcional (Recursos analíticos)" : 13
-    "Operacional (Operação)" : 7
-    "Sustentabilidade (Comunidade + Documentação)" : 12
-```
-
-### 4.3 Justificativa da atribuição de pesos
-
-> **✅ Bloco de Decisão — Racional dos pesos (revisão 2026)**
+> **✅ Racional dos pesos (revisão 2026)**
 >
-> **Peso 15 (12,5 % cada) para LGPD e Controle dos dados.** Continuam representando os riscos de maior severidade em contexto público: risco regulatório (sanção da ANPD de até R$ 50 milhões por infração, art. 52 da LGPD) e risco de soberania (perda de controle sobre ativo público de dados). Nenhum outro critério tem consequência de severidade comparável no eixo de conformidade e governança.
+> - **15 em LGPD e Controle dos dados**: risco regulatório (multa ANPD até R$ 50M, art. 52) e risco de soberania. Nenhum outro critério com severidade comparável.
+> - **13 em Analíticos, APIs e Escalabilidade** (era 10): on-prem consolidado desloca o valor real para capacidade técnica/funcional. Escala sobe pra acomodar Xvia.
+> - **12 em Segurança** (era 10): on-prem concentra responsabilidade no Estado.
+> - **10 em Independência e Integrações**: longevidade + interoperabilidade.
+> - **7 em Operação e Comunidade** (era 5): coexistência Matomo+PostHog no Xvia aumenta a complexidade operacional; comunidade importa mais sem contrato comercial.
+> - **5 em Documentação**: custo de aprendizado, importante mas não decisor.
+> - **0 em TCO**: rebaixado — infra do Estado absorve. Mantido na tabela para rastreabilidade e no `anexos/historico/comparativos/custo.md` para dimensionamento.
 >
-> **Peso 13 (10,8 % cada) para Recursos analíticos, APIs e Escalabilidade.** Elevados de 10 na revisão 2026. Sob premissa on-premise consolidada (P1/P2/R4), o valor real de uma plataforma passa a ser majoritariamente sua capacidade técnica e funcional — não o custo de licença. Escalabilidade sobe para acompanhar o novo vetor de crescimento (portal Xvia).
->
-> **Peso 12 para Segurança.** Elevado de 10. Em ambiente on-premise, a responsabilidade de segurança concentra-se no Estado e o produto tem papel maior na composição da postura defensiva.
->
-> **Peso 10 para Independência tecnológica e Integrações.** Mantidos. Determinam a longevidade da solução e a viabilidade da integração com o ecossistema do Estado.
->
-> **Peso 7 para Operação e Comunidade.** Elevados de 5. Complexidade operacional cresce com a coexistência de duas plataformas (Matomo + PostHog) no Xvia e comunidade viva torna-se mais crítica na ausência de contrato comercial de suporte.
->
-> **Peso 5 para Documentação.** Mantido. Custo de aprendizado — importante, não decisor.
->
-> **Peso 0 para TCO.** Rebaixado de 15 na revisão 2026. Racional em nota de topo do documento e no [ADR-002](08-adr-002.md). Mantido na tabela por rastreabilidade e continua modelado em [`../comparativos/custo.md`](../comparativos/custo.md) para dimensionamento de infra e prestação de contas ao TCE-MS.
->
-> **Por que Segurança tem peso 12 e não 15.** Segurança em plataforma auto-hospedada é substancialmente determinada pela **arquitetura de implantação do Estado** (WAF, segmentação de rede, hardening, gestão de patches), e não apenas pelo produto. O critério pontua a contribuição do produto para a postura de segurança — relevante, porém não dominante. A ausência de gestão de vulnerabilidades ativa é tratada na **triagem eliminatória (E6)**, onde tem peso absoluto.
+> **Por que Segurança tem 12 e não 15**: postura de segurança on-prem é majoritariamente da arquitetura do Estado (WAF, segmentação, hardening), não do produto. Produto contribui — não domina. Falha estrutural do produto é filtrada pela triagem E6 com peso absoluto.
 
-### 4.4 Pesos alternativos testados
+### 4.1 Cenários de sensibilidade
 
-Cenários de ponderação alternativa avaliados na análise de sensibilidade (seção 7):
+| Cenário | Ajuste |
+|---------|--------|
+| **Base** | Pesos oficiais acima |
+| Conformidade máxima | LGPD 25, Controle 25, demais reduzidos proporcionalmente |
+| Capacidade analítica | Analíticos 25, APIs 15, Integrações 15 |
+| Operação enxuta | Operação 25, Escalabilidade 15, Documentação 10 |
+| Custo pleno (referência histórica) | TCO 15 (peso ADR-001); C05, C06, C08 voltam a 10; C09 a 10; C10 e C11 a 5 |
 
-| Cenário | Descrição | Ajuste de pesos |
-|---------|-----------|-----------------|
-| **Base** | Ponderação oficial deste estudo (revisão 2026) | Conforme tabela 4.1 |
-| **Conformidade máxima** | Priorização absoluta de LGPD e soberania | LGPD 25, Controle 25, demais reduzidos proporcionalmente |
-| **Capacidade analítica** | Priorização de funcionalidade | Recursos analíticos 25, APIs 15, Integrações 15 |
-| **Operação enxuta** | Priorização de baixo esforço operacional | Operação 25, Escalabilidade 15, Documentação 10 |
-| **Custo pleno (referência histórica)** | Reintrodução do TCO como no ADR-001 (peso 15) | TCO 15; C05, C06, C08 voltam a 10; C09 volta a 10; C10 e C11 voltam a 5 |
-
-> **📌 Observação — Cenário "Econômico" retirado**
-> O cenário "Econômico" (TCO 30) foi retirado na revisão 2026 por perder aderência às premissas P1/P2/R4. Em seu lugar entra o cenário **"Custo pleno (referência histórica)"**, que reintroduz o TCO com o peso do ADR-001 — serve para demonstrar que a mudança de peso é intencional e reprodutível, não fruto de recalibração arbitrária. Ele **não** é candidato à decisão; é ferramenta de auditoria.
+Cenário "Custo pleno" existe para auditar a mudança de peso, não é candidato à decisão.
 
 ---
 
-## 5. Definição operacional de cada critério
+## 5. Definição operacional
 
-Cada critério define **exatamente** o que caracteriza cada nota. Isso torna a avaliação reproduzível e auditável.
+Cada critério define notas 1 e 5 explicitamente. Notas 2–4 se interpretam por gradação.
 
-### C01 — LGPD (peso 15)
+### C01 — LGPD (15)
 
-**O que mede:** grau de aderência estrutural da plataforma às exigências da Lei nº 13.709/2018.
+Aderência estrutural à LGPD. Sub-dimensões: consentimento necessário, transferência internacional, anonimização nativa, retenção configurável, direitos do titular, opt-out, instrumento contratual (SaaS).
 
-**Sub-dimensões avaliadas:**
-1. Necessidade de consentimento para operar (menor necessidade = melhor)
-2. Existência de transferência internacional
-3. Capacidade de anonimização nativa
-4. Controle sobre política de retenção
-5. Capacidade de atender direitos do titular
-6. Existência de mecanismo de opt-out
-7. Disponibilidade de instrumento contratual adequado (quando SaaS)
+- **5**: opera sem dado pessoal identificável (cookieless + IP anonimizado por padrão); sem transferência; retenção 100% do Estado; base legal dispensável.
+- **1**: incompatível com órgão público; sem instrumento contratual; sem controle de retenção.
 
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Opera sem coleta de dado pessoal identificável (cookieless + IP anonimizado por padrão); nenhuma transferência internacional; retenção totalmente controlada pelo Estado; base legal dispensável ou trivialmente sustentável |
-| **4** | Configurável para operar sem dado pessoal; nenhuma transferência internacional ou transferência dentro de jurisdição com nível adequado; retenção controlada; base legal de legítimo interesse sustentável com RIPD |
-| **3** | Requer configuração não trivial para conformidade; transferência internacional presente mas com salvaguardas contratuais robustas; retenção controlada parcialmente |
-| **2** | Coleta dado pessoal por padrão; transferência internacional para jurisdição com histórico de questionamento regulatório; requer consentimento explícito; retenção limitada pelo fornecedor |
-| **1** | Estruturalmente incompatível com operação conforme por órgão público; sem instrumento contratual adequado; sem controle de retenção |
+### C02 — Controle dos dados (15)
 
-### C02 — Controle dos dados (peso 15)
+Custódia efetiva sobre o dado bruto. Sub-dimensões: localização física, titularidade, acesso ao armazenamento, exportação integral, eliminação verificável.
 
-**O que mede:** grau de custódia efetiva do Estado sobre o dado bruto.
+- **5**: dado bruto na infra do Estado, acesso SQL direto, exportação e eliminação totais verificáveis.
+- **1**: dado sob custódia exclusiva do fornecedor; exportação parcial ou inexistente.
 
-**Sub-dimensões:** localização física do dado · titularidade jurídica · acesso direto ao armazenamento · capacidade de exportação integral · capacidade de eliminação verificável.
+### C03 — TCO (0, informativo)
 
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Dado bruto em infraestrutura do Estado, com acesso direto ao banco (SQL); exportação e eliminação totais e verificáveis |
-| **4** | Dado bruto em infraestrutura contratada pelo Estado com isolamento dedicado; acesso direto ao armazenamento contratualmente garantido |
-| **3** | Dado em SaaS multi-tenant com exportação integral garantida do dado bruto |
-| **2** | Dado em SaaS; exportação apenas de dado agregado ou com limitações relevantes |
-| **1** | Dado sob custódia exclusiva do fornecedor; exportação parcial, tardia ou inexistente |
+TCO 5 anos em regime de **custo marginal para o Estado** (P1/P2/R4). Rubricas de infra compartilhada e operação de kernel já absorvidas pelo contrato — TCO reportado inclui apenas incremento sobre o baseline. Modelagem completa em `anexos/historico/comparativos/custo.md`.
 
-### C03 — TCO (peso 0 — critério informativo)
+- **5**: ≤ R$ 250 mil
+- **4**: R$ 250 mil – R$ 600 mil
+- **3**: R$ 600 mil – R$ 1,2 milhão
+- **2**: R$ 1,2M – R$ 3M
+- **1**: > R$ 3M
 
-> **📌 Nota metodológica — Revisão 2026**
-> Este critério passou a **peso 0** com a homologação do [ADR-002](08-adr-002.md). A definição operacional, as faixas de nota e o regime de custo marginal permanecem publicados como **referência informativa** para: (a) dimensionamento de infraestrutura on-premise; (b) prestação de contas ao TCE-MS e à CGE-MS; (c) reprodução do cenário de sensibilidade "Custo pleno (referência histórica)" definido na seção 4.4. As notas atribuídas em [`07-matriz-decisao.md §2.1`](07-matriz-decisao.md#21-notas-atribuídas) continuam sendo mantidas para preservar essa reprodutibilidade — porém multiplicadas por peso 0 na fórmula de agregação, portanto sem efeito no ranking.
+> **📌 SaaS estrangeiras não têm rubrica absorvível** — custo delas é integralmente incremental. Assimetria intencional, reflete a realidade contratual.
 
-**O que mede (para fins informativos):** custo total de propriedade em horizonte de 5 anos, incluindo implantação, licenciamento, infraestrutura, equipe, operação, atualização e custo estimado de saída. Modelagem completa em [`../comparativos/custo.md`](../comparativos/custo.md).
+### C04 — Independência tecnológica (10)
 
-| Nota | Definição (TCO 5 anos, cenário de referência de [01, seção 9](01-contexto.md#9-perfil-de-carga-e-dimensionamento)) |
-|:----:|-----------|
-| **5** | ≤ R$ 250 mil |
-| **4** | R$ 250 mil – R$ 600 mil |
-| **3** | R$ 600 mil – R$ 1,2 milhão |
-| **2** | R$ 1,2 milhão – R$ 3 milhões |
-| **1** | > R$ 3 milhões |
+- **5**: licença livre (GPL/MIT/Apache/AGPL); código auditável; sem dependência de serviço do fornecedor; schema aberto; múltiplas opções de hospedagem.
+- **1**: proprietária, acoplamento profundo, formatos fechados, custo de saída elevado.
 
-> **📌 Observação**
-> O TCO considera o **custo de equipe** mesmo em soluções gratuitas. Software livre não é gratuito em TCO — desloca o custo de licença para custo de operação. Ignorar isso é o erro mais comum em comparativos de analytics.
+### C05 — Recursos analíticos (13)
 
-> **📌 Observação — custo marginal vs. custo pleno de mercado**
-> O TCO neste estudo é modelado em regime de **custo marginal para o Estado**, e não em custo pleno de mercado. A base normativa é tríplice:
->
-> - **Premissa P1** ([`01-contexto.md §7`](01-contexto.md#7-premissas)): o Estado dispõe de infraestrutura própria (datacenter ou nuvem contratada) capaz de hospedar aplicação web + banco relacional com HA.
-> - **Premissa P2** ([`01-contexto.md §7`](01-contexto.md#7-premissas)): a equipe da STI possui ou pode desenvolver competência em Linux, PHP/containers, MySQL e observabilidade.
-> - **Restrição R4** ([`01-contexto.md §8`](01-contexto.md#8-restrições)): a solução deve operar sobre a infraestrutura ou contratos de nuvem já disponíveis ao Estado.
->
-> Consequência: rubricas de **infraestrutura compartilhada** (nós Kubernetes, DBaaS, storage) e de **operação de kernel** (backup, patching de SO, monitoração, upgrades de K8s) já são **absorvidas** pelo contrato de gerenciamento em vigor. O TCO reportado inclui apenas o **incremento efetivo** sobre esse baseline: licença de plugins, tuning específico do produto, adequação LGPD, capacitação e o esforço marginal (~0,1 FTE de esforço técnico intrínseco não absorvido pelo contrato).
->
-> Para transparência, cada ficha de plataforma auto-hospedada apresenta **duas colunas** — "Custo marginal SETDIG" (base da nota C03) e "Custo pleno de referência" (o que a mesma plataforma custaria em regime greenfield sem contrato pré-existente). Modelagem completa em [`../comparativos/custo.md`](../comparativos/custo.md).
->
-> **Assimetria intencional:** SaaS estrangeiras (GA4, Adobe, Clarity, Simple Analytics, Cloudflare, Umami Cloud, PostHog Cloud) **não têm rubrica absorvível** — o custo delas é integralmente incremental. Isso não é viés contra SaaS; é reflexo fiel da realidade contratual do Estado.
->
-> **O que o custo marginal NÃO faz:** não altera a nota **C10 (Operação)**, que mede esforço técnico intrínseco da plataforma (nº de componentes, cron, tuning), independentemente de quem paga a operação.
+Cobertura funcional de RF-01 a RF-45, ponderada por MoSCoW (M=3, S=2, C=1).
 
-### C04 — Independência tecnológica (peso 10 — inalterado)
+- **5**: ≥ 90 %
+- **4**: 75–89 %
+- **3**: 55–74 %
+- **2**: 35–54 %
+- **1**: < 35 %
 
-**O que mede:** capacidade do Estado de continuar operando e de trocar de solução sem penalidade proibitiva.
+### C06 — APIs (13)
 
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Licença livre (GPL/MIT/Apache/AGPL); código auditável; sem dependência de serviço do fornecedor para operar; schema aberto; múltiplas opções de hospedagem |
-| **4** | Licença livre com governança concentrada em um mantenedor comercial, ou com funcionalidades relevantes em plugins/edição proprietária |
-| **3** | Proprietária com padrões abertos de exportação e existência de alternativas de migração documentadas |
-| **2** | Proprietária com forte acoplamento a ecossistema do fornecedor |
-| **1** | Proprietária com acoplamento profundo, formatos fechados e custo de saída elevado |
+Qualidade da superfície programática. Sub-dimensões: leitura, escrita/importação, formatos, autenticação, rate limits, versionamento, SDKs, webhooks, acesso ao bruto.
 
-### C05 — Recursos analíticos (peso 13 — elevado de 10)
+- **5**: API completa leitura+escrita, múltiplos formatos, versionada, SDKs oficiais, webhooks, acesso ao bruto.
+- **1**: sem API utilizável para BI.
 
-**O que mede:** cobertura funcional frente aos requisitos RF-01 a RF-45.
+### C07 — Integrações (10)
 
-Método: percentual de requisitos funcionais atendidos, ponderado por prioridade MoSCoW (M = 3, S = 2, C = 1).
+Ecossistema do Estado: BI, IdP, tag manager, CMP.
 
-| Nota | Cobertura ponderada dos RF |
-|:----:|---------------------------|
-| **5** | ≥ 90 % |
-| **4** | 75 % – 89 % |
-| **3** | 55 % – 74 % |
-| **2** | 35 % – 54 % |
-| **1** | < 35 % |
+- **5**: conectores nativos para BI, SAML/OIDC, tag manager próprio + GTM, CMP.
+- **1**: integração inviável.
 
-### C06 — APIs (peso 13 — elevado de 10)
+### C08 — Escalabilidade (13)
 
-**O que mede:** qualidade, completude e usabilidade da superfície programática. Detalhamento em [`../comparativos/api.md`](../comparativos/api.md).
+- **5**: escala horizontal comprovada acima do cenário de pico; arquitetura distribuída nativa.
+- **1**: sem estratégia; gargalo estrutural sem contorno.
 
-**Sub-dimensões:** API de leitura · API de escrita/importação · formatos de saída · autenticação · rate limits · versionamento · SDKs oficiais · webhooks · acesso a dado bruto.
+### C09 — Segurança (12)
 
-| Nota | Definição |
-|:----:|-----------|
-| **5** | API completa de leitura e escrita, múltiplos formatos, autenticação robusta, versionada, SDKs oficiais em várias linguagens, webhooks, acesso a dado bruto |
-| **4** | API completa de leitura, boa cobertura de escrita, formatos múltiplos, versionada, SDKs oficiais ou comunitários maduros |
-| **3** | API de leitura funcional, cobertura parcial de escrita, formatos limitados, sem SDK oficial |
-| **2** | API restrita (endpoints, janela temporal ou volume limitados) |
-| **1** | Sem API ou API não utilizável para integração de BI |
+- **5**: certificações independentes (ISO 27001, SOC 2 Type II); SDLC seguro; MFA+RBAC granular; auditoria completa; sem CVE crítica.
+- **1**: sem processo demonstrável; CVE crítica em aberto.
 
-### C07 — Integrações (peso 10 — inalterado)
+### C10 — Operação (7)
 
-**O que mede:** integração com o ecossistema de ferramentas do Estado — BI, identidade, tag management, consent management.
+- **5**: SaaS gerenciado — esforço zero.
+- **4**: auto-hospedado simples (stack única, container, update trivial).
+- **3**: 2–3 componentes, cron, tuning periódico.
+- **2**: 4+ componentes, streaming/storage, tuning frequente.
+- **1**: equipe dedicada especializada.
 
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Conectores nativos ou oficiais para as principais ferramentas de BI, federação de identidade (SAML/OIDC), tag manager próprio e integração com GTM, integração com CMP |
-| **4** | Boa cobertura, com pelo menos uma lacuna relevante (ex.: sem SAML, ou sem conector nativo de BI) |
-| **3** | Integração viável via API, sem conectores prontos; federação de identidade limitada ou via plugin |
-| **2** | Integração exige desenvolvimento significativo; sem federação de identidade |
-| **1** | Integração inviável ou muito limitada |
+### C11 — Comunidade (7)
 
-### C08 — Escalabilidade (peso 13 — elevado de 10)
+- **5**: comunidade muito grande e diversa; adoção massiva; múltiplos fornecedores de suporte.
+- **1**: comunidade inativa ou projeto em manutenção mínima.
 
-**O que mede:** capacidade de crescer em volume sem redesenho arquitetural. Detalhamento em [`../comparativos/escalabilidade.md`](../comparativos/escalabilidade.md).
+### C12 — Documentação (5)
 
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Escala horizontal comprovada em ordens de grandeza superiores ao cenário de pico; arquitetura distribuída nativa; sem gargalo estrutural conhecido |
-| **4** | Escala horizontal documentada e suficiente para o cenário de pico com margem; gargalos conhecidos mas contornáveis |
-| **3** | Escala vertical + horizontal parcial; atende o cenário de referência; exige tuning ativo no cenário de pico |
-| **2** | Escala limitada; atende o cenário conservador; degradação previsível acima disso |
-| **1** | Sem estratégia de escala documentada; gargalo estrutural sem contorno |
-
-### C09 — Segurança (peso 12 — elevado de 10)
-
-**O que mede:** contribuição do produto para a postura de segurança.
-
-**Sub-dimensões:** histórico e cadência de correções · processo de divulgação de vulnerabilidades · MFA · RBAC · auditoria · criptografia · certificações de terceiro (quando SaaS).
-
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Certificações independentes (ISO 27001, SOC 2 Type II); SDLC seguro documentado; MFA e RBAC granulares; auditoria completa; sem CVE crítica em aberto |
-| **4** | Gestão de vulnerabilidades ativa e responsiva; MFA e RBAC presentes; auditoria adequada; sem certificação de terceiro (típico de auto-hospedado) |
-| **3** | Gestão de vulnerabilidades presente mas com cadência irregular; controles de acesso básicos |
-| **2** | Gestão de vulnerabilidades fraca; controles limitados; histórico de CVEs relevantes |
-| **1** | Sem processo de segurança demonstrável; CVE crítica em aberto |
-
-### C10 — Operação (peso 7 — elevado de 5)
-
-**O que mede:** esforço para implantar, operar, atualizar e sustentar.
-
-| Nota | Definição |
-|:----:|-----------|
-| **5** | SaaS gerenciado — esforço operacional próximo de zero |
-| **4** | Auto-hospedado de operação simples (stack única, containerizado, atualização trivial) ou SaaS com administração leve |
-| **3** | Auto-hospedado de complexidade moderada (2–3 componentes, cron, tuning periódico) |
-| **2** | Auto-hospedado complexo (4+ componentes, dependências de streaming/storage, tuning frequente) |
-| **1** | Operação exige equipe dedicada especializada; sem suporte oficial para a modalidade |
-
-### C11 — Comunidade (peso 7 — elevado de 5)
-
-**O que mede:** vitalidade do ecossistema e probabilidade de continuidade.
-
-**Sub-dimensões:** número de contribuidores · cadência de commits e releases · atividade em fóruns · base instalada · adoção institucional documentada · viabilidade financeira do mantenedor.
-
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Comunidade muito grande e diversa; adoção massiva; múltiplos fornecedores de suporte |
-| **4** | Comunidade grande e ativa; releases regulares; adoção institucional documentada |
-| **3** | Comunidade moderada; releases regulares; base instalada relevante mas concentrada |
-| **2** | Comunidade pequena; dependência de poucos mantenedores |
-| **1** | Comunidade inativa ou projeto em manutenção mínima |
-
-### C12 — Documentação (peso 5 — inalterado)
-
-**O que mede:** qualidade, completude e atualidade da documentação oficial.
-
-| Nota | Definição |
-|:----:|-----------|
-| **5** | Documentação completa, atualizada, com referência de API, guias de implantação, exemplos executáveis, guias de migração e traduções |
-| **4** | Documentação completa e atualizada, com lacunas pontuais |
-| **3** | Documentação suficiente para operar, mas incompleta em tópicos avançados |
-| **2** | Documentação esparsa; dependência de fóruns e código-fonte |
-| **1** | Documentação ausente, desatualizada ou incorreta |
+- **5**: completa, atualizada, referência de API, guias, exemplos executáveis, traduções.
+- **1**: ausente, desatualizada ou incorreta.
 
 ---
 
 ## 6. Fórmula de agregação
 
-### 6.1 Pontuação ponderada
-
 $$
-S_p = \sum_{i=1}^{12} w_i \cdot n_{p,i}
+S_p = \sum_{i=1}^{12} w_i \cdot n_{p,i} \qquad S_p^{norm} = \frac{S_p}{600} \times 100\%
 $$
 
-Onde:
-- $S_p$ = pontuação da plataforma $p$
-- $w_i$ = peso do critério $i$
-- $n_{p,i}$ = nota (1 a 5) da plataforma $p$ no critério $i$
+**Máximo teórico:** 5 × 120 = **600**.
 
-**Máximo teórico:** $S_{max} = 5 \times \sum w_i = 5 \times 120 = 600$
+**Bandas:** ≥80 % 🟢 Recomendada · 70–79 % 🟡 Viável · 60–69 % 🟠 Condicionada · <60 % 🔴 Não recomendada.
 
-### 6.2 Pontuação normalizada
-
-$$
-S_p^{norm} = \frac{S_p}{600} \times 100 \%
-$$
-
-### 6.3 Bandas de interpretação
-
-| Faixa | Classificação | Interpretação |
-|-------|--------------|---------------|
-| ≥ 80 % | 🟢 **Recomendada** | Adequada como plataforma padrão |
-| 70 % – 79 % | 🟡 **Viável** | Adequada, com mitigações documentadas |
-| 60 % – 69 % | 🟠 **Condicionada** | Adotável apenas em nicho específico com justificativa |
-| < 60 % | 🔴 **Não recomendada** | Inadequada como plataforma padrão |
-
-### 6.4 Regra de desempate
-
-Em caso de empate na pontuação total, aplicar sequencialmente:
-
-1. Maior nota em **C01 — LGPD**
-2. Maior nota em **C02 — Controle dos dados**
-3. Maior nota em **C04 — Independência tecnológica**
-4. Maior nota em **C09 — Segurança**
-
-> **📌 Nota metodológica — Revisão 2026**
-> O item "Menor TCO absoluto", presente no ADR-001, foi retirado do critério de desempate na revisão 2026 por consequência lógica da despriorização do C03. Em seu lugar entra C09 (Segurança), coerente com o eixo dominante de conformidade e governança.
+**Desempate:** (1) LGPD → (2) Controle dos dados → (3) Independência → (4) Segurança.
 
 ---
 
 ## 7. Análise de sensibilidade
 
-A análise de sensibilidade testa se o ranking é robusto a variações razoáveis nos pesos. Um ranking que se inverte com pequena mudança de peso indica decisão frágil.
+Testa se o ranking é robusto a variações razoáveis de peso.
 
-### 7.1 Método
+**Critério de robustez:** recomendação é **robusta** se o líder permanecer líder em pelo menos **4 dos 5 cenários**. Se muda em 2+, recomendação passa a **condicionada** — exige PoC comparativa.
 
-1. Recalcular a pontuação de todas as plataformas sob cada cenário alternativo de peso (seção 4.4);
-2. Verificar se a plataforma líder muda;
-3. Calcular o **ponto de virada** (*breakeven*): quanto um peso precisa mudar para alterar o líder.
-
-### 7.2 Critério de robustez
-
-> **✅ Bloco de Decisão — Critério de aceitação da recomendação**
->
-> A recomendação é considerada **robusta** se a plataforma líder permanecer líder em pelo menos **4 dos 5 cenários** de ponderação testados.
->
-> Se a liderança mudar em 2 ou mais cenários, a recomendação passa a ser **condicionada**, exigindo prova de conceito comparativa antes da decisão definitiva.
-
-Os resultados da análise de sensibilidade estão em [`07-matriz-decisao.md`](07-matriz-decisao.md), seção 5.
+Resultados em [`05-matriz.md`](05-matriz.md).
 
 ---
 
-## 8. Limitações do método
+## 8. Limitações
 
-Declaração explícita das limitações, requisito de honestidade metodológica em avaliação arquitetural.
-
-| # | Limitação | Impacto | Mitigação adotada |
-|---|-----------|---------|-------------------|
-| L1 | As notas envolvem julgamento técnico e não são medidas puramente objetivas | Subjetividade residual | Definição operacional detalhada de cada nota (seção 5) + justificativa textual obrigatória por nota |
-| L2 | A soma ponderada permite compensação entre critérios | Excelência em um critério mascara deficiência em outro | Triagem eliminatória prévia (seção 2) impede compensação de falhas críticas |
-| L3 | Pesos refletem prioridades institucionais, que podem mudar | Ranking pode não refletir prioridade futura | Análise de sensibilidade (seção 7) + revisão de 24 meses |
-| L4 | Dados de fornecedores proprietários são parcialmente autodeclarados | Possível superestimação de capacidades | Priorização de fonte primária; rotulagem explícita de informação não verificável |
-| L5 | Benchmarks de desempenho não foram executados em ambiente do Estado | Números de escalabilidade são estimativas | PoC prevista no roadmap ([10](10-roadmap.md), Onda 1) |
-| L6 | Preços enterprise não são públicos | TCO de Adobe e GA360 é estimativa | Faixa larga adotada; rotulada como estimativa; recomendação de cotação formal |
-| L7 | A escala 1–5 é grosseira; diferenças finas se perdem | Empates artificiais | Regra de desempate (seção 6.4) |
-| L8 | O estudo avalia produtos, não implementações | Uma implantação ruim de plataforma boa produz resultado ruim | Arquitetura de referência prescrita em [`09-recomendacao.md`](09-recomendacao.md) |
+| # | Limitação | Mitigação |
+|---|-----------|-----------|
+| L1 | Julgamento técnico envolve subjetividade | Definição operacional detalhada + justificativa por nota |
+| L2 | Soma ponderada permite compensação | Triagem eliminatória bloqueia falha crítica |
+| L3 | Pesos podem mudar no tempo | Sensibilidade + revisão 24 meses |
+| L4 | Dados de proprietárias são autodeclarados | Fonte primária + rótulo explícito de não verificável |
+| L5 | Benchmark não executado em ambiente do Estado | PoC prevista em [`08-roadmap.md`](08-roadmap.md) Onda 1 |
+| L6 | Escala 1–5 é grosseira | Desempate |
+| L7 | Estudo avalia produto, não implementação | Arquitetura de referência em [`07-recomendacao.md`](07-recomendacao.md) |
 
 ---
 

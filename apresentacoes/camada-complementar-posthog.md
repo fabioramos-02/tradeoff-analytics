@@ -57,11 +57,11 @@ Duas premissas foram atualizadas em agosto/2026.
 | 🥉 3 | Matomo Cloud | 485 | +20 |
 | 4 | **PostHog auto-hospedado** | **464** | +9 |
 | 5 | Plausible CE | 460 | −25 |
-| 6 | Adobe Analytics | 459 | +54 |
+| 6 | Umami | 414 | −31 |
 
 **Matomo mantém liderança** (1 pt sobre Piwik, desempate por C02).
 **PostHog sobe para #4** — melhor opção soberana de product analytics.
-**Adobe** salta 54 pts — descarte agora se fundamenta em lock-in (C04=1), não em custo.
+**Umami** reprovado em RF-27 (funil, *Must*) — só serve para portais sem exigência de funil.
 
 ---
 
@@ -169,7 +169,7 @@ Falha em qualquer critério → cenários A (ajuste), B (Cloud EU), C (reversão
 | **R-19** | Divergência Matomo × PostHog | Mitigar (governança de fonte + reconciliação) |
 | **R-20** | Descontinuidade PostHog OSS | Monitorar (G11 + fallback Cloud EU) |
 
-Detalhamento em `docs/11-riscos.md`.
+Detalhamento em `docs/07-recomendacao.md#10-riscos`.
 
 ---
 
@@ -202,12 +202,12 @@ Não é substituição. Não é preferência tecnológica.
 
 ## Referências
 
-- **[ADR-002](../docs/08-adr-002.md)** — decisão vigente, supersedes ADR-001.
-- **[07 — Matriz de decisão](../docs/07-matriz-decisao.md)** — ranking revisado.
-- **[09 — Recomendação](../docs/09-recomendacao.md)** — parque vs Xvia.
-- **[10 — Roadmap, Onda 5](../docs/10-roadmap.md#7bis-onda-5--portal-xvia-posthog-complementar)** — plano de execução.
-- **[11 — Riscos](../docs/11-riscos.md)** — R-11, R-17 a R-20.
+- **[ADR-002](../docs/06-adr-002.md)** — decisão vigente, supersedes ADR-001.
+- **[05 — Matriz de decisão](../docs/05-matriz.md)** — ranking revisado.
+- **[07 — Recomendação](../docs/07-recomendacao.md)** — parque vs Xvia.
+- **[08 — Roadmap, Onda 5](../docs/08-roadmap.md#8-onda-5--portal-xvia-posthog)** — plano de execução.
 - **[Coexistência Matomo + PostHog no Xvia](../comparativos/coexistencia-matomo-posthog.md)** — modelo operacional.
 - **[Complementaridade Matomo × PostHog](../comparativos/matomo-vs-posthog.md)** — papéis.
+- **[On-premise gratuito — 4 plataformas](../comparativos/on-premise-gratis.md)** — comparativo.
 
 **Homologação:** aguardando manifestação do Comitê de Arquitetura, DPO, STI e time do portal Xvia.

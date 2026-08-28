@@ -1,6 +1,6 @@
-# 12 — Referências
+# 99 — Referências
 
-> **Anterior:** [11 — Riscos](11-riscos.md) · **Voltar ao** [README](../README.md)
+> **Anterior:** [08 — Roadmap](08-roadmap.md) · **Voltar ao** [README](../README.md)
 
 ---
 
@@ -54,7 +54,7 @@
 ### 1.2 Regra aplicada
 
 > **📌 Observação**
-> Conforme declarado em [`../README.md`, seção 4.1](../README.md#41-regra-de-evidência), toda afirmação técnica deste estudo é rastreável a fonte de nível 1 a 4. Fontes de nível 5 e 6 aparecem apenas quando explicitamente rotuladas como secundárias, e nunca sustentam sozinhas uma conclusão do estudo.
+> Conforme declarado em [`../README.md`, seção 4.1](../README.md), toda afirmação técnica deste estudo é rastreável a fonte de nível 1 a 4. Fontes de nível 5 e 6 aparecem apenas quando explicitamente rotuladas como secundárias, e nunca sustentam sozinhas uma conclusão do estudo.
 
 ### 1.3 Aviso sobre volatilidade
 
@@ -588,4 +588,4 @@ Fontes de nível 5 e 6, **explicitamente rotuladas**. Nenhuma sustenta sozinha u
 
 | ⬅️ Anterior | 🏠 Índice |
 |------------|-----------|
-| [11 — Riscos](11-riscos.md) | [README](../README.md) |
+| [11 — Riscos](07-recomendacao.md#10-riscos) | [README](../README.md) |
