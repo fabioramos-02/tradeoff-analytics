@@ -127,6 +127,7 @@ nav:
       - Matriz completa: anexos/matriz.md
       - Benchmark: anexos/benchmark.md
       - Glossário: anexos/glossario.md
+      - Dynatrace × PostHog (nota explicativa): anexos/dynatrace-vs-posthog.md
 
   - Apresentações:
       - Estudo (Marp): apresentacoes/camada-complementar-posthog.md
