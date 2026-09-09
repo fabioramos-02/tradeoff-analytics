@@ -12,21 +12,21 @@
         <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
       
       
-        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/docs/01-contexto/">
+        <link rel="canonical" href="https://fabioramos-02.github.io/tradeoff-analytics/anexos/dynatrace-vs-posthog/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../glossario/">
       
       
-        <link rel="next" href="../02-requisitos/">
+        <link rel="next" href="../../apresentacoes/camada-complementar-posthog/">
       
       
-      <link rel="icon" href="../assets/img/brasao-ms.svg">
+      <link rel="icon" href="../../docs/assets/img/brasao-ms.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
-        <title>Contexto - Estudo de Plataformas de Web Analytics — SETDIG</title>
+        <title>Dynatrace × PostHog (nota explicativa) - Estudo de Plataformas de Web Analytics — SETDIG</title>
       
     
     
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/css/segov.css">
+      <link rel="stylesheet" href="../../docs/assets/css/segov.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#01--contexto-arquitetural" class="md-skip">
+        <a href="#anexo--dynatrace--posthog-categorias-distintas-não-substitutos" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -90,7 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-header__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
       
-  <img src="../assets/img/segov-logo.svg" alt="logo">
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contexto
+              Dynatrace × PostHog (nota explicativa)
             
           </span>
         </div>
@@ -219,13 +219,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../docs/01-contexto/" class="md-tabs__link">
           
   
     
@@ -281,11 +279,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../anexos/matriz/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../matriz/" class="md-tabs__link">
           
   
     
@@ -342,7 +342,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Estudo de Plataformas de Web Analytics — SETDIG" class="md-nav__button md-logo" aria-label="Estudo de Plataformas de Web Analytics — SETDIG" data-md-component="logo">
       
-  <img src="../assets/img/segov-logo.svg" alt="logo">
+  <img src="../../docs/assets/img/segov-logo.svg" alt="logo">
 
     </a>
     Estudo de Plataformas de Web Analytics — SETDIG
@@ -374,10 +374,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -402,22 +400,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -428,7 +423,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Estudo
@@ -439,30 +434,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Contexto
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../docs/01-contexto/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,134 +446,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sumário" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sumário
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-situação-atual" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Situação atual
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-pergunta-central" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Pergunta central
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-motivação-para-o-estudo" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Motivação para o estudo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-stakeholders" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Stakeholders
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-arquitetura-vigente-as-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Arquitetura vigente (as-is)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-contexto-normativo" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Contexto normativo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-premissas-e-restrições" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Premissas e restrições
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-perfil-de-carga" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Perfil de carga
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-direcionadores-arquiteturais" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Direcionadores arquiteturais
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-fora-do-escopo" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Fora do escopo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navegação" class="md-nav__link">
-    <span class="md-ellipsis">
-      Navegação
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -611,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-requisitos/" class="md-nav__link">
+      <a href="../../docs/02-requisitos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -632,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-criterios/" class="md-nav__link">
+      <a href="../../docs/03-criterios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -653,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-mercado/" class="md-nav__link">
+      <a href="../../docs/04-mercado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -674,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-matriz/" class="md-nav__link">
+      <a href="../../docs/05-matriz/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -695,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-adr-002/" class="md-nav__link">
+      <a href="../../docs/06-adr-002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -716,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-recomendacao/" class="md-nav__link">
+      <a href="../../docs/07-recomendacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -737,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-roadmap/" class="md-nav__link">
+      <a href="../../docs/08-roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -758,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../99-referencias/" class="md-nav__link">
+      <a href="../../docs/99-referencias/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,8 +889,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1058,19 +907,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1081,7 +933,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Anexos
@@ -1095,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../anexos/matriz/" class="md-nav__link">
+      <a href="../matriz/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../anexos/benchmark/" class="md-nav__link">
+      <a href="../benchmark/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1137,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../anexos/glossario/" class="md-nav__link">
+      <a href="../glossario/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1155,10 +1007,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../anexos/dynatrace-vs-posthog/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dynatrace × PostHog (nota explicativa)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1167,6 +1039,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumário" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-enquadramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Enquadramento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-categorias-distintas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Categorias distintas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-analogia-didática" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Analogia didática
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sobreposição-aparente" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Sobreposição aparente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-papel-de-cada-uma-na-stack-do-xvia" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Papel de cada uma na stack do Xvia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-o-que-este-documento-não-responde" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. O que este documento NÃO responde
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegação" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegação
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1287,90 +1251,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-situação-atual" class="md-nav__link">
+  <a href="#1-enquadramento" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Situação atual
+      1. Enquadramento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-pergunta-central" class="md-nav__link">
+  <a href="#2-categorias-distintas" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Pergunta central
+      2. Categorias distintas
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-motivação-para-o-estudo" class="md-nav__link">
+  <a href="#3-analogia-didática" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Motivação para o estudo
+      3. Analogia didática
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-stakeholders" class="md-nav__link">
+  <a href="#4-sobreposição-aparente" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Stakeholders
+      4. Sobreposição aparente
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-arquitetura-vigente-as-is" class="md-nav__link">
+  <a href="#5-papel-de-cada-uma-na-stack-do-xvia" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Arquitetura vigente (as-is)
+      5. Papel de cada uma na stack do Xvia
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-contexto-normativo" class="md-nav__link">
+  <a href="#6-o-que-este-documento-não-responde" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Contexto normativo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-premissas-e-restrições" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Premissas e restrições
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-perfil-de-carga" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Perfil de carga
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-direcionadores-arquiteturais" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Direcionadores arquiteturais
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-fora-do-escopo" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Fora do escopo
+      6. O que este documento NÃO responde
     </span>
   </a>
   
@@ -1400,429 +1328,145 @@
                   
 
 
-<h1 id="01--contexto-arquitetural">01 — Contexto Arquitetural<a class="headerlink" href="#01--contexto-arquitetural" title="Permanent link">&para;</a></h1>
+<h1 id="anexo--dynatrace--posthog-categorias-distintas-não-substitutos">Anexo — Dynatrace × PostHog: categorias distintas, não substitutos<a class="headerlink" href="#anexo--dynatrace--posthog-categorias-distintas-não-substitutos" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Fase TOGAF ADM:</strong> A — Architecture Vision
-<strong>Documento anterior:</strong> <a href="../../">README</a> · <strong>Próximo:</strong> <a href="../02-requisitos/">02 — Requisitos</a></p>
+<p><strong>Nota explicativa</strong> · Material de apoio à leitura do <a href="../../docs/06-adr-002/">ADR-002</a>. <strong>Não</strong> revisa a decisão vigente (Matomo + PostHog em coexistência no Xvia).
+<a href="../../">← Voltar ao índice</a> · <a href="../../docs/06-adr-002/">ADR-002</a> · <a href="../../docs/01-contexto/">Contexto — exclusões</a> · <a href="../../plataformas/posthog/">Ficha PostHog</a></p>
+<p><strong>📌 Enquadramento</strong>
+Dynatrace e PostHog <strong>não competem</strong>. Resolvem problemas de categorias diferentes: Dynatrace é <strong>APM</strong> (observabilidade de aplicação e infraestrutura); PostHog é <strong>product analytics</strong> (comportamento de usuário). Este anexo esclarece a diferença de forma objetiva para stakeholders — não altera o escopo do estudo, que exclui APM em <a href="../../docs/01-contexto/"><code>docs/01-contexto.md</code></a> §10.</p>
 </blockquote>
+<hr />
 <h2 id="sumário">Sumário<a class="headerlink" href="#sumário" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#1-situação-atual">1. Situação atual</a></li>
-<li><a href="#2-pergunta-central">2. Pergunta central</a></li>
-<li><a href="#3-motivação-para-o-estudo">3. Motivação para o estudo</a></li>
-<li><a href="#4-stakeholders">4. Stakeholders</a></li>
-<li><a href="#5-arquitetura-vigente-as-is">5. Arquitetura vigente (as-is)</a></li>
-<li><a href="#6-contexto-normativo">6. Contexto normativo</a></li>
-<li><a href="#7-premissas-e-restrições">7. Premissas e restrições</a></li>
-<li><a href="#8-perfil-de-carga">8. Perfil de carga</a></li>
-<li><a href="#9-direcionadores-arquiteturais">9. Direcionadores arquiteturais</a></li>
-<li><a href="#10-fora-do-escopo">10. Fora do escopo</a></li>
+<li><a href="#1-enquadramento">1. Enquadramento</a></li>
+<li><a href="#2-categorias-distintas">2. Categorias distintas</a></li>
+<li><a href="#3-analogia-didática">3. Analogia didática</a></li>
+<li><a href="#4-sobreposição-aparente">4. Sobreposição aparente</a></li>
+<li><a href="#5-papel-de-cada-uma-na-stack-do-xvia">5. Papel de cada uma na stack do Xvia</a></li>
+<li><a href="#6-o-que-este-documento-não-responde">6. O que este documento NÃO responde</a></li>
 </ul>
 <hr />
-<h2 id="1-situação-atual">1. Situação atual<a class="headerlink" href="#1-situação-atual" title="Permanent link">&para;</a></h2>
-<p>O Estado opera <strong>Matomo On-Premise</strong> como plataforma de Web Analytics para portais institucionais e serviços digitais. Está em produção, atende à mensuração básica, mas foi <strong>implantado sem estudo prévio</strong> de alternativas.</p>
-<p>Em paralelo, o novo <strong>portal Xvia</strong> (superapp cidadão) está sendo construído. A stack de Web Analytics on-premise gratuita adotada pela equipe Xvia é o <strong>PostHog</strong>. Isso obriga a decisão arquitetural: <strong>coexistir, substituir ou padronizar</strong>?</p>
-<p>Três lacunas de governança na situação vigente:</p>
+<h2 id="1-enquadramento">1. Enquadramento<a class="headerlink" href="#1-enquadramento" title="Permanent link">&para;</a></h2>
+<p>A Secretaria-Executiva de Transformação Digital — SETDIG recebe recorrentemente a pergunta: <strong>"Dynatrace substitui PostHog?"</strong> ou <strong>"Por que não usar Dynatrace no lugar de PostHog no Xvia?"</strong>. Este documento responde de forma direta: as ferramentas resolvem problemas distintos e podem coexistir em stacks maduras — a escolha de uma <strong>não</strong> exclui a outra.</p>
+<p>A decisão de web analytics do Estado está formalizada no <a href="../../docs/06-adr-002/">ADR-002</a>: Matomo no parque + PostHog no Xvia. Dynatrace, se avaliado no futuro, entra em outra camada arquitetural (APM), com processo decisório próprio.</p>
+<hr />
+<h2 id="2-categorias-distintas">2. Categorias distintas<a class="headerlink" href="#2-categorias-distintas" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Lacuna</th>
-<th>Consequência</th>
+<th>Dimensão</th>
+<th><strong>Dynatrace</strong></th>
+<th><strong>PostHog</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Sem artefato decisório do Matomo</td>
-<td>Escolha não é auditável nem defensável em órgão de controle</td>
+<td>Categoria</td>
+<td>APM + Observabilidade full-stack</td>
+<td>Product Analytics + Web Analytics</td>
 </tr>
 <tr>
-<td>Sem benchmark de alternativas</td>
-<td>Não se pode afirmar que a escolha é a melhor disponível</td>
+<td>Pergunta que responde</td>
+<td><em>"Por que o serviço está lento? Onde está o erro?"</em></td>
+<td><em>"Como o cidadão usa o serviço? Onde ele desiste?"</em></td>
 </tr>
 <tr>
-<td>Sem arquitetura de referência</td>
-<td>Implantações divergem entre órgãos; conformidade LGPD ad-hoc</td>
+<td>O que instrumenta</td>
+<td>Traces distribuídos, métricas de infra, logs de aplicação, RUM</td>
+<td>Eventos de negócio, funis, cohorts, sessões de usuário</td>
+</tr>
+<tr>
+<td>Unidade de análise</td>
+<td>Transação técnica, request, span, host</td>
+<td>Usuário/sessão, evento de negócio</td>
+</tr>
+<tr>
+<td>Público consumidor</td>
+<td>SRE, DevOps, time de infra, engenharia de plataforma</td>
+<td>Produto, UX, negócio, gestão do serviço</td>
+</tr>
+<tr>
+<td>Modelo comercial</td>
+<td>SaaS proprietário (também Managed on-premise); licença comercial por host-unit / DEM</td>
+<td>Open-core (MIT + EE proprietária); on-premise gratuito no escopo do estudo</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="3-analogia-didática">3. Analogia didática<a class="headerlink" href="#3-analogia-didática" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>📌 Observação</strong>
-A ausência de artefato decisório <strong>não implica que a decisão esteja errada</strong> — só que é indefensável formalmente. Este estudo remedia o processo. O resultado (confirmar, ajustar ou contrariar o status quo) está em <a href="../07-recomendacao/"><code>07-recomendacao.md</code></a>.</p>
+Pense num carro sob telemetria. <strong>Dynatrace é o painel do motor</strong>: temperatura, rotação, falha no injetor, código de erro do computador de bordo — para o mecânico agir. <strong>PostHog é o GPS de viagem</strong>: quais rotas o motorista pega, onde para, onde desiste do trajeto — para quem desenha o percurso melhorar a experiência. Ambos observam o mesmo carro; nenhum resolve o problema do outro.</p>
 </blockquote>
 <hr />
-<h2 id="2-pergunta-central">2. Pergunta central<a class="headerlink" href="#2-pergunta-central" title="Permanent link">&para;</a></h2>
-<p><strong>Manter Matomo, substituir por PostHog, ou operar os dois em coexistência?</strong></p>
-<p>Antes de responder, benchmark documental das quatro plataformas <strong>on-premise gratuitas</strong> viáveis dentro da infra do Estado: Matomo, PostHog, Plausible, Umami. Alternativas SaaS ou proprietárias saíram do escopo — arquivadas em <code>anexos/historico/</code>.</p>
-<p>Direção estratégica (a validar no ADR e no roadmap): coexistência de curto prazo (Matomo parque + PostHog Xvia) → Matomo camada de consulta histórica → convergência em uma única ferramenta a médio prazo.</p>
-<hr />
-<h2 id="3-motivação-para-o-estudo">3. Motivação para o estudo<a class="headerlink" href="#3-motivação-para-o-estudo" title="Permanent link">&para;</a></h2>
+<h2 id="4-sobreposição-aparente">4. Sobreposição aparente<a class="headerlink" href="#4-sobreposição-aparente" title="Permanent link">&para;</a></h2>
+<p>Há três capacidades onde parece haver sobreposição — mas o <strong>objetivo</strong> de cada ferramenta muda o valor entregue:</p>
 <table>
 <thead>
 <tr>
-<th>Motivação</th>
-<th>Fundamento</th>
-<th>O que exige</th>
+<th>Capacidade</th>
+<th>Dynatrace (objetivo: técnico)</th>
+<th>PostHog (objetivo: comportamental)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Conformidade</strong></td>
-<td>LGPD arts. 37 (registro), 38 (RIPD), 46 (segurança); Marco Civil art. 15</td>
-<td>Documentar quais dados, onde, por quanto tempo, sob qual base legal</td>
+<td><strong>Session replay / RUM</strong></td>
+<td>Reproduz sessão para investigar erro, exceção JS, gargalo de front-end</td>
+<td>Reproduz sessão para entender jornada UX, ponto de abandono, dificuldade de fluxo</td>
 </tr>
 <tr>
-<td><strong>Arquitetura corporativa</strong></td>
-<td>Lei 14.129/2021 (Gov Digital) — interoperabilidade e eficiência</td>
-<td>Justificar aderência a princípios</td>
+<td><strong>Dashboards e alertas</strong></td>
+<td>Métricas técnicas: latência p95, taxa de erro, saturação de CPU/memória</td>
+<td>Métricas de negócio: conversão, retenção, adoção de funcionalidade</td>
 </tr>
 <tr>
-<td><strong>Econômica</strong></td>
-<td>Lei 14.133/2021 arts. 18 e 40 (ETP)</td>
-<td>Modelar TCO 5 anos; prever custo de saída</td>
-</tr>
-<tr>
-<td><strong>Capacidade analítica</strong></td>
-<td>Dados de portal subaproveitados</td>
-<td>Priorizar melhorias por evidência, alimentar BI</td>
+<td><strong>Real User Monitoring</strong></td>
+<td>Mede performance percebida (Core Web Vitals, tempo de carga por rota)</td>
+<td>Mede engajamento e conversão por rota, feature flags, experimentos A/B</td>
 </tr>
 </tbody>
 </table>
+<p>Ferramentas diferentes podem produzir artefato visual parecido (uma "gravação de sessão"), mas servem a decisões distintas — uma vai ao time de engenharia; outra, ao time de produto e serviço.</p>
 <hr />
-<h2 id="4-stakeholders">4. Stakeholders<a class="headerlink" href="#4-stakeholders" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Stakeholder</th>
-<th>Papel</th>
-<th>Poder de veto</th>
-<th>Preocupação-chave</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SETDIG — Secretário Executivo</td>
-<td>Patrocinador</td>
-<td>Alto</td>
-<td>Custo-benefício, imagem institucional</td>
-</tr>
-<tr>
-<td>SGD</td>
-<td>Dono do negócio</td>
-<td>Alto</td>
-<td>Capacidade analítica, usabilidade</td>
-</tr>
-<tr>
-<td>STI</td>
-<td>Operação</td>
-<td>Alto</td>
-<td>Sustentabilidade, disponibilidade, segurança</td>
-</tr>
-<tr>
-<td><strong>DPO</strong></td>
-<td>Conformidade</td>
-<td><strong>Absoluto</strong></td>
-<td>Base legal, transferência internacional, retenção</td>
-</tr>
-<tr>
-<td><strong>SegInfo</strong></td>
-<td>Conformidade</td>
-<td><strong>Absoluto</strong></td>
-<td>CVEs, controle de acesso, criptografia, logs</td>
-</tr>
-<tr>
-<td>Equipe Xvia</td>
-<td>Consumidora nova</td>
-<td>Médio</td>
-<td>Product analytics, funil, feature flags</td>
-</tr>
-<tr>
-<td>Órgãos setoriais</td>
-<td>Usuário final</td>
-<td>Baixo</td>
-<td>Autonomia, segregação de dados</td>
-</tr>
-<tr>
-<td>TCE-MS / CGE</td>
-<td>Fiscalização</td>
-<td>Indireto</td>
-<td>Justificativa da escolha, economicidade</td>
-</tr>
-<tr>
-<td>Cidadão / titular</td>
-<td>Sujeito de direito</td>
-<td>Indireto (via ANPD)</td>
-<td>Privacidade, direitos do titular</td>
-</tr>
-</tbody>
-</table>
-<p>DPO e SegInfo vetam absolutamente: plataforma que falhe em requisito legal ou de segurança é eliminada, independentemente da pontuação nos demais critérios.</p>
+<h2 id="5-papel-de-cada-uma-na-stack-do-xvia">5. Papel de cada uma na stack do Xvia<a class="headerlink" href="#5-papel-de-cada-uma-na-stack-do-xvia" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>✅ Bloco de Decisão</strong>
+O ADR-002 permanece vigente e íntegro: <strong>Matomo</strong> (audiência agregada do parque) + <strong>PostHog</strong> (product analytics do Xvia) atendem o eixo de <strong>web/product analytics</strong>. Se, em ciclo futuro, a SETDIG avaliar adoção de <strong>APM</strong> para o Xvia ou para o parque, Dynatrace concorreria com outras ferramentas de sua categoria (New Relic, Datadog, Grafana Stack, Elastic APM) — e conviveria com PostHog, sem substituí-lo. APM e product analytics são <strong>camadas complementares</strong>, não alternativas.</p>
+</blockquote>
 <hr />
-<h2 id="5-arquitetura-vigente-as-is">5. Arquitetura vigente (as-is)<a class="headerlink" href="#5-arquitetura-vigente-as-is" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart LR
-    C["👤 Cidadão"] --&gt;|"HTTPS"| PORTAIS["Portais&lt;br/&gt;institucionais&lt;br/&gt;+ serviços"]
-    PORTAIS -.-&gt;|"matomo.js"| M["Matomo&lt;br/&gt;(PHP)"]
-    M &lt;--&gt; DB[("MySQL /&lt;br/&gt;MariaDB")]
-    M -.-&gt;|"?"| BI["BI corporativo&lt;br/&gt;(não padronizado)"]
-
-    XVIA["Portal Xvia&lt;br/&gt;(em construção)"] -.-&gt;|"posthog-js"| PH["PostHog&lt;br/&gt;(candidato)"]
-
-    style M fill:#e8f4f8
-    style PH fill:#fff3e0
-    style BI stroke-dasharray: 5 5</code></pre>
-<p><strong>Lacunas técnicas do parque atual:</strong> ingestão síncrona (sem fila), sem política formal de retenção, sem cache de agregação para BI, sem HA documentada, anonimização ad-hoc, sem integração com IdP corporativo, sem DR testado. Tratadas na arquitetura-alvo em <a href="../07-recomendacao/"><code>07-recomendacao.md</code></a>.</p>
-<hr />
-<h2 id="6-contexto-normativo">6. Contexto normativo<a class="headerlink" href="#6-contexto-normativo" title="Permanent link">&para;</a></h2>
-<p>Base legal aplicável ao estudo (rastreável na íntegra em <a href="../99-referencias/"><code>99-referencias.md</code></a>):</p>
+<h2 id="6-o-que-este-documento-não-responde">6. O que este documento NÃO responde<a class="headerlink" href="#6-o-que-este-documento-não-responde" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Federal:</strong> LGPD (Lei 13.709/2018), Gov Digital (14.129/2021), LAI (12.527/2011), Marco Civil (12.965/2014), Nova Lei de Licitações (14.133/2021), IN SGD/ME 94/2022.</li>
-<li><strong>Estadual (MS):</strong> Lei 6.035/2022 (cria SETDIG), Decreto 16.166/2023 (regulamenta estrutura).</li>
-<li><strong>Precedentes internacionais aplicáveis por analogia:</strong> CNIL (exemption Matomo), TJUE Schrems II, decisões EDPB sobre Google Analytics (2022), EU-US DPF (2023).</li>
+<li>❌ <strong>TCO do Dynatrace</strong> — não há projeção de custo neste anexo; Dynatrace é SaaS licenciado, exigiria cotação formal.</li>
+<li>❌ <strong>Viabilidade contratual</strong> — enquadramento em ata de registro de preços, compatibilidade com Lei nº 14.133/2021, análise jurídica.</li>
+<li>❌ <strong>Comparativo entre ferramentas de APM</strong> — New Relic × Datadog × Dynatrace × Grafana × Elastic APM. É estudo próprio, fora do escopo atual.</li>
+<li>❌ <strong>Decisão de adotar APM no Estado</strong> — este anexo é didático e explicativo; não é ADR nem recomendação.</li>
 </ul>
-<hr />
-<h2 id="7-premissas-e-restrições">7. Premissas e restrições<a class="headerlink" href="#7-premissas-e-restrições" title="Permanent link">&para;</a></h2>
-<p><strong>Premissas — se falsas, mudam a conclusão:</strong></p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Premissa</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P1</td>
-<td>Infra própria do Estado suporta hospedar aplicação web + banco relacional com HA</td>
-</tr>
-<tr>
-<td>P2</td>
-<td>STI possui ou desenvolve competência em Linux, containers, banco relacional, observabilidade</td>
-</tr>
-<tr>
-<td>P3</td>
-<td>Soberania de dados prevalece sobre conveniência operacional</td>
-</tr>
-<tr>
-<td>P4</td>
-<td>Horizonte de planejamento: 5 anos ou mais</td>
-</tr>
-<tr>
-<td>P5</td>
-<td>Integração com BI corporativo é requisito</td>
-</tr>
-<tr>
-<td>P6</td>
-<td>Volume permanece na ordem de grandeza da seção 8</td>
-</tr>
-<tr>
-<td>P7</td>
-<td>Não há exigência regulatória de certificação de fornecedor (ex.: ISO 27001)</td>
-</tr>
-<tr>
-<td>P8</td>
-<td>Software livre é juridicamente aceitável</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Restrições — limites não negociáveis:</strong></p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Restrição</th>
-<th>Natureza</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>R1</td>
-<td>LGPD aplicável integralmente</td>
-<td>Absoluta</td>
-</tr>
-<tr>
-<td>R2</td>
-<td>Transferência internacional exige base do art. 33 documentada</td>
-<td>Absoluta</td>
-</tr>
-<tr>
-<td>R3</td>
-<td>Solução paga exige licitação ou dispensa/inexigibilidade fundamentada</td>
-<td>Absoluta</td>
-</tr>
-<tr>
-<td>R4</td>
-<td>Operar sobre infra/nuvem já contratada pelo Estado</td>
-<td>Forte</td>
-</tr>
-<tr>
-<td>R5</td>
-<td>Sem ampliação prevista de quadro da STI</td>
-<td>Forte</td>
-</tr>
-<tr>
-<td>R6</td>
-<td>Segregação de acesso por órgão</td>
-<td>Forte</td>
-</tr>
-<tr>
-<td>R7</td>
-<td>HTTPS obrigatório e CSP dos portais respeitada</td>
-<td>Forte</td>
-</tr>
-<tr>
-<td>R8</td>
-<td>Tracking sem degradação perceptível dos portais</td>
-<td>Forte</td>
-</tr>
-<tr>
-<td>R9</td>
-<td>Acessibilidade eMAG/WCAG para operadores internos</td>
-<td>Média</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="8-perfil-de-carga">8. Perfil de carga<a class="headerlink" href="#8-perfil-de-carga" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>📌 Observação</strong>
-Premissa de dimensionamento para modelagem arquitetural. Deve ser substituída por medição real na Onda 1 do roadmap. Metodologia em <a href="../../anexos/benchmark/"><code>../anexos/benchmark.md</code></a>.</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Parâmetro</th>
-<th style="text-align: right;">Conservador</th>
-<th style="text-align: right;">Referência</th>
-<th style="text-align: right;">Pico</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Portais / propriedades</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">150</td>
-</tr>
-<tr>
-<td>Page views / mês</td>
-<td style="text-align: right;">3M</td>
-<td style="text-align: right;">12M</td>
-<td style="text-align: right;">30M</td>
-</tr>
-<tr>
-<td>Eventos / mês</td>
-<td style="text-align: right;">5M</td>
-<td style="text-align: right;">20M</td>
-<td style="text-align: right;">55M</td>
-</tr>
-<tr>
-<td>Visitantes únicos / mês</td>
-<td style="text-align: right;">400k</td>
-<td style="text-align: right;">1,5M</td>
-<td style="text-align: right;">4M</td>
-</tr>
-<tr>
-<td>Tracking req/s (média)</td>
-<td style="text-align: right;">~2</td>
-<td style="text-align: right;">~8</td>
-<td style="text-align: right;">~21</td>
-</tr>
-<tr>
-<td>Tracking req/s (pico)</td>
-<td style="text-align: right;">~40</td>
-<td style="text-align: right;">~150</td>
-<td style="text-align: right;">~400</td>
-</tr>
-<tr>
-<td>Usuários internos</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">200</td>
-<td style="text-align: right;">400</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Eventos geradores de pico</strong> (multiplicador sobre a média): concurso público (10–30×), resultado de processo seletivo (20–50×), emergência (defesa civil, saúde) (15–40×), campanha estadual (5–15×), abertura de programa social (10–25×).</p>
-<blockquote>
-<p><strong>⚠️ Bloco de Risco — Elasticidade</strong>
-Carga do setor público é <strong>bursty</strong>: baixa média com picos de duas ordens de grandeza. Dimensionamento para média falha no pico; para pico é antieconômico na média. <strong>Mitigação:</strong> ingestão via fila (Redis/QueuedTracking no Matomo, batch ingestion no PostHog) — dimensiona banco para vazão média, absorve pico assincronamente.</p>
-</blockquote>
-<hr />
-<h2 id="9-direcionadores-arquiteturais">9. Direcionadores arquiteturais<a class="headerlink" href="#9-direcionadores-arquiteturais" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Direcionador</th>
-<th>Criticidade</th>
-<th>Critério correspondente</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>D1</td>
-<td>Soberania de dados</td>
-<td>🔴 Crítico</td>
-<td>Controle dos dados (peso 15)</td>
-</tr>
-<tr>
-<td>D2</td>
-<td>Conformidade LGPD</td>
-<td>🔴 Crítico</td>
-<td>LGPD (peso 15)</td>
-</tr>
-<tr>
-<td>D3</td>
-<td>Independência tecnológica</td>
-<td>🟠 Alto</td>
-<td>Independência (peso 10)</td>
-</tr>
-<tr>
-<td>D4</td>
-<td>Sustentabilidade operacional</td>
-<td>🟠 Alto</td>
-<td>Operação (peso 5)</td>
-</tr>
-<tr>
-<td>D5</td>
-<td>Capacidade analítica (funis, jornada, product analytics)</td>
-<td>🟡 Médio</td>
-<td>Recursos analíticos (peso 10)</td>
-</tr>
-<tr>
-<td>D6</td>
-<td>Integração com BI corporativo</td>
-<td>🟡 Médio</td>
-<td>APIs + Integrações (10 + 10)</td>
-</tr>
-<tr>
-<td>D7</td>
-<td>Economicidade em 5 anos</td>
-<td>🟠 Alto</td>
-<td>TCO — informativo no ADR-002</td>
-</tr>
-<tr>
-<td>D8</td>
-<td>Elasticidade sob pico 10–50×</td>
-<td>🟡 Médio</td>
-<td>Escalabilidade (peso 10)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="10-fora-do-escopo">10. Fora do escopo<a class="headerlink" href="#10-fora-do-escopo" title="Permanent link">&para;</a></h2>
-<p>Analytics mobile nativo, APM/observabilidade de infra, social listening, CDP, data warehouse corporativo, teste de usabilidade moderado, SEO / Search Console. São camadas distintas ou consumidoras deste estudo.</p>
 <hr />
 <h2 id="navegação">Navegação<a class="headerlink" href="#navegação" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>⬅️ Anterior</th>
-<th>➡️ Próximo</th>
+<th>Referência</th>
+<th>Onde</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../">README</a></td>
-<td><a href="../02-requisitos/">02 — Requisitos</a></td>
+<td>Decisão vigente de web analytics</td>
+<td><a href="../../docs/06-adr-002/"><code>docs/06-adr-002.md</code></a></td>
+</tr>
+<tr>
+<td>Exclusões explícitas do escopo (APM, observabilidade)</td>
+<td><a href="../../docs/01-contexto/"><code>docs/01-contexto.md</code></a> §10</td>
+</tr>
+<tr>
+<td>Ficha técnica PostHog</td>
+<td><a href="../../plataformas/posthog/"><code>plataformas/posthog.md</code></a></td>
+</tr>
+<tr>
+<td>Comparativo Matomo × PostHog</td>
+<td><a href="../../comparativos/matomo-vs-posthog/"><code>comparativos/matomo-vs-posthog.md</code></a></td>
 </tr>
 </tbody>
 </table>
